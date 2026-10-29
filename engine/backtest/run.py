@@ -25,6 +25,16 @@ PRED = ROOT / "backtest" / "predictions.json"
 ANSWERS = ROOT / "backtest" / "answers.yaml"
 REPORT = ROOT / "backtest" / "report.md"
 SEEDS = range(20)
+LIMITS = [
+    "13 markers on 4 cases: far too few to claim accuracy; read this as a smoke test of the method.",
+    "Spark recognized every case from its description, so its decisions may lean on what it remembers.",
+    "Markers are directional only, and several rest on company claims or proxies (downloads for active users).",
+    "Two decline markers (case_1 m3, case_3 m3) were added before any prediction, because every in-window "
+    "marker was a growth marker and an always-success baseline would have scored perfectly.",
+    "case_4 m3 is fixed by the inputs (one variant charges a fee, the other is free), so it barely tests the world.",
+    "case_2's variant a (the old app kept as is) never happened; the comparison is a counterfactual.",
+    "Backtest worlds are not calibrated to benchmarks; markers compare a world with itself, not absolute levels.",
+]
 
 
 def load_cases():
@@ -103,6 +113,17 @@ def score():
     lines += ["", "| Model | Direction right | Brier score (lower is better) |", "|---|---|---|"]
     for k, v in scores.items():
         lines.append(f"| {k} | {sum(x[1] for x in v)} of {len(v)} | {statistics.mean(x[0] for x in v):.3f} |")
+    lines += ["", "Direction counts a probability of exactly 0.5 as wrong: the baselines have no view on "
+              "variant-vs-variant markers.", ""]
+    rec = ROOT / "backtest" / "recognition.json"
+    if rec.exists():
+        lines += ["## Recognition check", "",
+                  "Spark was shown each name-removed description and asked which real company it describes.", "",
+                  "| Case | Guess | Confidence | Recognized |", "|---|---|---|---|"]
+        for cid, g in json.loads(rec.read_text()).items():
+            lines.append(f"| {cid} | {g.get('guess')} | {g.get('confidence')} | {'yes' if g.get('recognized') else 'no'} |")
+        lines.append("")
+    lines += ["## Limits", "", *[f"- {x}" for x in LIMITS]]
     REPORT.write_text("\n".join(lines) + "\n")
     print("\n".join(lines[-4:]))
     print(f"wrote {REPORT.relative_to(ROOT)}")

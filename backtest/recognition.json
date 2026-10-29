@@ -1,0 +1,22 @@
+{
+ "case_1": {
+  "confidence": 0.96,
+  "guess": "Sidecar",
+  "recognized": true
+ },
+ "case_2": {
+  "confidence": 0.96,
+  "guess": "Hinge",
+  "recognized": true
+ },
+ "case_3": {
+  "confidence": 0.9,
+  "guess": "Washio",
+  "recognized": true
+ },
+ "case_4": {
+  "confidence": 0.98,
+  "guess": "Mercari",
+  "recognized": true
+ }
+}
