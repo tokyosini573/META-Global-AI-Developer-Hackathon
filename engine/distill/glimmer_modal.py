@@ -246,3 +246,53 @@ def evaluate(run: str = "r1", n: int = 0):
               open(f"{RUNS}/{run}/eval.json", "w"))
     runs.commit()
     print("wrote", f"{RUNS}/{run}/eval.json")
+
+
+# ---- fast serving check with vLLM ---------------------------------------------------
+
+vllm_image = (modal.Image.from_registry("vllm/vllm-openai:muse-glimmer", add_python=None)
+              .entrypoint([]).env({"HF_HOME": WEIGHTS + "/hf"}))
+
+
+@app.function(image=vllm_image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3600)
+def evaluate_vllm(run: str = "r1"):
+    """Same test set through vLLM (bf16 base + LoRA adapter), to see real serving speed."""
+    import json
+    import time
+    from PIL import Image
+    from vllm import LLM, SamplingParams
+    from vllm.lora.request import LoRARequest
+
+    test = [json.loads(x) for x in open(f"{RUNS}/data/test.jsonl")]
+    llm = LLM(model=f"{WEIGHTS}/glimmer", max_model_len=4096, enable_lora=True, max_lora_rank=16,
+              gpu_memory_utilization=0.92, limit_mm_per_prompt={"image": 1})
+    tok = llm.get_tokenizer()
+    stop = tok.convert_tokens_to_ids(["<|eot|>", "<|end_of_text|>"])
+    params = SamplingParams(temperature=0, max_tokens=160, stop_token_ids=stop)
+    imgs = {}
+    prompts = []
+    for r in test:
+        if r["image"] not in imgs:
+            imgs[r["image"]] = Image.open(f"{RUNS}/data/screens/{r['image']}").convert("RGB")
+        text = tok.apply_chat_template(r["messages"][:2], tokenize=False, add_generation_prompt=True) + PREFIX
+        prompts.append({"prompt": text, "multi_modal_data": {"image": imgs[r["image"]]}})
+    out = {}
+    for name, lora in (("tuned", LoRARequest(run, 1, f"{RUNS}/{run}")), ("base", None)):
+        t0 = time.time()
+        res = llm.generate(prompts, params, lora_request=lora)
+        secs = time.time() - t0
+        rows = []
+        for r, g in zip(test, res):
+            text = g.outputs[0].text.strip()
+            try:
+                ans = json.loads(text[text.index("{"):text.rindex("}") + 1])
+                probs = {o: float(ans["probabilities"][o]) for o in r["options"]}
+            except (ValueError, KeyError, TypeError):
+                probs = None
+            rows.append({"id": r["id"], "text": text, "probs": probs})
+        out[name] = rows
+        out.setdefault("speed", {})[name] = {"seconds": secs, "new_tokens": sum(len(g.outputs[0].token_ids) for g in res)}
+        print(name, f"{secs:.1f}s for {len(test)} decisions", flush=True)
+    json.dump(out, open(f"{RUNS}/{run}/eval_vllm.json", "w"))
+    runs.commit()
+    print("wrote", f"{RUNS}/{run}/eval_vllm.json")
