@@ -44,7 +44,9 @@ export default function App() {
   const last = useRef<number | null>(null)
 
   useEffect(() => {
-    fetch('/replays/demo.json').then(r => r.json()).then(setReplay)
+    // ?replay=engine plays web/public/replays/engine.json instead of the demo
+    const name = new URLSearchParams(location.search).get('replay') ?? 'demo'
+    fetch(`/replays/${encodeURIComponent(name)}.json`).then(r => r.json()).then(setReplay)
   }, [])
 
   useEffect(() => {
