@@ -3,6 +3,7 @@
     .venv/bin/modal run --detach engine/distill/glimmer_modal.py::download
     .venv/bin/modal run --detach engine/distill/glimmer_modal.py::train --run r1
     .venv/bin/modal run --detach engine/distill/glimmer_modal.py::evaluate --run r1
+    .venv/bin/modal run --detach engine/distill/glimmer_modal.py::decide_table --name kindred   # engine table
 
 Weights live in the `glimmer-weights` volume; data, adapters and eval results in `glimmer-runs`.
 """
@@ -275,44 +276,76 @@ def merge(run: str = "r1"):
     print("merged to", out)
 
 
-@app.function(image=vllm_image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3600)
-def evaluate_vllm(run: str = "r1"):
-    """Same test set through vLLM: the base checkpoint and the merged one, to see real serving speed."""
-    import json
-    import time
-    from PIL import Image
+def vllm_load(run):
     from vllm import LLM, SamplingParams
-
-    test = [json.loads(x) for x in open(f"{RUNS}/data/test.jsonl")]
     llm = LLM(model=f"{WEIGHTS}/glimmer_{run}", max_model_len=4096, gpu_memory_utilization=0.92,
               limit_mm_per_prompt={"image": 1})
+    stop = llm.get_tokenizer().convert_tokens_to_ids(["<|eot|>", "<|end_of_text|>"])
+    return llm, lambda temperature: SamplingParams(temperature=temperature, max_tokens=160, stop_token_ids=stop)
+
+
+def vllm_answers(llm, params, recs):
+    """One parsed answer per chat record ({id, text, probs, noticed, reason}); probs is None if not valid JSON."""
+    import json
+    from PIL import Image
     tok = llm.get_tokenizer()
-    stop = tok.convert_tokens_to_ids(["<|eot|>", "<|end_of_text|>"])
-    params = SamplingParams(temperature=0, max_tokens=160, stop_token_ids=stop)
-    imgs = {}
-    prompts = []
-    for r in test:
+    imgs, prompts = {}, []
+    for r in recs:
         if r["image"] not in imgs:
             imgs[r["image"]] = Image.open(f"{RUNS}/data/screens/{r['image']}").convert("RGB")
         text = tok.apply_chat_template(r["messages"][:2], tokenize=False, add_generation_prompt=True) + PREFIX
         prompts.append({"prompt": text, "multi_modal_data": {"image": imgs[r["image"]]}})
-    out = {}
-    for name in ("tuned",):          # the base model was already scored with transformers
-        t0 = time.time()
-        res = llm.generate(prompts, params)
-        secs = time.time() - t0
-        rows = []
-        for r, g in zip(test, res):
-            text = g.outputs[0].text.strip()
-            try:
-                ans = json.loads(text[text.index("{"):text.rindex("}") + 1])
-                probs = {o: float(ans["probabilities"][o]) for o in r["options"]}
-            except (ValueError, KeyError, TypeError):
-                probs = None
-            rows.append({"id": r["id"], "text": text, "probs": probs})
-        out[name] = rows
-        out.setdefault("speed", {})[name] = {"seconds": secs, "new_tokens": sum(len(g.outputs[0].token_ids) for g in res)}
-        print(name, f"{secs:.1f}s for {len(test)} decisions", flush=True)
+    rows = []
+    for r, g in zip(recs, llm.generate(prompts, params)):
+        text = g.outputs[0].text.strip()
+        try:
+            ans = json.loads(text[text.index("{"):text.rindex("}") + 1])
+            probs = {o: float(ans["probabilities"][o]) for o in r["options"]}
+            noticed, reason = str(ans.get("noticed", "")), str(ans.get("reason", ""))
+        except (ValueError, KeyError, TypeError):
+            probs, noticed, reason = None, "", ""
+        rows.append({"id": r["id"], "text": text, "probs": probs, "noticed": noticed, "reason": reason,
+                     "new_tokens": len(g.outputs[0].token_ids)})
+    return rows
+
+
+@app.function(image=vllm_image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3600)
+def evaluate_vllm(run: str = "r1"):
+    """The test set through vLLM on the merged checkpoint, to see real serving speed."""
+    import json
+    import time
+    test = [json.loads(x) for x in open(f"{RUNS}/data/test.jsonl")]
+    llm, params = vllm_load(run)
+    t0 = time.time()
+    rows = vllm_answers(llm, params(0), test)
+    secs = time.time() - t0
+    out = {"tuned": rows, "speed": {"tuned": {"seconds": secs, "new_tokens": sum(r["new_tokens"] for r in rows)}}}
+    print("tuned", f"{secs:.1f}s for {len(test)} decisions", flush=True)
     json.dump(out, open(f"{RUNS}/{run}/eval_vllm.json", "w"))
     runs.commit()
     print("wrote", f"{RUNS}/{run}/eval_vllm.json")
+
+
+@app.function(image=vllm_image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3 * 3600)
+def decide_table(name: str = "kindred", run: str = "r1"):
+    """Answer every prompt in /runs/jobs/{name}.jsonl (engine/world/glimmer.py) -> {name}_out.jsonl.
+
+    Greedy first, like the evaluation; answers without valid JSON are asked again with sampling.
+    """
+    import json
+    import time
+    recs = [json.loads(x) for x in open(f"{RUNS}/jobs/{name}.jsonl")]
+    llm, params = vllm_load(run)
+    t0 = time.time()
+    rows = {r["id"]: r for r in vllm_answers(llm, params(0), recs)}
+    for attempt in range(3):
+        bad = [r for r in recs if rows[r["id"]]["probs"] is None]
+        print(f"pass {attempt}: {len(recs) - len(bad)}/{len(recs)} valid, {time.time() - t0:.0f}s", flush=True)
+        if not bad:
+            break
+        rows.update({r["id"]: r for r in vllm_answers(llm, params(0.7), bad)})
+    with open(f"{RUNS}/jobs/{name}_out.jsonl", "w") as f:
+        for r in recs:
+            f.write(json.dumps(rows[r["id"]]) + "\n")
+    runs.commit()
+    print("wrote", f"{RUNS}/jobs/{name}_out.jsonl", f"{time.time() - t0:.0f}s")

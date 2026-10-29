@@ -37,6 +37,7 @@ class Person:
     reached: float
     name: str
     age: int
+    persona: str | None = None   # pool person id when decisions are per person (Glimmer)
     installed: float | None = None
     matched: float | None = None
     quit: float | None = None
@@ -63,6 +64,7 @@ class Simulation:
         self.rng = np.random.default_rng(seed)
         self.days = days or cfg["days"]
         self.w = cfg["people_per_dot"]
+        self.per_person = getattr(cache.provider, "per_person", False)
         self.people = []
         self.matches = []
         self.decisions = []
@@ -76,6 +78,11 @@ class Simulation:
                    channel=channel, place=place, lon=float(lon), lat=float(lat), spread_km=float(spread_km), source=source,
                    reached=t + float(r.random()),
                    name=str(r.choice(FIRST_NAMES)), age=int(r.integers(tp["age"][0], tp["age"][1] + 1)))
+        if self.per_person:
+            # one of the people who live in this place, of this type and side, makes every decision
+            p.persona = self.cache.provider.persona(r, place, p.type, p.side)
+            who = self.cache.provider.pool[p.persona]
+            p.name, p.age = who["name"], who["age"]
         self.people.append(p)
         return p
 
@@ -122,7 +129,7 @@ class Simulation:
     # ---- decisions ---------------------------------------------------------
 
     def _decide(self, t, p, kind, screen, bucket, option_shifts, residual):
-        probs = shift_options(self.cache.get(kind, p.type, screen, bucket), option_shifts, residual)
+        probs = shift_options(self.cache.get(kind, p.persona or p.type, screen, bucket), option_shifts, residual)
         options = list(probs)
         chosen = options[self.rng.choice(len(options), p=np.array([probs[o] for o in options]) / sum(probs.values()))]
         self.decisions.append((t, p.id, kind, screen, bucket, probs, chosen))

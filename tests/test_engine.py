@@ -3,7 +3,7 @@ import pytest
 
 from engine.run import ROOT
 from engine.world.calibrate import fit_shifts, shift_options, sigma
-from engine.world.decide import DecisionCache, StubProvider
+from engine.world.decide import TYPES, DecisionCache, StubProvider
 from engine.world.sim import Simulation, totals
 
 
@@ -35,3 +35,27 @@ def test_spark_table_covers_every_decision():
     assert not missing
     for e in entries.values():
         assert sum(e["probs"].values()) == pytest.approx(1)
+
+
+def test_glimmer_table_covers_the_pool():
+    """Every person in the pool has an answer for every decision they can face."""
+    from engine.world.glimmer import GlimmerProvider, key, places, situations
+    g = GlimmerProvider()
+    missing = [key(kind, pid, screen, bucket) for pid in g.pool for kind, screen, bucket, *_ in situations()
+               if key(kind, pid, screen, bucket) not in g.entries]
+    assert not missing
+    assert {(p, t["id"], s) for p in places() for t in TYPES for s in "mw"} <= set(g.cells)
+    for e in g.entries.values():
+        assert sum(e["probs"].values()) == pytest.approx(1, abs=1e-3)
+
+
+def test_glimmer_people_decide_for_themselves():
+    from engine.world.glimmer import GlimmerProvider
+    cfg = yaml.safe_load((ROOT / "plans" / "kindred.yaml").read_text())
+    cache = DecisionCache(GlimmerProvider())
+    res = [Simulation(cfg, "b", cache, {}, seed=7, days=20).run() for _ in range(2)]
+    assert totals(res[0], 20, 60) == totals(res[1], 20, 60)
+    pool = cache.provider.pool
+    for p in res[0].people:
+        who = pool[p.persona]
+        assert (who["place"], who["type"], who["side"]) == (p.place, p.type, p.side)

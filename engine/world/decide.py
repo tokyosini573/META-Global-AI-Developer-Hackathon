@@ -1,7 +1,8 @@
 """Decisions people make in front of a screen, and the cache that keeps them cheap.
 
-A decision is asked once per (person type, screen, state bucket) and reused by every
-person and every Monte Carlo run that lands in the same key. Providers return a
+A decision is asked once per (who, screen, state bucket) and reused by every person and
+every Monte Carlo run that lands in the same key. `who` is a person type for the Spark and
+stub providers, and one person from the pool for Glimmer (engine/world/glimmer.py). Providers return a
 probability for each option; the simulation rolls the dice.
 
 StubProvider is a stand-in with hand-set probabilities anchored on the Spark spike
@@ -65,11 +66,11 @@ class DecisionCache:
     calls: int = 0
     hits: int = 0
 
-    def get(self, kind, type_id, screen, bucket):
-        key = (kind, type_id, screen, bucket)
+    def get(self, kind, who, screen, bucket):
+        key = (kind, who, screen, bucket)
         if key in self.table:
             self.hits += 1
         else:
             self.calls += 1
-            self.table[key] = self.provider.decide(kind, type_id, screen, bucket)
+            self.table[key] = self.provider.decide(kind, who, screen, bucket)
         return self.table[key]
