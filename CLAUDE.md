@@ -59,7 +59,8 @@ engine/    Python world engine. world/ = geo, decide (decision cache + providers
            fake_replay.py writes the old hand-made placeholder replay.
 plans/     Launch plans + market values (each value cites a rule id in rules/two_sided.md or a benchmark).
 rules/     Frozen rule cards (commit eef683f). Changing them must be recorded in the README.
-backtest/  Rule-set case facts given to the rule extractor.
+backtest/  Held-out backtest cases, predictions, answers and report (protocol_v2.md); rule-set case facts.
+engine/distill/  Spark -> Glimmer distillation: data, format, Modal training/eval/serving, score (docs/distillation.md).
 runs/      SQLite output per run (ignored by git).
 web/       Vite + React + TypeScript + Tailwind v4. Renders a replay.
 web/public/replays/   Replay JSON files the site plays (committed, so the demo survives without API credit).
@@ -73,6 +74,9 @@ scripts/   shot.sh: 1920×1080 screenshots with headless Chrome.
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m engine.run --runs 30    # calibrate + Monte Carlo -> web/public/replays/engine.json, runs/engine.sqlite
 .venv/bin/python -m pytest -q tests
+.venv/bin/python -m engine.backtest.run predict v2 && .venv/bin/python -m engine.backtest.run score
+.venv/bin/python -m engine.distill.make_data --n 4000 && .venv/bin/python -m engine.distill.format --upload
+.venv/bin/modal run --detach engine/distill/glimmer_modal.py::train --run r1   # then ::evaluate, ::merge, ::evaluate_vllm
 python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
 cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
