@@ -65,6 +65,7 @@ class Simulation:
         self.days = days or cfg["days"]
         self.w = cfg["people_per_dot"]
         self.per_person = getattr(cache.provider, "per_person", False)
+        self.taken = set()        # pool people already in this run
         self.people = []
         self.matches = []
         self.decisions = []
@@ -80,7 +81,8 @@ class Simulation:
                    name=str(r.choice(FIRST_NAMES)), age=int(r.integers(tp["age"][0], tp["age"][1] + 1)))
         if self.per_person:
             # one of the people who live in this place, of this type and side, makes every decision
-            p.persona = self.cache.provider.persona(r, place, p.type, p.side)
+            p.persona = self.cache.provider.persona(r, place, p.type, p.side, self.taken)
+            self.taken.add(p.persona)
             who = self.cache.provider.pool[p.persona]
             p.name, p.age = who["name"], who["age"]
         self.people.append(p)

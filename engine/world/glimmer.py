@@ -5,6 +5,9 @@ person, so the market gets a pool of fictional people, a few for every (place, t
 their own age, job, money, dating history and mood. A simulated person reached in a place
 takes one of that place's people, and every decision is that person's own.
 
+Places where a plan launches city by city get many more people (CITY_POOL), split by how often
+each type and side arrives, so a city launch does not keep showing the same few stories.
+
 The pool is fixed, so every decision it can need is known in advance (3 ads + 18 paywall
 states per person). Glimmer answers all of them once on Modal and the answers are committed
 as a table, like the Spark table: runs cost nothing and the demo survives without a GPU.
@@ -29,6 +32,8 @@ TABLE = ROOT / "data" / "decisions" / "kindred_glimmer.json"
 JOBS = ROOT / "runs" / "glimmer_jobs"
 RUN = "r1"                 # distillation run whose merged weights answer (docs/distillation.md)
 PER_CELL = 4               # people in the pool for each (place, type, side)
+CITY_POOL = 600            # people in each launch city: a city launch reaches up to ~550 dots a run
+PLANS = ROOT / "plans" / "kindred.yaml"
 SEED = 20261031
 NAMES = {"m": ["Jordan", "Sam", "Alex", "Chris", "Marcus", "Luis", "Tyler", "Omar", "Ethan", "Kevin", "Drew",
                "Ryan", "Daniel", "Andre", "Noah", "Brandon"],
@@ -40,26 +45,44 @@ def places():
     return [m[0] for m in geo.METROS] + [geo.SMALL_TOWN]
 
 
-def make_pool():
-    """{person id: person} with the same persona sentences the distillation data used."""
+def launch_cities(cfg):
+    return sorted({c["name"] for plan in cfg["plans"].values() for c in plan.get("cities", [])})
+
+
+def make_pool(cfg):
+    """{person id: person} with the same persona sentences the distillation data used.
+
+    PER_CELL people everywhere first (ids stay stable when launch cities change), then the
+    launch cities are topped up to CITY_POOL people in proportion to type weight x side share.
+    """
     from engine.distill.make_data import HISTORY, MONEY, MOOD, PLACES, QUIRK, work
     from .spark import PERSONA
-    rng = random.Random(SEED)
     pool = {}
+
+    def add(rng, place, type_id, side):
+        age = rng.randint(*TYPE_BY_ID[type_id]["age"])
+        where = (f"{rng.choice(PLACES['a small town'])} (a small town)" if place == geo.SMALL_TOWN
+                 else f"{place} (a big city)")
+        parts = [PERSONA[type_id].format(age=age),
+                 f"You are a {'man looking for women' if side == 'm' else 'woman looking for men'}.",
+                 work(rng, type_id) + f" You live in {where}.",
+                 rng.choice(MONEY), rng.choice(HISTORY), rng.choice(MOOD), rng.choice(QUIRK)]
+        pool[f"g{len(pool):04d}"] = {"place": place, "type": type_id, "side": side, "age": age,
+                                     "name": rng.choice(NAMES[side]), "text": " ".join(x for x in parts if x)}
+
+    rng = random.Random(SEED)
     for place in places():
         for t in TYPES:
             for side in ("m", "w"):
                 for _ in range(PER_CELL):
-                    age = rng.randint(*TYPE_BY_ID[t["id"]]["age"])
-                    where = (f"{rng.choice(PLACES['a small town'])} (a small town)" if place == geo.SMALL_TOWN
-                             else f"{place} (a big city)")
-                    parts = [PERSONA[t["id"]].format(age=age),
-                             f"You are a {'man looking for women' if side == 'm' else 'woman looking for men'}.",
-                             work(rng, t["id"]) + f" You live in {where}.",
-                             rng.choice(MONEY), rng.choice(HISTORY), rng.choice(MOOD), rng.choice(QUIRK)]
-                    pid = f"g{len(pool):04d}"
-                    pool[pid] = {"place": place, "type": t["id"], "side": side, "age": age,
-                                 "name": rng.choice(NAMES[side]), "text": " ".join(x for x in parts if x)}
+                    add(rng, place, t["id"], side)
+    rng = random.Random(SEED + 1)
+    share = {"m": cfg["world"]["share_male"], "w": 1 - cfg["world"]["share_male"]}
+    for place in launch_cities(cfg):
+        for t in TYPES:
+            for side in ("m", "w"):
+                for _ in range(max(0, round(CITY_POOL * t["weight"] * share[side]) - PER_CELL)):
+                    add(rng, place, t["id"], side)
     return pool
 
 
@@ -82,13 +105,17 @@ def situations():
 
 
 def prepare():
-    """Write one chat prompt per (person, situation) and upload them with the pool."""
+    """Write one chat prompt per (person, situation) not yet in the table and upload them with the pool."""
+    import yaml
     from engine.distill.format import chat
-    pool = make_pool()
+    pool = make_pool(yaml.safe_load(PLANS.read_text()))
+    done = json.loads(TABLE.read_text())["entries"] if TABLE.exists() else {}
     JOBS.mkdir(parents=True, exist_ok=True)
     rows = []
     for pid, person in pool.items():
         for kind, screen, bucket, image, history, question in situations():
+            if key(kind, pid, screen, bucket) in done:
+                continue
             ex = {"persona": (person["text"] + " " + history).strip(), "question": question,
                   "options": list(OPTIONS[kind])}
             rows.append({"id": key(kind, pid, screen, bucket), "image": image + ".png", "options": ex["options"],
@@ -108,7 +135,7 @@ def collect():
     subprocess.run([".venv/bin/modal", "volume", "get", "--force", "glimmer-runs", "/jobs/kindred_out.jsonl",
                     str(out.relative_to(ROOT))], check=True, cwd=ROOT, capture_output=True)
     pool = json.loads((JOBS / "pool.json").read_text())
-    entries, missing = {}, 0
+    entries, missing = json.loads(TABLE.read_text())["entries"] if TABLE.exists() else {}, 0
     for line in out.read_text().splitlines():
         r = json.loads(line)
         if r["probs"] is None:
@@ -118,7 +145,7 @@ def collect():
         entries[r["id"]] = {"probs": {o: round(max(0.0, v) / total, 4) for o, v in r["probs"].items()},
                             "noticed": r["noticed"], "reason": r["reason"]}
     TABLE.write_text(json.dumps({"model": f"Muse Glimmer 30B, distilled run {RUN}", "per_cell": PER_CELL,
-                                 "pool": pool, "entries": dict(sorted(entries.items()))}, separators=(",", ":")))
+                                 "city_pool": CITY_POOL, "pool": pool, "entries": dict(sorted(entries.items()))}, separators=(",", ":")))
     print(f"{len(entries)} answers ({missing} without valid JSON) -> {TABLE.relative_to(ROOT)}")
 
 
@@ -152,10 +179,12 @@ class GlimmerProvider:
         for pid, p in self.pool.items():
             self.cells.setdefault((p["place"], p["type"], p["side"]), []).append(pid)
 
-    def persona(self, rng, place, type_id, side):
-        """One person from the pool who lives in `place` and fits the type and side."""
+    def persona(self, rng, place, type_id, side, taken=()):
+        """One person from the pool who lives in `place` and fits the type and side, someone new
+        to this run (`taken`) while there is anyone left."""
         ids = self.cells[(place, type_id, side)]
-        return ids[rng.integers(len(ids))]
+        free = [i for i in ids if i not in taken] or ids
+        return free[rng.integers(len(free))]
 
     def answer(self, kind, who, screen, bucket):
         k = key(kind, who, screen, bucket)

@@ -54,14 +54,17 @@ batch. Training and evaluation of run r1 cost about $6 on Modal, data $1.82 on t
 
 ## In the engine (`engine/world/glimmer.py`)
 
-The engine now decides per person. The market has a fixed pool of 1,296 fictional people: 4 for
-every (place, type, side), in each of the 26 metros and small towns, written with the same persona
-sentences as the training data. A simulated person reached in a place takes one of that place's
-people (name, age and story included), and every install and paywall decision is that person's own.
+The engine now decides per person. The market has a fixed pool of 2,952 fictional people, written
+with the same persona sentences as the training data: 4 for every (place, type, side) in each of the
+26 metros and small towns, and 600 in each city a plan launches in (Austin, Denver, Nashville), split
+by how often each type and side arrives. A simulated person reached in a place takes one of that
+place's people who is not yet in the run (name, age and story included), and every install and
+paywall decision is that person's own.
 
 Because the pool is fixed, every decision it can need is known: 3 ads + 18 paywall states per person,
-27,216 in all. `glimmer_modal.py::decide_table` answers them with vLLM on the merged checkpoint in about
-half an hour on one H100 (about $2), all as valid JSON. The answers, with what each person noticed and
+61,992 in all. `glimmer_modal.py::decide_table` answers them with vLLM on the merged checkpoint (about
+an hour on one H100 in two batches, about $4), all as valid JSON; `prepare` only asks for people not
+yet in the table. The answers, with what each person noticed and
 their reason, are committed in `data/decisions/kindred_glimmer.json`, so runs need no GPU.
 
 Same plans, same calibration targets, 30 runs:
@@ -69,9 +72,9 @@ Same plans, same calibration targets, 30 runs:
 | Decisions from | Plan B wins | Median paying users (A vs B) | Different decision answers used |
 |---|---|---|---|
 | Spark type table (6 types) | 29 of 30 | 240 vs 720 | 60 |
-| Glimmer, one per person | 28 of 30 | 300 vs 870 | 3,091 |
+| Glimmer, one per person | 30 of 30 | 240 vs 780 | 7,478 |
 
-The verdict holds. Per person, the spread is wide: Spark's table says a busy professional pays at
+The verdict holds. In Plan B every one of the ~670 dots is a different person. Per person, the spread is wide: Spark's table says a busy professional pays at
 the paywall 34% of the time; Glimmer's busy professionals average 16%, and the middle 80% of them
 range from 5% to 70%, depending on their money, history and mood
 (`python -m engine.world.glimmer compare`).
@@ -82,5 +85,8 @@ range from 5% to 70%, depending on their money, history and mood
   reproduces Spark on new people of the same kind, not that either model matches real users.
 - Glimmer learns Spark's answers, including Spark's biases.
 - Glimmer answers without its reasoning channel (the prompt starts the answer directly).
-- The pool has 48 people per place. A city launch reaches far more dots than that, so in Plan B
-  about 700 dots share 126 people (each decides with their own dice, but the same story repeats).
+- Outside the launch cities the pool has 48 people per place, so a nationwide plan repeats some
+  stories in big metros (Plan A: ~1,000 dots, ~670 people). A plan that launches in a new city
+  needs `prepare` and the table job first.
+- The paid-within-30-days measure rests on a few dots per run, so calibration lands near, not on,
+  that target (6.1% vs 4.6% here, 4.3% with the Spark table).
