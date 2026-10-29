@@ -1,0 +1,46 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_9
+description: >
+  A website and phone app in Japan, launched nationwide in the early 2010s, where individuals sell
+  small services to other individuals online: advice, design work, writing help, fortune telling,
+  and the like. Every service is sold at the same low fixed price (about the cost of a lunch);
+  the buyer pays the site, the seller delivers online, and the site keeps 30% of the price and
+  pays the seller the rest. Listing is free, with no monthly fee.
+months: 34            # runs to the last public marker (month 33)
+sides:
+  demand: {label: "people who want a small piece of help or advice from someone online", share: 0.7}
+  supply: {label: "people who sell a skill or know-how as a small online service", share: 0.3}
+  # share: guess. Many members both buy and sell; sellers are assumed to be the smaller group.
+  symmetric: false
+variants:
+  a:
+    label: "fixed low price for every service, 30% fee"
+    market: jp
+    cities: []
+    nationwide: true
+    reach_per_month: 100000  # no public figure. Guess: web press and social media for a new
+                             # niche site; wide range (30k-300k)
+    price:
+      model: take_rate
+      take_rate: 0.3         # source (launch coverage, 2012): seller receives 70% of the price
+      subscription_usd_week: 0
+      free_tier: true        # source: no sign-up or monthly fee
+    first_transaction_discount: 0.0   # no first-purchase promo found in sources
+    transaction_price_usd: 6          # source: one fixed price of 500 yen, about $6 at that time.
+                                      # Optional paid extras above it came later and are left out
+markers:
+  - id: m1
+    question: "Are there more transactions in month 15 than in month 3?"
+    metric: transactions
+    at_month: 15
+    compare: {variant: a, than: {variant: a, at_month: 3}}
+  - id: m2
+    question: "Are there more active users at month 17 than at month 5?"
+    metric: active_users
+    at_month: 17
+    compare: {variant: a, than: {variant: a, at_month: 5}}
+  - id: m3
+    question: "Are there more transactions in month 33 than in month 15?"
+    metric: transactions
+    at_month: 33
+    compare: {variant: a, than: {variant: a, at_month: 15}}
