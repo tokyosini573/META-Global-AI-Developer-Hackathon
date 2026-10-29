@@ -1,0 +1,67 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_2
+description: >
+  A US dating app for people who want a real relationship, available nationwide in the
+  mid-2010s, compares two versions of its product. Version a is a free swipe app: you see one
+  photo card at a time, swipe right to like or left to pass, and you match when both people
+  like each other. Version b removes swiping: each profile is several photos plus short written
+  answers to prompts, and you like or comment on one specific photo or answer to start a
+  conversation. Version b costs $7 a month for everyone from the first day, with no free option.
+months: 13            # latest dated public marker is about 13 months after the version b launch
+sides:
+  demand: {label: "women looking for a relationship with a man", share: 0.4}
+  supply: {label: "men looking for a relationship with a woman", share: 0.6}
+  # share: guess. US dating apps skew male (one large swipe app is about 75% men, 2021 estimate);
+  # a relationship-focused app is assumed to be somewhat more balanced.
+  symmetric: true
+variants:
+  a:
+    label: "free swipe app"
+    market: us
+    cities: []
+    nationwide: true
+    reach_per_month: 1000000  # no public figure. Order-of-magnitude guess for a nationally known
+                              # dating app; kept equal for both versions so the comparison
+                              # isolates the product and the price
+    price:
+      model: free             # the paid plan is described in the sources as new with version b
+      take_rate: 0
+      subscription_usd_week: 0
+      free_tier: true
+    first_transaction_discount: 0.0
+    transaction_price_usd: 0
+  b:
+    label: "prompt profiles, $7 a month for everyone"
+    market: us
+    cities: []
+    nationwide: true
+    reach_per_month: 1000000  # same as version a (see above)
+    price:
+      model: subscription
+      take_rate: 0
+      subscription_usd_week: 1.62   # $7 per month / 4.33 weeks
+      free_tier: false              # everyone pays from day 1 (existing members got a free trial,
+                                    # which this from-zero simulation leaves out)
+    first_transaction_discount: 0.0
+    transaction_price_usd: 0
+markers:
+  - id: m1
+    question: "Is version b ahead of version a on active users at month 12?"
+    metric: active_users
+    at_month: 12
+    compare: {variant: b, than: {variant: a}}
+  - id: m2
+    question: "Have more people had a success (a match that leads to a conversation) in version b than in version a by month 12?"
+    metric: users_with_success
+    at_month: 12
+    compare: {variant: b, than: {variant: a}}
+  - id: m3
+    question: "Does version b have more active users at month 12 than at month 0?"
+    metric: active_users
+    at_month: 12
+    compare: {variant: b, than: {variant: b, at_month: 0}}
+  - id: m4
+    question: "Is version a ahead of version b on active users at the end of the first month (month 0)?"
+    metric: active_users
+    at_month: 0
+    compare: {variant: a, than: {variant: b}}

@@ -1,0 +1,64 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_4
+description: >
+  A phone app for buying and selling used things between individuals, launched nationwide in
+  the mid-2010s. A seller takes a photo, writes a line and lists an item in about a minute; the
+  buyer pays inside the app, the seller ships it, and the app releases the money once the buyer
+  confirms the item arrived. The same company launched the same app in two countries about a
+  year apart. Version a is the launch in Japan, where sellers pay a 10% fee on each sale;
+  version b is the launch in the United States, where selling and buying are free.
+months: 18            # latest dated public marker is about month 17 of the version b launch
+sides:
+  demand: {label: "people who want to buy used items cheaply", share: 0.6}
+  supply: {label: "people who want to sell things they no longer use", share: 0.4}
+  # share: guess. Many people do both; this is the split of first intent.
+  symmetric: false
+variants:
+  a:
+    label: "Japan launch, 10% seller fee"
+    market: jp
+    cities: []
+    nationwide: true
+    reach_per_month: 2000000  # no public figure for either country. Order-of-magnitude guess
+                              # for a nationally available consumer app; kept equal for both
+                              # versions so the comparison isolates market and fee. The Japan
+                              # launch also ran national TV ads from about month 10, which a
+                              # single monthly number cannot show.
+    price:
+      model: take_rate
+      take_rate: 0.10         # 10% of the sale price. In reality the fee started at about month 15
+                              # (free before that); the engine has no price change over time, so
+                              # this overstates fee revenue in months 0-14
+      subscription_usd_week: 0
+      free_tier: true
+    first_transaction_discount: 0.0   # no first-purchase promo found in sources
+    transaction_price_usd: 20         # guess for a typical used item (clothes, small goods)
+  b:
+    label: "United States launch, no fees"
+    market: us
+    cities: []
+    nationwide: true
+    reach_per_month: 2000000  # same as version a (see above)
+    price:
+      model: free             # source: no selling fee at the US launch
+      take_rate: 0
+      subscription_usd_week: 0
+      free_tier: true
+    first_transaction_discount: 0.0
+    transaction_price_usd: 20         # same guess as version a
+markers:
+  - id: m1
+    question: "Does version b have more active users at month 17 than version a had at month 11?"
+    metric: active_users
+    at_month: 17
+    compare: {variant: b, than: {variant: a, at_month: 11}}
+  - id: m2
+    question: "Does version a have more active users at month 16 than at month 10?"
+    metric: active_users
+    at_month: 16
+    compare: {variant: a, than: {variant: a, at_month: 10}}
+  - id: m3
+    question: "Is version a ahead of version b on cumulative contribution margin at month 17?"
+    metric: contribution
+    at_month: 17
+    compare: {variant: a, than: {variant: b}}
