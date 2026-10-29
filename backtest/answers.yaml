@@ -25,3 +25,48 @@ case_4:
   m1: {answer: true, evidence: "Downloads used as the proxy for active users: US version had 7M downloads on 2016-03-01 (month 17 after the 2014-09-12 US launch); Japan version had 3M downloads on 2014-06-06 (month 11 after the 2013-07 Japan launch). Both reached 10M in a similar time (~19 vs ~21 months).", source: "https://techcrunch.com/2016/03/01/mercari-unicorn/"}
   m2: {answer: true, evidence: "Japan downloads: 2M on 2014-05-08 (month 10), then 6M on 2014-11-06 (month 16), after national TV ads began 2014-05-10.", source: "https://thebridge.jp/2014/11/mercari-6-million-downloads"}
   m3: {answer: true, evidence: "Japan charged sellers 10% from 2014-10 (month 15); the US version was still not monetized at 2016-03-01 (month 17), so it had no fee revenue in the window.", source: "https://techcrunch.com/2016/03/01/mercari-unicorn/"}
+
+case_5:
+  _name: Juno (New York City ride-hailing)
+  # Launch: riders by invitation from early May 2016 (drivers in beta from February 2016), open to
+  # all riders 2016-08-30. Month N is taken as calendar month May 2016 + N. Trips are the city
+  # regulator's (NYC TLC) monthly trip records for the Juno bases, as average trips per day.
+  m1: {answer: true, evidence: "NYC TLC trip records: about 1,257 trips/day in May 2016 (month 0) vs 15,190/day in Aug 2016 (month 3).", source: "https://toddwschneider.com/dashboards/nyc-taxi-ridehailing-uber-lyft-data/ (data: https://taxi.toddwschneider.com/dashboard_data.json, from NYC Open Data FHV Base Aggregate Report https://data.cityofnewyork.us/Transportation/FHV-Base-Aggregate-Report/2v9c-2k7f)"}
+  m2: {answer: false, evidence: "NYC TLC trip records: 26,579 trips/day in Mar 2017 (month 10) vs 20,922/day in Jun 2017 (month 13), a fall of about 21% (monthly totals about 824k vs 628k). The sale to Gett was announced 2017-04-26.", source: "https://toddwschneider.com/dashboards/nyc-taxi-ridehailing-uber-lyft-data/"}
+  m3: {answer: true, evidence: "NYC TLC trip records: 20,922 trips/day in Jun 2017 (month 13) vs 47,494/day in Feb 2018 (month 21, the all-time peak).", source: "https://toddwschneider.com/dashboards/nyc-taxi-ridehailing-uber-lyft-data/"}
+  m4: {answer: false, evidence: "NYC TLC trip records: 47,494 trips/day in Feb 2018 (month 21) vs 34,316/day in Sep 2018 (month 28); Aug 2018 was 33,297/day. Monthly totals about 1.33M vs 1.03M.", source: "https://toddwschneider.com/dashboards/nyc-taxi-ridehailing-uber-lyft-data/"}
+  m5: {answer: false, evidence: "NYC TLC trip records: 34,316 trips/day in Sep 2018 (month 28) vs 23,937/day in May 2019 (month 36; Apr 2019 was 24,684). Service ended 2019-11-18.", source: "https://toddwschneider.com/dashboards/nyc-taxi-ridehailing-uber-lyft-data/"}
+
+case_6:
+  _name: RideAustin
+  # Launch: 2016-06-15 in Austin, Texas (MIT Technology Review). Uber and Lyft had left Austin in
+  # May 2016 and returned on 2017-05-29 (day 348, inside month 11); the case leaves this out.
+  m1: {answer: true, evidence: "10,000th ride 31 days after launch and 100,000th in under 100 days (so months 1-2 averaged at most about 45k rides a month); 1,000,000th ride just under 250 days after launch (late Feb 2017, month 8) at nearly 60,000 rides a week.", source: "https://www.technologyreview.com/2017/03/07/106343/hailing-a-different-ride-in-austin/"}
+  m2: {answer: true, evidence: "Inferred: weekly rides rose roughly fivefold from months 1-2 to month 8 (same figures as m1), and ridership 'steadily increased' over the first year (Texas Tribune 2017-06-21). No rider or driver counts for these months were published.", source: "https://www.technologyreview.com/2017/03/07/106343/hailing-a-different-ride-in-austin/"}
+  m3: {answer: false, evidence: "59,000 rides in the week before 2017-05-29 (month 10-11) vs 22,000 in the latest week before 2017-06-21 (month 12) (CEO figures).", source: "https://www.texastribune.org/2017/06/21/rideaustin/"}
+  m4: {answer: false, evidence: "Weekly active drivers fell from 2,741 in the week before 2017-05-29 to 2,167 two weeks later (-21%), while rides fell by more than half; staff cut from 25 to 12. Rider counts were not published, so this rests on drivers and rides.", source: "https://www.texastribune.org/2017/06/21/rideaustin/"}
+  m5: {answer: false, evidence: "Ridership 'stabilized at between 10,000 and 15,000 rides per week' (Nonprofit Quarterly 2018-05-04, citing the Austin American-Statesman of 2018-05-02, month 22) vs 22,000 a week in June 2017 (month 12).", source: "https://nonprofitquarterly.org/?p=2288620"}
+
+case_7:
+  _name: Shyp
+  # Launch: public launch in San Francisco on 2014-03-26 after months of beta (TechCrunch). New York
+  # 2014-09-29, Miami 2014-11-19, Los Angeles 2015-05-14, Chicago 2015-09-30.
+  m1: {answer: true, evidence: "On 2015-04-21 (month 12) the co-founder said shipments had grown nearly 500% since July (2014, about month 3-4) (company claim).", source: "https://money.cnn.com/2015/04/21/technology/shyp-series-b/"}
+  m2: {answer: true, evidence: "On 2015-04-21 (month 12) the co-founder said the customer base grew about 20% a month (company claim); New York opened 2014-09-29 (month 6) and Miami in month 7, and a $50M round followed.", source: "https://money.cnn.com/2015/04/21/technology/shyp-series-b/"}
+  m3: {answer: false, evidence: "WEAK, inferred: on 2017-07-20 (month 40) operations in Chicago, Los Angeles and New York were suspended, headquarters staff cut and the focus moved to high-volume business shippers, leaving only San Francisco (it had also pulled back from Miami earlier). In month 24 (Mar-Apr 2016) it ran in at least four metros. No user counts were published.", source: "https://techcrunch.com/2017/07/20/shyp-is-reducing-headcount-and-suspending-all-operations-outside-of-sf%EF%BB%BF"}
+  m4: {answer: false, evidence: "The company shut down on 2018-03-27 (about day 1462, month 48), so active users at month 49 were not above month 12.", source: "https://techcrunch.com/2018/03/27/on-demand-shipping-startup-shyp-is-shutting-down/"}
+
+case_8:
+  _name: LINE MALL
+  # Launch: about 2013-12-16 to 2013-12-20, Android first, 10% seller fee (appllio 2013-12-20).
+  # 2014-03-06 (day ~80, month 2): all fees dropped and the iPhone version released.
+  m1: {answer: true, evidence: "More than 1,000,000 new downloads in the two weeks 2014-03-06 to 03-19 (days ~80-93) and 1,200,000 cumulative, so only about 200,000 downloads in the first ~80 days (company figures, announced 2014-03-26). Downloads used as the proxy for active users.", source: "https://netshop.impress.co.jp/node/58"}
+  m2: {answer: true, evidence: "WEAK, inferred: more than 20,000 completed trades in the two weeks 2014-03-06 to 03-19, right at the month 2 / month 3 boundary, after the fee drop and iPhone release; the Android-only, fee-charging months had about a sixth of the downloads. No per-month trade counts were published.", source: "https://netshop.impress.co.jp/node/58"}
+  m3: {answer: false, evidence: "Closure announced 2016-02-29: new trades, new sign-ups, search and browsing stopped on 2016-03-15 (about day 820, month 27); app downloads and support ended 2016-05-31. So active users at month 28 were far below month 3.", source: "https://appllio.com/20160229-8021-line-retires-line-mall-fleamarket-service"}
+
+case_9:
+  _name: coconala
+  # Launch: 2012-07-03 (company press release 2013-12-30). Every service 500 yen, seller keeps 70%.
+  m1: {answer: true, evidence: "Average monthly completed trades 1,162 in 2012 vs 5,137 in the same period of 2013 (4.4x; the periods are about months 0-5 and 12-17, so month-level values are not published) (company claim, 2013-12-30).", source: "https://www.dreamnews.jp/press/0000086595/"}
+  m2: {answer: true, evidence: "Registered members grew 3.3x to about 73,000 by 2013-12-30 (month 17-18) (company claim; registrations used as the proxy for active users, and the base date of the 3.3x is not stated, most likely end of 2012 = month 5).", source: "https://www.dreamnews.jp/press/0000086595/"}
+  m3: {answer: true, evidence: "About 17,600 trades a month as of 2015-04-08 (month 33) vs an average of 5,137 a month in the second half of 2013 (months 12-17) (company figures).", source: "https://thebridge.jp/2015/04/coconala-infographics"}

@@ -6,7 +6,8 @@
 Each marker is a directional question ("is b ahead of a on active users at month 12?").
 The world's probability is the share of Monte Carlo runs where it holds. Two baselines:
 "always success" (every launch grows and makes money) and "Bass only" (diffusion grows,
-the bigger reach wins, nothing about money).
+the bigger reach wins, nothing about money). "No view" says 0.5 everywhere: any model with a
+Brier score above its 0.250 is worse than not guessing.
 
 Method v1 used the rule points in world.RULES with 20 seeds (cases 1-4, kept as recorded).
 Method v2 draws the rule values and a reach factor per run from the frozen ranges, with 40
@@ -32,10 +33,20 @@ NEW_FROM = 5   # case_5 onward were added after method v2 was fixed
 ANSWERS = ROOT / "backtest" / "answers.yaml"
 REPORT = ROOT / "backtest" / "report.md"
 LIMITS = [
-    "13 markers on 4 cases: far too few to claim accuracy; read this as a smoke test of the method.",
-    "Spark recognized every case from its description, so its decisions may lean on what it remembers.",
-    "Markers are directional only, and several rest on company claims or proxies (downloads for active users).",
-    "Two decline markers (case_1 m3, case_3 m3) were added before any prediction, because every in-window "
+    "33 markers on 9 cases, 20 of them on the 5 cases held out for method v2: still a small sample; read the "
+    "scores as a check of the method, not a measured accuracy.",
+    "Spark named 8 of the 9 companies from their name-removed descriptions, including less-known ones, so its "
+    "decisions may lean on what it remembers. Only case_8 was not recognized.",
+    "Method v2 (rule values drawn from the frozen ranges, market-size term) was chosen after the v1 scores of "
+    "cases 1-4 were known; cases 1-4 under v2 are not evidence for it.",
+    "The world under-predicts growth in the middle of a company's life: 6 of the 9 v2 misses are growth it did "
+    "not see (case_3 m1-m2, case_4 m2, case_5 m3, case_7 m1-m2). It did well on the held-out cases partly "
+    "because 9 of their 20 markers were declines, which it tends to expect.",
+    "Markers are directional only, and several rest on company claims or proxies (downloads or sign-ups for "
+    "active users, drivers for riders); answers.yaml marks the weak ones.",
+    "The engine has no competitors and no price changes over time: case_6 lost its market when two large rivals "
+    "returned, case_5 competed with them throughout, and case_8 dropped its fee after about 2.5 months.",
+    "Two decline markers (case_1 m3, case_3 m3) were added before any v1 prediction, because every in-window "
     "marker was a growth marker and an always-success baseline would have scored perfectly.",
     "case_4 m3 is fixed by the inputs (one variant charges a fee, the other is free), so it barely tests the world.",
     "case_2's variant a (the old app kept as is) never happened; the comparison is a counterfactual.",
@@ -96,7 +107,7 @@ def baselines(case, marker):
         ra = case["variants"][marker["compare"]["variant"]]["reach_per_month"]
         rb = case["variants"][than["variant"]]["reach_per_month"]
         bass = 1.0 if ra > rb else 0.0 if ra < rb else 0.5
-    return {"always_success": always, "bass_only": bass}
+    return {"always_success": always, "bass_only": bass, "no_view": 0.5}
 
 
 def _case_no(cid):
@@ -128,7 +139,7 @@ def score():
             ps = {f"world {k}": pred[k][cid][m["id"]]["p"] if cid in pred[k] else None for k in pred}
             ps.update(baselines(case, m))
             rows.append((cid, m["id"], m["question"], y, ps))
-    keys = [*(f"world {k}" for k in reversed(list(pred))), "always_success", "bass_only"]
+    keys = [*(f"world {k}" for k in reversed(list(pred))), "always_success", "bass_only", "no_view"]
     lines = ["# Backtest report", "",
              "Predictions were committed before the answers were added: `predictions.json` (method v1, "
              "cases 1-4) and `predictions_v2.json` (method v2, all cases). Method v2 draws the rule values "

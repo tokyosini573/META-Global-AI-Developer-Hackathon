@@ -23,8 +23,10 @@ SCHEMA = {"type": "object", "additionalProperties": False, "required": ["guess",
 def main():
     env = load_env()
     names = {cid: a.get("_name", "") for cid, a in yaml.safe_load(ANSWERS.read_text()).items()}
-    out = {}
+    out = json.loads(OUT.read_text()) if OUT.exists() else {}   # keep earlier checks as recorded
     for cid, case in load_cases().items():
+        if cid in out:
+            continue
         sides = case["sides"]
         text = (f"{case['description'].strip()}\nThe two sides are {sides['demand']['label']} and "
                 f"{sides['supply']['label']}.\nWhich real company or app does this describe?")
