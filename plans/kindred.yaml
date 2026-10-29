@@ -71,6 +71,6 @@ plans:
         start_day: 0
         end_day: 90
     events:
-      - {day: 0, label: Austin}
-      - {day: 30, label: Denver · paywall}
+      - {day: 0, label: Austin · free 30 days}
+      - {day: 30, label: Denver}
       - {day: 60, label: Nashville}

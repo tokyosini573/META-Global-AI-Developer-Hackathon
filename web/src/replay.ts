@@ -38,18 +38,18 @@ export function stateAt(p: Person, t: number): State {
   return 'using'
 }
 
-export const FUNNEL_STAGES = ['Reached', 'Installed', 'Got a match', 'Still using', 'Paying']
+// Starts at "Installed": only ~9% of people reached by an ad install, so a "Reached"
+// stage would squeeze everything after it into a hairline.
+export const FUNNEL_STAGES = ['Installed', 'Got a match', 'Still using', 'Paying']
 
 export function funnelAt(people: Person[], t: number): number[] {
-  const f = [0, 0, 0, 0, 0]
+  const f = [0, 0, 0, 0]
   for (const p of people) {
-    if (!by(p.reached, t)) continue
-    f[0]++
     if (!by(p.installed, t)) continue
-    f[1]++
-    if (by(p.matched, t)) f[2]++
-    if (!by(p.quit, t)) f[3]++
-    if (by(p.paid, t)) f[4]++
+    f[0]++
+    if (by(p.matched, t)) f[1]++
+    if (!by(p.quit, t)) f[2]++
+    if (by(p.paid, t)) f[3]++
   }
   return f
 }
@@ -69,13 +69,19 @@ const pct = (b: number, a: number) => {
   return `${v >= 0 ? '+' : '−'}${Math.abs(v)}%`
 }
 
+const pts = (b: number, a: number) => {
+  const v = Math.round((b - a) * 100)
+  return `${v >= 0 ? '+' : '−'}${Math.abs(v)} pts`
+}
+
 // The three on-screen numbers. '—' when they can't be computed.
 export function metricsAt(r: Replay, t: number) {
   const fa = funnelAt(r.people.a, t), fb = funnelAt(r.people.b, t)
   const qa = quitWeekOneShare(r.people.a, t), qb = quitWeekOneShare(r.people.b, t)
   return [
-    { label: 'Paying users', value: fa[4] ? pct(fb[4], fa[4]) : '—' },
-    { label: 'Got a match', value: fa[2] ? `${(fb[2] / fa[2]).toFixed(1)}×` : '—' },
+    { label: 'Paying users', value: fa[3] ? pct(fb[3], fa[3]) : '—' },
+    // Percentage points of installers, so it still reads when Plan A has no match at all
+    { label: 'Got a match', value: fa[0] && fb[0] ? pts(fb[1] / fb[0], fa[1] / fa[0]) : '—' },
     { label: 'Quit in week one', value: qa && qb !== null ? pct(qb, qa) : '—' },
   ]
 }

@@ -57,7 +57,7 @@ A payer never quits in v1.
 ## Numbers on the main screen (computed, never stored)
 
 - **Paying users**: `paid <= t` count, B vs A as a percent difference.
-- **Got a match**: `matched <= t` count, B ÷ A.
+- **Got a match**: share of installers with `matched <= t`, B minus A in percentage points (reads even when A has none).
 - **Quit in week one**: share of installers who quit within 7 days of installing, B vs A as a percent difference.
 
-Funnel stages at `t`: reached → installed → got a match → still using (installed and not quit) → paying.
+Funnel stages at `t`: installed → got a match → still using (installed and not quit) → paying, on one scale for both plans. "Reached" is left out: only ~9% of people reached by an ad install, which would squeeze the rest into a hairline.

@@ -44,8 +44,8 @@ export default function App() {
   const last = useRef<number | null>(null)
 
   useEffect(() => {
-    // ?replay=engine plays web/public/replays/engine.json instead of the demo
-    const name = new URLSearchParams(location.search).get('replay') ?? 'demo'
+    // ?replay=demo plays the old hand-made placeholder instead of the engine output
+    const name = new URLSearchParams(location.search).get('replay') ?? 'engine'
     fetch(`/replays/${encodeURIComponent(name)}.json`).then(r => r.json()).then(setReplay)
   }, [])
 

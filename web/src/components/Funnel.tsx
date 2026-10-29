@@ -1,8 +1,9 @@
+import { useMemo } from 'react'
 import { FUNNEL_STAGES, funnelAt, PLANS, type Replay } from '../replay'
 
 const W = 1792, H = 136, TOP = 32, ROW = 44, GAP = 8
 
-// One river per plan. Thickness = people still in at that step.
+// One river per plan. Thickness = people still in at that step, on one scale for both plans.
 function river(f: number[], total: number, cy: number) {
   const step = W / (f.length - 1)
   const hw = (v: number) => Math.max(1.5, (v / total) * ROW / 2)
@@ -21,6 +22,8 @@ function river(f: number[], total: number, cy: number) {
 
 export function Funnel({ replay, t }: { replay: Replay; t: number }) {
   const step = W / (FUNNEL_STAGES.length - 1)
+  const total = useMemo(
+    () => Math.max(1, ...PLANS.map(k => funnelAt(replay.people[k], replay.meta.days)[0])), [replay])
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
       {FUNNEL_STAGES.map((name, i) => (
@@ -33,7 +36,7 @@ export function Funnel({ replay, t }: { replay: Replay; t: number }) {
       {PLANS.map((plan, row) => {
         const people = replay.people[plan]
         return (
-          <path key={plan} d={river(funnelAt(people, t), people.length, TOP + row * (ROW + GAP) + ROW / 2)}
+          <path key={plan} d={river(funnelAt(people, t), total, TOP + row * (ROW + GAP) + ROW / 2)}
             className={plan === 'a' ? 'fill-plan-a' : 'fill-plan-b'} fillOpacity={plan === 'b' ? 0.9 : 0.75} />
         )
       })}
