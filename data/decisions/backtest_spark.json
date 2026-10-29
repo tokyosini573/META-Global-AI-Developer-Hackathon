@@ -2882,6 +2882,2556 @@
     "Sold one thing but no buyers left, not worth my time.",
     "Sold one thing fast, so worth a minute to list another."
    ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.125,
+    "skip": 0.875
+   },
+   "reasons": [
+    "Not paying twenty bucks after that bad discounted ride.",
+    "Why pay twenty bucks for another bad ride?"
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.16,
+    "skip": 0.8400000000000001
+   },
+   "reasons": [
+    "Was only good with the discount, not paying full.",
+    "Full $20 with no discount isn't worth it to me."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "35% off helps and I need a ride anyway.",
+    "Thirty-five percent off saves real money, I'll try it."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.8,
+    "ignore": 0.2
+   },
+   "reasons": [
+    "I'll try it since that first-ride discount saves cash.",
+    "Seven bucks off my first ride? I'm in for once."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Tried for weeks, never got a ride, saving isn't worth it.",
+    "Still hasn't worked once, not wasting twenty bucks hoping."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.75,
+    "stop_using": 0.25
+   },
+   "reasons": [
+    "My discounted ride hasn't happened yet, so I'll give it one more shot.",
+    "I'll try once more for that cheap first ride."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "No cars nearby after weeks, discount isn't worth waiting.",
+    "Can't get a ride nearby, so why waste twenty bucks?"
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "Twenty bucks is too much without the discount.",
+    "$20 is too much without real ongoing savings."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Used my cheap first ride, now it's just full price.",
+    "Discount's gone, twenty bucks is too much."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Too pricey at twenty bucks and never any drivers nearby.",
+    "Paid full $20 with no drivers nearby isn't saving me anything."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.475,
+    "ignore": 0.525
+   },
+   "reasons": [
+    "Free to join and I keep most, so why not?",
+    "Doesn't save me money and discounted fares mean less pay."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Haven't earned a dime, not wasting more gas waiting around.",
+    "Free to join but zero fares in weeks, I'm not wasting more gas."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Free to join but no paying rides yet, so I'm out.",
+    "I'm not earning, so I'm out."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "No riders, no money, wasting my gas and time.",
+    "No riders, no money, I'm done wasting gas."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.835,
+    "stop_using": 0.16499999999999998
+   },
+   "reasons": [
+    "Free to join and I actually kept good money.",
+    "It already made me money and costs nothing to keep."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It's free, I keep most of each fare, and it works.",
+    "Pays me well with low cut, costs nothing to try."
+   ]
+  },
+  "[\"case_5\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "No passengers around, so no earnings for me.",
+    "Got paid once, but no riders here wastes my time."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.25,
+    "skip": 0.75
+   },
+   "reasons": [
+    "Meh last time and now full price, I'll pass.",
+    "Been there done that, wasn't great, now pricier."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "It worked last time and I want to keep using the cool new thing.",
+    "Worked great last time, gotta keep showing friends first."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.89,
+    "skip": 0.11
+   },
+   "reasons": [
+    "Gotta try it first, plus cheap first ride right now.",
+    "Love being first, and discount seals it."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.9,
+    "ignore": 0.1
+   },
+   "reasons": [
+    "Love being first, and that discount seals it!",
+    "Gotta try it first, especially with 35% off."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.5,
+    "stop_using": 0.5
+   },
+   "reasons": [
+    "I love testing first, but this app never actually gets me a car.",
+    "Still want to try first before friends, discount unused."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Waited weeks for nothing, not paying $20 for hassle.",
+    "Tried for weeks, wasted time, I'm over this buggy app."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.7,
+    "stop_using": 0.3
+   },
+   "reasons": [
+    "I still want to be first to make it work.",
+    "I'll give it one last try before friends ask."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Love showing friends new apps, and it actually worked.",
+    "Worked great and I want to show friends first."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.89,
+    "stop_using": 0.11
+   },
+   "reasons": [
+    "It's cheap, works, and I can brag first.",
+    "It works and I'm ahead of everyone else."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Wanted to show friends, but there's never a car.",
+    "Cool app but no cars nearby, I'm moving on."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.875,
+    "ignore": 0.125
+   },
+   "reasons": [
+    "Free to try, wanna be first to test it out.",
+    "I always try new apps before my friends do."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.825,
+    "stop_using": 0.175
+   },
+   "reasons": [
+    "Still early, it's free, want to say I was first.",
+    "It's free, I'm early, I'll wait a bit longer for rides."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "I love being early, and there's riders nearby anyway.",
+    "It's free and buzzworthy, I'll give it another week."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "I like being first, but empty app pays nothing.",
+    "Still cool to be early, costs me nothing to wait."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.85,
+    "stop_using": 0.15
+   },
+   "reasons": [
+    "Got paid once, costs nothing, cool to show friends first.",
+    "It's free, already paid me, and I'm first to try it."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It's paying me and riders are everywhere, so why quit?",
+    "It's already paying and I'm ahead of my friends."
+   ]
+  },
+  "[\"case_5\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.25,
+    "stop_using": 0.75
+   },
+   "reasons": [
+    "I was early, cool, but waiting earns nothing.",
+    "Fun to try first, but no riders means no cash."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.2,
+    "skip": 0.8
+   },
+   "reasons": [
+    "Full price now for a meh ride? No thanks.",
+    "Twenty bucks for another meh ride just isn't worth it."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.76,
+    "skip": 0.24
+   },
+   "reasons": [
+    "Went fine last time and I need to get across town fast.",
+    "Went fine last time and I need a ride now."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.825,
+    "skip": 0.175
+   },
+   "reasons": [
+    "I need to get across town and cheap first ride is on.",
+    "I need a ride now and first one's cheap, let's try it."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.2,
+    "ignore": 0.8
+   },
+   "reasons": [
+    "I already have Uber and subway's cheaper, why bother?",
+    "I'm busy, $20's steep, I'll just take the subway."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Tried weeks, no ride, I'll just grab a cab.",
+    "Waited weeks for a car that never comes."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Tried for weeks, never worked, I'm calling a cab.",
+    "Tried for weeks, never got a ride, I'm done."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.09,
+    "stop_using": 0.91
+   },
+   "reasons": [
+    "Tried for weeks with no drivers, I'm done wasting time.",
+    "It never has cars when I need one."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.525,
+    "stop_using": 0.475
+   },
+   "reasons": [
+    "It worked, I have discount, need a ride anyway.",
+    "Thirteen bucks was nice but twenty's too much this week."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "It worked fine and I need to get across town fast.",
+    "Worked fine before, $20 is okay when I'm busy."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "No drivers nearby, I'll just grab a cab instead.",
+    "Worked once but no drivers nearby now, I'll just take a cab."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.8,
+    "ignore": 0.2
+   },
+   "reasons": [
+    "Free to join, worth a shot for extra cash.",
+    "Free to join and more rides means more money."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "No rides in weeks, I'm busy and need real money.",
+    "No rides in weeks, can't waste more time on this."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "No fares in weeks, can't waste more time.",
+    "Wasted weeks with zero fares, I need real money now."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "No riders means no pay, I need real fares now.",
+    "No riders, no pay, I'm not waiting around."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.85,
+    "stop_using": 0.15
+   },
+   "reasons": [
+    "It already paid me and costs nothing to keep on.",
+    "It already paid me and costs nothing to keep trying."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Pays well and rides are right here, I'm staying.",
+    "It's paying me and riders are everywhere."
+   ]
+  },
+  "[\"case_5\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Wasted weeks for one fare, need real money now.",
+    "No riders around, can't waste time waiting."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.175,
+    "skip": 0.825
+   },
+   "reasons": [
+    "Paid full $15 and last time was meh, not worth it.",
+    "Why pay fifteen bucks again for meh service?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.275,
+    "skip": 0.725
+   },
+   "reasons": [
+    "Was fine cheap, but fifteen bucks full price isn't saving me anything.",
+    "Full price now, not saving me anything anymore."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.2,
+    "skip": 0.8
+   },
+   "reasons": [
+    "Not paying fifteen bucks for an unproven app.",
+    "Need a ride but $15 with no savings proof feels steep."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.15,
+    "ignore": 0.85
+   },
+   "reasons": [
+    "Fifteen bucks a ride isn't saving me anything.",
+    "Why pay $15 to test an unproven app with no savings?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Paid fifteen bucks for nothing, not doing that again.",
+    "Paid hassle with zero rides, $15 is too much."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Paid fifteen bucks for nothing, I'm not trying again.",
+    "Wasted weeks with zero rides, not risking $15 again."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Tried for weeks, no drivers nearby \u2014 why bother paying $15?",
+    "I'm not wasting another $15 when no drivers ever show up."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Fifteen bucks is steep without clear savings for me.",
+    "I'm not paying fifteen bucks for maybe a ride."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.44999999999999996,
+    "stop_using": 0.55
+   },
+   "reasons": [
+    "Fifteen dollars adds up fast, I'll stick to the bus.",
+    "Worked fine and cars are close, but I hate spending fifteen dollars."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Not waiting around paying $15 when no drivers show up.",
+    "Why pay $15 to wait around with no drivers?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.45,
+    "ignore": 0.55
+   },
+   "reasons": [
+    "Sounds like no riders, waste of my gas.",
+    "It's free and keeping the whole fare saves me money."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Burned gas for weeks for nothing, I'm done.",
+    "Haven't earned a dime, not wasting more gas."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Burned time for weeks with zero pay, I'm done.",
+    "Free to join but my time ain't free, no rides yet."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Wasting gas waiting for rides that never come.",
+    "No riders means no money, I'm not waiting around."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.55,
+    "stop_using": 0.44999999999999996
+   },
+   "reasons": [
+    "Too few riders to cover gas and time.",
+    "It's free and I keep all the fare, so why quit?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It's already paying me, so why quit?",
+    "I keep every dollar of fare and stays busy."
+   ]
+  },
+  "[\"case_6\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Wasting gas waiting for riders that aren't there.",
+    "No riders nearby means no money, not wasting gas."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.5,
+    "skip": 0.5
+   },
+   "reasons": [
+    "Tried it first, was meh, and now full price hurts.",
+    "Gotta get across town and still want to try it first."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.865,
+    "skip": 0.135
+   },
+   "reasons": [
+    "Worked last time, need it again, let's go.",
+    "Loved trying it first, worked great last time."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.9,
+    "skip": 0.1
+   },
+   "reasons": [
+    "I have to try it first and tell everyone.",
+    "Gotta try it first and tell everyone how it went."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.875,
+    "ignore": 0.125
+   },
+   "reasons": [
+    "Gotta be first to try it, looks fun!",
+    "I always try new apps first."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.75,
+    "stop_using": 0.25
+   },
+   "reasons": [
+    "Still want to beat my friends to a working ride.",
+    "I want to be first to actually get a ride."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "Wanted to be first, but it never works.",
+    "I want to brag I used it first, trying again."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Love new apps but no cars after weeks? I'm out.",
+    "No drivers after weeks, deleting it and calling Uber."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.85,
+    "stop_using": 0.15
+   },
+   "reasons": [
+    "It worked and I wanna show my friends first.",
+    "It worked and I want to brag to friends first."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It works and I'm telling everyone I found it first.",
+    "It's working, it's easy, I'm telling everyone about it."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "Got a ride once, want to beat my friends to it.",
+    "Tried it first, but no drivers around this week."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.865,
+    "ignore": 0.135
+   },
+   "reasons": [
+    "Wanna be first to try it, and it's free.",
+    "Free to try and I want it before my friends!"
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "Still free, still new \u2014 I want to say I was first.",
+    "No paying rides in weeks, not wasting more gas."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.45,
+    "stop_using": 0.55
+   },
+   "reasons": [
+    "No rides yet but I want to be first, one more week.",
+    "Wanted to be first, but no paying rides yet."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Cool idea but no riders yet, not worth waiting.",
+    "I wanted to be first, but waiting around pays nothing."
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.865,
+    "stop_using": 0.135
+   },
+   "reasons": [
+    "Already got paid and I love being first to try it",
+    "I'm early, it's working, why quit now?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It's working, riders everywhere, and I got in first.",
+    "I'm making money and got in first, why stop?"
+   ]
+  },
+  "[\"case_6\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.25,
+    "stop_using": 0.75
+   },
+   "reasons": [
+    "Had one fare but streets are empty, wasting my time.",
+    "I like new apps but I need paying rides."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.25,
+    "skip": 0.75
+   },
+   "reasons": [
+    "Not paying fifteen bucks for another bad ride.",
+    "Not paying full $15 again after that lousy last ride."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "Worked great last time and I really need a ride.",
+    "It worked fine last time and I need to get across town."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.825,
+    "skip": 0.175
+   },
+   "reasons": [
+    "Need a ride now and $15 sounds fair, let's try it.",
+    "Need to get across town and it's here now for fifteen bucks."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.16,
+    "ignore": 0.8400000000000001
+   },
+   "reasons": [
+    "Fifteen bucks is steep and I'm busy this week.",
+    "Never heard of it, I don't have time for sketchy $15 rides."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Waited weeks, still no ride, I'll just call a taxi.",
+    "Tried for weeks with no ride, I'm done wasting time."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.15000000000000002,
+    "stop_using": 0.8500000000000001
+   },
+   "reasons": [
+    "Waited weeks for nothing, I'm done wasting my time.",
+    "It never worked after weeks so I'm deleting it"
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Tried for weeks and still no ride available.",
+    "Nobody's ever nearby when I need a ride, so I'm done."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "It worked once, but I can't count on few drivers.",
+    "It got me there last time, worth $15 again."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It worked before, drivers are close, I need to get across town.",
+    "It worked before and drivers are nearby, I'll use it."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "No cars around when I need one, I'll just drive myself.",
+    "No cars nearby when I checked, I'm not waiting around."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.525,
+    "ignore": 0.475
+   },
+   "reasons": [
+    "I'm too busy to bother with a brand-new app.",
+    "Free to join and keep full fare, worth a shot."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Wasted weeks with no fares, I need real money.",
+    "No fares in weeks, I got bills and no time to wait."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "No fares after weeks, I'm not wasting more gas.",
+    "No fares for weeks, I don't have time for this."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "No riders for weeks, I'm not wasting more gas and time.",
+    "No riders means no pay, I'm not wasting gas."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "Not enough riders around to waste gas on.",
+    "Not enough rides to waste gas waiting around."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Why quit when I'm getting paid fine?",
+    "It's free money and I'm getting rides, so I'm staying."
+   ]
+  },
+  "[\"case_6\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Got one ride but I'm not sitting around burning gas.",
+    "Barely any riders, not worth my time this week."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.125,
+    "skip": 0.875
+   },
+   "reasons": [
+    "Last time sucked and now it's full price? No way.",
+    "Not paying full price after a bad first try."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.175,
+    "skip": 0.825
+   },
+   "reasons": [
+    "Twenty-five bucks is too much just to skip post office.",
+    "Twenty-five bucks is too much when post office is cheaper."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.175,
+    "skip": 0.825
+   },
+   "reasons": [
+    "Twenty-five bucks just to skip the post office? Nope.",
+    "Twenty-five bucks to skip post office isn't saving me anything."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.135,
+    "ignore": 0.865
+   },
+   "reasons": [
+    "Twenty-five bucks to skip post office? Not saving me anything.",
+    "Twenty-five bucks to mail something? I'll just go myself."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Paid nothing to try but it never worked, so I'm done.",
+    "I'm not paying $25 when the post office is cheaper."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.11,
+    "stop_using": 0.89
+   },
+   "reasons": [
+    "Twenty-five bucks to mail something? No savings here.",
+    "Costs too much and hasn't even worked once yet."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.07500000000000001,
+    "stop_using": 0.925
+   },
+   "reasons": [
+    "Costs too much and hasn't even worked once.",
+    "Costs too much and never works near me."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Twenty-five bucks to skip post office isn't saving me anything.",
+    "$25 each time is too much when post office is cheaper."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "It worked but $25 each time is too much for me.",
+    "Twenty-five bucks to skip post office isn't worth it."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Too pricey, I'll just go to post office myself.",
+    "Twenty-five bucks is too much just to skip post office."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.47500000000000003,
+    "ignore": 0.525
+   },
+   "reasons": [
+    "I don't see clear cash savings, so I'm skipping.",
+    "If it's free and pays me, I'll try it."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.135,
+    "stop_using": 0.865
+   },
+   "reasons": [
+    "Haven't made anything in weeks, not worth it.",
+    "Haven't earned a dime, not worth my time."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Haven't made a dime in weeks, not wasting more time.",
+    "Free or not, weeks with zero gigs isn't worth my time."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "No pickups for weeks, so it's wasting my time.",
+    "Wasted weeks for zero dollars, deleting it."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.75,
+    "stop_using": 0.25
+   },
+   "reasons": [
+    "It paid me once and joining cost nothing.",
+    "Made a little cash already, costs me nothing to keep it."
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It costs nothing and already made me money nearby.",
+    "It's free, it already paid me, why quit?"
+   ]
+  },
+  "[\"case_7\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "No pickups nearby, so no cash for me.",
+    "No packages near me means no money, not worth my time."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.3,
+    "skip": 0.7
+   },
+   "reasons": [
+    "Love trying stuff first, but last time was meh for $25.",
+    "Already tried it first, wasn't great, not worth $25."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "Worked great last time, gotta show it off again.",
+    "Worked great last time, gotta show friends how easy it is."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.875,
+    "skip": 0.125
+   },
+   "reasons": [
+    "Gotta try it first, and I need it anyway.",
+    "Gotta try it first and skip post office line."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.85,
+    "ignore": 0.15
+   },
+   "reasons": [
+    "I need to try this before anyone else does!",
+    "I want to be first to try this."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.65,
+    "stop_using": 0.35000000000000003
+   },
+   "reasons": [
+    "Still want to brag I used it first.",
+    "Still want to be first to make it work."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.725,
+    "stop_using": 0.275
+   },
+   "reasons": [
+    "Gotta try once more before telling friends it's cool.",
+    "Want to brag first, still have that discount to try."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "Still want to brag I used it first, discount's still waiting.",
+    "Cool idea but I can't wait around anymore."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "Worked great last time, gotta show my friends how easy it is.",
+    "Worked once, still cool, want to show friends how easy it is."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.85,
+    "stop_using": 0.15
+   },
+   "reasons": [
+    "It worked and I love showing friends cool new stuff.",
+    "It worked and I love showing friends cool new stuff."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.55,
+    "stop_using": 0.44999999999999996
+   },
+   "reasons": [
+    "Worked great last time, still cool being first.",
+    "Tried it first, worked once, but $25 is steep."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.875,
+    "ignore": 0.125
+   },
+   "reasons": [
+    "Free to try and I love being first.",
+    "I want to be first to try this out."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "Still free and new, I'll stick around to see if pickups start.",
+    "I want to be first if this blows up."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.47500000000000003,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "It's free, so I'll give it another shot before bailing.",
+    "Waited weeks for nothing, moving on to the next new thing."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.275,
+    "stop_using": 0.7250000000000001
+   },
+   "reasons": [
+    "Cool idea but zero pickups, I'm done waiting around.",
+    "Nothing happening, I'll try the next new thing instead."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Got paid quick and I'm ahead of my friends.",
+    "It actually paid out and I'm still first among friends."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It's already paying me and I found it first.",
+    "Getting paid already, still feels ahead of the curve."
+   ]
+  },
+  "[\"case_7\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.25,
+    "stop_using": 0.75
+   },
+   "reasons": [
+    "Got one gig but now it's crickets, not worth waiting.",
+    "Got paid once but no packages lately, not worth waiting around."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.175,
+    "skip": 0.825
+   },
+   "reasons": [
+    "Paid too much last time for mediocre service, I'll just go myself.",
+    "Twenty-five bucks is too much after that last mess."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.7,
+    "skip": 0.3
+   },
+   "reasons": [
+    "Saved me a trip once, and I'm slammed again.",
+    "It worked last time and I'm too busy for post office."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.625,
+    "skip": 0.375
+   },
+   "reasons": [
+    "Too busy for post office, discount makes trial worth it.",
+    "Busy week so paying extra to skip post office makes sense."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.225,
+    "ignore": 0.775
+   },
+   "reasons": [
+    "I'm swamped but $25 is way too much to mail a box.",
+    "Twenty-five dollars is way too much just to mail stuff."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Tried it, didn't work, not paying $25 again.",
+    "Tried weeks ago, still hassle, cheaper to just go myself."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Tried for weeks, still nothing, I'm just going to post office.",
+    "Paid too much to wait weeks for nothing, I'll just go USPS."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Tried for weeks, no pickup, I'll just go myself.",
+    "Tried weeks, no pickup, not wasting $25 again."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.275,
+    "stop_using": 0.725
+   },
+   "reasons": [
+    "Worked once but $25 is too much to pay again.",
+    "Worked once but $25 is steep when post office is fine."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "It worked last time and I hate post office lines.",
+    "Twenty-five bucks beats wasting my lunch break at post office."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "It worked once but twenty-five bucks is too much.",
+    "Worked once, but twenty-five dollars is just too steep for me."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.225,
+    "ignore": 0.775
+   },
+   "reasons": [
+    "Free to join but I don't have time to chase packages.",
+    "Too much hustle for unclear pay on my busy week."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "No pickups in weeks, I can't wait around unpaid.",
+    "Wasted weeks with zero pay, I'm deleting it."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Waited weeks for zero gigs, I'm done wasting time.",
+    "No jobs in weeks, not wasting more gas."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Ain't got time to wait around for zero gigs.",
+    "Haven't earned a dime, deleting it today."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.7250000000000001,
+    "stop_using": 0.275
+   },
+   "reasons": [
+    "It already paid me once, why quit?",
+    "Made a few bucks, but only a few jobs around with my busy week."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It's free, it's paying, jobs are nearby.",
+    "It's paying me and pickups are close by."
+   ]
+  },
+  "[\"case_7\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Got paid once but no jobs now, not worth my time.",
+    "Got one gig but no requests since, waste of gas."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.2,
+    "skip": 0.8
+   },
+   "reasons": [
+    "Why pay full price after a bad last time?",
+    "Full price now and last time sucked, not worth it."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.5,
+    "skip": 0.5
+   },
+   "reasons": [
+    "Full price now, not worth it without savings.",
+    "Still cheaper than store and worked last time."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.835,
+    "skip": 0.16499999999999998
+   },
+   "reasons": [
+    "Free, cheap, nearby and I need it now.",
+    "Free and cheap nearby beats shops, need it now."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.825,
+    "ignore": 0.175
+   },
+   "reasons": [
+    "Free app, cheap used stuff saves me money.",
+    "It's free and used items are cheaper, so I'll try it."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Haven't saved anything yet, not worth checking again.",
+    "No cheap finds in weeks, not saving me anything."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Free but useless so far, hasn't saved me yen.",
+    "Haven't saved anything yet, not worth my time."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Nothing cheap to buy, so why keep checking?",
+    "Haven't saved any money, so why keep it?"
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It already saved me money and it's free.",
+    "It saved me money already and costs nothing to keep."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "It already saved me cash, so I'll keep checking this week.",
+    "It worked, it's free, and I get cheap stuff nearby."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.85,
+    "stop_using": 0.15
+   },
+   "reasons": [
+    "Got a cheap deal once, it's free so why quit?",
+    "It already saved me money and it's free."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.5,
+    "ignore": 0.5
+   },
+   "reasons": [
+    "Fees take my earnings and nothing proves I'll save.",
+    "No fees and free to try, so it saves me money."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "No sales in weeks and almost no buyers, not worth it.",
+    "Haven't sold anything, it's not saving me money."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "No sales in weeks, so no savings for me.",
+    "No sales yet, so no savings for me."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Nobody buying near me, not worth my effort.",
+    "No buyers nearby, wasting my time listing for nothing."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.825,
+    "stop_using": 0.175
+   },
+   "reasons": [
+    "No fees now and I already sold something, so why quit?",
+    "Sold one already with no fees, so listing again costs nothing."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.91,
+    "stop_using": 0.09
+   },
+   "reasons": [
+    "It's free and already paid me, so I stay.",
+    "It already paid me and costs nothing to list."
+   ]
+  },
+  "[\"case_8\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.825,
+    "stop_using": 0.175
+   },
+   "reasons": [
+    "It\u2019s free, no fees, and I already got paid once.",
+    "It sold once and costs nothing, so I'll list again."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.47500000000000003,
+    "skip": 0.525
+   },
+   "reasons": [
+    "Last time was meh and full price now, though nearby helps.",
+    "Need it fast nearby, so I'll risk it once more."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "It worked last time and I need it nearby now.",
+    "Need it now nearby and last time worked, so yeah."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.89,
+    "skip": 0.11
+   },
+   "reasons": [
+    "Need it now, it's free, and I love trying apps first.",
+    "Need it now, it's close, free, and I love trying first."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.9,
+    "ignore": 0.1
+   },
+   "reasons": [
+    "I love new apps and cheap finds, let's try it!",
+    "Free, cheap finds, and I love trying apps first!"
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Tried it first, found nothing worth buying, moving on.",
+    "No deals yet so I'll probably delete it soon."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "It's free so I'll give it another week",
+    "It's free, lots of sellers, might still score a deal."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "Tried it first, nothing good nearby, moving on.",
+    "No cost to lurk, maybe deals pop up soon."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Got a cheap win already, want to show friends next.",
+    "Found cheap stuff already, want to show friends first."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.925,
+    "stop_using": 0.07500000000000001
+   },
+   "reasons": [
+    "It's free, works, and I found deals before anyone else.",
+    "It worked, it's free, and I found cheap stuff fast."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.75,
+    "stop_using": 0.25
+   },
+   "reasons": [
+    "I'm early, it worked once, why quit now?",
+    "Got a cheap win already, still free to browse."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.9,
+    "ignore": 0.1
+   },
+   "reasons": [
+    "Gotta be first to try selling, sounds easy.",
+    "Gotta be first to try it, listing looks super easy."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.725,
+    "stop_using": 0.275
+   },
+   "reasons": [
+    "It's free, still new, I want to be first to sell.",
+    "It's free and I still want to beat my friends to a sale."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "It's free, buyers are close, I want to sell first.",
+    "Still free and buzzing, want to score a sale before friends do."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.5,
+    "stop_using": 0.5
+   },
+   "reasons": [
+    "It's free so I'll keep my listings up a bit longer.",
+    "Tried it first, but no buyers here yet."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Sold already with zero fees, gotta show friends first!",
+    "Sold something already, it's fun to show friends first!"
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.915,
+    "stop_using": 0.085
+   },
+   "reasons": [
+    "It's free, sold stuff fast, and I'm ahead of friends.",
+    "It's working already and I found it first."
+   ]
+  },
+  "[\"case_8\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "I'm early, sold something, it's free\u2014still fun to try.",
+    "Sold one already and it's free, I'll keep listing first."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.3,
+    "skip": 0.7
+   },
+   "reasons": [
+    "Last time was meh and full price now, I'll pass.",
+    "Last time was meh and now full price, I'll pass."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.825,
+    "skip": 0.175
+   },
+   "reasons": [
+    "Needed it this week, last time was easy and seller's close.",
+    "Worked last time and seller's close, so why not."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.835,
+    "skip": 0.16499999999999998
+   },
+   "reasons": [
+    "It's free, nearby, and I need it this week.",
+    "Need it now, it's close and free so why not."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.7,
+    "ignore": 0.3
+   },
+   "reasons": [
+    "Free and cheap sounds good, I'll check it quickly.",
+    "Sounds easy and free, I\u2019d check for cheap deals."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Haven't found anything good, don't have time this week.",
+    "Free but found nothing good, too busy to keep checking."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.65,
+    "stop_using": 0.35000000000000003
+   },
+   "reasons": [
+    "It's free and lots near me, one more look.",
+    "It's free and there's lots around, so one more look."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Nothing to buy near me, so why bother checking?",
+    "No sellers nearby, so I can't buy anything cheap."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.865,
+    "stop_using": 0.135
+   },
+   "reasons": [
+    "It saved me money already, so I'll keep checking.",
+    "It's free and I already scored a cheap find."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Got a good deal already, so I'll keep browsing this week.",
+    "Found a good deal already, so I'll check again."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.225,
+    "stop_using": 0.775
+   },
+   "reasons": [
+    "Got one cheap thing, but no one selling near me now.",
+    "Got one deal but it's empty around here."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.675,
+    "ignore": 0.32499999999999996
+   },
+   "reasons": [
+    "It's free and looks quick to list my old clothes for cash.",
+    "Free and looks easy, I'll list one thing to test."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.2,
+    "stop_using": 0.8
+   },
+   "reasons": [
+    "No sales for weeks, barely any buyers, waste of time.",
+    "Listed weeks ago, nothing sold, I'm done checking this."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.475,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "I'm busy and nothing sold, so I'm done.",
+    "It's free, easy to list, and lots of buyers are close by."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.125,
+    "stop_using": 0.875
+   },
+   "reasons": [
+    "Nobody's buying, I don't have time for this.",
+    "Listed for weeks, zero bites, got better things to do."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Sold one already, it's free, so I'll list more.",
+    "Sold one already, it's free and easy, why stop?"
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Made money already and listing takes seconds, why stop?",
+    "It already sold, it's free, so I'll list more."
+   ]
+  },
+  "[\"case_8\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.5,
+    "stop_using": 0.5
+   },
+   "reasons": [
+    "Got one sale but no buyers around, not worth my time.",
+    "Got paid once and it's free, so why quit yet?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.175,
+    "skip": 0.825
+   },
+   "reasons": [
+    "Last time wasn't worth it, not paying full price now.",
+    "Last time wasn't worth it, full price now feels wasteful."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.625,
+    "skip": 0.375
+   },
+   "reasons": [
+    "Six bucks is okay since it actually helped last time.",
+    "Six dollars still beats figuring it out myself."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.25,
+    "skip": 0.75
+   },
+   "reasons": [
+    "Not paying lunch money to a stranger without clear savings.",
+    "Why pay for advice when I can find it free?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.45,
+    "ignore": 0.55
+   },
+   "reasons": [
+    "Six bucks for quick help beats paying a pro.",
+    "Six bucks for stranger advice doesn't clearly save me anything."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Haven't saved anything yet, why pay $6 again?",
+    "Wasted six bucks already, won't waste more."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Wasted weeks with no help, I'm not paying six bucks.",
+    "Paid already, got nothing, not wasting more lunch money."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Wasted weeks, nobody to help, not worth six bucks.",
+    "Nobody's actually there, why waste six dollars?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.7,
+    "stop_using": 0.3
+   },
+   "reasons": [
+    "It actually helped and it's cheaper than lunch, so why not?",
+    "Cheap and worked before, so I'll use it if I need help."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.75,
+    "stop_using": 0.25
+   },
+   "reasons": [
+    "It actually helped and six dollars is worth it.",
+    "It worked and it's only lunch money."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.47500000000000003,
+    "stop_using": 0.525
+   },
+   "reasons": [
+    "It actually helped and it's only lunch money.",
+    "It worked once, but six dollars adds up with so few options."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.15,
+    "ignore": 0.85
+   },
+   "reasons": [
+    "Free to list but pay is tiny, saves me nothing.",
+    "Sounds like work for lunch money minus fees, no thanks."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Free but useless so far, waste of my time.",
+    "Free but no sales and few buyers, not worth time."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Free but no sales yet for tiny pay, not worth it.",
+    "Haven't earned anything in weeks, so why bother?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "No buyers after weeks, not worth my time.",
+    "No buyers, no money, I'm done wasting time."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.7,
+    "stop_using": 0.3
+   },
+   "reasons": [
+    "Got paid once for free, but pay's tiny after their cut.",
+    "Got one sale for free, might as well try another week."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It's free and already paid me, so I'll keep it.",
+    "Free to list and I actually got paid."
+   ]
+  },
+  "[\"case_9\", \"a\", \"careful\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Free to list and already made lunch money.",
+    "It cost nothing and already paid me once."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.32499999999999996,
+    "skip": 0.675
+   },
+   "reasons": [
+    "Meh last time, and now full price? Not feeling it.",
+    "Already tried it, wasn't great, moving on to next thing."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.85,
+    "skip": 0.15
+   },
+   "reasons": [
+    "Worked last time and six bucks is nothing.",
+    "It worked before and six bucks is nothing for help now."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.875,
+    "skip": 0.125
+   },
+   "reasons": [
+    "I love trying new stuff first, and it's only lunch money!",
+    "Only six bucks to try it first? I'm in."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.875,
+    "ignore": 0.125
+   },
+   "reasons": [
+    "New launch? I have to try it before anyone else.",
+    "Gotta try it before my friends do!"
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.675,
+    "stop_using": 0.32499999999999996
+   },
+   "reasons": [
+    "I wanna be first to make it work, it's only lunch money.",
+    "It's only lunch money and still feels new."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.675,
+    "stop_using": 0.32499999999999996
+   },
+   "reasons": [
+    "Plenty sellers around, gotta try again before friends do.",
+    "It's cheap and I love trying stuff first."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Fun to try first, but no one's here yet.",
+    "I've got better apps to try, this one's empty."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Worked great last time, can't wait to try more!",
+    "It worked, cheap fun, gotta try more before friends do."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Worked once, cheap fun, want to try more.",
+    "It worked and I want to try more before my friends do."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.825,
+    "stop_using": 0.175
+   },
+   "reasons": [
+    "It actually worked, I want to explore more first.",
+    "It worked and was cheap, I'll try it again."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.865,
+    "ignore": 0.135
+   },
+   "reasons": [
+    "Free to list, looks fun, I wanna try first!",
+    "Free to list, want to try it first!"
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.7,
+    "stop_using": 0.3
+   },
+   "reasons": [
+    "Still new, costs me nothing, might brag if it pops.",
+    "Free to keep listed, might still get discovered first."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "Still free and new, so I'll give it more time.",
+    "I want to be first among friends to make this work."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.525,
+    "stop_using": 0.475
+   },
+   "reasons": [
+    "Fun to try first, but nobody buying so meh.",
+    "Free to keep my listing up, might blow up soon."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Got a sale already, want to show friends first.",
+    "Got a sale already, want to show friends first."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.91,
+    "stop_using": 0.09
+   },
+   "reasons": [
+    "It's working already and I love showing friends first.",
+    "It already paid off and it's free to list."
+   ]
+  },
+  "[\"case_9\", \"a\", \"early\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "Got a sale already, costs me nothing to stay.",
+    "It actually paid and I'm early, staying in."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"no\"]]": {
+   "probs": {
+    "buy": 0.225,
+    "skip": 0.775
+   },
+   "reasons": [
+    "Last time was meh, not paying full price now.",
+    "Wasn't worth it last time, why pay more now?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"again\", \"yes\"]]": {
+   "probs": {
+    "buy": 0.825,
+    "skip": 0.175
+   },
+   "reasons": [
+    "Worked great last time, and I need help now.",
+    "It worked last time and six bucks is cheap."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"buy\", [\"first\", \"-\"]]": {
+   "probs": {
+    "buy": 0.7,
+    "skip": 0.3
+   },
+   "reasons": [
+    "It's only lunch money and I need it now.",
+    "Six dollars is cheap and I need help this week."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.2,
+    "ignore": 0.8
+   },
+   "reasons": [
+    "Six bucks for stranger advice? I'm too busy for that.",
+    "Cheap but busy, and I don't know if sellers are legit."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Tried for weeks, got nothing, not wasting lunch money.",
+    "Paid once for nothing, not wasting lunch money again."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.175,
+    "stop_using": 0.825
+   },
+   "reasons": [
+    "Wasted six bucks already, not trying again.",
+    "Tried it, got nothing useful, too busy to bother again."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.1,
+    "stop_using": 0.9
+   },
+   "reasons": [
+    "Nothing useful for me, not wasting another six bucks.",
+    "Wasted weeks already, nobody there, not trying again"
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.8,
+    "stop_using": 0.2
+   },
+   "reasons": [
+    "It worked and only costs lunch, so why not?",
+    "It worked and it's cheap, I'll try again."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.875,
+    "stop_using": 0.125
+   },
+   "reasons": [
+    "It worked, it's cheap, I'll try again.",
+    "Worked last time and it's cheap, so why not."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"demand\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.825,
+    "stop_using": 0.175
+   },
+   "reasons": [
+    "It worked and it's cheap, so I'll use it again.",
+    "It actually helped and six dollars is nothing."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"join\", \"-\"]": {
+   "probs": {
+    "join": 0.135,
+    "ignore": 0.865
+   },
+   "reasons": [
+    "Too busy for lunch-money work, not worth my time.",
+    "Not doing real work for pocket change, I'm too busy."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.15,
+    "stop_using": 0.85
+   },
+   "reasons": [
+    "Waste of time for lunch money, got no orders anyway.",
+    "Haven't earned anything, too busy to bother anymore."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.44999999999999996,
+    "stop_using": 0.55
+   },
+   "reasons": [
+    "It's free, so leaving my listing up costs nothing.",
+    "Busy week, no sales yet for pocket change, I'm done."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"no\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.15000000000000002,
+    "stop_using": 0.8500000000000001
+   },
+   "reasons": [
+    "Three weeks, zero buyers, not worth my time.",
+    "Free but zero sales and no buyers, so I'm done."
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"few\"]]": {
+   "probs": {
+    "keep_using": 0.55,
+    "stop_using": 0.45
+   },
+   "reasons": [
+    "Not worth my time for lunch money this week.",
+    "Got paid once, listing's free so why quit now?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"many\"]]": {
+   "probs": {
+    "keep_using": 0.9,
+    "stop_using": 0.1
+   },
+   "reasons": [
+    "Got paid already, costs nothing to keep listing.",
+    "Got paid quick, free to list, so why quit now?"
+   ]
+  },
+  "[\"case_9\", \"a\", \"ordinary\", \"supply\", \"stay\", [\"yes\", \"none\"]]": {
+   "probs": {
+    "keep_using": 0.835,
+    "stop_using": 0.16499999999999998
+   },
+   "reasons": [
+    "It already paid me once and keeping it costs nothing.",
+    "It\u2019s free and I already got paid once."
+   ]
   }
  }
 }
