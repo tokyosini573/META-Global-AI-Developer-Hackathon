@@ -1,0 +1,47 @@
+{
+ "case_1": {
+  "confidence": 0.85,
+  "guess": "Uber",
+  "recognized": false
+ },
+ "case_2": {
+  "confidence": 0.9,
+  "guess": "unknown",
+  "recognized": false
+ },
+ "case_3": {
+  "confidence": 0.6,
+  "guess": "Washio",
+  "recognized": true
+ },
+ "case_4": {
+  "confidence": 0.95,
+  "guess": "Mercari",
+  "recognized": true
+ },
+ "case_5": {
+  "confidence": 0.95,
+  "guess": "Uber",
+  "recognized": false
+ },
+ "case_6": {
+  "confidence": 0.95,
+  "guess": "Uber",
+  "recognized": false
+ },
+ "case_7": {
+  "confidence": 0.9,
+  "guess": "Shyp",
+  "recognized": true
+ },
+ "case_8": {
+  "confidence": 0.95,
+  "guess": "Mercari",
+  "recognized": false
+ },
+ "case_9": {
+  "confidence": 0.85,
+  "guess": "Coconala",
+  "recognized": true
+ }
+}

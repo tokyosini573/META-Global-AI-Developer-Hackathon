@@ -16,6 +16,7 @@ MODEL = "muse-spark-1.3-contributor"
 EFFORT = "medium"
 REPEATS = 2
 TABLE = Path(__file__).resolve().parent.parent.parent / "data" / "decisions" / "backtest_spark.json"
+GENERIC_TABLE = TABLE.with_name("backtest_spark_generic.json")
 
 SYSTEM = (
     "You simulate one specific real person deciding what to do with a new service. Stay in character. "
@@ -51,10 +52,26 @@ def _price_text(v, side, case):
     return "It is free to use."
 
 
-def situation_text(case, variant, side, decision, situation):
+def generic_description(case, variant):
+    """Anonymization test: a description built only from the case's structured fields (the two sides,
+    country, one city or nationwide). No era, no product features, no city names, no history."""
+    v = case["variants"][variant]
+    d, s = case["sides"]["demand"]["label"], case["sides"]["supply"]["label"]
+    country = {"us": "the United States", "jp": "Japan"}[v["market"]]
+    if v.get("nationwide") or not v.get("cities"):
+        where = f"It is available across {country}."
+    else:
+        more = len(v["cities"]) - 1
+        where = f"It opens in one city in {country} first" + (
+            f" and adds {more} more {'city' if more == 1 else 'cities'} over the following months." if more else ".")
+    return f"A new phone app that connects {d} with {s}. {where}"
+
+
+def situation_text(case, variant, side, decision, situation, generic=False):
     v = case["variants"][variant]
     me = case["sides"][side]["label"]
-    text = f"About the service: {case['description'].strip()}\nYou are one of the {me}. {_price_text(v, side, case)}\n"
+    about = generic_description(case, variant) if generic else case["description"].strip()
+    text = f"About the service: {about}\nYou are one of the {me}. {_price_text(v, side, case)}\n"
     if decision == "join":
         return text + "You just came across it through its launch. Do you sign up and try it?"
     if decision == "buy":
@@ -85,12 +102,12 @@ def _schema(actions):
                 "reason": {"type": "string", "description": "One short sentence in your own voice, under 15 words."}}}
 
 
-def _ask(env, case, key):
+def _ask(env, case, key, generic=False):
     _, variant, type_id, side, decision, situation = key
     actions = OPTIONS[decision]
     body = {"model": MODEL, "reasoning_effort": EFFORT, "max_tokens": 6000,
             "messages": [{"role": "system", "content": SYSTEM + "\n\n" + TYPES[type_id]},
-                         {"role": "user", "content": situation_text(case, variant, side, decision, situation)}],
+                         {"role": "user", "content": situation_text(case, variant, side, decision, situation, generic)}],
             "response_format": {"type": "json_schema",
                                 "json_schema": {"name": "decision", "strict": True, "schema": _schema(actions)}}}
     for attempt in range(4):
@@ -112,8 +129,10 @@ def key_str(key):
 
 
 class BacktestDecisions:
-    def __init__(self, cases, table=TABLE):
+    def __init__(self, cases, generic=False):
         self.cases = cases
+        self.generic = generic
+        table = GENERIC_TABLE if generic else TABLE
         self.path = table
         self.entries = json.loads(table.read_text())["entries"] if table.exists() else {}
 
@@ -127,7 +146,7 @@ class BacktestDecisions:
         env = load_env()
         jobs = [k for k in todo for _ in range(REPEATS)]
         with ThreadPoolExecutor(max_workers=workers) as pool:
-            answers = list(pool.map(lambda k: _ask(env, self.cases[k[0]], k), jobs))
+            answers = list(pool.map(lambda k: _ask(env, self.cases[k[0]], k, self.generic), jobs))
         for i, key in enumerate(todo):
             got = answers[i * REPEATS:(i + 1) * REPEATS]
             actions = OPTIONS[key[4]]
@@ -137,5 +156,6 @@ class BacktestDecisions:
                                           "reasons": [x["reason"] for x in got]}
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.write_text(json.dumps({"model": MODEL, "reasoning_effort": EFFORT, "repeats": REPEATS,
+                                         "description": "generic" if self.generic else "name-removed",
                                          "entries": dict(sorted(self.entries.items()))}, indent=1))
         return len(todo)
