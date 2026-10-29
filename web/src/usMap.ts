@@ -1,4 +1,4 @@
-// 미국 본토 투영과 하프톤 점. 지도 자체를 점으로 그린다 (05_디자인원칙.md 1장, good6).
+// Contiguous-US projection and halftone dots. The map itself is drawn as dots.
 import { geoAlbers, geoPath, type GeoProjection } from 'd3-geo'
 import { merge } from 'topojson-client'
 import type { GeometryCollection, Topology } from 'topojson-specification'
@@ -8,7 +8,7 @@ export const MAP_W = 864
 export const MAP_H = 464
 const GRID = 11
 
-// 알래스카, 하와이, 해외 영토는 뺀다
+// Leave out Alaska, Hawaii and overseas territories
 const OUTSIDE = new Set(['02', '15', '60', '66', '69', '72', '78'])
 
 const topo = states as unknown as Topology<{ states: GeometryCollection }>
@@ -20,7 +20,7 @@ export const projection: GeoProjection = geoAlbers().fitExtent([[8, 8], [MAP_W -
 
 export const project = (lon: number, lat: number): [number, number] => projection([lon, lat]) ?? [-99, -99]
 
-// 땅 위의 격자점 (한 번만 계산)
+// Grid points on land (computed once)
 export const halftone: [number, number][] = (() => {
   const c = document.createElement('canvas')
   c.width = MAP_W

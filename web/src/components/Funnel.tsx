@@ -2,7 +2,7 @@ import { FUNNEL_STAGES, funnelAt, PLANS, type Replay } from '../replay'
 
 const W = 1792, H = 136, TOP = 32, ROW = 44, GAP = 8
 
-// 계획별 강물 한 줄. 두께가 그 단계에 남은 사람 수.
+// One river per plan. Thickness = people still in at that step.
 function river(f: number[], total: number, cy: number) {
   const step = W / (f.length - 1)
   const hw = (v: number) => Math.max(1.5, (v / total) * ROW / 2)

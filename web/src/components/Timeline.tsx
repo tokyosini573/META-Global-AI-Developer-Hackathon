@@ -3,7 +3,7 @@ import type { Replay } from '../replay'
 
 const W = 1792, X0 = 64, LEN = W - X0
 
-// 계획 A 사건은 선 위, 계획 B 사건은 선 아래. 선을 누르거나 끌면 그날로 이동.
+// Plan A events above the line, Plan B below. Click or drag the line to jump to that day.
 export function Timeline({ replay, t, playing, onSeek, onToggle }: {
   replay: Replay
   t: number

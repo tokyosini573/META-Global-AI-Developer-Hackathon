@@ -1,7 +1,7 @@
-"""자리 표시 리플레이 생성기.
+"""Placeholder replay generator.
 
-진짜 엔진이 나오기 전까지 화면을 만들고 점검하기 위한 가짜 데이터.
-형식은 docs/replay-format.md. 표준 라이브러리만 쓴다.
+Fake data for building and checking the screen until the real engine exists.
+Format: docs/replay-format.md. Standard library only.
 
     python3 engine/fake_replay.py
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 DAYS = 90
 OUT = Path(__file__).resolve().parent.parent / "web" / "public" / "replays" / "demo.json"
 
-# 미국 본토 대략 외곽선 (경도, 위도). 시골 사람 위치를 뽑을 때만 쓴다.
+# Rough outline of the contiguous US (lon, lat). Only used to place rural people.
 US = [(-124.7, 48.4), (-122.8, 49), (-95.2, 49), (-94.8, 49.3), (-89.6, 48), (-84.9, 46.9), (-83.5, 46),
       (-82.5, 45.3), (-82.1, 43), (-79, 42.9), (-76.5, 44.2), (-74.9, 45), (-71.5, 45), (-70, 46.7), (-69.2, 47.4),
       (-67.8, 47.1), (-67, 44.8), (-70.6, 43.1), (-70.2, 41.7), (-73.7, 40.6), (-74, 39.6), (-75.5, 38.5), (-76, 37),
@@ -23,7 +23,7 @@ US = [(-124.7, 48.4), (-122.8, 49), (-95.2, 49), (-94.8, 49.3), (-89.6, 48), (-8
       (-111, 31.3), (-114.8, 32.5), (-117.1, 32.5), (-118.5, 34), (-120.6, 34.6), (-122.5, 37.5), (-123.8, 39.8),
       (-124.2, 41.9), (-124.1, 43.7), (-124, 46.2)]
 
-# (이름, 경도, 위도, 가중치)
+# (name, lon, lat, weight)
 METROS = [("New York, New York", -74, 40.7, 8), ("Los Angeles, California", -118.2, 34, 6),
           ("Chicago, Illinois", -87.6, 41.9, 4), ("Houston, Texas", -95.4, 29.8, 3),
           ("Phoenix, Arizona", -112, 33.4, 2.5), ("Philadelphia, Pennsylvania", -75.2, 40, 2),
@@ -38,14 +38,14 @@ METROS = [("New York, New York", -74, 40.7, 8), ("Los Angeles, California", -118
           ("Nashville, Tennessee", -86.8, 36.2, 1.5), ("Denver, Colorado", -105, 39.7, 2),
           ("Austin, Texas", -97.7, 30.3, 2)]
 
-# 계획 B의 도시: (이름, 경도, 위도, 시작일, 인원, 퍼짐)
+# Plan B cities: (name, lon, lat, start day, people, spread)
 B_CITIES = [("Austin, Texas", -97.7, 30.3, 0, 450, 1.1), ("Denver, Colorado", -105, 39.7, 30, 330, 1.0),
             ("Nashville, Tennessee", -86.8, 36.2, 60, 220, 0.9)]
 
 NAMES = ["Maya", "Jordan", "Sam", "Alex", "Riley", "Taylor", "Chris", "Jamie", "Morgan", "Casey", "Avery", "Drew",
          "Priya", "Luis", "Ana", "Marcus", "Jasmine", "Tyler", "Nina", "Omar", "Grace", "Ethan", "Leah", "Kevin"]
 
-MAYA_ID = 482  # 데모 영상 장면 5에서 누르는 사람
+MAYA_ID = 482  # the person clicked in scene 5 of the demo video
 
 
 def inside(lon, lat):
@@ -79,7 +79,7 @@ def person(r, pid, place, lon, lat, reached):
 
 
 def live(r, p, p_install, p_match, match_delay, p_quit_matched, p_quit_alone, pay):
-    """한 사람의 90일. pay(installed, quit) -> 결제일 또는 None."""
+    """One person's 90 days. pay(installed, quit) -> payment day or None."""
     if r.random() >= p_install:
         return
     installed = p["reached"] + r.expovariate(2)
@@ -90,7 +90,7 @@ def live(r, p, p_install, p_match, match_delay, p_quit_matched, p_quit_alone, pa
         quit_day = installed + r.uniform(0.5, 7) if r.random() < p_quit_alone else None
     paid = pay(installed, quit_day)
     if paid is not None and paid <= DAYS:
-        quit_day = None  # v1: 결제자는 떠나지 않는다
+        quit_day = None  # v1: payers never quit
     p["installed"] = day_or_none(installed)
     p["matched"] = day_or_none(matched) if p["installed"] is not None else None
     p["quit"] = day_or_none(quit_day) if p["installed"] is not None else None
@@ -101,7 +101,7 @@ def plan_a(r):
     total = sum(m[3] for m in METROS)
     people = []
     for pid in range(1000):
-        reached = r.uniform(0, 60)  # 전국 광고는 60일 동안 고르게 집행
+        reached = r.uniform(0, 60)  # nationwide ads run evenly over 60 days
         if r.random() < 0.18:
             while True:
                 lon, lat = r.uniform(-125, -66.5), r.uniform(24.5, 49.5)
@@ -116,7 +116,7 @@ def plan_a(r):
                 k += 1
             name, lon, lat, _ = METROS[k]
             p = person(r, pid, name, *place_near(r, lon, lat, 0.7), reached)
-            # 첫날부터 유료: 설치 직후 결제하거나, 아니면 하루 5번 스와이프로 버틴다
+            # paid from day 1: pay right after install, or live on 5 swipes a day
             live(r, p, 0.62, 0.36, (1, 10), 0.8, 0.95,
                  lambda i, q: i + r.uniform(0, 2) if r.random() < 0.045 else None)
         people.append(p)
@@ -133,7 +133,7 @@ def plan_b(r):
             p = person(r, pid, name, *place_near(r, lon, lat, spread), start + r.uniform(0, 20))
 
             def pay(installed, quit_day):
-                trial_end = installed + 30  # 30일 무료
+                trial_end = installed + 30  # 30 days free
                 if quit_day is not None and quit_day < trial_end:
                     return None
                 return trial_end + r.uniform(0, 3) if r.random() < 0.09 else None
@@ -145,7 +145,7 @@ def plan_b(r):
 
 
 def pair_matches(r, people):
-    """같은 동네에서 매칭된 사람끼리 짝을 지어 선으로 그린다."""
+    """Pair people matched in the same area so they can be drawn as lines."""
     by_place = {}
     for p in people:
         if p["matched"] is not None and p["place"] != "Small town":
