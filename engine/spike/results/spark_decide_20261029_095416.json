@@ -1,0 +1,226 @@
+[
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3",
+  "effort": "default",
+  "status": 200,
+  "seconds": 6.38,
+  "in": 710,
+  "out": 1328,
+  "reasoning": 1270,
+  "usd": 0.0065315,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby",
+   "probabilities": {
+    "install": 0.1,
+    "scroll_past": 0.9
+   },
+   "reason": "I'm lonely but I'm broke and over dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3",
+  "effort": "default",
+  "status": 200,
+  "seconds": 7.24,
+  "in": 766,
+  "out": 1500,
+  "reasoning": 1498,
+  "usd": 0.0073325,
+  "finish": "length",
+  "error": "parse: the JSON object must be str, bytes or bytearray, not NoneType: None"
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3",
+  "effort": "default",
+  "status": 200,
+  "seconds": 7.43,
+  "in": 766,
+  "out": 1500,
+  "reasoning": 1498,
+  "usd": 0.0073325,
+  "finish": "length",
+  "error": "parse: the JSON object must be str, bytes or bytearray, not NoneType: None"
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 2.4,
+  "in": 710,
+  "out": 325,
+  "reasoning": 268,
+  "usd": 0.00226875,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.68,
+    "scroll_past": 0.32
+   },
+   "reason": "I'm new here and free sounds worth trying."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 2.18,
+  "in": 766,
+  "out": 300,
+  "reasoning": 230,
+  "usd": 0.0022325,
+  "finish": "stop",
+  "answer": {
+   "noticed": "0 matches",
+   "probabilities": {
+    "come_back_tomorrow": 0.18,
+    "delete_app": 0.8,
+    "pay": 0.02
+   },
+   "reason": "No matches, far away, and they want ten bucks? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 2.34,
+  "in": 766,
+  "out": 429,
+  "reasoning": 360,
+  "usd": 0.00278075,
+  "finish": "stop",
+  "answer": {
+   "noticed": "gray blank profile with no photo",
+   "probabilities": {
+    "come_back_tomorrow": 0.35,
+    "delete_app": 0.6,
+    "pay": 0.05
+   },
+   "reason": "Boring blank guy after three days of nothing."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "default",
+  "status": 200,
+  "seconds": 14.34,
+  "in": 710,
+  "out": 1494,
+  "reasoning": 1434,
+  "usd": 0.0003698,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.3,
+    "scroll_past": 0.7
+   },
+   "reason": "I need friends here but free to try sounds sketchy."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "default",
+  "status": 200,
+  "seconds": 15.67,
+  "in": 766,
+  "out": 1500,
+  "reasoning": 1498,
+  "usd": 0.00037660000000000005,
+  "finish": "length",
+  "error": "parse: the JSON object must be str, bytes or bytearray, not NoneType: None"
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "default",
+  "status": 200,
+  "seconds": 16.66,
+  "in": 766,
+  "out": 1500,
+  "reasoning": 1498,
+  "usd": 0.00037660000000000005,
+  "finish": "length",
+  "error": "parse: the JSON object must be str, bytes or bytearray, not NoneType: None"
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 4.38,
+  "in": 710,
+  "out": 338,
+  "reasoning": 280,
+  "usd": 0.00013860000000000004,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Swipe less. Meet more.",
+   "probabilities": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reason": "Sounds nice but I'm broke and tired of dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 4.23,
+  "in": 766,
+  "out": 329,
+  "reasoning": 260,
+  "usd": 0.00014240000000000002,
+  "finish": "stop",
+  "answer": {
+   "noticed": "0 matches",
+   "probabilities": {
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.75,
+    "pay": 0.05
+   },
+   "reason": "Three days, zero matches, now they want money? I'm done."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "minimal",
+  "status": 200,
+  "seconds": 5.51,
+  "in": 766,
+  "out": 377,
+  "reasoning": 307,
+  "usd": 0.000152,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.85,
+    "delete_app": 0.1,
+    "pay": 0.05
+   },
+   "reason": "Finally a match and Sam's cute and close, so I'm staying."
+  },
+  "prob_sum": 1.0
+ }
+]

@@ -1,0 +1,69 @@
+<!doctype html>
+<!-- 스파이크용 가상 앱(Kindred, 가칭) 화면 3장. 390×844 로 찍어서 Spark 에 보여 준다.
+     ?s=ad | paywall | nearby   (그림 속 앱 화면이므로 디자인 크기 규칙 예외) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 390px; height: 844px; background: #0A0B0D; color: #E8EAED; font-family: Geist, system-ui, sans-serif; overflow: hidden; position: relative; }
+  .status { height: 48px; padding: 16px 24px 0; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; color: #fff; }
+  .top { padding: 8px 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-size: 22px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+  .chip { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #1A1D22; color: #B8BCC4; }
+  .card { margin: 16px 16px 0; height: 520px; border-radius: 20px; background: #1A1D22; position: relative; overflow: hidden; position: relative; }
+  .photo { position: absolute; inset: 0 0 120px; background: linear-gradient(160deg, #3A3F48, #23262D); }
+  .photo svg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); }
+  .who { position: absolute; left: 20px; bottom: 64px; font-size: 26px; font-weight: 600; color: #fff; }
+  .where { position: absolute; left: 20px; bottom: 36px; font-size: 16px; color: #B8BCC4; }
+  .bio { position: absolute; left: 20px; right: 20px; bottom: 12px; font-size: 13px; color: #6B7280; }
+  .buttons { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+  .btn { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid #2E323A; }
+  .btn.like { background: #fff; border: none; }
+  .bar { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px 32px; background: #121418; border-top: 1px solid #23262D; }
+  .bar .t { font-size: 15px; color: #fff; font-weight: 500; }
+  .bar .s { font-size: 13px; color: #6B7280; margin-top: 4px; }
+  .cta { margin-top: 14px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 17px; font-weight: 600; }
+  /* 틱톡 광고 */
+  .ad { position: absolute; inset: 0; background: linear-gradient(180deg, #1B2233 0%, #0A0B0D 70%); }
+  .ad h1 { position: absolute; left: 24px; right: 72px; top: 240px; font-size: 52px; line-height: 1.02; letter-spacing: -.03em; color: #fff; font-weight: 600; }
+  .ad .sub { position: absolute; left: 24px; right: 72px; top: 362px; font-size: 18px; color: #B8BCC4; }
+  .ad .rail { position: absolute; right: 14px; bottom: 220px; display: flex; flex-direction: column; gap: 22px; align-items: center; font-size: 12px; color: #fff; }
+  .ad .rail i { display: block; width: 40px; height: 40px; border-radius: 50%; background: #2E323A; margin-bottom: 4px; }
+  .ad .meta { position: absolute; left: 16px; right: 80px; bottom: 116px; font-size: 15px; color: #fff; }
+  .ad .meta b { font-weight: 600; } .ad .meta span { color: #B8BCC4; font-size: 13px; }
+  .ad .install { position: absolute; left: 16px; right: 16px; bottom: 48px; height: 48px; border-radius: 8px; background: #fff; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+</style>
+</head>
+<body>
+<script>
+const s = new URLSearchParams(location.search).get('s') || 'paywall'
+const status = `<div class="status"><span>9:41</span><span>●●●● 5G ▮</span></div>`
+const person = `<svg width="140" height="170" viewBox="0 0 140 170"><circle cx="70" cy="52" r="40" fill="#4A505A"/><path d="M0 170 C0 110 140 110 140 170 Z" fill="#4A505A"/></svg>`
+const buttons = `<div class="buttons">
+  <div class="btn"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 4 L18 18 M18 4 L4 18" stroke="#B8BCC4" stroke-width="2"/></svg></div>
+  <div class="btn like"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M13 23 C2 15 3 4 9 4 C12 4 13 7 13 7 C13 7 14 4 17 4 C23 4 24 15 13 23 Z" fill="#0A0B0D"/></svg></div></div>`
+const screens = {
+  // 계획 A 의 전국 틱톡 광고
+  ad: `<div class="ad">${status}
+    <h1>Swipe less.<br>Meet more.</h1>
+    <div class="sub">Real people who are actually nearby.</div>
+    <div class="rail"><div><i></i>12.4K</div><div><i></i>318</div><div><i></i>Share</div></div>
+    <div class="meta"><b>Kindred</b> · Sponsored<br><span>Dating, minus the endless scrolling. Free to try.</span></div>
+    <div class="install">Install</div></div>`,
+  // 계획 A: 콜럼버스, 3일째, 매치 없음, 무료 스와이프 소진
+  paywall: `${status}<div class="top"><span class="brand">Kindred</span><span class="chip">0 matches</span></div>
+    <div class="card"><div class="photo">${person}</div><div class="who">Jordan, 26</div><div class="where">41 miles away</div><div class="bio">Nearest person who matches your settings</div></div>
+    <div class="bar"><div class="t">You've used 5 of 5 free swipes today</div><div class="s">More people may join near you soon.</div>
+      <div class="cta" style="background:#F2A93B;color:#0A0B0D">Unlimited swipes · $9.99/week</div></div>`,
+  // 계획 B: 오스틴, 3일째, 무료 체험 중, 가까운 사람과 매치 1
+  nearby: `${status}<div class="top"><span class="brand">Kindred</span><span class="chip">1 new match</span></div>
+    <div class="card"><div class="photo">${person}</div><div class="who">Sam, 27</div><div class="where">2 miles away</div><div class="bio">Also goes to the climbing gym on 5th St</div></div>
+    ${buttons}
+    <div class="bar"><div class="t">Free for 30 days · 27 days left</div><div class="s">Unlimited swipes during your free month. $9.99/week after.</div></div>`,
+}
+document.body.innerHTML = screens[s]
+</script>
+</body>
+</html>

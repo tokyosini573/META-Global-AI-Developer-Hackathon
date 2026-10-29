@@ -1,0 +1,522 @@
+[
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 8.67,
+  "in": 728,
+  "out": 721,
+  "reasoning": 662,
+  "usd": 0.000217,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.18,
+    "scroll_past": 0.82
+   },
+   "reason": "Free to try always means pay later and I'm broke."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 6.89,
+  "in": 728,
+  "out": 636,
+  "reasoning": 576,
+  "usd": 0.0002,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.25,
+    "scroll_past": 0.75
+   },
+   "reason": "I want people nearby but I'm broke and over dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 8.67,
+  "in": 728,
+  "out": 789,
+  "reasoning": 731,
+  "usd": 0.00023060000000000002,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.65,
+    "scroll_past": 0.35
+   },
+   "reason": "I'm new here and so over endless swiping."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 6.46,
+  "in": 728,
+  "out": 513,
+  "reasoning": 456,
+  "usd": 0.0001754,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.35,
+    "scroll_past": 0.65
+   },
+   "reason": "cute but I'm tired and over dating apps already"
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 6.8,
+  "in": 790,
+  "out": 601,
+  "reasoning": 529,
+  "usd": 0.0001992,
+  "finish": "stop",
+  "answer": {
+   "noticed": "41 miles away",
+   "probabilities": {
+    "come_back_tomorrow": 0.18,
+    "delete_app": 0.8,
+    "pay": 0.02
+   },
+   "reason": "Nobody close, no matches, and they want ten bucks? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 6.54,
+  "in": 790,
+  "out": 653,
+  "reasoning": 580,
+  "usd": 0.0002096,
+  "finish": "stop",
+  "answer": {
+   "noticed": "41 miles away",
+   "probabilities": {
+    "come_back_tomorrow": 0.14,
+    "delete_app": 0.85,
+    "pay": 0.01
+   },
+   "reason": "Nobody close, no matches, and now they want ten bucks? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 7.38,
+  "in": 790,
+  "out": 667,
+  "reasoning": 596,
+  "usd": 0.0002124,
+  "finish": "stop",
+  "answer": {
+   "noticed": "41 miles away",
+   "probabilities": {
+    "come_back_tomorrow": 0.18,
+    "delete_app": 0.8,
+    "pay": 0.02
+   },
+   "reason": "No matches, everyone's far, and they want my money? Bye."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 7.07,
+  "in": 790,
+  "out": 564,
+  "reasoning": 493,
+  "usd": 0.0001918,
+  "finish": "stop",
+  "answer": {
+   "noticed": "41 miles away",
+   "probabilities": {
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.8,
+    "pay": 0.01
+   },
+   "reason": "No matches, too far, and they want ten bucks? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 10.15,
+  "in": 783,
+  "out": 861,
+  "reasoning": 790,
+  "usd": 0.0002505,
+  "finish": "stop",
+  "answer": {
+   "noticed": "blank gray silhouette instead of a photo",
+   "probabilities": {
+    "come_back_tomorrow": 0.28,
+    "delete_app": 0.7,
+    "pay": 0.02
+   },
+   "reason": "No photo and ten bucks a week? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 11.65,
+  "in": 783,
+  "out": 939,
+  "reasoning": 865,
+  "usd": 0.0002661,
+  "finish": "stop",
+  "answer": {
+   "noticed": "$9.99/week after",
+   "probabilities": {
+    "come_back_tomorrow": 0.8,
+    "delete_app": 0.15,
+    "pay": 0.05
+   },
+   "reason": "Free for now and finally a local match, but no way I'm paying that."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 12.42,
+  "in": 783,
+  "out": 1083,
+  "reasoning": 1017,
+  "usd": 0.0002949,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.8,
+    "delete_app": 0.15,
+    "pay": 0.05
+   },
+   "reason": "Finally a match, but that price is insane."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "low",
+  "status": 200,
+  "seconds": 13.75,
+  "in": 783,
+  "out": 1168,
+  "reasoning": 1100,
+  "usd": 0.00031190000000000005,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.55,
+    "delete_app": 0.4,
+    "pay": 0.05
+   },
+   "reason": "Finally a match, but no photo and way too expensive."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 11.13,
+  "in": 728,
+  "out": 1037,
+  "reasoning": 979,
+  "usd": 0.0002802,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.18,
+    "scroll_past": 0.82
+   },
+   "reason": "Sounds nice but I'm broke and over dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 8.75,
+  "in": 728,
+  "out": 906,
+  "reasoning": 856,
+  "usd": 0.000254,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Swipe less. Meet more.",
+   "probabilities": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "reason": "Cute but I'm broke and sick of dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 15.95,
+  "in": 728,
+  "out": 1413,
+  "reasoning": 1353,
+  "usd": 0.0003554,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Real people who are actually nearby.",
+   "probabilities": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reason": "New here and lonely, free to try sounds worth it."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "ad",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 11.97,
+  "in": 728,
+  "out": 1069,
+  "reasoning": 1009,
+  "usd": 0.00028660000000000003,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Swipe less. Meet more.",
+   "probabilities": {
+    "install": 0.35,
+    "scroll_past": 0.65
+   },
+   "reason": "I want to meet people but I'm broke and over dating apps."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 21.83,
+  "in": 790,
+  "out": 2066,
+  "reasoning": 1995,
+  "usd": 0.0004922,
+  "finish": "stop",
+  "answer": {
+   "noticed": "41 miles away",
+   "probabilities": {
+    "come_back_tomorrow": 0.14,
+    "delete_app": 0.85,
+    "pay": 0.01
+   },
+   "reason": "Ten bucks a week for zero matches 40 miles away? Lol no."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 18.99,
+  "in": 790,
+  "out": 1729,
+  "reasoning": 1649,
+  "usd": 0.0004248,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Unlimited swipes • $9.99/week",
+   "probabilities": {
+    "come_back_tomorrow": 0.24,
+    "delete_app": 0.75,
+    "pay": 0.01
+   },
+   "reason": "Three days, no matches, everyone's far, and now ten bucks? Nope."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 15.71,
+  "in": 790,
+  "out": 1455,
+  "reasoning": 1379,
+  "usd": 0.00037,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Unlimited swipes · $9.99/week",
+   "probabilities": {
+    "come_back_tomorrow": 0.18,
+    "delete_app": 0.8,
+    "pay": 0.02
+   },
+   "reason": "I'm broke, bored, and still matchless after three days."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_a_paywall",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 17.44,
+  "in": 790,
+  "out": 1656,
+  "reasoning": 1581,
+  "usd": 0.00041020000000000005,
+  "finish": "stop",
+  "answer": {
+   "noticed": "Unlimited swipes · $9.99/week",
+   "probabilities": {
+    "come_back_tomorrow": 0.15,
+    "delete_app": 0.85,
+    "pay": 0.0
+   },
+   "reason": "No way I'm paying ten bucks for guys an hour away."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 15.56,
+  "in": 783,
+  "out": 1481,
+  "reasoning": 1413,
+  "usd": 0.0003745,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.85,
+    "delete_app": 0.12,
+    "pay": 0.03
+   },
+   "reason": "Finally a match close by, but that price is insane."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 17.45,
+  "in": 783,
+  "out": 1657,
+  "reasoning": 1592,
+  "usd": 0.00040970000000000004,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.8,
+    "delete_app": 0.18,
+    "pay": 0.02
+   },
+   "reason": "Finally a match who goes where I go!"
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 13.6,
+  "in": 783,
+  "out": 1237,
+  "reasoning": 1180,
+  "usd": 0.00032570000000000006,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.25,
+    "pay": 0.05
+   },
+   "reason": "Finally a match nearby, but I'm not paying that."
+  },
+  "prob_sum": 1.0
+ },
+ {
+  "case": "plan_b_nearby",
+  "model": "muse-spark-1.3-contributor",
+  "effort": "medium",
+  "status": 200,
+  "seconds": 15.16,
+  "in": 783,
+  "out": 1494,
+  "reasoning": 1426,
+  "usd": 0.0003771,
+  "finish": "stop",
+  "answer": {
+   "noticed": "1 new match",
+   "probabilities": {
+    "come_back_tomorrow": 0.78,
+    "delete_app": 0.2,
+    "pay": 0.02
+   },
+   "reason": "Finally someone nearby who climbs too, gotta check him out."
+  },
+  "prob_sum": 1.0
+ }
+]
