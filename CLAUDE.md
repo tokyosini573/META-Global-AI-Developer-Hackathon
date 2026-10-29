@@ -55,7 +55,12 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 ## Layout
 
 ```
-engine/    Python world engine (stdlib for now). fake_replay.py writes a placeholder replay.
+engine/    Python world engine. world/ = geo, decide (decision cache + providers), calibrate, sim, output; run.py = CLI.
+           fake_replay.py writes the old hand-made placeholder replay.
+plans/     Launch plans + market values (each value cites a rule id in rules/two_sided.md or a benchmark).
+rules/     Frozen rule cards (commit eef683f). Changing them must be recorded in the README.
+backtest/  Rule-set case facts given to the rule extractor.
+runs/      SQLite output per run (ignored by git).
 web/       Vite + React + TypeScript + Tailwind v4. Renders a replay.
 web/public/replays/   Replay JSON files the site plays (committed, so the demo survives without API credit).
 docs/replay-format.md The contract between engine and screen.
@@ -65,10 +70,13 @@ scripts/   shot.sh: 1920×1080 screenshots with headless Chrome.
 ## Commands
 
 ```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m engine.run --runs 30    # calibrate + Monte Carlo -> web/public/replays/engine.json, runs/engine.sqlite
+.venv/bin/python -m pytest -q tests
 python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
 cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
-scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day
+scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day, ?replay=engine plays the engine output
 ```
 
 The stage is a fixed 1920×1080 canvas scaled to fit the window, so the site looks exactly like the video at any size.

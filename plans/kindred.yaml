@@ -1,0 +1,76 @@
+# Two launch plans for the demo app, plus the market they launch into.
+# Every market value is a point chosen inside a frozen range in rules/two_sided.md
+# (rule id in the comment) or a benchmark/prior with its source.
+
+app: Kindred
+market: United States
+days: 90
+budget_usd: 40000
+people_per_dot: 60          # real people one simulated person stands for (same for both plans)
+
+world:                      # mechanics of the market
+  share_male: 0.7           # prior: ~75% of Tinder US users are men (2021)
+  lambda_km: 5              # local_density_threshold, [1, 10]
+  match_per_exposure: 0.012 # exposure_throughput q_e_swipe, [0.01, 0.014]
+  t_wait_days: 7            # local_density_threshold T_wait, [3, 14]
+  gamma_no_match: 1.5       # local_density_threshold gamma, [0.5, 3.0]
+  beta_per_match: 0.8       # novelty_installs_without_repeat_loop beta, [0.2, 2.0]
+  wom_q_daily: 0.015        # wom_growth_rate_band q_eff_daily, [0.008, 0.026]
+  wom_only_after_match: true
+  tiktok_cpm_usd: 8         # prior: $4-13 across two sources
+  tiktok_ctr: 0.012         # prior: 0.6%-1.8%
+  ambassador_usd_per_contact: 4   # prior: no public number
+  churn_curve:              # base daily quit risk by days since install (before calibration)
+    first_day: 0.72         # fits US dating D1 27.7%
+    floor: 0.05             # fits D30 2.75%
+    tau_days: 1.5           # fits D7 9.6%
+
+# Calibration targets. The shift for each decision is solved on the reference plan
+# (closest to the apps behind the benchmarks) and then applied unchanged to every plan.
+calibration:
+  reference_plan: a
+  targets:
+    install: 0.086          # store page -> install, all categories (app-store average)
+    d7_retention: 0.096     # AppsFlyer US dating, Q3 2026
+    paid_30d: 0.046         # AppsFlyer US dating, share paying within 30 days, Q2 2026
+
+plans:
+  a:
+    name: Plan A
+    summary: Nationwide ads · paywall from day 1
+    free_swipes_per_day: 5
+    trial_days: 0
+    unlimited_swipes_per_day: 60  # exposure_throughput E_cap_swipe, [20, 200]
+    channels:
+      - kind: tiktok
+        where: nationwide
+        budget_share: 1.0
+        start_day: 0
+        end_day: 60
+    events:
+      - {day: 0, label: Ads + paywall}
+  b:
+    name: Plan B
+    summary: Austin → Denver → Nashville · free for 30 days
+    free_swipes_per_day: 5
+    trial_days: 30
+    unlimited_swipes_per_day: 60
+    cities:
+      - {name: "Austin, Texas", lon: -97.74, lat: 30.28, open_day: 0}
+      - {name: "Denver, Colorado", lon: -104.99, lat: 39.74, open_day: 30}
+      - {name: "Nashville, Tennessee", lon: -86.78, lat: 36.16, open_day: 60}
+    channels:
+      - kind: ambassador
+        where: cities
+        budget_share: 0.5
+        start_day: 0
+        end_day: 90
+      - kind: tiktok
+        where: cities
+        budget_share: 0.5
+        start_day: 0
+        end_day: 90
+    events:
+      - {day: 0, label: Austin}
+      - {day: 30, label: Denver · paywall}
+      - {day: 60, label: Nashville}

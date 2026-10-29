@@ -1,0 +1,4 @@
+numpy>=2.0
+pyyaml>=6.0
+modal>=1.6
+pytest>=8.0
