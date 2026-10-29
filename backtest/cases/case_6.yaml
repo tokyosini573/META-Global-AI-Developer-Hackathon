@@ -1,0 +1,58 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_6
+description: >
+  A ride-hailing phone app, launched in the mid-2010s in one fast-growing mid-sized city in the
+  southern US and run only in that city. People with their own car sign up as drivers and pick
+  up riders who request a trip in the app. Drivers keep the whole fare on standard rides; the
+  platform adds a small flat booking fee to each ride, and that fee is its only income per ride.
+  It opened to the public all at once across the city.
+months: 23            # runs to the last public marker (month 22)
+sides:
+  demand: {label: "city residents and visitors who want a car to take them across town", share: 0.95}
+  supply: {label: "people with their own car who drive riders for pay", share: 0.05}
+  # share: guess. Press reports a weekly pool of a few thousand active drivers against tens of
+  # thousands of rides a week, so drivers are a small part of everyone the launch reaches.
+  symmetric: false
+variants:
+  a:
+    label: "one-city ride app, drivers keep the fare, flat booking fee"
+    market: us
+    cities:
+      - {name: "a fast-growing mid-sized southern city", lon: -97.74, lat: 30.27, open_month: 0}
+    nationwide: false
+    reach_per_month: 150000  # no public figure. Guess: local press and word of mouth in one metro
+                             # of about two million people; wide range (50k-300k)
+    price:
+      model: take_rate
+      take_rate: 0.1         # sources conflict on the flat booking fee ($1.50 vs $2 per ride; press
+                             # 2016-2017); about $1.75 on a $15 ride is roughly 10% (guess)
+      subscription_usd_week: 0
+      free_tier: true        # free to install; you pay per ride
+    first_transaction_discount: 0.0   # no first-ride promo found in sources
+    transaction_price_usd: 15         # guess for a typical in-city trip in that era, plus the fee
+markers:
+  - id: m1
+    question: "Are there more transactions in month 8 than in month 2?"
+    metric: transactions
+    at_month: 8
+    compare: {variant: a, than: {variant: a, at_month: 2}}
+  - id: m2
+    question: "Are there more active users at month 8 than at month 2?"
+    metric: active_users
+    at_month: 8
+    compare: {variant: a, than: {variant: a, at_month: 2}}
+  - id: m3
+    question: "Are there more transactions in month 12 than in month 10?"
+    metric: transactions
+    at_month: 12
+    compare: {variant: a, than: {variant: a, at_month: 10}}
+  - id: m4
+    question: "Are there more active users at month 12 than at month 10?"
+    metric: active_users
+    at_month: 12
+    compare: {variant: a, than: {variant: a, at_month: 10}}
+  - id: m5
+    question: "Are there more transactions in month 22 than in month 12?"
+    metric: transactions
+    at_month: 22
+    compare: {variant: a, than: {variant: a, at_month: 12}}

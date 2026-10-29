@@ -1,0 +1,50 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_8
+description: >
+  A phone app for buying and selling things between people in Japan, launched nationwide in the
+  early-to-mid 2010s. Anyone can list new or used items in any category in three steps (photo,
+  price, post); small shops may list too. The buyer pays the app, the seller ships, and the app
+  pays the seller once the item arrives; buyer and seller talk through the app's own chat. It
+  first came out on one of the two big phone platforms with a 10% fee on each sale; about two
+  and a half months later it came to the other platform and dropped all fees, and it also ran
+  daily featured sales announced by push notification.
+months: 29            # runs to the last public marker (month 28)
+sides:
+  demand: {label: "people who want to buy items cheaply from other people", share: 0.6}
+  supply: {label: "people and small shops who want to sell items", share: 0.4}
+  # share: guess, same split of first intent as the other resale case. Many people do both.
+  symmetric: false
+variants:
+  a:
+    label: "person-to-person selling app, fees dropped early"
+    market: jp
+    cities: []
+    nationwide: true
+    reach_per_month: 2000000  # no public figure. Guess: more than a million new downloads in the
+                              # two weeks after the fee drop (company figure) suggests very wide
+                              # reach; wide range (0.5M-5M). The first ~2.5 months on one platform
+                              # had much less reach, which a single monthly number cannot show
+    price:
+      model: free             # source: all listing and selling fees dropped about month 2.5 (the
+                              # 10% fee before that is not modelled; the engine has no price change)
+      take_rate: 0
+      subscription_usd_week: 0
+      free_tier: true
+    first_transaction_discount: 0.0   # buyers paying in cash got 1% back in points; ignored
+    transaction_price_usd: 20         # guess for a typical used item (clothes, small goods)
+markers:
+  - id: m1
+    question: "Are there more active users at month 3 than at month 1?"
+    metric: active_users
+    at_month: 3
+    compare: {variant: a, than: {variant: a, at_month: 1}}
+  - id: m2
+    question: "Are there more transactions in month 3 than in month 1?"
+    metric: transactions
+    at_month: 3
+    compare: {variant: a, than: {variant: a, at_month: 1}}
+  - id: m3
+    question: "Are there more active users at month 28 than at month 3?"
+    metric: active_users
+    at_month: 28
+    compare: {variant: a, than: {variant: a, at_month: 3}}

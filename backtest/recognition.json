@@ -18,5 +18,30 @@
   "confidence": 0.98,
   "guess": "Mercari",
   "recognized": true
+ },
+ "case_5": {
+  "confidence": 0.9,
+  "guess": "Juno",
+  "recognized": true
+ },
+ "case_6": {
+  "confidence": 0.85,
+  "guess": "RideAustin",
+  "recognized": true
+ },
+ "case_7": {
+  "confidence": 0.98,
+  "guess": "Shyp",
+  "recognized": true
+ },
+ "case_8": {
+  "confidence": 0.89,
+  "guess": "Mercari",
+  "recognized": false
+ },
+ "case_9": {
+  "confidence": 0.96,
+  "guess": "Coconala",
+  "recognized": true
  }
 }

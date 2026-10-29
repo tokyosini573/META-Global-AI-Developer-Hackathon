@@ -1,0 +1,61 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_7
+description: >
+  A phone app for mailing things without going to a post office, launched in the mid-2010s.
+  You take a photo of the item and type the address; a local courier comes to pick it up within
+  about twenty minutes, the company packs it and sends it with whichever carrier is cheapest.
+  You pay a small flat pickup fee plus the postage. It opened to the public in one large West
+  Coast city after a few months of private testing, then over the next year and a half added
+  large cities on the East Coast, in Florida, in Southern California and in the Midwest.
+months: 50            # runs to the last public marker (month 49)
+sides:
+  demand: {label: "city residents who need to mail packages", share: 0.97}
+  supply: {label: "local couriers who pick up packages", share: 0.03}
+  # share: guess. One courier serves many senders, so couriers are a very small part of everyone
+  # the launch reaches. The packing warehouse and the carriers are not simulated.
+  symmetric: false
+variants:
+  a:
+    label: "app pickup, flat pickup fee plus postage"
+    market: us
+    cities:
+      - {name: "a large West Coast city", lon: -122.42, lat: 37.77, open_month: 0}
+      # source dates (tech and business press); months counted from the public launch
+      - {name: "the largest East Coast city", lon: -73.99, lat: 40.71, open_month: 6}
+      - {name: "a large Florida city", lon: -80.19, lat: 25.76, open_month: 7}
+      - {name: "a large Southern California city", lon: -118.24, lat: 34.05, open_month: 13}
+      - {name: "a large Midwest city", lon: -87.63, lat: 41.88, open_month: 18}
+    nationwide: false
+    reach_per_month: 40000   # no public figure. Guess: tech-press coverage and promo codes in one
+                             # large metro at first; wide range (15k-80k)
+    price:
+      model: take_rate
+      take_rate: 0.25        # the $5 pickup fee is sourced; any margin on postage is not public.
+                             # Guess: $5 fee plus a small postage margin on a ~$25 order
+      subscription_usd_week: 0
+      free_tier: true        # free to install; you pay per shipment
+    first_transaction_discount: 0.3   # a launch promo code gave $15 off a first shipment (tech press,
+                                      # one outlet's readers); how widely such codes were used is
+                                      # unknown. Guess 0.3
+    transaction_price_usd: 25         # $5 pickup fee (source) plus about $20 postage (guess)
+markers:
+  - id: m1
+    question: "Are there more transactions in month 12 than in month 3?"
+    metric: transactions
+    at_month: 12
+    compare: {variant: a, than: {variant: a, at_month: 3}}
+  - id: m2
+    question: "Are there more active users at month 12 than at month 6?"
+    metric: active_users
+    at_month: 12
+    compare: {variant: a, than: {variant: a, at_month: 6}}
+  - id: m3
+    question: "Are there more active users at month 41 than at month 24?"
+    metric: active_users
+    at_month: 41
+    compare: {variant: a, than: {variant: a, at_month: 24}}
+  - id: m4
+    question: "Are there more active users at month 49 than at month 12?"
+    metric: active_users
+    at_month: 49
+    compare: {variant: a, than: {variant: a, at_month: 12}}

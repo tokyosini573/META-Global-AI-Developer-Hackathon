@@ -1,0 +1,64 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_5
+description: >
+  A ride-hailing phone app, launched in the mid-2010s in one very large East Coast city and
+  run only in that city. Licensed professional drivers who use their own cars pick up riders
+  who request a trip in the app; the app sets the fare and the platform keeps a small share
+  of each fare, so drivers keep most of it. For its first few months riders could join only
+  by invitation, and riders in that early period got a sizeable discount on their rides; then
+  it opened to everyone in the city.
+months: 37            # runs to the last public marker (month 36)
+sides:
+  demand: {label: "city residents and visitors who want a car to take them across town", share: 0.95}
+  supply: {label: "licensed professional drivers with their own cars", share: 0.05}
+  # share: guess. Several thousand drivers signed up in the first months (company and press
+  # figures); riders were not counted publicly. Drivers are assumed to be a small part of
+  # everyone the launch reaches.
+  symmetric: false
+variants:
+  a:
+    label: "one-city ride app, small platform share, early rider discount"
+    market: us
+    cities:
+      - {name: "a very large East Coast city", lon: -73.97, lat: 40.75, open_month: 0}
+    nationwide: false
+    reach_per_month: 300000  # no public figure. Guess: a very large city, invite-only riders for
+                             # about three months, then open to all; wide range (100k-600k)
+    price:
+      model: take_rate
+      take_rate: 0.1         # source (founder claim, pre-launch press 2016): platform keeps 10%
+                             # of the fare; whether it stayed at 10% later is not confirmed
+      subscription_usd_week: 0
+      free_tier: true        # free to install; you pay per ride
+    first_transaction_discount: 0.35  # source (press, 2016): 35% off rides for riders in the early
+                                      # (beta) period. It applied to all early rides, not only the
+                                      # first; the engine can only discount the first one
+    transaction_price_usd: 20         # source: average passenger fare about $19-20 per trip in the
+                                      # city regulator's trip data (2019, the first months with fares);
+                                      # used for the whole run
+markers:
+  - id: m1
+    question: "Are there more transactions in month 3 than in month 0?"
+    metric: transactions
+    at_month: 3
+    compare: {variant: a, than: {variant: a, at_month: 0}}
+  - id: m2
+    question: "Are there more transactions in month 13 than in month 10?"
+    metric: transactions
+    at_month: 13
+    compare: {variant: a, than: {variant: a, at_month: 10}}
+  - id: m3
+    question: "Are there more transactions in month 21 than in month 13?"
+    metric: transactions
+    at_month: 21
+    compare: {variant: a, than: {variant: a, at_month: 13}}
+  - id: m4
+    question: "Are there more transactions in month 28 than in month 21?"
+    metric: transactions
+    at_month: 28
+    compare: {variant: a, than: {variant: a, at_month: 21}}
+  - id: m5
+    question: "Are there more transactions in month 36 than in month 28?"
+    metric: transactions
+    at_month: 36
+    compare: {variant: a, than: {variant: a, at_month: 28}}
