@@ -1,0 +1,88 @@
+{
+ "case_1": {
+  "m1": {
+   "question": "Are there more transactions in month 3 than in month 0?",
+   "p": 0.95,
+   "median_left": 49450.000000000015,
+   "median_right": 0.0
+  },
+  "m2": {
+   "question": "Are there more active users at month 9 than at month 3?",
+   "p": 0.9,
+   "median_left": 41566.666666666664,
+   "median_right": 26516.666666666664
+  },
+  "m3": {
+   "question": "Are there more active users at month 42 than at month 12?",
+   "p": 0.4,
+   "median_left": 20783.333333333332,
+   "median_right": 30100.0
+  }
+ },
+ "case_2": {
+  "m1": {
+   "question": "Is version b ahead of version a on active users at month 12?",
+   "p": 0.0,
+   "median_left": 494000.0,
+   "median_right": 283387000.0
+  },
+  "m2": {
+   "question": "Have more people had a success (a match that leads to a conversation) in version b than in version a by month 12?",
+   "p": 0.0,
+   "median_left": 3224000.0,
+   "median_right": 506094333.33333325
+  },
+  "m3": {
+   "question": "Does version b have more active users at month 12 than at month 0?",
+   "p": 1.0,
+   "median_left": 494000.0,
+   "median_right": 47666.666666666664
+  },
+  "m4": {
+   "question": "Is version a ahead of version b on active users at the end of the first month (month 0)?",
+   "p": 1.0,
+   "median_left": 381333.3333333333,
+   "median_right": 47666.666666666664
+  }
+ },
+ "case_3": {
+  "m1": {
+   "question": "Are there more transactions in month 15 than in month 6?",
+   "p": 0.2,
+   "median_left": 3010.0,
+   "median_right": 8170.0
+  },
+  "m2": {
+   "question": "Are there more active users at month 10 than at month 6?",
+   "p": 0.4,
+   "median_left": 2580.0,
+   "median_right": 4730.0
+  },
+  "m3": {
+   "question": "Are there more active users at month 42 than at month 15?",
+   "p": 0.35,
+   "median_left": 1720.0,
+   "median_right": 3010.0
+  }
+ },
+ "case_4": {
+  "m1": {
+   "question": "Does version b have more active users at month 17 than version a had at month 11?",
+   "p": 1.0,
+   "median_left": 38112000.0,
+   "median_right": 8604000.0
+  },
+  "m2": {
+   "question": "Does version a have more active users at month 16 than at month 10?",
+   "p": 1.0,
+   "median_left": 12612000.0,
+   "median_right": 7548000.0
+  },
+  "m3": {
+   "question": "Is version a ahead of version b on cumulative contribution margin at month 17?",
+   "p": 1.0,
+   "median_left": 271224000.0,
+   "median_right": 0.0
+  }
+ }
+}

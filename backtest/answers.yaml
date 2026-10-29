@@ -1,0 +1,27 @@
+# Real outcomes of the held-out backtest markers. The simulator must not read this file before scoring.
+# Month numbers count from the launch of each case (month N = days 30N to 30N+30 after launch).
+
+case_1:
+  _name: Sidecar
+  m1: {answer: true, evidence: "Public launch late June 2012 after about 10,000 beta rides over ~4 months; by 2012-10-10 (month 3) it reported more than 50,000 rides over the last few months and hundreds of drivers, i.e. a ride rate several times the pre-launch pace (no per-month split published).", source: "https://techcrunch.com/2012/10/10/sidecar-10m-new-markets/"}
+  m2: {answer: true, evidence: "Raised a Series A in 2012-10 to expand; operated in a second West Coast city before 2013-01 and added several Northeast/Midwest cities around 2013-03 (month 9). Direction inferred from expansion and funding; no user counts published (city dates are secondary-source).", source: "https://en.wikipedia.org/wiki/Sidecar_(company)"}
+  m3: {answer: false, evidence: "The service ended on 2015-12-31 (announced 2015-12-29), about month 42 after the 2012-06-26 launch, so active users at month 42 were not above month 12. Added 2026-10-29 before any prediction, because every in-window marker was a growth marker.", source: "https://www.engadget.com/2015-12-29-sidecar-shuts-down.html"}
+
+case_2:
+  _name: Hinge
+  m1: {answer: true, evidence: "The swipe version was 'haemorrhaging users throughout 2016' with a 1.5-star rating before the 2016-10-11 relaunch; a year after the redesign the company reported users up 130% (company claim, 2017-11-15).", source: "https://www.globaldatinginsights.com/news/hinges-users-increase-130-redesign-last-year/"}
+  m2: {answer: true, evidence: "After the redesign 50% of would-be couples were talking, up from one in ten before (company claim, 2017-11-15); the swipe version produced one phone-number exchange per 500 swipes (2016-10). Combined with more users, more people reached a real conversation in version b.", source: "https://www.globaldatinginsights.com/news/hinges-users-increase-130-redesign-last-year/"}
+  m3: {answer: true, evidence: "Users up 130% a year after the redesign (company claim, 2017-11-15); an industry awards case study also says the user base doubled in the first six months after the relaunch.", source: "https://www.globaldatinginsights.com/news/hinges-users-increase-130-redesign-last-year/"}
+  m4: {answer: true, evidence: "WEAK: about four weeks after the all-paid relaunch (2016-11-07) the company added a free Basic tier (10 people a day); the trade press inferred new-user take-up had fallen short. No user numbers for that month were published.", source: "https://www.globaldatinginsights.com/2016/11/07/hinge-alters-7-fee-plan-is-now-offering-early-members-free-basic-membership-option/"}
+
+case_3:
+  _name: Washio
+  m1: {answer: true, evidence: "On 2014-06-09 (about month 15 after a ~2013-03 launch) the company said revenue had grown 8x since September 2013 (about month 6); it then served three cities with about 120 drivers.", source: "https://techcrunch.com/2014/06/09/washio-10-5m-canaan-partners/"}
+  m2: {answer: true, evidence: "On 2014-01-14 (about month 10) it reported 'pretty tremendous growth' since adding its second city, the two markets nearly on par, expanded pickup zones and a temporary switch to 36-hour turnaround to catch up with demand. No user counts published.", source: "https://techcrunch.com/2014/01/14/washio-2-25m/"}
+  m3: {answer: false, evidence: "Operations stopped on 2016-08-29, about month 41-42 after a ~2013-03 launch, so active users at month 42 were not above month 15. Added 2026-10-29 before any prediction, because every in-window marker was a growth marker.", source: "https://techcrunch.com/2016/08/30/washio-on-demand-laundry-service-shuts-down-operations"}
+
+case_4:
+  _name: Mercari
+  m1: {answer: true, evidence: "Downloads used as the proxy for active users: US version had 7M downloads on 2016-03-01 (month 17 after the 2014-09-12 US launch); Japan version had 3M downloads on 2014-06-06 (month 11 after the 2013-07 Japan launch). Both reached 10M in a similar time (~19 vs ~21 months).", source: "https://techcrunch.com/2016/03/01/mercari-unicorn/"}
+  m2: {answer: true, evidence: "Japan downloads: 2M on 2014-05-08 (month 10), then 6M on 2014-11-06 (month 16), after national TV ads began 2014-05-10.", source: "https://thebridge.jp/2014/11/mercari-6-million-downloads"}
+  m3: {answer: true, evidence: "Japan charged sellers 10% from 2014-10 (month 15); the US version was still not monetized at 2016-03-01 (month 17), so it had no fee revenue in the window.", source: "https://techcrunch.com/2016/03/01/mercari-unicorn/"}

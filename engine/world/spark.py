@@ -118,7 +118,10 @@ def ask_once(env, key):
                             "json_schema": {"name": "decision", "strict": True, "schema": _schema(actions)}},
     }
     for attempt in range(4):
-        status, data, _ = call(env, "POST", "/chat/completions", body)
+        try:
+            status, data, _ = call(env, "POST", "/chat/completions", body)
+        except OSError:              # read timeout or dropped connection: retry
+            status, data = None, None
         if status == 200:
             try:
                 answer = json.loads(data["choices"][0]["message"]["content"])

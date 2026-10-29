@@ -1,0 +1,56 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_1
+description: >
+  A phone app, launched in the early 2010s, that lets ordinary people with their own car
+  give rides to strangers going their way. A rider asks for a ride in the app; the app shows
+  what similar trips have usually cost, and the rider chooses how much to pay with a slider.
+  The platform keeps 20% of what the rider pays and the driver keeps the rest. It opened to
+  the public in one large West Coast city after a few months of private testing, and then
+  added more large cities in the West, Northeast and Midwest.
+months: 43            # runs to the last public marker (month 42); cities opened after month 9 are not modelled
+sides:
+  demand: {label: "people who want a ride across town", share: 0.9}
+  supply: {label: "people with their own car who give rides in their spare time", share: 0.1}
+  # share: guess. Early reports speak of "hundreds of drivers" against tens of thousands of rides,
+  # so drivers are a small part of everyone the launch reaches.
+  symmetric: false
+variants:
+  a:
+    label: "rider picks the price, 20% fee"
+    market: us
+    cities:
+      - {name: "a large West Coast city", lon: -122.42, lat: 37.77, open_month: 0}
+      # "before 2013-01" in the source; month 6 is a midpoint guess
+      - {name: "a large Pacific Northwest city", lon: -122.33, lat: 47.61, open_month: 6}
+      # the next three opened in about the same month (secondary source, month approximate)
+      - {name: "a large New England city", lon: -71.06, lat: 42.36, open_month: 9}
+      - {name: "a borough of the largest East Coast city", lon: -73.95, lat: 40.65, open_month: 9}
+      - {name: "a large Midwest city", lon: -87.63, lat: 41.88, open_month: 9}
+      # Another East Coast city opened around month 8 but service there stopped almost at once,
+      # so it is left out.
+    nationwide: false
+    reach_per_month: 50000   # no public figure. Guess: tech-press coverage at launch plus word of
+                             # mouth in one city at first; wide range (20k-100k)
+    price:
+      model: take_rate
+      take_rate: 0.2         # source: platform keeps 20% of the rider's payment
+      subscription_usd_week: 0
+      free_tier: true        # free to install; you pay per ride
+    first_transaction_discount: 0.0   # no first-ride promo found in sources for the launch city
+    transaction_price_usd: 15         # guess for a short in-city trip in that era; riders set the amount
+markers:
+  - id: m1
+    question: "Are there more transactions in month 3 than in month 0?"
+    metric: transactions
+    at_month: 3
+    compare: {variant: a, than: {variant: a, at_month: 0}}
+  - id: m2
+    question: "Are there more active users at month 9 than at month 3?"
+    metric: active_users
+    at_month: 9
+    compare: {variant: a, than: {variant: a, at_month: 3}}
+  - id: m3
+    question: "Are there more active users at month 42 than at month 12?"
+    metric: active_users
+    at_month: 42
+    compare: {variant: a, than: {variant: a, at_month: 12}}

@@ -1,0 +1,57 @@
+# Held-out backtest case. Inputs only: no outcomes. Answers live in ../answers.yaml.
+id: case_3
+description: >
+  A phone and text-message service, launched in the early-to-mid 2010s, that picks up your
+  dirty laundry and dry cleaning at your door and brings it back clean in about 24 hours.
+  You choose a pickup time; a local driver collects the bag and a partner laundry does the
+  washing. Wash-and-fold costs about $1.60 a pound and a laundered shirt about $2.75, plus a
+  delivery fee or order minimum. It started in one large Southern California city, used promo
+  codes for first orders and put a small treat in every returned order, then opened in a few
+  more large cities.
+months: 43            # runs to the last public marker (month 42); cities opened after month 18 are not modelled
+sides:
+  demand: {label: "busy city residents who want laundry picked up and delivered", share: 0.97}
+  supply: {label: "local drivers who pick up and drop off laundry", share: 0.03}
+  # share: guess. A driver serves many households, so drivers are a very small part of everyone
+  # the launch reaches. Partner laundries are not simulated.
+  symmetric: false
+variants:
+  a:
+    label: "laundry pickup and delivery by app"
+    market: us
+    cities:
+      - {name: "a large Southern California city", lon: -118.24, lat: 34.05, open_month: 0}
+      # sources conflict (about month 0 vs month 8); two dated articles say "recently" / "a few
+      # months ago" in late 2013 and early 2014, so month 8 is used
+      - {name: "a large Northern California city", lon: -122.42, lat: 37.77, open_month: 8}
+      # "over the last several months" before a dated article at about month 15; month 13 is a guess
+      - {name: "the US capital region", lon: -77.04, lat: 38.91, open_month: 13}
+      # further cities opened after month 18 and are left out
+    nationwide: false
+    reach_per_month: 30000   # no public figure. Guess: local press, promo codes and corporate
+                             # credits in one large metro at first; wide range (10k-60k)
+    price:
+      model: take_rate
+      take_rate: 0.3         # the service charges the customer and pays the laundry and driver;
+                             # its share is not public. Guess 0.3 (range 0.2-0.4)
+      subscription_usd_week: 0
+      free_tier: true        # free to sign up; you pay per order
+    first_transaction_discount: 0.3   # promo codes for first orders are documented; size is not.
+                                      # Guess about $10 off a $30 order
+    transaction_price_usd: 30         # about 15 lb at $1.60 plus a delivery fee; estimate
+markers:
+  - id: m1
+    question: "Are there more transactions in month 15 than in month 6?"
+    metric: transactions
+    at_month: 15
+    compare: {variant: a, than: {variant: a, at_month: 6}}
+  - id: m2
+    question: "Are there more active users at month 10 than at month 6?"
+    metric: active_users
+    at_month: 10
+    compare: {variant: a, than: {variant: a, at_month: 6}}
+  - id: m3
+    question: "Are there more active users at month 42 than at month 15?"
+    metric: active_users
+    at_month: 42
+    compare: {variant: a, than: {variant: a, at_month: 15}}
