@@ -29,13 +29,21 @@ entered the repo.
    Both variants of a case share the same draw in a run, so variant comparisons stay paired.
 2. **Input uncertainty.** `reach_per_month` is a guess in every case. Each run multiplies it by
    one shared factor drawn log-uniform from 0.5-2.
-3. **40 runs** per case instead of 20.
-4. **More, less-known cases.** Cases 5 onward were researched by a separate agent with the brief
+3. **Market size (bug fix).** The frozen word-of-mouth rule is Bass diffusion,
+   `dN/dt = (p + q N/M)(M - N)`, but the v1 backtest world left out the `(M - N)` term, so word
+   of mouth could grow without limit. In v1, case_2 version a reached about 283 million active
+   users, more than the US adult population. v2 multiplies both launch reach and friend invites
+   by `(M - N)/M`, where N is everyone reached so far and M is the adult population the launch can
+   reach: 258 million (US) or 105 million (Japan) when nationwide, else the metros of the open
+   cities from rough metro weights. Found while timing v2 runs, before any case 5+ answer was
+   seen; added to this protocol before case 5+ predictions.
+4. **40 runs** per case instead of 20.
+5. **More, less-known cases.** Cases 5 onward were researched by a separate agent with the brief
    to prefer companies a well-read model should not name, to pick markers from available public
    data before any prediction, and to include decline markers. Their answers stayed outside the
    repo until `predictions_v2.json` was committed.
 
-Nothing else changes: the rule cards, the decision prompts, the person types and the world
+Nothing else changes: the rule cards (the market-size fix only makes the engine follow them), the decision prompts, the person types and the world
 mechanics are the same as in v1.
 
 ## How it is scored

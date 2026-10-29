@@ -42,6 +42,10 @@ JP_METROS = [("Tokyo", 139.69, 35.69, 37), ("Osaka", 135.50, 34.69, 19), ("Nagoy
              ("Hiroshima", 132.46, 34.39, 2)]
 JP_SMALL_TOWN_SHARE = 0.3
 JP_AREA_KM2 = 3.78e5
+# Market size M in wom_growth_rate_band, dN/dt = (p + q N/M)(M - N). v1 left the (M - N) term out,
+# so word of mouth could grow without bound. M is the adult population the launch can reach:
+# the whole country when nationwide, else the metros of the open cities (rough metro weights).
+ADULTS = {"us": 258e6, "jp": 105e6}
 
 
 def sample_params(seed):
@@ -53,6 +57,20 @@ def sample_params(seed):
     lo, hi = REACH_FACTOR
     out["reach_factor"] = float(math.exp(r.uniform(math.log(lo), math.log(hi))))
     return out
+
+
+def market_size(v, t):
+    if v.get("nationwide") or not v.get("cities"):
+        return ADULTS[v["market"]]
+    metros = geo.METROS if v["market"] == "us" else JP_METROS
+    towns = geo.SMALL_TOWN_SHARE if v["market"] == "us" else JP_SMALL_TOWN_SHARE
+    total = sum(m[3] for m in metros)
+    size = 0.0
+    for c in v["cities"]:
+        if c["open_month"] * 30 <= max(t, 0):
+            near = min(metros, key=lambda m: (m[1] - c["lon"]) ** 2 + (m[2] - c["lat"]) ** 2)
+            size += near[3] / total * (1 - towns) * ADULTS[v["market"]]
+    return size or ADULTS[v["market"]]
 
 
 def nearby_bucket(n):
@@ -112,6 +130,7 @@ class World:
         self.days = case["months"] * 30
         self.sym = bool(case["sides"].get("symmetric"))
         self.people = []
+        self.reached = 0.0         # real people the launch or a friend has reached so far
         self.monthly = {}          # month -> {"transactions": n, "revenue": usd, "promo": usd}
 
     def key(self, p, decision, situation):
@@ -123,7 +142,9 @@ class World:
 
     def _arrive(self, t, dt, invites):
         v, r = self.v, self.rng
-        n = r.poisson(v["reach_per_month"] * self.rules["reach_factor"] * dt / 30 / self.w)
+        room = max(0.0, 1 - self.reached / market_size(v, t))     # (M - N) / M
+        invites = [x for x in invites if r.random() < room]
+        n = r.poisson(room * v["reach_per_month"] * self.rules["reach_factor"] * dt / 30 / self.w)
         spots = []
         open_cities = [c for c in v.get("cities") or [] if c["open_month"] * 30 <= t]
         for _ in range(n):
@@ -134,6 +155,7 @@ class World:
                 spots.append((*geo.near(r, c["lon"], c["lat"], CITY_SPREAD_KM),
                               ("city", c["lon"], c["lat"], CITY_SPREAD_KM)))
         spots += invites
+        self.reached += self.w * len(spots)
         share = self.case["sides"]["demand"]["share"]
         types = list(TYPES)
         for lon, lat, source in spots:
