@@ -1,4 +1,4 @@
-// 리플레이 형식과 계산. 형식 정의는 docs/replay-format.md.
+// Replay format and derived numbers. The format is defined in docs/replay-format.md.
 
 export type PlanKey = 'a' | 'b'
 export const PLANS: PlanKey[] = ['a', 'b']
@@ -69,7 +69,7 @@ const pct = (b: number, a: number) => {
   return `${v >= 0 ? '+' : '−'}${Math.abs(v)}%`
 }
 
-// 화면의 숫자 3개. 계산할 수 없으면 '—'.
+// The three on-screen numbers. '—' when they can't be computed.
 export function metricsAt(r: Replay, t: number) {
   const fa = funnelAt(r.people.a, t), fb = funnelAt(r.people.b, t)
   const qa = quitWeekOneShare(r.people.a, t), qb = quitWeekOneShare(r.people.b, t)

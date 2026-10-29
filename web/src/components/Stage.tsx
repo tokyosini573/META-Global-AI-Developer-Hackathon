@@ -2,10 +2,10 @@ import { useEffect, useState, type ReactNode } from 'react'
 
 export const STAGE_W = 1920
 export const STAGE_H = 1080
-// ?still: 스크린샷 모드 (scripts/shot.sh). 줄이지 않고, 숫자를 굴리지 않는다.
+// ?still: screenshot mode (scripts/shot.sh). No scaling, no counting numbers.
 export const STILL = new URLSearchParams(location.search).has('still')
 
-// 화면은 항상 1920×1080 한 장으로 그리고 창에 맞게 줄인다. 영상과 사이트가 똑같이 보이게.
+// Always draw one 1920×1080 stage and scale it to the window, so the site looks exactly like the video.
 export function Stage({ children }: { children: ReactNode }) {
   const [scale, setScale] = useState(1)
   useEffect(() => {

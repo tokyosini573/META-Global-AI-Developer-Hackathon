@@ -1,4 +1,4 @@
-// 캔버스는 CSS 클래스를 못 쓰므로 index.css 의 토큰 값을 그대로 읽어 온다.
+// Canvas can't use CSS classes, so read the token values straight from index.css.
 const css = getComputedStyle(document.documentElement)
 const v = (name: string) => css.getPropertyValue(name).trim()
 

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* 토큰은 CLAUDE.md 표와 같다. 기본 색·글자 크기를 지워서 토큰 밖의 값은 쓸 수 없게 한다. */
+/* Tokens match the CLAUDE.md table. Default colors and type sizes are cleared so nothing outside the tokens can be used. */
 @theme static {
   --color-*: initial;
   --color-bg: #0A0B0D;

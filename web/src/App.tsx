@@ -5,16 +5,16 @@ import { Stage, STILL } from './components/Stage'
 import { Timeline } from './components/Timeline'
 import { metricsAt, PLANS, type Replay } from './replay'
 
-const PLAY_SECONDS = 30 // 90일 = 30초
+const PLAY_SECONDS = 30 // 90 days = 30 s
 
-// "Plan B wins." 에서 계획 글자만 계획 색으로
+// In "Plan B wins.", color only the plan name with its plan color
 function Headline({ text }: { text: string }) {
   const m = text.match(/^(.*Plan )([AB])(.*)$/)
   if (!m) return <>{text}</>
   return <>{m[1]}<span className={m[2] === 'A' ? 'text-plan-a' : 'text-plan-b'}>{m[2]}</span>{m[3]}</>
 }
 
-// "+48%" 같은 값을 0에서부터 0.4초 동안 굴려 올린다
+// Count a value like "+48%" up from 0 over 0.4 s
 function CountUp({ value }: { value: string }) {
   const m = value.match(/^([^\d]*)([\d.]+)(.*)$/)
   const [shown, setShown] = useState(STILL && m ? Number(m[2]) : 0)
@@ -37,7 +37,7 @@ function CountUp({ value }: { value: string }) {
 
 export default function App() {
   const [replay, setReplay] = useState<Replay | null>(null)
-  // ?day=90 으로 열면 그날에 멈춘 화면 (스크린샷용). 아니면 열자마자 재생.
+  // ?day=90 freezes on that day (for screenshots); otherwise play on open.
   const fixedDay = new URLSearchParams(location.search).get('day')
   const [t, setT] = useState(fixedDay ? Number(fixedDay) : 0)
   const [playing, setPlaying] = useState(!fixedDay)

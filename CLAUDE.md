@@ -10,7 +10,7 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 - Never use code, data or design from any existing company's product. The demo dating app is new and must not resemble an existing app.
 - MiroFish (AGPL-3.0) is design inspiration only. Never copy its code.
 - Every dataset and asset must have a license that allows this use.
-- Screen copy is English. Docs and comments may be Korean.
+- Everything in this repo is English: screen copy, code comments, docs, commit messages, PR titles/bodies/comments and the README (global competition). Only the planning docs one folder up are Korean.
 
 ## Design rules (from `../05_디자인원칙.md`; the mockups in `../시안/` are the source of truth)
 

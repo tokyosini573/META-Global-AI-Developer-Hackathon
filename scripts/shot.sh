@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 1920×1080 스크린샷 (디자인 점검용, CLAUDE.md 규칙 6)
+# 1920×1080 screenshot (design check, CLAUDE.md rule 6)
 #   scripts/shot.sh "http://localhost:5173/?day=90&still" out.png
 set -euo pipefail
 CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"

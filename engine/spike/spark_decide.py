@@ -1,14 +1,14 @@
-"""첫 스파이크: Spark 가 앱 화면 이미지 + 페르소나를 보고 구조화된 판단을 내리는가.
+"""First spike: does Spark make structured decisions from an app screen image + a persona?
 
-    python3 engine/spike/spark_decide.py            # 전체 (약 48회 호출, 몇 센트)
-    python3 engine/spike/spark_decide.py --quick    # 모델·설정별 1회씩
+    python3 engine/spike/spark_decide.py            # full run (about 48 calls, a few cents)
+    python3 engine/spike/spark_decide.py --quick    # one call per model and setting
 
-확인할 것
-1. json_schema 로 묶은 답이 항상 형식대로 오는가 (확률 합 ≈ 1)
-2. 화면 내용이 판단을 바꾸는가: 41마일 + 결제 벽(계획 A) vs 2마일 + 매치 + 무료(계획 B)
-3. 같은 질문을 반복하면 얼마나 흔들리는가
-4. 호출 1회 비용·지연, reasoning_effort 를 낮추면 얼마나 줄고 판단이 달라지는가
-결과는 engine/spike/results/ 에 JSON 으로 남긴다. 키 값은 저장·출력하지 않는다.
+What it checks
+1. Do json_schema-constrained answers always come back well-formed (probabilities sum to ~1)?
+2. Does the screen change the decision: 41 miles + paywall (Plan A) vs 2 miles + a match + free (Plan B)?
+3. How much do repeated answers vary?
+4. Cost and latency per call; how much lowering reasoning_effort saves and whether decisions change.
+Results are written as JSON to engine/spike/results/. The key is never stored or printed.
 """
 import base64
 import json
@@ -22,7 +22,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from check_api import call, load_env  # noqa: E402
 
-# 100만 토큰당 달러 (04_사실확인.md). 추론 토큰은 출력으로 과금된다고 가정.
+# USD per 1M tokens (input, output). Reasoning tokens are assumed to bill as output.
 PRICE = {"muse-spark-1.3": (1.25, 4.25), "muse-spark-1.3-contributor": (0.10, 0.20)}
 
 MAYA = (
@@ -30,11 +30,11 @@ MAYA = (
     "Money is tight: you pay for Spotify and nothing else. You get bored of apps fast. "
     "You saw a TikTok ad for Kindred, a new dating app, and installed it 3 days ago."
 )
-# 지금까지 겪은 일 (실제 엔진에서는 시뮬레이션 기억에서 온다). 화면과 어긋나지 않게.
+# What happened so far (the real engine takes this from simulated memory). Must agree with the screen.
 HISTORY_A = " You have swiped through every profile it showed you. Everyone is far away and you have no matches."
 HISTORY_B = " The first two days were quiet. Today you got your first match."
 
-# (이름, 화면, 페르소나, 그 화면에서 할 수 있는 행동, 질문)
+# (name, screen, persona, actions possible on that screen, question)
 CASES = [
     ("ad", "ad.png", MAYA.split(" You saw")[0], ["install", "scroll_past"],
      "You are scrolling TikTok at 11pm and this ad appears. What do you do?"),
@@ -78,7 +78,7 @@ def run_one(env, model, effort, case):
     name, screen, persona, actions, question = case
     body = {
         "model": model,
-        "max_tokens": 6000,  # 기본 추론 설정은 1,500 토큰을 넘게 생각한다
+        "max_tokens": 6000,  # the default reasoning setting thinks for more than 1,500 tokens
         "messages": [
             {"role": "system", "content": SYSTEM + "\n\n" + persona},
             {"role": "user", "content": [
@@ -104,7 +104,7 @@ def run_one(env, model, effort, case):
     try:
         row["answer"] = json.loads(data["choices"][0]["message"]["content"])
         row["prob_sum"] = round(sum(row["answer"]["probabilities"].values()), 3)
-    except Exception as e:  # 형식이 깨진 경우도 그대로 기록
+    except Exception as e:  # keep malformed answers in the record too
         row["error"] = f"parse: {e}: {str(data['choices'][0]['message'].get('content'))[:200]}"
     return row
 
@@ -114,7 +114,7 @@ def main():
     quick = "--quick" in sys.argv
     repeats = 1 if quick else 4
     jobs = [(m, e, c) for m in PRICE for e in (None, "minimal") for c in CASES for _ in range(repeats)]
-    print(f"{len(jobs)}회 호출…")
+    print(f"{len(jobs)} calls...")
     with ThreadPoolExecutor(max_workers=6) as pool:
         rows = list(pool.map(lambda j: run_one(env, *j), jobs))
 
@@ -122,12 +122,12 @@ def main():
     out.write_text(json.dumps(rows, indent=1, ensure_ascii=False))
 
     bad = [r for r in rows if "error" in r]
-    print(f"\n성공 {len(rows) - len(bad)}/{len(rows)}  → {out.relative_to(HERE.parent.parent)}")
+    print(f"\nok {len(rows) - len(bad)}/{len(rows)}  -> {out.relative_to(HERE.parent.parent)}")
     for r in bad:
-        print("  실패:", r["case"], r["model"], r["effort"], r["status"], r["error"][:160])
+        print("  failed:", r["case"], r["model"], r["effort"], r["status"], r["error"][:160])
 
     key = {"ad": "install", "plan_a_paywall": "delete_app", "plan_b_nearby": "delete_app"}
-    print(f"\n{'case':16} {'model':14} {'effort':8} {'핵심 확률(평균 [최소–최대])':28} {'초':>5} {'입력':>6} {'출력':>5} {'$/회':>9}")
+    print(f"\n{'case':16} {'model':14} {'effort':8} {'key prob (mean [min-max])':28} {'sec':>5} {'in':>6} {'out':>5} {'$/call':>9}")
     for model in PRICE:
         for effort in ("default", "minimal"):
             for c in CASES:
@@ -141,7 +141,7 @@ def main():
                       f"{statistics.mean(r['in'] for r in rs):6.0f} {statistics.mean(r['out'] for r in rs):5.0f} "
                       f"{statistics.mean(r['usd'] for r in rs):9.5f}")
 
-    print("\n답 예시 (모델·설정별 첫 번째):")
+    print("\nExample answers (first per model and setting):")
     seen = set()
     for r in rows:
         k = (r["case"], r["model"], r["effort"])
@@ -150,7 +150,7 @@ def main():
             a = r["answer"]
             print(f"  [{r['case']} · {'contrib' if 'contributor' in r['model'] else 'std'} · {r['effort']}] "
                   f"noticed={a['noticed']!r} · {a['probabilities']} · \"{a['reason']}\"")
-    print(f"\n총 비용 ${sum(r.get('usd', 0) for r in rows):.4f}")
+    print(f"\ntotal cost ${sum(r.get('usd', 0) for r in rows):.4f}")
 
 
 if __name__ == "__main__":
