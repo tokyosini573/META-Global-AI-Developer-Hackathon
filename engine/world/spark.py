@@ -103,11 +103,8 @@ def _image(name):
     return "data:image/png;base64," + base64.b64encode(screens.path(name).read_bytes()).decode()
 
 
-def ask_once(env, key):
-    kind, type_id, screen, bucket = key
-    persona, image, question = _prompt(kind, type_id, screen, bucket)
-    actions = OPTIONS[kind]
-    body = {
+def request_body(persona, image, question, actions):
+    return {
         "model": MODEL, "reasoning_effort": EFFORT, "max_tokens": 6000,
         "messages": [
             {"role": "system", "content": SYSTEM + "\n\n" + persona},
@@ -117,6 +114,15 @@ def ask_once(env, key):
         "response_format": {"type": "json_schema",
                             "json_schema": {"name": "decision", "strict": True, "schema": _schema(actions)}},
     }
+
+
+def ask_once(env, key):
+    kind, type_id, screen, bucket = key
+    persona, image, question = _prompt(kind, type_id, screen, bucket)
+    return ask_body(env, request_body(persona, image, question, OPTIONS[kind]), key)
+
+
+def ask_body(env, body, key):
     for attempt in range(4):
         try:
             status, data, _ = call(env, "POST", "/chat/completions", body)
