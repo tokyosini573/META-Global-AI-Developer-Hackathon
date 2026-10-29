@@ -52,9 +52,35 @@ Reference: Spark's first answer for each held-out person.
 Glimmer numbers are from one Modal H100 (about $3.95 an hour) on the 408 test people in one
 batch. Training and evaluation of run r1 cost about $6 on Modal, data $1.82 on the Meta API.
 
+## In the engine (`engine/world/glimmer.py`)
+
+The engine now decides per person. The market has a fixed pool of 1,296 fictional people: 4 for
+every (place, type, side), in each of the 26 metros and small towns, written with the same persona
+sentences as the training data. A simulated person reached in a place takes one of that place's
+people (name, age and story included), and every install and paywall decision is that person's own.
+
+Because the pool is fixed, every decision it can need is known: 3 ads + 18 paywall states per person,
+27,216 in all. `glimmer_modal.py::decide_table` answers them with vLLM on the merged checkpoint in about
+half an hour on one H100 (about $2), all as valid JSON. The answers, with what each person noticed and
+their reason, are committed in `data/decisions/kindred_glimmer.json`, so runs need no GPU.
+
+Same plans, same calibration targets, 30 runs:
+
+| Decisions from | Plan B wins | Median paying users (A vs B) | Different decision answers used |
+|---|---|---|---|
+| Spark type table (6 types) | 29 of 30 | 240 vs 720 | 60 |
+| Glimmer, one per person | 28 of 30 | 300 vs 870 | 3,091 |
+
+The verdict holds. Per person, the spread is wide: Spark's table says a busy professional pays at
+the paywall 34% of the time; Glimmer's busy professionals average 16%, and the middle 80% of them
+range from 5% to 70%, depending on their money, history and mood
+(`python -m engine.world.glimmer compare`).
+
 ## Limits
 
 - The test people come from the same generator as the training people. This shows Glimmer
   reproduces Spark on new people of the same kind, not that either model matches real users.
 - Glimmer learns Spark's answers, including Spark's biases.
 - Glimmer answers without its reasoning channel (the prompt starts the answer directly).
+- The pool has 48 people per place. A city launch reaches far more dots than that, so in Plan B
+  about 700 dots share 126 people (each decides with their own dice, but the same story repeats).

@@ -22,7 +22,7 @@ def replay(cfg, results, verdict, decisions_source):
     return {
         "version": 1,
         "meta": {"app": cfg["app"], "market": cfg["market"], "days": days, "budget_usd": cfg["budget_usd"],
-                 "placeholder": decisions_source != "spark", "people_per_dot": cfg["people_per_dot"]},
+                 "placeholder": decisions_source not in ("spark", "glimmer"), "people_per_dot": cfg["people_per_dot"]},
         "plans": plans,
         "verdict": verdict,
         "people": people,
@@ -35,7 +35,7 @@ def write_sqlite(path, results, summary):
     db = sqlite3.connect(path)
     db.executescript("""
         CREATE TABLE agents (plan TEXT, id INT, type TEXT, side TEXT, channel TEXT, place TEXT, lon REAL, lat REAL,
-                             name TEXT, age INT, reached REAL, installed REAL, matched REAL, quit REAL, paid REAL,
+                             name TEXT, age INT, persona TEXT, reached REAL, installed REAL, matched REAL, quit REAL, paid REAL,
                              matches INT, PRIMARY KEY (plan, id));
         CREATE TABLE decisions (plan TEXT, day INT, person INT, kind TEXT, screen TEXT, bucket TEXT,
                                 probs TEXT, chosen TEXT);
@@ -43,8 +43,8 @@ def write_sqlite(path, results, summary):
         CREATE TABLE summary (key TEXT PRIMARY KEY, value TEXT);
     """)
     for k, res in results.items():
-        db.executemany("INSERT INTO agents VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                       [(k, p.id, p.type, p.side, p.channel, p.place, p.lon, p.lat, p.name, p.age, p.reached,
+        db.executemany("INSERT INTO agents VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                       [(k, p.id, p.type, p.side, p.channel, p.place, p.lon, p.lat, p.name, p.age, p.persona, p.reached,
                          p.installed, p.matched, p.quit, p.paid, len(p.match_days)) for p in res.people])
         db.executemany("INSERT INTO decisions VALUES (?,?,?,?,?,?,?,?)",
                        [(k, d[0], d[1], d[2], d[3], json.dumps(d[4]), json.dumps(d[5]), d[6]) for d in res.decisions])

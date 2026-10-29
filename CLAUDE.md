@@ -55,7 +55,8 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 ## Layout
 
 ```
-engine/    Python world engine. world/ = geo, decide (decision cache + providers), calibrate, sim, output; run.py = CLI.
+engine/    Python world engine. world/ = geo, decide (decision cache + providers), glimmer (per-person pool + table),
+           spark (per-type table), calibrate, sim, output; run.py = CLI.
            fake_replay.py writes the old hand-made placeholder replay.
 plans/     Launch plans + market values (each value cites a rule id in rules/two_sided.md or a benchmark).
 rules/     Frozen rule cards (commit eef683f). Changing them must be recorded in the README.
@@ -72,7 +73,8 @@ scripts/   shot.sh: 1920×1080 screenshots with headless Chrome.
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m engine.run --runs 30    # calibrate + Monte Carlo -> web/public/replays/engine.json, runs/engine.sqlite
+.venv/bin/python -m engine.run --runs 30    # Glimmer table; calibrate + Monte Carlo -> web/public/replays/engine.json, runs/engine.sqlite
+.venv/bin/python -m engine.world.glimmer prepare   # new pool/screens: then glimmer_modal.py::decide_table, then `collect`
 .venv/bin/python -m pytest -q tests
 .venv/bin/python -m engine.backtest.run predict v2 && .venv/bin/python -m engine.backtest.run score
 .venv/bin/python -m engine.distill.make_data --n 4000 && .venv/bin/python -m engine.distill.format --upload
