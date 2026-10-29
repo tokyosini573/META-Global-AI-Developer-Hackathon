@@ -1,0 +1,218 @@
+{
+ "case_1": {
+  "m1": {
+   "question": "Are there more transactions in month 3 than in month 0?",
+   "p": 0.975,
+   "median_left": 68800.00000000003,
+   "median_right": 716.6666666666666
+  },
+  "m2": {
+   "question": "Are there more active users at month 9 than at month 3?",
+   "p": 0.8,
+   "median_left": 54466.666666666664,
+   "median_right": 30100.0
+  },
+  "m3": {
+   "question": "Are there more active users at month 42 than at month 12?",
+   "p": 0.3,
+   "median_left": 30816.666666666664,
+   "median_right": 46583.33333333333
+  }
+ },
+ "case_2": {
+  "m1": {
+   "question": "Is version b ahead of version a on active users at month 12?",
+   "p": 0.0,
+   "median_left": 775666.6666666666,
+   "median_right": 8606000.0
+  },
+  "m2": {
+   "question": "Have more people had a success (a match that leads to a conversation) in version b than in version a by month 12?",
+   "p": 0.0,
+   "median_left": 4493666.666666666,
+   "median_right": 28656333.33333333
+  },
+  "m3": {
+   "question": "Does version b have more active users at month 12 than at month 0?",
+   "p": 0.9,
+   "median_left": 775666.6666666666,
+   "median_right": 73666.66666666666
+  },
+  "m4": {
+   "question": "Is version a ahead of version b on active users at the end of the first month (month 0)?",
+   "p": 1.0,
+   "median_left": 229666.66666666663,
+   "median_right": 73666.66666666666
+  }
+ },
+ "case_3": {
+  "m1": {
+   "question": "Are there more transactions in month 15 than in month 6?",
+   "p": 0.175,
+   "median_left": 0.0,
+   "median_right": 3440.0
+  },
+  "m2": {
+   "question": "Are there more active users at month 10 than at month 6?",
+   "p": 0.45,
+   "median_left": 2580.0,
+   "median_right": 1720.0
+  },
+  "m3": {
+   "question": "Are there more active users at month 42 than at month 15?",
+   "p": 0.4,
+   "median_left": 1720.0,
+   "median_right": 1720.0
+  }
+ },
+ "case_4": {
+  "m1": {
+   "question": "Does version b have more active users at month 17 than version a had at month 11?",
+   "p": 0.925,
+   "median_left": 6132000.0,
+   "median_right": 2580000.0
+  },
+  "m2": {
+   "question": "Does version a have more active users at month 16 than at month 10?",
+   "p": 0.15,
+   "median_left": 1728000.0,
+   "median_right": 2724000.0
+  },
+  "m3": {
+   "question": "Is version a ahead of version b on cumulative contribution margin at month 17?",
+   "p": 1.0,
+   "median_left": 55800000.0,
+   "median_right": 0.0
+  }
+ },
+ "case_5": {
+  "m1": {
+   "question": "Are there more transactions in month 3 than in month 0?",
+   "p": 0.75,
+   "median_left": 185000.0,
+   "median_right": 7400.0
+  },
+  "m2": {
+   "question": "Are there more transactions in month 13 than in month 10?",
+   "p": 0.475,
+   "median_left": 355200.0,
+   "median_right": 299700.0
+  },
+  "m3": {
+   "question": "Are there more transactions in month 21 than in month 13?",
+   "p": 0.125,
+   "median_left": 207200.0,
+   "median_right": 355200.0
+  },
+  "m4": {
+   "question": "Are there more transactions in month 28 than in month 21?",
+   "p": 0.325,
+   "median_left": 177600.0,
+   "median_right": 207200.0
+  },
+  "m5": {
+   "question": "Are there more transactions in month 36 than in month 28?",
+   "p": 0.375,
+   "median_left": 111000.0,
+   "median_right": 177600.0
+  }
+ },
+ "case_6": {
+  "m1": {
+   "question": "Are there more transactions in month 8 than in month 2?",
+   "p": 0.8,
+   "median_left": 196650.0,
+   "median_right": 82800.0
+  },
+  "m2": {
+   "question": "Are there more active users at month 8 than at month 2?",
+   "p": 0.825,
+   "median_left": 96600.0,
+   "median_right": 36800.0
+  },
+  "m3": {
+   "question": "Are there more transactions in month 12 than in month 10?",
+   "p": 0.2,
+   "median_left": 177100.0,
+   "median_right": 234600.0
+  },
+  "m4": {
+   "question": "Are there more active users at month 12 than at month 10?",
+   "p": 0.225,
+   "median_left": 75900.0,
+   "median_right": 89700.0
+  },
+  "m5": {
+   "question": "Are there more transactions in month 22 than in month 12?",
+   "p": 0.225,
+   "median_left": 67850.0,
+   "median_right": 177100.0
+  }
+ },
+ "case_7": {
+  "m1": {
+   "question": "Are there more transactions in month 12 than in month 3?",
+   "p": 0.35,
+   "median_left": 15333.333333333336,
+   "median_right": 22000.0
+  },
+  "m2": {
+   "question": "Are there more active users at month 12 than at month 6?",
+   "p": 0.55,
+   "median_left": 10000.0,
+   "median_right": 8000.0
+  },
+  "m3": {
+   "question": "Are there more active users at month 41 than at month 24?",
+   "p": 0.45,
+   "median_left": 5333.333333333333,
+   "median_right": 4000.0
+  },
+  "m4": {
+   "question": "Are there more active users at month 49 than at month 12?",
+   "p": 0.35,
+   "median_left": 4000.0,
+   "median_right": 10000.0
+  }
+ },
+ "case_8": {
+  "m1": {
+   "question": "Are there more active users at month 3 than at month 1?",
+   "p": 1.0,
+   "median_left": 2532666.6666666665,
+   "median_right": 1237333.3333333333
+  },
+  "m2": {
+   "question": "Are there more transactions in month 3 than in month 1?",
+   "p": 1.0,
+   "median_left": 4311333.333333328,
+   "median_right": 1585333.333333334
+  },
+  "m3": {
+   "question": "Are there more active users at month 28 than at month 3?",
+   "p": 0.025,
+   "median_left": 580000.0,
+   "median_right": 2532666.6666666665
+  }
+ },
+ "case_9": {
+  "m1": {
+   "question": "Are there more transactions in month 15 than in month 3?",
+   "p": 0.775,
+   "median_left": 60066.66666666664,
+   "median_right": 14733.333333333332
+  },
+  "m2": {
+   "question": "Are there more active users at month 17 than at month 5?",
+   "p": 0.8,
+   "median_left": 47600.0,
+   "median_right": 29466.666666666664
+  },
+  "m3": {
+   "question": "Are there more transactions in month 33 than in month 15?",
+   "p": 0.475,
+   "median_left": 65733.33333333331,
+   "median_right": 60066.66666666664
+  }
+ }
+}

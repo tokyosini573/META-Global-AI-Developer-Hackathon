@@ -27,16 +27,20 @@ from .world import World, decision_keys, sample_params
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 CASES = ROOT / "backtest" / "cases"
-PRED = {"v1": ROOT / "backtest" / "predictions.json", "v2": ROOT / "backtest" / "predictions_v2.json"}
-METHODS = {"v1": (range(20), False), "v2": (range(40), True)}   # seeds, sample rule values
+PRED = {"v1": ROOT / "backtest" / "predictions.json", "v2": ROOT / "backtest" / "predictions_v2.json",
+        "v2 generic": ROOT / "backtest" / "predictions_v2_generic.json"}
+# seeds, sample rule values, decisions from generic descriptions (anonymization test)
+METHODS = {"v1": (range(20), False, False), "v2": (range(40), True, False), "v2 generic": (range(40), True, True)}
 NEW_FROM = 5   # case_5 onward were added after method v2 was fixed
 ANSWERS = ROOT / "backtest" / "answers.yaml"
 REPORT = ROOT / "backtest" / "report.md"
 LIMITS = [
     "33 markers on 9 cases, 20 of them on the 5 cases held out for method v2: still a small sample; read the "
     "scores as a check of the method, not a measured accuracy.",
-    "Spark named 8 of the 9 companies from their name-removed descriptions, including less-known ones, so its "
-    "decisions may lean on what it remembers. Only case_8 was not recognized.",
+    "Spark named 8 of the 9 companies from their name-removed descriptions, including less-known ones. With "
+    "generic descriptions it still named 4 (often the best-known app of the category). The anonymization test "
+    "suggests memory moves the predictions little (mean change 0.07, 2 of 33 directions flipped), but the "
+    "unrecognized subset is small.",
     "Method v2 (rule values drawn from the frozen ranges, market-size term) was chosen after the v1 scores of "
     "cases 1-4 were known; cases 1-4 under v2 are not evidence for it.",
     "The world under-predicts growth in the middle of a company's life: 6 of the 9 v2 misses are growth it did "
@@ -70,9 +74,9 @@ def _side_value(worlds, spec, metric, month):
 
 
 def predict(method="v2"):
-    seeds, sampled = METHODS[method]
+    seeds, sampled, generic = METHODS[method]
     cases = load_cases()
-    dec = BacktestDecisions(cases)
+    dec = BacktestDecisions(cases, generic)
     asked = dec.prefill([k for c in cases.values() for k in decision_keys(c)])
     print(f"decision table: {len(dec.entries)} keys ({asked} new)")
     out = {}
@@ -126,6 +130,36 @@ def _summary(rows, keys, keep):
     return lines + [""]
 
 
+def _anonymization(rows):
+    """Do the predictions change when Spark is given only generic descriptions?"""
+    pairs = [(cid, mid, ps["world v2"], ps["world v2 generic"]) for cid, mid, _, _, ps in rows
+             if ps.get("world v2") is not None and ps.get("world v2 generic") is not None]
+    if not pairs:
+        return []
+    flips = [(c, m, a, b) for c, m, a, b in pairs if (a > 0.5) != (b > 0.5)]
+    lines = ["## Anonymization test", "",
+             "The v2 run was repeated with every Spark decision made from a generic description built only from "
+             "the case's structured fields (the two sides, country, one city or nationwide): no era, no product "
+             "features, no city names, no history. If the predictions hold, they come from the mechanics and the "
+             "inputs rather than from what Spark remembers about the company. This is a sensitivity check run "
+             "after the answers were known; the answers play no part in it.", "",
+             f"- Markers compared: {len(pairs)}",
+             f"- Mean change in probability: {statistics.mean(abs(a - b) for _, _, a, b in pairs):.2f}",
+             f"- Direction flipped: {len(flips)}"
+             + (" (" + ", ".join(f"{c} {m} {a:.2f} -> {b:.2f}" for c, m, a, b in flips) + ")" if flips else ""), ""]
+    rec_file = ROOT / "backtest" / "recognition_generic.json"
+    if rec_file.exists():
+        lines += ["Recognition with the generic descriptions:", "",
+                  "| Case | Guess | Confidence | Recognized |", "|---|---|---|---|"]
+        rec = json.loads(rec_file.read_text())
+        for cid, g in rec.items():
+            lines.append(f"| {cid} | {g.get('guess')} | {g.get('confidence')} | {'yes' if g.get('recognized') else 'no'} |")
+        lines += ["", "Generic run, scored only on the cases Spark could not name from the generic description:", ""]
+        lines += _summary(rows, ["world v2 generic", "always_success", "bass_only", "no_view"],
+                          lambda c: c in rec and not rec[c].get("recognized"))
+    return lines
+
+
 def score():
     cases = load_cases()
     pred = {k: json.loads(f.read_text()) for k, f in PRED.items() if f.exists()}
@@ -139,7 +173,7 @@ def score():
             ps = {f"world {k}": pred[k][cid][m["id"]]["p"] if cid in pred[k] else None for k in pred}
             ps.update(baselines(case, m))
             rows.append((cid, m["id"], m["question"], y, ps))
-    keys = [*(f"world {k}" for k in reversed(list(pred))), "always_success", "bass_only", "no_view"]
+    keys = [*(f"world {k}" for k in ["v2", "v2 generic", "v1"] if k in pred), "always_success", "bass_only", "no_view"]
     lines = ["# Backtest report", "",
              "Predictions were committed before the answers were added: `predictions.json` (method v1, "
              "cases 1-4) and `predictions_v2.json` (method v2, all cases). Method v2 draws the rule values "
@@ -168,6 +202,7 @@ def score():
         for cid, g in rec.items():
             lines.append(f"| {cid} | {g.get('guess')} | {g.get('confidence')} | {'yes' if g.get('recognized') else 'no'} |")
         lines.append("")
+    lines += _anonymization(rows)
     lines += ["## Limits", "", *[f"- {x}" for x in LIMITS]]
     REPORT.write_text("\n".join(lines) + "\n")
     print("\n".join(lines[lines.index("## All cases"):lines.index("## All cases") + 8]))
@@ -176,4 +211,4 @@ def score():
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "predict"
-    {"predict": predict, "score": score}[cmd](*sys.argv[2:])
+    {"predict": predict, "score": score}[cmd](" ".join(sys.argv[2:]) or "v2") if cmd == "predict" else score()
