@@ -25,3 +25,13 @@ def test_same_seed_same_world():
     runs = [totals(Simulation(cfg, "b", cache, {}, seed=7, days=20).run(), 20, cfg["people_per_dot"])
             for _ in range(2)]
     assert runs[0] == runs[1]
+
+
+def test_spark_table_covers_every_decision():
+    """The committed table must answer every key, so runs never need the API."""
+    from engine.world.spark import SparkProvider, _key_str, all_keys
+    entries = SparkProvider().entries
+    missing = [k for k in all_keys() if _key_str(k) not in entries]
+    assert not missing
+    for e in entries.values():
+        assert sum(e["probs"].values()) == pytest.approx(1)

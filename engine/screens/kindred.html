@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- Screens of the fictional demo app (Kindred, working name) that simulated people look at.
+     Captured at 390×844 by engine/world/screens.py and shown to Spark.
+     ?s=ad | store | paywall  (&match=0|1&miles=N for paywall)
+     Depicted app screens, so the design type-size rules do not apply. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 390px; height: 844px; background: #0A0B0D; color: #E8EAED; font-family: Geist, system-ui, sans-serif; overflow: hidden; position: relative; }
+  .status { height: 48px; padding: 16px 24px 0; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; color: #fff; }
+  .top { padding: 8px 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-size: 22px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+  .chip { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #1A1D22; color: #B8BCC4; }
+  .card { margin: 16px 16px 0; height: 520px; border-radius: 20px; background: #1A1D22; position: relative; overflow: hidden; position: relative; }
+  .photo { position: absolute; inset: 0 0 120px; background: linear-gradient(160deg, #3A3F48, #23262D); }
+  .photo svg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); }
+  .who { position: absolute; left: 20px; bottom: 64px; font-size: 26px; font-weight: 600; color: #fff; }
+  .where { position: absolute; left: 20px; bottom: 36px; font-size: 16px; color: #B8BCC4; }
+  .bio { position: absolute; left: 20px; right: 20px; bottom: 12px; font-size: 13px; color: #6B7280; }
+  .buttons { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+  .btn { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid #2E323A; }
+  .btn.like { background: #fff; border: none; }
+  .bar { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px 32px; background: #121418; border-top: 1px solid #23262D; }
+  .bar .t { font-size: 15px; color: #fff; font-weight: 500; }
+  .bar .s { font-size: 13px; color: #6B7280; margin-top: 4px; }
+  .cta { margin-top: 14px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 17px; font-weight: 600; }
+  /* TikTok ad */
+  .ad { position: absolute; inset: 0; background: linear-gradient(180deg, #1B2233 0%, #0A0B0D 70%); }
+  .ad h1 { position: absolute; left: 24px; right: 72px; top: 240px; font-size: 52px; line-height: 1.02; letter-spacing: -.03em; color: #fff; font-weight: 600; }
+  .ad .sub { position: absolute; left: 24px; right: 72px; top: 362px; font-size: 18px; color: #B8BCC4; }
+  .ad .rail { position: absolute; right: 14px; bottom: 220px; display: flex; flex-direction: column; gap: 22px; align-items: center; font-size: 12px; color: #fff; }
+  .ad .rail i { display: block; width: 40px; height: 40px; border-radius: 50%; background: #2E323A; margin-bottom: 4px; }
+  .ad .meta { position: absolute; left: 16px; right: 80px; bottom: 116px; font-size: 15px; color: #fff; }
+  .ad .meta b { font-weight: 600; } .ad .meta span { color: #B8BCC4; font-size: 13px; }
+  .ad .install { position: absolute; left: 16px; right: 16px; bottom: 48px; height: 48px; border-radius: 8px; background: #fff; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+  /* App Store page */
+  .store { padding: 8px 20px 0; }
+  .store .row { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
+  .store .icon { width: 96px; height: 96px; border-radius: 22px; background: linear-gradient(160deg, #3A3F48, #1A1D22); display: grid; place-items: center; font-size: 44px; font-weight: 600; color: #fff; }
+  .store .name { font-size: 22px; font-weight: 600; color: #fff; }
+  .store .tag { font-size: 14px; color: #B8BCC4; margin-top: 2px; }
+  .store .get { margin-top: 10px; width: 84px; height: 32px; border-radius: 16px; background: #E8EAED; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 15px; }
+  .store .facts { display: flex; justify-content: space-between; margin-top: 20px; padding: 12px 0; border-top: 1px solid #23262D; border-bottom: 1px solid #23262D; font-size: 12px; color: #6B7280; text-align: center; }
+  .store .facts b { display: block; font-size: 16px; color: #E8EAED; font-weight: 600; }
+  .store .shots { display: flex; gap: 10px; margin-top: 18px; }
+  .store .shot { flex: 1; height: 300px; border-radius: 14px; background: #1A1D22; padding: 14px; font-size: 17px; font-weight: 600; color: #fff; line-height: 1.15; }
+  .store .desc { margin-top: 16px; font-size: 14px; color: #B8BCC4; line-height: 1.4; }
+</style>
+</head>
+<body>
+<script>
+const q = new URLSearchParams(location.search)
+const s = q.get('s') || 'paywall'
+const status = `<div class="status"><span>9:41</span><span>●●●● 5G ▮</span></div>`
+const person = `<svg width="140" height="170" viewBox="0 0 140 170"><circle cx="70" cy="52" r="40" fill="#4A505A"/><path d="M0 170 C0 110 140 110 140 170 Z" fill="#4A505A"/></svg>`
+const matched = q.get('match') === '1'
+const miles = q.get('miles') || '41'
+const screens = {
+  // Nationwide or local TikTok ad
+  ad: `<div class="ad">${status}
+    <h1>Swipe less.<br>Meet more.</h1>
+    <div class="sub">Real people who are actually nearby.</div>
+    <div class="rail"><div><i></i>12.4K</div><div><i></i>318</div><div><i></i>Share</div></div>
+    <div class="meta"><b>Kindred</b> · Sponsored<br><span>Dating, minus the endless scrolling. Free to try.</span></div>
+    <div class="install">Install</div></div>`,
+  // App Store page, opened from a link someone shared
+  store: `${status}<div class="store">
+    <div class="row"><div class="icon">K</div><div><div class="name">Kindred</div><div class="tag">Meet people who are actually nearby</div><div class="get">Get</div></div></div>
+    <div class="facts"><div><b>4.6</b>★★★★★</div><div><b>17+</b>Age</div><div><b>#38</b>Lifestyle</div><div><b>Free</b>In-app purchases</div></div>
+    <div class="shots"><div class="shot">Meet people who are actually nearby.</div><div class="shot">Fewer swipes. Better matches.</div></div>
+    <div class="desc">Kindred shows you people close to you first, so a match can turn into a coffee this week. Free to start. Unlimited swipes $9.99/week.</div></div>`,
+  // Free swipes used up. match and distance depend on the person's state.
+  paywall: `${status}<div class="top"><span class="brand">Kindred</span><span class="chip">${matched ? '1 match' : '0 matches'}</span></div>
+    <div class="card"><div class="photo">${person}</div><div class="who">Jordan, 26</div><div class="where">${miles} miles away</div><div class="bio">Nearest person who matches your settings</div></div>
+    <div class="bar"><div class="t">You've used 5 of 5 free swipes today</div><div class="s">${matched ? 'Your match is waiting for a reply.' : 'More people may join near you soon.'}</div>
+      <div class="cta" style="background:#E8EAED;color:#0A0B0D">Unlimited swipes · $9.99/week</div></div>`,
+}
+document.body.innerHTML = screens[s]
+</script>
+</body>
+</html>

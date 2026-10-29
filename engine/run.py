@@ -4,7 +4,7 @@
     .venv/bin/python -m engine.run --runs 5 --days 30    # quick check
 
 Writes web/public/replays/<name>.json (open the site with ?replay=<name>) and
-runs/<name>.sqlite. Decisions come from the stub provider until Spark is wired in.
+runs/<name>.sqlite. Decisions come from the committed Spark table (--provider stub for the stand-in).
 """
 
 import argparse
@@ -19,6 +19,7 @@ from engine.world.calibrate import fit_shifts
 from engine.world.decide import DecisionCache, StubProvider
 from engine.world.output import replay, write_sqlite
 from engine.world.sim import Simulation, measures, totals
+from engine.world.spark import SparkProvider
 
 ROOT = Path(__file__).resolve().parent.parent
 CALIBRATION_SEEDS = tuple(range(1000, 1006))
@@ -56,13 +57,15 @@ def main():
     ap.add_argument("--runs", type=int, default=30)
     ap.add_argument("--days", type=int)
     ap.add_argument("--name", default="engine")
+    ap.add_argument("--provider", choices=["spark", "stub"], default="spark",
+                    help="spark reads data/decisions/kindred_spark.json and asks Spark only for missing keys")
     args = ap.parse_args()
 
     cfg = yaml.safe_load((ROOT / args.plans).read_text())
     if args.days:
         cfg["days"] = args.days
     days = cfg["days"]
-    cache = DecisionCache(StubProvider())
+    cache = DecisionCache(SparkProvider() if args.provider == "spark" else StubProvider())
     t0 = time.time()
 
     shifts, seen = calibrate(cfg, cache, days)
