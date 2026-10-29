@@ -250,22 +250,42 @@ def evaluate(run: str = "r1", n: int = 0):
 
 # ---- fast serving check with vLLM ---------------------------------------------------
 
-vllm_image = (modal.Image.from_registry("vllm/vllm-openai:muse-glimmer", add_python=None)
-              .entrypoint([]).env({"HF_HOME": WEIGHTS + "/hf"}))
+vllm_image = (modal.Image.from_registry("vllm/vllm-openai:muse-glimmer")
+              .entrypoint([])
+              .run_commands("ln -sf $(command -v python3) /usr/local/bin/python && python --version")
+              .env({"HF_HOME": WEIGHTS + "/hf"}))
+
+
+@app.function(image=image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3600, memory=131072)
+def merge(run: str = "r1"):
+    """bf16 base + adapter -> one merged checkpoint (vLLM's LoRA path fails on this multimodal model)."""
+    import shutil
+    import torch
+    from peft import PeftModel
+    from transformers import AutoModelForImageTextToText, AutoProcessor
+    base = f"{WEIGHTS}/glimmer"
+    model = AutoModelForImageTextToText.from_pretrained(base, dtype=torch.bfloat16, device_map={"": 0})
+    model = PeftModel.from_pretrained(model, f"{RUNS}/{run}").merge_and_unload()
+    out = f"{WEIGHTS}/glimmer_{run}"
+    model.save_pretrained(out, max_shard_size="10GB")
+    AutoProcessor.from_pretrained(base).save_pretrained(out)
+    for f in ("chat_template.jinja", "generation_config.json"):
+        shutil.copy(f"{base}/{f}", f"{out}/{f}")
+    weights.commit()
+    print("merged to", out)
 
 
 @app.function(image=vllm_image, gpu=GPU, volumes={WEIGHTS: weights, RUNS: runs}, timeout=3600)
 def evaluate_vllm(run: str = "r1"):
-    """Same test set through vLLM (bf16 base + LoRA adapter), to see real serving speed."""
+    """Same test set through vLLM: the base checkpoint and the merged one, to see real serving speed."""
     import json
     import time
     from PIL import Image
     from vllm import LLM, SamplingParams
-    from vllm.lora.request import LoRARequest
 
     test = [json.loads(x) for x in open(f"{RUNS}/data/test.jsonl")]
-    llm = LLM(model=f"{WEIGHTS}/glimmer", max_model_len=4096, enable_lora=True, max_lora_rank=16,
-              gpu_memory_utilization=0.92, limit_mm_per_prompt={"image": 1})
+    llm = LLM(model=f"{WEIGHTS}/glimmer_{run}", max_model_len=4096, gpu_memory_utilization=0.92,
+              limit_mm_per_prompt={"image": 1})
     tok = llm.get_tokenizer()
     stop = tok.convert_tokens_to_ids(["<|eot|>", "<|end_of_text|>"])
     params = SamplingParams(temperature=0, max_tokens=160, stop_token_ids=stop)
@@ -277,9 +297,9 @@ def evaluate_vllm(run: str = "r1"):
         text = tok.apply_chat_template(r["messages"][:2], tokenize=False, add_generation_prompt=True) + PREFIX
         prompts.append({"prompt": text, "multi_modal_data": {"image": imgs[r["image"]]}})
     out = {}
-    for name, lora in (("tuned", LoRARequest(run, 1, f"{RUNS}/{run}")), ("base", None)):
+    for name in ("tuned",):          # the base model was already scored with transformers
         t0 = time.time()
-        res = llm.generate(prompts, params, lora_request=lora)
+        res = llm.generate(prompts, params)
         secs = time.time() - t0
         rows = []
         for r, g in zip(test, res):
