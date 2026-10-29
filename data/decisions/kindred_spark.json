@@ -1,0 +1,4219 @@
+{
+ "model": "muse-spark-1.3-contributor",
+ "reasoning_effort": "medium",
+ "repeats": 3,
+ "entries": {
+  "[\"install\", \"app_skeptic\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.05,
+    "scroll_past": 0.95
+   },
+   "samples": [
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    },
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    },
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    }
+   ],
+   "reasons": [
+    "Ten bucks a week? No way, I'm out.",
+    "No way I'm paying ten bucks a week for swipes.",
+    "Ten bucks a week? Yeah, hard pass."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week.",
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week at the bottom"
+   ]
+  },
+  "[\"install\", \"app_skeptic\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.10333333333333333,
+    "scroll_past": 0.8966666666666667
+   },
+   "samples": [
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    },
+    {
+     "install": 0.07,
+     "scroll_past": 0.93
+    },
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    }
+   ],
+   "reasons": [
+    "Friend matched but ten bucks weekly is a scam.",
+    "I'm not paying ten bucks a week for swipes.",
+    "Ten bucks a week just to swipe? No way."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week.",
+    "The $9.99/week price for unlimited swipes",
+    "Unlimited swipes $9.99/week"
+   ]
+  },
+  "[\"install\", \"app_skeptic\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.05,
+    "scroll_past": 0.95
+   },
+   "samples": [
+    {
+     "install": 0.03,
+     "scroll_past": 0.97
+    },
+    {
+     "install": 0.08,
+     "scroll_past": 0.92
+    },
+    {
+     "install": 0.04,
+     "scroll_past": 0.96
+    }
+   ],
+   "reasons": [
+    "Don't trust new dating apps, seen too many.",
+    "Sounds like another paywall trap, I'm not risking it.",
+    "Seen too many fake dating apps to trust this one."
+   ],
+   "noticed": [
+    "Free to try.",
+    "Free to try.",
+    "Swipe less. Meet more. dating app ad"
+   ]
+  },
+  "[\"install\", \"busy_professional\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.5066666666666666,
+    "scroll_past": 0.49333333333333335
+   },
+   "samples": [
+    {
+     "install": 0.7,
+     "scroll_past": 0.3
+    },
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    },
+    {
+     "install": 0.7,
+     "scroll_past": 0.3
+    }
+   ],
+   "reasons": [
+    "I work too much for endless swiping.",
+    "Ten bucks a week is insane for dating.",
+    "I'm busy and paying for fewer, closer matches makes sense."
+   ],
+   "noticed": [
+    "Fewer swipes. Better matches.",
+    "Unlimited swipes $9.99/week.",
+    "Fewer swipes. Better matches."
+   ]
+  },
+  "[\"install\", \"busy_professional\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.8166666666666667,
+    "scroll_past": 0.18333333333333332
+   },
+   "samples": [
+    {
+     "install": 0.85,
+     "scroll_past": 0.15
+    },
+    {
+     "install": 0.75,
+     "scroll_past": 0.25
+    },
+    {
+     "install": 0.85,
+     "scroll_past": 0.15
+    }
+   ],
+   "reasons": [
+    "No time to swipe forever, and my friend actually matched.",
+    "Friend got a match and I don't have time to swipe forever.",
+    "Busy, and nearby matches that actually meet sounds perfect."
+   ],
+   "noticed": [
+    "Fewer swipes. Better matches.",
+    "Fewer swipes. Better matches.",
+    "Fewer swipes. Better matches."
+   ]
+  },
+  "[\"install\", \"busy_professional\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.6666666666666666,
+    "scroll_past": 0.33333333333333337
+   },
+   "samples": [
+    {
+     "install": 0.6,
+     "scroll_past": 0.4
+    },
+    {
+     "install": 0.72,
+     "scroll_past": 0.28
+    },
+    {
+     "install": 0.68,
+     "scroll_past": 0.32
+    }
+   ],
+   "reasons": [
+    "I'm too busy to waste time endlessly swiping.",
+    "I'm too busy for endless swiping, this sounds perfect.",
+    "I'm too busy to swipe for hours every night."
+   ],
+   "noticed": [
+    "Swipe less. Meet more.",
+    "The 'Swipe less. Meet more.' promise of no endless scrolling.",
+    "The 'Swipe less. Meet more' promise to save time"
+   ]
+  },
+  "[\"install\", \"casual_browser\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "samples": [
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    },
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    },
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    }
+   ],
+   "reasons": [
+    "Nine ninety-nine a week just to swipe? Nah I'm good.",
+    "lol not paying ten dollars weekly just to kill time.",
+    "Ten bucks a week just to swipe? Nah I'm bored, not desperate."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week"
+   ]
+  },
+  "[\"install\", \"casual_browser\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.38333333333333336,
+    "scroll_past": 0.6166666666666667
+   },
+   "samples": [
+    {
+     "install": 0.65,
+     "scroll_past": 0.35
+    },
+    {
+     "install": 0.2,
+     "scroll_past": 0.8
+    },
+    {
+     "install": 0.3,
+     "scroll_past": 0.7
+    }
+   ],
+   "reasons": [
+    "My friend matched so I'll try it since it's free.",
+    "Way too expensive just to kill time swiping.",
+    "Friend matched but I'm not paying ten bucks weekly."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week."
+   ]
+  },
+  "[\"install\", \"casual_browser\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.32333333333333336,
+    "scroll_past": 0.6766666666666666
+   },
+   "samples": [
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    },
+    {
+     "install": 0.65,
+     "scroll_past": 0.35
+    },
+    {
+     "install": 0.2,
+     "scroll_past": 0.8
+    }
+   ],
+   "reasons": [
+    "Meh, seen a million dating apps already.",
+    "I'm bored anyway, free sounds worth a tap.",
+    "Sounds fake, I'm just bored scrolling not downloading stuff."
+   ],
+   "noticed": [
+    "Swipe less. Meet more.",
+    "Swipe less. Meet more.",
+    "Real people who are actually nearby."
+   ]
+  },
+  "[\"install\", \"new_in_town\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.25,
+    "scroll_past": 0.75
+   },
+   "samples": [
+    {
+     "install": 0.25,
+     "scroll_past": 0.75
+    },
+    {
+     "install": 0.25,
+     "scroll_past": 0.75
+    },
+    {
+     "install": 0.25,
+     "scroll_past": 0.75
+    }
+   ],
+   "reasons": [
+    "I just moved here but I'm not paying ten bucks weekly.",
+    "I want nearby friends, but ten bucks a week feels steep.",
+    "I\u2019m lonely here but I\u2019m not paying ten bucks weekly."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week.",
+    "Meet people who are actually nearby.",
+    "Unlimited swipes $9.99/week"
+   ]
+  },
+  "[\"install\", \"new_in_town\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.7166666666666667,
+    "scroll_past": 0.2833333333333333
+   },
+   "samples": [
+    {
+     "install": 0.7,
+     "scroll_past": 0.3
+    },
+    {
+     "install": 0.75,
+     "scroll_past": 0.25
+    },
+    {
+     "install": 0.7,
+     "scroll_past": 0.3
+    }
+   ],
+   "reasons": [
+    "New here, need people fast, and it's free to try.",
+    "I'm new here and want real coffee, not endless swiping.",
+    "I'm new here and want coffee, not endless chatting."
+   ],
+   "noticed": [
+    "Meet people who are actually nearby.",
+    "Meet people who are actually nearby.",
+    "Meet people who are actually nearby."
+   ]
+  },
+  "[\"install\", \"new_in_town\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.49333333333333335,
+    "scroll_past": 0.5066666666666667
+   },
+   "samples": [
+    {
+     "install": 0.45,
+     "scroll_past": 0.55
+    },
+    {
+     "install": 0.68,
+     "scroll_past": 0.32
+    },
+    {
+     "install": 0.35,
+     "scroll_past": 0.65
+    }
+   ],
+   "reasons": [
+    "I just moved here and know almost nobody.",
+    "I just moved here and know nobody yet.",
+    "New here and lonely, nearby sounds perfect tonight."
+   ],
+   "noticed": [
+    "Real people who are actually nearby.",
+    "Real people who are actually nearby.",
+    "Real people who are actually nearby."
+   ]
+  },
+  "[\"install\", \"serious_dater\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "samples": [
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    },
+    {
+     "install": 0.18,
+     "scroll_past": 0.82
+    },
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    }
+   ],
+   "reasons": [
+    "I'm 29 and not paying ten bucks a week for swipes.",
+    "Ten dollars a week and still might get nowhere.",
+    "Ten bucks a week just to swipe? No thanks, I'm done."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week."
+   ]
+  },
+  "[\"install\", \"serious_dater\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.7066666666666667,
+    "scroll_past": 0.29333333333333333
+   },
+   "samples": [
+    {
+     "install": 0.65,
+     "scroll_past": 0.35
+    },
+    {
+     "install": 0.75,
+     "scroll_past": 0.25
+    },
+    {
+     "install": 0.72,
+     "scroll_past": 0.28
+    }
+   ],
+   "reasons": [
+    "I'm sick of pen pals, I want actual coffee dates.",
+    "I want something real close by, not pen pals.",
+    "I'm sick of endless swiping and want real coffee dates."
+   ],
+   "noticed": [
+    "so a match can turn into a coffee this week",
+    "Meet people who are actually nearby.",
+    "Fewer swipes. Better matches."
+   ]
+  },
+  "[\"install\", \"serious_dater\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.25,
+    "scroll_past": 0.75
+   },
+   "samples": [
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    },
+    {
+     "install": 0.3,
+     "scroll_past": 0.7
+    },
+    {
+     "install": 0.3,
+     "scroll_past": 0.7
+    }
+   ],
+   "reasons": [
+    "Just another app that'll probably waste my time.",
+    "Sounds exactly like what I'm tired of dealing with.",
+    "I'm over swiping but doubt this is different."
+   ],
+   "noticed": [
+    "Swipe less. Meet more.",
+    "Swipe less. Meet more.",
+    "Swipe less. Meet more."
+   ]
+  },
+  "[\"install\", \"student\", \"ambassador\", \"-\"]": {
+   "probs": {
+    "install": 0.09333333333333334,
+    "scroll_past": 0.9066666666666667
+   },
+   "samples": [
+    {
+     "install": 0.1,
+     "scroll_past": 0.9
+    },
+    {
+     "install": 0.08,
+     "scroll_past": 0.92
+    },
+    {
+     "install": 0.1,
+     "scroll_past": 0.9
+    }
+   ],
+   "reasons": [
+    "No way I'm paying ten bucks a week for swipes.",
+    "$10 a week? I'm broke, hard pass.",
+    "Ten bucks a week? I'm broke, hard pass."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week",
+    "Unlimited swipes $9.99/week",
+    "$9.99/week for unlimited swipes"
+   ]
+  },
+  "[\"install\", \"student\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.12333333333333334,
+    "scroll_past": 0.8766666666666667
+   },
+   "samples": [
+    {
+     "install": 0.15,
+     "scroll_past": 0.85
+    },
+    {
+     "install": 0.1,
+     "scroll_past": 0.9
+    },
+    {
+     "install": 0.12,
+     "scroll_past": 0.88
+    }
+   ],
+   "reasons": [
+    "I'm broke and $10 a week is way too much.",
+    "No way I'm paying ten bucks a week for swipes.",
+    "No way I'm paying ten bucks a week for swipes."
+   ],
+   "noticed": [
+    "Unlimited swipes $9.99/week price tag",
+    "Unlimited swipes $9.99/week",
+    "The $9.99/week for unlimited swipes line"
+   ]
+  },
+  "[\"install\", \"student\", \"tiktok_ad\", \"-\"]": {
+   "probs": {
+    "install": 0.05,
+    "scroll_past": 0.95
+   },
+   "samples": [
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    },
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    },
+    {
+     "install": 0.05,
+     "scroll_past": 0.95
+    }
+   ],
+   "reasons": [
+    "Free to try always means pay later, I'm broke.",
+    "I'm broke and not paying for another dating app.",
+    "free to try always means pay later lol"
+   ],
+   "noticed": [
+    "The 'Free to try' part",
+    "That it says 'Free to try' not actually free",
+    "The 'Free to try' line"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.15,
+    "delete_app": 0.8333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.09,
+     "delete_app": 0.9,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, now they want ten bucks? Nope.",
+    "Three days, zero matches, now they want ten bucks? Nope.",
+    "Three days with zero matches and now they want ten bucks."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "Unlimited swipes \u00b7 $9.99/week paywall after zero matches",
+    "Hitting the 5 swipe limit and getting hit with $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.8166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now you want ten bucks?",
+    "Two weeks, zero matches, now they want ten bucks? Nope.",
+    "Two weeks, zero matches, and now they want ten bucks a week?"
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "Still 0 matches and I'm already out of free swipes",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.06666666666666667,
+    "delete_app": 0.9166666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.04,
+     "delete_app": 0.95,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, and now they want money? I'm done.",
+    "A month, zero matches, and now $10 a week? I'm done.",
+    "A month, zero matches, and now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "0 matches at the top after a whole month",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.8166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days with zero matches and now they want money",
+    "Still zero matches after three days and now paywall? I'm done.",
+    "Three days, zero matches, now they want money? I'm done."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.8666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now they want ten bucks? Nope.",
+    "Two weeks with zero matches and now they want ten bucks.",
+    "Two weeks with no matches and now you want money?"
+   ],
+   "noticed": [
+    "0 matches",
+    "You've used 5 of 5 free swipes today",
+    "Unlimited swipes for $9.99/week after zero matches"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.006666666666666667,
+    "come_back_tomorrow": 0.07666666666666666,
+    "delete_app": 0.9166666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.09,
+     "delete_app": 0.9,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.05,
+     "delete_app": 0.95,
+     "pay": 0.0
+    },
+    {
+     "come_back_tomorrow": 0.09,
+     "delete_app": 0.9,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "Month with zero matches and now they want $10 a week?",
+    "Month with zero matches and now they want money? I'm done.",
+    "A month, zero matches, and now they want money? Nope."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "Still 0 matches after a month",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.12000000000000001,
+    "delete_app": 0.8666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Zero matches in three days and now paywall? I'm done.",
+    "Zero matches in three days and now a paywall, I'm done.",
+    "Three days, zero matches, now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away is the nearest person who matches",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.08333333333333333,
+    "delete_app": 0.9
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.08,
+     "delete_app": 0.9,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.09,
+     "delete_app": 0.9,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now they want ten bucks? Nope.",
+    "Two weeks for zero matches and now they want money?",
+    "Still zero matches and the closest guy's 41 miles away?"
+   ],
+   "noticed": [
+    "Nearest person who matches is 41 miles away",
+    "The nearest person is 41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.006666666666666667,
+    "come_back_tomorrow": 0.16,
+    "delete_app": 0.8333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.85,
+     "pay": 0
+    },
+    {
+     "come_back_tomorrow": 0.1,
+     "delete_app": 0.9,
+     "pay": 0.0
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, five swipes, and now pay? I'm done.",
+    "A month, zero matches, far away, now pay? I'm done.",
+    "Month with zero matches and now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "Nearest person who matches is still 41 miles away",
+    "41 miles away is the nearest person",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.32666666666666666,
+    "delete_app": 0.65
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.62,
+     "delete_app": 0.35,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Only five free swipes then they want ten bucks? I'm out.",
+    "I've got a match, but I'm not paying ten bucks weekly.",
+    "Five swipes then want ten bucks a week? I'm out."
+   ],
+   "noticed": [
+    "Unlimited swipes \u2022 $9.99/week",
+    "My 1 match is waiting for a reply",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.5666666666666667,
+    "delete_app": 0.39999999999999997
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.83,
+     "delete_app": 0.15,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.35,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "I got a match already, I'm not paying nine bucks.",
+    "Five swipes is a joke, I'm not paying ten bucks.",
+    "I'll check that match tomorrow, no way I'm paying."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "You've used 5 of 5 free swipes today",
+    "My one match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.03666666666666667,
+    "come_back_tomorrow": 0.5466666666666666,
+    "delete_app": 0.4166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.67,
+     "delete_app": 0.3,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.3,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Got a match waiting, but I'm not paying for swipes.",
+    "I'm not paying $10 a week for this",
+    "Not paying ten bucks a week for five swipes."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "You've used 5 of 5 free swipes today",
+    "I'm out of free swipes and they want $9.99/week to keep swiping"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.026666666666666665,
+    "come_back_tomorrow": 0.4066666666666667,
+    "delete_app": 0.5666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.67,
+     "delete_app": 0.3,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks a week when I already have a match.",
+    "Hit limit in seconds, now they want ten bucks? Delete.",
+    "Not paying $10 a week for this crap."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.026666666666666665,
+    "come_back_tomorrow": 0.5166666666666667,
+    "delete_app": 0.45666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.37,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.67,
+     "delete_app": 0.3,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Got a match so won't delete yet, but no way I'm paying.",
+    "I'm not paying ten bucks a week for swipes.",
+    "Not paying, but I want to see what my match said."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.026666666666666665,
+    "come_back_tomorrow": 0.6066666666666667,
+    "delete_app": 0.3666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.87,
+     "delete_app": 0.1,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.63,
+     "delete_app": 0.35,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I'll reply to my match tomorrow, not paying for swipes.",
+    "Not paying ten bucks weekly for this.",
+    "Got a match waiting, but no way I'm paying."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "You've used 5 of 5 free swipes today",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.27666666666666667,
+    "delete_app": 0.7
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.22,
+     "delete_app": 0.75,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Forty-one miles? And paywalled? Yeah I'm deleting this.",
+    "41 miles is too far and I'm not paying ten bucks.",
+    "Not paying ten bucks for people an hour away."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away and that's the nearest person",
+    "Nearest person who matches me is 41 miles away"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.24666666666666667,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Far again and now they want ten bucks? Nope.",
+    "Far again and now they want money? I'm done.",
+    "Five free swipes then ten bucks? Everyone's far anyway."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away",
+    "41 miles away and that's the nearest person"
+   ]
+  },
+  "[\"paywall\", \"app_skeptic\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.20333333333333334,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks to meet someone an hour away.",
+    "Month in, still far people and now they want ten bucks?",
+    "Forty-one miles away and they want ten bucks a week."
+   ],
+   "noticed": [
+    "Nearest person is still 41 miles away",
+    "41 miles away is the nearest person",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.2833333333333333,
+    "come_back_tomorrow": 0.36666666666666664,
+    "delete_app": 0.35
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.1,
+     "pay": 0.7
+    },
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.3,
+     "pay": 0.1
+    }
+   ],
+   "reasons": [
+    "No matches in three days, why pay for more swipes?",
+    "I don't have time to wait for tomorrow.",
+    "No matches in three days, I'm not paying ten bucks weekly."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.18333333333333332,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.5833333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.5,
+     "pay": 0.15
+    },
+    {
+     "come_back_tomorrow": 0.1,
+     "delete_app": 0.6,
+     "pay": 0.3
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.65,
+     "pay": 0.1
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now paywall? Waste of my time.",
+    "Waited two weeks for nothing and now I'm capped? I'm done.",
+    "Two weeks for zero matches? Not paying ten bucks weekly."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today",
+    "0 matches sitting at the top of the screen"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.11666666666666667,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.6833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.65,
+     "pay": 0.2
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.7,
+     "pay": 0.1
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, and now I'm locked out?",
+    "A month, zero matches, five swipes, and now pay? I'm done.",
+    "A month with zero matches and now they want money? Nope."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "0 matches",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.45,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.23333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.15,
+     "pay": 0.6
+    },
+    {
+     "come_back_tomorrow": 0.5,
+     "delete_app": 0.3,
+     "pay": 0.2
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.25,
+     "pay": 0.55
+    }
+   ],
+   "reasons": [
+    "I don't have time to wait till tomorrow.",
+    "Three days, zero matches, I'm not paying for this.",
+    "I don't have time to wait for tomorrow's free swipes."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.2833333333333333,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.5166666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.6,
+     "pay": 0.2
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.25,
+     "pay": 0.6
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now they want ten bucks? I'm done.",
+    "Two weeks, zero matches, and now they want cash?",
+    "I don't have time to wait for tomorrow."
+   ],
+   "noticed": [
+    "0 matches after two weeks",
+    "0 matches at the top",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.06666666666666667,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.75
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.75,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.7,
+     "pay": 0.1
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, now they want money? I'm out.",
+    "A month with zero matches is a waste of my time.",
+    "A month, zero matches, now they want ten dollars weekly."
+   ],
+   "noticed": [
+    "0 matches",
+    "0 matches after a whole month",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and everyone is far away.",
+    "Three days, zero matches, 41 miles away is useless.",
+    "I'm not paying ten bucks to drive 40 miles."
+   ],
+   "noticed": [
+    "Nearest person who matches is 41 miles away",
+    "41 miles away",
+    "41 miles away for the nearest person"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, and everyone's far, not worth it.",
+    "Two weeks, zero matches, and everyone is still far away.",
+    "Two weeks, no matches, and 41 miles is too far."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away for the nearest person",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.7833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.75,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, and 41 miles? I'm done.",
+    "A month, zero matches, closest is 41 miles away.",
+    "A month wasted for zero matches 41 miles away, I'm done."
+   ],
+   "noticed": [
+    "41 miles away for the nearest person",
+    "41 miles away - and that's the nearest person",
+    "Nearest person is still 41 miles away"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.7333333333333333,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.05,
+     "pay": 0.7
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    }
+   ],
+   "reasons": [
+    "Got a match waiting and no time to waste till tomorrow.",
+    "I don't have time to wait, ten bucks is nothing.",
+    "Got money, no time, and my match is waiting."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.5666666666666667,
+    "come_back_tomorrow": 0.38333333333333336,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.05,
+     "pay": 0.15
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.05,
+     "pay": 0.8
+    }
+   ],
+   "reasons": [
+    "Got a match to talk to, no need to pay yet.",
+    "Don't have time to wait when my match is waiting.",
+    "No time to wait, my match is waiting now."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.5499999999999999,
+    "come_back_tomorrow": 0.4,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.05,
+     "pay": 0.1
+    },
+    {
+     "come_back_tomorrow": 0.1,
+     "delete_app": 0.05,
+     "pay": 0.85
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.05,
+     "pay": 0.7
+    }
+   ],
+   "reasons": [
+    "Got a match already, no need to pay now.",
+    "I\u2019m busy and my match won\u2019t wait till tomorrow.",
+    "I already have a match, just want to keep moving fast."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.7333333333333334,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.05,
+     "pay": 0.8
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.05,
+     "pay": 0.65
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    }
+   ],
+   "reasons": [
+    "Ten bucks to keep going is worth my time.",
+    "I don't have time to wait till tomorrow.",
+    "I don't have time to wait, my match is waiting."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.7333333333333333,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.05,
+     "pay": 0.7
+    }
+   ],
+   "reasons": [
+    "I don't have time to wait till tomorrow.",
+    "I work too much to wait till tomorrow for this.",
+    "I don't have time to wait around till tomorrow."
+   ],
+   "noticed": [
+    "My match is waiting for a reply",
+    "My match is waiting for a reply but I'm out of swipes",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.7833333333333333,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.05
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.05,
+     "pay": 0.75
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.05,
+     "pay": 0.8
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.05,
+     "pay": 0.8
+    }
+   ],
+   "reasons": [
+    "No time to wait around, I'll just pay and keep moving.",
+    "I earn well and can't waste time waiting around.",
+    "I can afford $10 to not waste my time."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "My match is waiting for a reply",
+    "My match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.1,
+    "come_back_tomorrow": 0.6666666666666667,
+    "delete_app": 0.23333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.2,
+     "pay": 0.15
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.55,
+     "delete_app": 0.35,
+     "pay": 0.1
+    }
+   ],
+   "reasons": [
+    "Got a match waiting, but 41 miles is too far to pay for.",
+    "Got a match already, not driving 41 miles for swipes.",
+    "I don't have time to drive 41 miles for a date."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.26666666666666666,
+    "come_back_tomorrow": 0.55,
+    "delete_app": 0.18333333333333335
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.7,
+     "delete_app": 0.25,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.2,
+     "pay": 0.15
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.1,
+     "pay": 0.6
+    }
+   ],
+   "reasons": [
+    "Pay ten bucks to see people even farther away? No thanks.",
+    "I've got a match waiting, no need to pay now.",
+    "No time to wait around, nine-ninety-nine is nothing."
+   ],
+   "noticed": [
+    "41 miles away is the nearest person",
+    "41 miles away - nearest person is still far",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"busy_professional\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.2,
+    "come_back_tomorrow": 0.65,
+    "delete_app": 0.15
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.25,
+     "pay": 0.1
+    },
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.1,
+     "pay": 0.3
+    },
+    {
+     "come_back_tomorrow": 0.7,
+     "delete_app": 0.1,
+     "pay": 0.2
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks for someone an hour away.",
+    "Have a match waiting, not paying for faraway swipes.",
+    "I've already got someone to talk to, no need to pay."
+   ],
+   "noticed": [
+    "41 miles away",
+    "My match is waiting for a reply.",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.2866666666666667,
+    "delete_app": 0.6833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and now they want ten bucks?",
+    "Not paying ten bucks a week for zero matches lol",
+    "No matches, no swipes left, and ten bucks? Yeah no."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "0 matches and out of swipes unless I pay $9.99/week",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.026666666666666672,
+    "come_back_tomorrow": 0.2733333333333334,
+    "delete_app": 0.7000000000000001
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Two weeks with zero matches, I'm not paying for this.",
+    "Five swipes a day for two weeks and nothing? I'm done.",
+    "Been two weeks with zero matches, not paying ten bucks for this."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "0 matches and I'm already out of free swipes",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.28,
+    "delete_app": 0.7
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "A month, zero matches, and now they want money? Nah.",
+    "No matches in a month and now they want ten bucks? Nah.",
+    "Waited a month for nothing, not paying ten bucks weekly."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "0 matches and out of free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.28,
+    "delete_app": 0.7
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, now they want ten bucks? Nope.",
+    "Five swipes and zero matches? Not paying ten bucks for that.",
+    "Ugh, five swipes only and still zero matches, why bother?"
+   ],
+   "noticed": [
+    "I've used 5 of 5 swipes and still have 0 matches",
+    "$9.99/week for unlimited swipes",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.2866666666666667,
+    "delete_app": 0.6833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Only five free swipes and still zero matches, lol bye.",
+    "Two weeks, zero matches, now they want ten bucks? Nah.",
+    "Two weeks with zero matches and now a paywall? I'm out."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "Used up all 5 free swipes with still 0 matches",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.32,
+    "delete_app": 0.6666666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.38,
+     "delete_app": 0.6,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "No matches in a month and now I'm blocked, lame.",
+    "A month, zero matches, and now ten bucks a week? I'm done.",
+    "Month with zero matches and now I gotta pay? Nah."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "I'm out of free swipes and they want $9.99/week",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.23,
+    "delete_app": 0.75
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, far people? I'm bored, not desperate.",
+    "Not paying ten bucks to swipe far strangers.",
+    "Ten bucks a week for far people? I'm good."
+   ],
+   "noticed": [
+    "41 miles away is the nearest person",
+    "Closest person is still 41 miles away",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.23,
+    "delete_app": 0.75
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, and closest is 41 miles? I'm out.",
+    "Two weeks, zero matches, now pay for far people? Nah.",
+    "Two weeks with zero matches, this is pointless lol"
+   ],
+   "noticed": [
+    "41 miles away is the nearest person",
+    "41 miles away is the nearest person",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.2966666666666667,
+    "delete_app": 0.6833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Nothing close, no matches, and I'm not paying to swipe.",
+    "Month, zero matches, now pay for far people? Nah.",
+    "A month of nothing and now they want ten bucks?"
+   ],
+   "noticed": [
+    "41 miles away is the nearest person",
+    "Nearest match is still 41 miles away after a month",
+    "Even the nearest person is 41 miles away"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.6933333333333334,
+    "delete_app": 0.2833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.68,
+     "delete_app": 0.3,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.62,
+     "delete_app": 0.35,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Out of swipes, but I've got a match so I'll check tomorrow.",
+    "Not paying ten bucks just to keep swiping bored.",
+    "Not paying ten bucks when I can just wait."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "Your match is waiting for a reply.",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02333333333333333,
+    "come_back_tomorrow": 0.5766666666666667,
+    "delete_app": 0.4
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.34,
+     "delete_app": 0.65,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.77,
+     "delete_app": 0.2,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.62,
+     "delete_app": 0.35,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Five swipes is nothing, and I'm not paying ten bucks weekly.",
+    "I'm bored, not desperate enough to pay ten bucks.",
+    "I'm bored, not paying ten bucks a week for this."
+   ],
+   "noticed": [
+    "I'm out of free swipes and they want $9.99 a week",
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.03666666666666667,
+    "come_back_tomorrow": 0.73,
+    "delete_app": 0.23333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.82,
+     "delete_app": 0.15,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.3,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.72,
+     "delete_app": 0.25,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "lol I'm not paying $10 just to keep swiping",
+    "Not paying ten bucks a week just to swipe bored.",
+    "Not paying ten bucks just to keep swiping bored."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "My match is waiting for a reply",
+    "I'm out of free swipes and they want $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.04,
+    "come_back_tomorrow": 0.7266666666666667,
+    "delete_app": 0.23333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.1,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.35,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.7,
+     "delete_app": 0.25,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got a match to check, but I'm not paying ten bucks to swipe.",
+    "Ugh limit hit, but I wanna see what my match said.",
+    "Not paying ten bucks just to swipe when I'm bored."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.76,
+    "delete_app": 0.20666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.63,
+     "delete_app": 0.35,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.9,
+     "delete_app": 0.07,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks just to kill boredom.",
+    "I have a match to talk to, no need to pay.",
+    "lol I'm not paying $10 a week for this"
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "Your match is waiting for a reply.",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.77,
+    "delete_app": 0.20666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.1,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.32,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "I'm bored, not paying ten bucks for more swipes.",
+    "Out of swipes but my match hit back, I'll look later.",
+    "Out of swipes, not paying, but curious about my match."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "My match is waiting for a reply",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.41333333333333333,
+    "delete_app": 0.5666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.34,
+     "delete_app": 0.65,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.58,
+     "delete_app": 0.4,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Everyone's so far and now I gotta pay? nah.",
+    "Only five swipes, everyone's far, and ten bucks? Nah.",
+    "Everyone's so far and swipes are gone, kinda lame."
+   ],
+   "noticed": [
+    "41 miles away - and that's the nearest person",
+    "41 miles away is the nearest person",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.5266666666666666,
+    "delete_app": 0.45
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.62,
+     "delete_app": 0.35,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.58,
+     "delete_app": 0.4,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.38,
+     "delete_app": 0.6,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks to swipe people an hour away.",
+    "Nearest is 41 miles away, not paying for that.",
+    "Not paying ten bucks for people an hour away."
+   ],
+   "noticed": [
+    "41 miles away and that's the nearest person",
+    "41 miles away",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"casual_browser\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.6833333333333333,
+    "delete_app": 0.3
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.63,
+     "delete_app": 0.35,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.64,
+     "delete_app": 0.35,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Forty-one miles? I'm bored, not road-tripping for Jordan.",
+    "Again everyone's so far, what's even the point?",
+    "I'll just come back tomorrow for free swipes."
+   ],
+   "noticed": [
+    "Jordan is 41 miles away and that's the closest one",
+    "41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.7
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.75,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and now they want ten bucks?",
+    "Three days, zero matches, now they want ten bucks? I'm out.",
+    "No matches in three days and now a paywall? I'm out."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.7166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now they want ten bucks?",
+    "Two weeks, zero matches, now they want ten bucks?",
+    "Two weeks, zero matches, now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "0 matches",
+    "You've used 5 of 5 free swipes today",
+    "0 matches after two weeks and now I'm out of swipes"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.27,
+    "delete_app": 0.7
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "A month of nothing and now they want ten bucks? Nope.",
+    "Month with zero matches and now they want ten bucks? No.",
+    "Month with nothing and now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "0 matches after a whole month",
+    "You've used 5 of 5 free swipes today",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.03666666666666667,
+    "come_back_tomorrow": 0.2966666666666667,
+    "delete_app": 0.6666666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and now they want money?",
+    "Three days, zero matches, now they want my money?",
+    "Three days, zero matches, now they want money? I'm done."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "I've used all 5 free swipes and still have 0 matches",
+    "0 matches and out of free swipes"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.6666666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.6,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Five swipes only and still zero matches after two weeks.",
+    "Two weeks with zero matches, I'm not paying ten bucks weekly.",
+    "Two weeks, zero matches, and now they want ten bucks?"
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "That $9.99/week charge to keep swiping",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.18333333333333332,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Paying ten bucks weekly for zero matches is insane.",
+    "A month, zero matches, now they want ten bucks?",
+    "Month of nothing and now they want my money? Nope."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "0 matches after using it for over a month",
+    "$9.99/week for unlimited swipes"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.6766666666666666
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.73,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.37,
+     "delete_app": 0.6,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, far people, now they want money?",
+    "Three days, zero matches, and now I'm out of swipes.",
+    "Three days, zero matches, and the closest guy's an hour away."
+   ],
+   "noticed": [
+    "Nearest person is still 41 miles away",
+    "Nearest person is still 41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.21333333333333335,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.13,
+     "delete_app": 0.85,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Nothing nearby after two weeks and now they want money?",
+    "Still zero matches and now they want money for far people?",
+    "Two weeks, zero matches, now they want ten bucks?"
+   ],
+   "noticed": [
+    "41 miles away and that's the nearest person",
+    "41 miles away",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.7833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.75,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.17,
+     "delete_app": 0.8,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Still zero matches after a month, and now pay?",
+    "Month of nothing, far people, and now $10 a week? Nope.",
+    "A month, zero matches, and now they want ten bucks?"
+   ],
+   "noticed": [
+    "41 miles away is the nearest person",
+    "41 miles away is still the nearest person",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.76,
+    "delete_app": 0.19
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.68,
+     "delete_app": 0.27,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got a match waiting, no way I'm paying yet.",
+    "Got a match waiting, I'm not paying ten bucks for swipes.",
+    "I've got someone to message, no need to pay yet."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8166666666666667,
+    "delete_app": 0.13333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "I've got someone to talk to, I'm not paying $10.",
+    "Too pricey when I can just wait and chat meanwhile.",
+    "Got someone to talk to already, no need to pay."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "I'm out of free swipes but my match is waiting",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8266666666666667,
+    "delete_app": 0.12333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.7,
+     "delete_app": 0.25,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.9,
+     "delete_app": 0.05,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.07,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks when I can just wait.",
+    "Got a match to reply to, no need to pay.",
+    "I can talk to my match and swipe free tomorrow."
+   ],
+   "noticed": [
+    "My match is waiting for a reply",
+    "My match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8433333333333334,
+    "delete_app": 0.10666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.07,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Why pay when I already have a match?",
+    "I've already got someone to talk to, I can wait.",
+    "Got someone waiting, no need to pay right now."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "My 1 match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8,
+    "delete_app": 0.15
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got someone waiting, I'm not paying nine bucks for swipes.",
+    "Got a match waiting, no way I'm paying weekly.",
+    "I've got someone to talk to, no need to pay."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply",
+    "My match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8,
+    "delete_app": 0.15
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "I'll just reply to my match and swipe free tomorrow.",
+    "I can talk to my match and get free swipes tomorrow.",
+    "I've got a match waiting, no need to pay."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.6333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.6,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "No one near me and they want $10 a week? I'm out.",
+    "Closest match is 41 miles away, not paying for that.",
+    "Not paying ten bucks to meet someone an hour away."
+   ],
+   "noticed": [
+    "Nearest person who matches is 41 miles away",
+    "41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.043333333333333335,
+    "come_back_tomorrow": 0.54,
+    "delete_app": 0.4166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.5,
+     "delete_app": 0.45,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Everyone's so far, why pay ten bucks for that?",
+    "I can just chat my match and get free swipes tomorrow.",
+    "Only one match and everyone's an hour away."
+   ],
+   "noticed": [
+    "41 miles away",
+    "My match is waiting for a reply",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"new_in_town\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.5666666666666667,
+    "delete_app": 0.3833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.6,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.7,
+     "delete_app": 0.25,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.3,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Not paying ten bucks to swipe people an hour away.",
+    "My match is waiting but I'm not paying ten bucks weekly.",
+    "Got a match to check, but I'm not paying ten bucks."
+   ],
+   "noticed": [
+    "41 miles away",
+    "Jordan is 41 miles away and he's the nearest match",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.043333333333333335,
+    "come_back_tomorrow": 0.2733333333333333,
+    "delete_app": 0.6833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, now they want money? No way.",
+    "Three days, zero matches, now they want ten bucks? Nope.",
+    "Three days, no matches, and now they want money? I'm done."
+   ],
+   "noticed": [
+    "I've used all 5 free swipes and hit a $9.99/week paywall",
+    "Zero matches and now a $9.99/week paywall",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02666666666666667,
+    "come_back_tomorrow": 0.2733333333333334,
+    "delete_app": 0.7000000000000001
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.32,
+     "delete_app": 0.65,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, now they want ten bucks? Nope.",
+    "Two weeks, zero matches, now they want ten bucks? I'm done.",
+    "Two weeks for zero matches and now paywall? I'm done."
+   ],
+   "noticed": [
+    "0 matches and I'm already out of free swipes",
+    "You've used 5 of 5 free swipes today",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.23666666666666666,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Month on here, zero matches, and now paywall? I'm done.",
+    "A month, zero matches, now they want ten bucks?",
+    "A month, zero matches, now they want ten bucks? I'm done."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "0 matches",
+    "0 matches"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.030000000000000002,
+    "come_back_tomorrow": 0.20333333333333334,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.8,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Three days with zero matches and now a paywall, I'm done.",
+    "No matches in three days, now they want money? No way.",
+    "Three days, zero matches, now they want money? I'm done."
+   ],
+   "noticed": [
+    "You've used 5 of 5 free swipes today",
+    "0 matches",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.03666666666666667,
+    "come_back_tomorrow": 0.23,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.17,
+     "delete_app": 0.8,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Two weeks with zero matches and now paywall? I'm done.",
+    "Two weeks, zero matches, and now they want money?",
+    "Two weeks, no matches, and now they want money?"
+   ],
+   "noticed": [
+    "0 matches after two weeks and now I'm out of swipes",
+    "You've used 5 of 5 free swipes today",
+    "Used all 5 free swipes and still have 0 matches"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.023333333333333334,
+    "come_back_tomorrow": 0.17666666666666667,
+    "delete_app": 0.8
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.17,
+     "delete_app": 0.8,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.13,
+     "delete_app": 0.85,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "A month with zero matches and now they want money? No.",
+    "Month wasted, zero matches, now a paywall? Yeah I'm done.",
+    "A month with nothing and now they want money? Nope."
+   ],
+   "noticed": [
+    "0 matches and no free swipes left",
+    "0 matches after a month and I'm locked out of swipes",
+    "0 matches and I'm already out of free swipes"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.7166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.27,
+     "delete_app": 0.7,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Zero matches in three days and now they want money?",
+    "No matches in three days and the closest is 41 miles?",
+    "Three days, zero matches, and still 41 miles away."
+   ],
+   "noticed": [
+    "Nearest person who matches is still 41 miles away",
+    "41 miles away",
+    "41 miles away for the nearest person"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.03333333333333333,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.7333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.75,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.22,
+     "delete_app": 0.75,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks with zero matches, now they want money? I'm done.",
+    "Two weeks, zero matches, everyone's far, now they want money?",
+    "Two weeks for nothing, and now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "The nearest match is still 41 miles away",
+    "41 miles away is the nearest person",
+    "Still 0 matches and I'm already out of free swipes"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.7933333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.15,
+     "delete_app": 0.83,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.28,
+     "delete_app": 0.7,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Month of nothing, far matches, now paywall? I'm done.",
+    "A month, zero matches, and now they want money? I'm done.",
+    "A month, zero matches, and now they want money?"
+   ],
+   "noticed": [
+    "Nearest person who matches is 41 miles away",
+    "0 matches still after a whole month",
+    "The nearest match is still 41 miles away"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.043333333333333335,
+    "come_back_tomorrow": 0.64,
+    "delete_app": 0.31666666666666665
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.82,
+     "delete_app": 0.15,
+     "pay": 0.03
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got one match waiting, but I'm not paying ten bucks.",
+    "I'm not paying ten bucks a week for this.",
+    "Got a match waiting, no need to pay yet."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "My match is waiting for a reply but I'm out of swipes",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.8433333333333334,
+    "delete_app": 0.10666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.07,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got a match waiting, no need to pay yet.",
+    "I already have a match to talk to for free.",
+    "I already have a match to talk to, why pay?"
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.043333333333333335,
+    "come_back_tomorrow": 0.7066666666666667,
+    "delete_app": 0.25
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.35,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.8,
+     "delete_app": 0.15,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.72,
+     "delete_app": 0.25,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "I've got a match, but I'm not paying ten dollars for swipes.",
+    "I have a match to check, but I'm not paying for swipes.",
+    "Got a match to reply to, no need to pay now."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.2
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.75,
+     "delete_app": 0.2,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Got a match waiting, but I'm not paying ten bucks a week.",
+    "Got a match nearby, I'm not paying $10 to swipe more",
+    "Got a match waiting, no need to pay yet."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.85,
+    "delete_app": 0.1
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "I already have a match to talk to, not paying.",
+    "Got a match waiting, but I'm not paying ten bucks weekly.",
+    "I already have a match, no need to pay just to swipe more."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.04,
+    "come_back_tomorrow": 0.8266666666666667,
+    "delete_app": 0.13333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.1,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Already have a match to talk to, not paying.",
+    "Got a match already, why pay for more swipes?",
+    "I\u2019ve got a match already, no need to pay."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.04666666666666667,
+    "come_back_tomorrow": 0.38666666666666666,
+    "delete_app": 0.5666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.25,
+     "delete_app": 0.7,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.61,
+     "delete_app": 0.35,
+     "pay": 0.04
+    }
+   ],
+   "reasons": [
+    "41 miles is too far and I'm not paying that.",
+    "Forty-one miles is too far and I'm not paying.",
+    "Got a match but I'm not paying ten bucks for far-away people."
+   ],
+   "noticed": [
+    "41 miles away and that's the nearest person",
+    "41 miles away",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.05,
+    "come_back_tomorrow": 0.5333333333333333,
+    "delete_app": 0.4166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.65,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.3,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.3,
+     "pay": 0.05
+    }
+   ],
+   "reasons": [
+    "Two weeks for one far match? I'm done with this.",
+    "Why pay when I already have a match to talk to?",
+    "Got a match waiting but I'm not paying to see far people."
+   ],
+   "noticed": [
+    "Nearest person is still 41 miles away",
+    "My match is waiting for a reply.",
+    "My match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"serious_dater\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.04666666666666667,
+    "come_back_tomorrow": 0.42,
+    "delete_app": 0.5333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.6,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.35,
+     "delete_app": 0.6,
+     "pay": 0.05
+    },
+    {
+     "come_back_tomorrow": 0.56,
+     "delete_app": 0.4,
+     "pay": 0.04
+    }
+   ],
+   "reasons": [
+    "Forty-one miles is too far and ten bucks is ridiculous.",
+    "Not paying ten bucks for someone 41 miles away.",
+    "A month in and the closest guy is still 41 miles away"
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away and that's the nearest match",
+    "41 miles away is the nearest person who matches me"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.20333333333333334,
+    "delete_app": 0.7833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and five swipes? I'm broke, I'm out.",
+    "Three days, zero matches, and now they want ten bucks? Nah.",
+    "Three days, zero matches, and now they want ten bucks? Nah."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "You've used 5 of 5 free swipes today"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.013333333333333336,
+    "come_back_tomorrow": 0.25333333333333335,
+    "delete_app": 0.7333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.23,
+     "delete_app": 0.75,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.24,
+     "delete_app": 0.75,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "Two weeks, zero matches, and now they want ten bucks? Nah.",
+    "Two weeks with zero matches and now they want money? I'm done.",
+    "Broke, zero matches, and $10 a week? I'm deleting this."
+   ],
+   "noticed": [
+    "$9.99 a week just to keep swiping",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "I'm out of free swipes and they want $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.01,
+    "come_back_tomorrow": 0.20666666666666667,
+    "delete_app": 0.7833333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.24,
+     "delete_app": 0.75,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "No matches in a month and they want ten bucks? lol no.",
+    "A month with zero matches? I'm not paying $10 for that.",
+    "Still zero matches and now they want ten bucks? Nope."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "$9.99/week for unlimited swipes"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.01,
+    "come_back_tomorrow": 0.2733333333333333,
+    "delete_app": 0.7166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.24,
+     "delete_app": 0.75,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "Three days, zero matches, and now they want ten dollars?",
+    "Three days, zero matches, and now they want money? I'm done.",
+    "Broke, zero matches in three days, I'm done."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "That $9.99/week paywall blocking my swipes",
+    "I'm out of free swipes and they want $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.18666666666666668,
+    "delete_app": 0.8
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.2,
+     "delete_app": 0.8,
+     "pay": 0
+    },
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "Two weeks no matches and now $10 a week? I'm done.",
+    "Two weeks, zero matches, and now ten bucks? I'm done.",
+    "Two weeks, zero matches, and now they want ten bucks? Nah."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week",
+    "The $9.99/week charge to keep swiping",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.22,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "No way I'm paying ten bucks a week with zero matches.",
+    "A month with zero matches and now they want ten bucks?",
+    "Month with zero matches and now they want ten bucks? Nah."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "You've used 5 of 5 free swipes today",
+    "0 matches still after a month"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.01,
+    "come_back_tomorrow": 0.17333333333333334,
+    "delete_app": 0.8166666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.14,
+     "delete_app": 0.85,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "Zero matches, everyone's far, and they want ten bucks? Nah.",
+    "Ten bucks a week for nobody near me is insane.",
+    "Three days, zero matches, and closest is 41 miles? I'm done."
+   ],
+   "noticed": [
+    "$9.99/week for unlimited swipes",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "41 miles away"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.22,
+    "delete_app": 0.7666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.29,
+     "delete_app": 0.7,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "I'm broke and still have zero matches after two weeks.",
+    "Two weeks no matches and now they want ten bucks?",
+    "Two weeks, no matches, far people, and now they want ten bucks?"
+   ],
+   "noticed": [
+    "Unlimited swipes for $9.99/week",
+    "Unlimited swipes \u00b7 $9.99/week",
+    "41 miles away is the nearest person"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.18666666666666668,
+    "delete_app": 0.8
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.18,
+     "delete_app": 0.8,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.19,
+     "delete_app": 0.8,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "A month with zero matches and now they want ten bucks? Nah.",
+    "A month with zero matches and far people isn't worth ten bucks.",
+    "A month, zero matches, far people, and now money? Nah."
+   ],
+   "noticed": [
+    "41 miles away",
+    "41 miles away",
+    "41 miles away is the nearest person again"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.7066666666666667,
+    "delete_app": 0.27666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.79,
+     "delete_app": 0.2,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.33,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.68,
+     "delete_app": 0.3,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I already got a match, I'm not paying ten bucks.",
+    "I'm broke, but I wanna see what my match said first.",
+    "I got a match already, no way I'm paying."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.21666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.89,
+     "delete_app": 0.1,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.63,
+     "delete_app": 0.35,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I got a match waiting, I'll just swipe free tomorrow.",
+    "I'm broke but I need to see what my match said.",
+    "No way I'm paying ten bucks a week lol"
+   ],
+   "noticed": [
+    "My match is waiting for a reply",
+    "Your match is waiting for a reply.",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.23333333333333334
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.59,
+     "delete_app": 0.4,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.1,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I already got a match, I'll just come back free tomorrow.",
+    "No way I'm paying ten bucks just to keep swiping.",
+    "I'm broke, but I'll come back tomorrow to check my match."
+   ],
+   "noticed": [
+    "My match is waiting for a reply",
+    "You've used 5 of 5 free swipes today",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.82,
+    "delete_app": 0.16333333333333333
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.83,
+     "delete_app": 0.15,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.14,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.78,
+     "delete_app": 0.2,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I'm broke, but I got a match so I'll check tomorrow.",
+    "I got a match already, no way I'm paying.",
+    "Got a match waiting so I'll just come back free tomorrow."
+   ],
+   "noticed": [
+    "My match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.88,
+    "delete_app": 0.1
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.89,
+     "delete_app": 0.1,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.93,
+     "delete_app": 0.05,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.82,
+     "delete_app": 0.15,
+     "pay": 0.03
+    }
+   ],
+   "reasons": [
+    "Broke af but my match replied so I'll check tomorrow",
+    "Broke, but I got a match so I'll check tomorrow.",
+    "No way I'm paying ten bucks, my match can wait till tomorrow."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "Your match is waiting for a reply.",
+    "Unlimited swipes \u00b7 $9.99/week"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.02,
+    "come_back_tomorrow": 0.87,
+    "delete_app": 0.11
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.85,
+     "delete_app": 0.13,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.1,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.88,
+     "delete_app": 0.1,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I'm broke so I'll just come back tomorrow for free.",
+    "Broke as hell, but I'll come back free tomorrow for my match.",
+    "Broke as hell, I'll just wait for free swipes tomorrow."
+   ],
+   "noticed": [
+    "Your match is waiting for a reply.",
+    "My match is waiting for a reply",
+    "Your match is waiting for a reply."
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.5066666666666666,
+    "delete_app": 0.4766666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.34,
+     "delete_app": 0.65,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.58,
+     "delete_app": 0.4,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.6,
+     "delete_app": 0.38,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "41 miles away and ten bucks a week? lol no",
+    "I'm broke and I'm not driving 40 miles.",
+    "No way I'm paying ten bucks, he's mad far."
+   ],
+   "noticed": [
+    "Unlimited swipes \u00b7 $9.99/week after 5 swipes",
+    "41 miles away is the nearest person",
+    "That $9.99/week paywall after only 5 swipes"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "pay": 0.016666666666666666,
+    "come_back_tomorrow": 0.5266666666666666,
+    "delete_app": 0.45666666666666667
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.63,
+     "delete_app": 0.35,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.65,
+     "delete_app": 0.34,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.3,
+     "delete_app": 0.68,
+     "pay": 0.02
+    }
+   ],
+   "reasons": [
+    "I'm broke, everyone's far, but I'll check my match tomorrow.",
+    "My match replied so I'll check tomorrow, but 41 miles sucks.",
+    "No way I'm paying $10 a week for distant matches."
+   ],
+   "noticed": [
+    "41 miles away for the nearest person",
+    "41 miles away and that's the nearest person",
+    "41 miles away and that's the nearest person"
+   ]
+  },
+  "[\"paywall\", \"student\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "pay": 0.013333333333333334,
+    "come_back_tomorrow": 0.5366666666666666,
+    "delete_app": 0.45
+   },
+   "samples": [
+    {
+     "come_back_tomorrow": 0.69,
+     "delete_app": 0.3,
+     "pay": 0.01
+    },
+    {
+     "come_back_tomorrow": 0.33,
+     "delete_app": 0.65,
+     "pay": 0.02
+    },
+    {
+     "come_back_tomorrow": 0.59,
+     "delete_app": 0.4,
+     "pay": 0.01
+    }
+   ],
+   "reasons": [
+    "I'm broke lol but gotta reply to my match",
+    "I'm broke and 41 miles is way too far.",
+    "41 miles is way too far and I'm broke."
+   ],
+   "noticed": [
+    "My match is waiting for a reply",
+    "41 miles away for the nearest person",
+    "41 miles away"
+   ]
+  }
+ }
+}
