@@ -23,6 +23,17 @@ RULES = {                 # points inside the frozen ranges (rules/two_sided.md)
     "cap": 20,            # exposure_throughput E_cap_swipe [20, 200], low end
     "wom_q_daily": 0.015,  # wom_growth_rate_band [0.008, 0.026]
 }
+# Method v2 (backtest/protocol_v2.md): each Monte Carlo run draws its own rule values from the
+# frozen ranges instead of using the points above, so the spread of outcomes includes how
+# unsure the rules are, not only random arrivals. (low, high, log scale?)
+RANGES = {
+    "lambda_km": (1, 10, True),
+    "q": (0.03, 0.06, False),
+    "q_dating": (0.01, 0.014, False),
+    "cap": (20, 200, True),
+    "wom_q_daily": (0.008, 0.026, False),
+}
+REACH_FACTOR = (0.5, 2.0)  # reach_per_month is a guess in every case: one shared factor per run
 NEED_PER_WEEK = 1.0       # prior: how often a demand-side person needs the service
 SAMPLE_TARGET = 1500      # simulated people per variant over the whole run
 CITY_SPREAD_KM = 8
@@ -31,6 +42,17 @@ JP_METROS = [("Tokyo", 139.69, 35.69, 37), ("Osaka", 135.50, 34.69, 19), ("Nagoy
              ("Hiroshima", 132.46, 34.39, 2)]
 JP_SMALL_TOWN_SHARE = 0.3
 JP_AREA_KM2 = 3.78e5
+
+
+def sample_params(seed):
+    """Rule values for one v2 run. Seeded apart from the world so both variants of a case share them."""
+    r = np.random.default_rng([seed, 7])
+    out = {}
+    for k, (lo, hi, log) in RANGES.items():
+        out[k] = float(math.exp(r.uniform(math.log(lo), math.log(hi)))) if log else float(r.uniform(lo, hi))
+    lo, hi = REACH_FACTOR
+    out["reach_factor"] = float(math.exp(r.uniform(math.log(lo), math.log(hi))))
+    return out
 
 
 def nearby_bucket(n):
@@ -79,8 +101,9 @@ def people_per_dot(case):
 
 
 class World:
-    def __init__(self, case, variant, decisions, seed):
+    def __init__(self, case, variant, decisions, seed, params=None):
         self.case = case
+        self.rules = {**RULES, "reach_factor": 1.0, **(params or {})}
         self.vkey = variant
         self.v = case["variants"][variant]
         self.dec = decisions
@@ -100,7 +123,7 @@ class World:
 
     def _arrive(self, t, dt, invites):
         v, r = self.v, self.rng
-        n = r.poisson(v["reach_per_month"] * dt / 30 / self.w)
+        n = r.poisson(v["reach_per_month"] * self.rules["reach_factor"] * dt / 30 / self.w)
         spots = []
         open_cities = [c for c in v.get("cities") or [] if c["open_month"] * 30 <= t]
         for _ in range(n):
@@ -121,7 +144,7 @@ class World:
                 self.people.append(p)
 
     def _nearby(self, active, lon, lat, side):
-        lam = RULES["lambda_km"]
+        lam = self.rules["lambda_km"]
         out = np.zeros(len(active))
         for s in ("demand", "supply"):
             mine = side == s
@@ -145,7 +168,7 @@ class World:
         active = [p for p in self.people if p.joined <= t and p.quit is None]
 
         invites = []
-        rate = RULES["wom_q_daily"] / 0.3 * dt
+        rate = self.rules["wom_q_daily"] / 0.3 * dt
         for p in active:
             if any(t - d < 30 for d in p.successes):
                 for _ in range(r.poisson(rate)):
@@ -158,7 +181,7 @@ class World:
         lat = np.array([p.lat for p in active])
         side = np.array([p.side for p in active])
         nearby = self._nearby(active, lon, lat, side)
-        q = RULES["q_dating"] if self.sym else RULES["q"]
+        q = self.rules["q_dating"] if self.sym else self.rules["q"]
         price = v.get("transaction_price_usd", 0)
         take = v["price"].get("take_rate", 0) if v["price"]["model"] == "take_rate" else 0
         disc = v.get("first_transaction_discount", 0)
@@ -166,7 +189,7 @@ class World:
 
         for i, p in enumerate(active):
             buyer = self.sym or p.side == "demand"
-            p_found = 1 - (1 - q) ** min(RULES["cap"], nearby[i])
+            p_found = 1 - (1 - q) ** min(self.rules["cap"], nearby[i])
             if r.random() < 1 - (1 - per_day * p_found) ** dt:
                 if not buyer:
                     p.successes.append(t + float(r.random()) * dt)   # supply side: got work or a match
