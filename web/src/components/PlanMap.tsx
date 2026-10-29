@@ -6,11 +6,40 @@ import { halftone, MAP_H, MAP_W, project } from '../usMap'
 // Days a dot takes to fade in (about 0.3 s when 90 days = 30 s)
 const FADE_DAYS = 0.9
 const fade = (since: number | null, t: number) => (since === null ? 1 : Math.min(1, Math.max(0, (t - since) / FADE_DAYS)))
+const CELL = 4.5 // px: one person per cell, so a crowded city reads as a patch instead of one blob
+
+// Move each dot to the nearest free cell, earliest arrivals first, so area grows with headcount.
+function settle(points: [number, number][], order: number[]): [number, number][] {
+  const taken = new Set<string>()
+  const out: [number, number][] = points.map(p => [...p] as [number, number])
+  for (const i of order) {
+    const [x, y] = points[i]
+    const gx = Math.round(x / CELL), gy = Math.round(y / CELL)
+    for (let r = 0; r < 60; r++) {
+      let best: [number, number] | null = null, bestD = Infinity
+      for (let dx = -r; dx <= r; dx++)
+        for (let dy = -r; dy <= r; dy++) {
+          if (Math.max(Math.abs(dx), Math.abs(dy)) !== r || taken.has(`${gx + dx},${gy + dy}`)) continue
+          const d = ((gx + dx) * CELL - x) ** 2 + ((gy + dy) * CELL - y) ** 2
+          if (d < bestD) { bestD = d; best = [gx + dx, gy + dy] }
+        }
+      if (best) {
+        taken.add(`${best[0]},${best[1]}`)
+        out[i] = [best[0] * CELL, best[1] * CELL]
+        break
+      }
+    }
+  }
+  return out
+}
 
 export function PlanMap({ replay, plan, t }: { replay: Replay; plan: PlanKey; t: number }) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const people = replay.people[plan]
-  const xy = useMemo(() => people.map(p => project(p.lon, p.lat)), [people])
+  const xy = useMemo(() => {
+    const order = people.map((_, i) => i).sort((i, j) => (people[i].reached ?? 1e9) - (people[j].reached ?? 1e9))
+    return settle(people.map(p => project(p.lon, p.lat)), order)
+  }, [people])
   const index = useMemo(() => new Map(people.map((p, i) => [p.id, i])), [people])
 
   useEffect(() => {
