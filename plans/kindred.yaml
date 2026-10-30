@@ -7,6 +7,7 @@ market: United States
 days: 90
 budget_usd: 40000
 people_per_dot: 60          # real people one simulated person stands for (same for both plans)
+price_per_week: 9.99        # unlimited swipes, as shown on the paywall screen (engine/screens/kindred.html)
 
 world:                      # mechanics of the market
   share_male: 0.7           # prior: ~75% of Tinder US users are men (2021)

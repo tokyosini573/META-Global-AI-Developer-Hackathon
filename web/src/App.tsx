@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Drawer } from './components/Drawer'
 import { Funnel } from './components/Funnel'
+import { Input } from './components/Input'
 import { PlanMap } from './components/PlanMap'
 import { Stage, STILL } from './components/Stage'
 import { Timeline } from './components/Timeline'
@@ -49,6 +50,8 @@ export default function App() {
     return m ? { plan: m[1] as PlanKey, id: Number(m[2]) } : null
   })
   const close = useCallback(() => setPicked(null), [])
+  // ?new opens "Try it yourself": the input screen, filled with the example
+  const [input, setInput] = useState(new URLSearchParams(location.search).has('new'))
 
   useEffect(() => {
     // ?replay=demo plays the old hand-made placeholder instead of the engine output
@@ -79,6 +82,16 @@ export default function App() {
   const { meta, plans, verdict } = replay
   const person = picked && replay.people[picked.plan].find(p => p.id === picked.id)
   const done = t >= meta.days
+  if (input) {
+    return (
+      <Stage>
+        <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
+          style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
+        <Input replay={replay} onDone={() => { history.replaceState(null, '', location.pathname); setInput(false); setT(0); setPlaying(true) }} />
+      </Stage>
+    )
+  }
+
   const toggle = () => {
     if (!playing && done) setT(0)
     setPlaying(!playing)
@@ -94,6 +107,9 @@ export default function App() {
         <span>
           Swipe dating app · {meta.market} · {meta.days} days · replay
           {meta.placeholder && ' · placeholder data'}
+          {' · '}
+          <button onClick={() => { setPlaying(false); setPicked(null); setInput(true) }}
+            className="label cursor-pointer text-strong">Try it yourself</button>
         </span>
       </header>
 
