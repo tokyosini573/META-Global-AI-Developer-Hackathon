@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { type PlanKey, type Person, type Replay } from '../replay'
+import { record, type Recording } from '../voice'
 import { STILL } from './Stage'
 
 const day = (d: number) => Math.floor(d) + 1 // day 0.4 of the run is "Day 1" on screen
@@ -16,7 +17,7 @@ function Phone({ label, screen }: { label: string; screen: string }) {
   return (
     <div>
       <div className="label mb-2">{label}</div>
-      <div className="h-[300px] overflow-hidden rounded-card border border-line bg-bg">
+      <div className="h-[240px] overflow-hidden rounded-card border border-line bg-bg">
         <img src={`/screens/${screen}.png`} alt="" className="size-full object-cover"
           style={{ objectPosition: screen.startsWith('paywall') ? 'center bottom' : 'center 40%' }} />
       </div>
@@ -24,8 +25,99 @@ function Phone({ label, screen }: { label: string; screen: string }) {
   )
 }
 
-export function Drawer({ replay, plan, person: p, onClose }: {
-  replay: Replay; plan: PlanKey; person: Person; onClose: () => void
+function suggestion(p: Person) {
+  if (p.installed === null) return "Why didn't you install it?"
+  if (p.paid !== null) return 'Why did you pay?'
+  if (p.quit !== null) return 'Why did you delete it?'
+  return 'What do you think of it so far?'
+}
+
+// Ask the person a question, spoken or typed. Live calls: Muse Voice Transcribe, then Muse Spark
+// answering from this person's record (engine/interview.py, served by engine/serve.py).
+function Ask({ replayName, plan, p }: { replayName: string; plan: PlanKey; p: Person }) {
+  const [question, setQuestion] = useState(suggestion(p))
+  const [reply, setReply] = useState<{ text: string; ok: boolean } | null>(null)
+  const [state, setState] = useState<'idle' | 'listening' | 'thinking'>('idle')
+  const rec = useRef<Recording | null>(null)
+
+  const ask = async (q: string) => {
+    if (!q.trim()) return
+    setState('thinking')
+    setReply(null)
+    try {
+      const r = await fetch('/api/interview', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ replay: replayName, plan, id: p.id, question: q }),
+      })
+      const j = await r.json()
+      setReply(r.ok ? { text: j.answer, ok: true } : { text: j.error, ok: false })
+    } catch {
+      setReply({ text: `${p.name} can't be reached right now.`, ok: false })
+    }
+    setState('idle')
+  }
+
+  const mic = async () => {
+    if (state === 'listening' && rec.current) {
+      const audio = await rec.current.stop()
+      rec.current = null
+      setState('thinking')
+      try {
+        const r = await fetch('/api/transcribe', { method: 'POST', headers: { 'Content-Type': 'audio/wav' }, body: audio })
+        const j = await r.json()
+        if (!r.ok || !j.text) throw new Error()
+        setQuestion(j.text)
+        await ask(j.text)
+      } catch {
+        setReply({ text: "Couldn't catch that. Try again, or type the question.", ok: false })
+        setState('idle')
+      }
+      return
+    }
+    try {
+      rec.current = await record()
+      setState('listening')
+    } catch {
+      setReply({ text: 'No microphone. Type the question instead.', ok: false })
+    }
+  }
+
+  // ?ask asks the suggested question as soon as the drawer opens (video). Once: each ask is a paid call.
+  const asked = useRef(false)
+  useEffect(() => {
+    if (asked.current || !new URLSearchParams(location.search).has('ask')) return
+    asked.current = true
+    ask(question)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div className="absolute right-12 bottom-12 left-12">
+      <form onSubmit={e => { e.preventDefault(); ask(question) }}
+        className="flex items-center gap-4 rounded-card border border-line p-4">
+        <button type="button" onClick={mic} aria-label={state === 'listening' ? 'Stop recording' : 'Ask by voice'}
+          className="flex-none cursor-pointer">
+          <svg width="18" height="18" viewBox="0 0 18 18" className={state === 'listening' ? 'animate-pulse' : ''}>
+            <rect x="6" y="1.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.5"
+              fill={state === 'listening' ? 'currentColor' : 'none'} className="text-strong" />
+            <path d="M3 8.5 a6 6 0 0 0 12 0 M9 14.5 V17" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-strong" />
+          </svg>
+        </button>
+        <input value={question} onChange={e => setQuestion(e.target.value)} maxLength={300}
+          className="min-w-0 flex-1 bg-transparent text-body text-text outline-none" />
+      </form>
+      <div className="mt-6 min-h-[81px] text-body">
+        {state === 'listening' && <span className="label">Listening · press the microphone again to stop</span>}
+        {state === 'thinking' && <span className="label">{p.name} is answering</span>}
+        {state === 'idle' && reply && (reply.ok
+          ? <blockquote className="text-strong">“{reply.text}”</blockquote>
+          : <span className="text-dim">{reply.text}</span>)}
+      </div>
+    </div>
+  )
+}
+
+export function Drawer({ replay, replayName, plan, person: p, onClose }: {
+  replay: Replay; replayName: string; plan: PlanKey; person: Person; onClose: () => void
 }) {
   const [open, setOpen] = useState(STILL)
   useEffect(() => {
@@ -68,6 +160,7 @@ export function Drawer({ replay, plan, person: p, onClose }: {
             </div>
           </>
         )}
+        {s && <Ask replayName={replayName} plan={plan} p={p} />}
       </aside>
     </>
   )

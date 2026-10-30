@@ -56,11 +56,11 @@ export default function App() {
   // ?backtest opens the backtest screen
   const [backtest, setBacktest] = useState(new URLSearchParams(location.search).has('backtest'))
 
+  // ?replay=demo plays the old hand-made placeholder instead of the engine output
+  const name = new URLSearchParams(location.search).get('replay') ?? 'engine'
   useEffect(() => {
-    // ?replay=demo plays the old hand-made placeholder instead of the engine output
-    const name = new URLSearchParams(location.search).get('replay') ?? 'engine'
     fetch(`/replays/${encodeURIComponent(name)}.json`).then(r => r.json()).then(setReplay)
-  }, [])
+  }, [name])
 
   useEffect(() => {
     if (!replay || !playing) return
@@ -178,7 +178,7 @@ export default function App() {
           onSeek={d => { setPlaying(false); setT(d) }} onToggle={toggle} />
       </section>
 
-      {picked && person && <Drawer key={`${picked.plan}:${picked.id}`} replay={replay} plan={picked.plan} person={person} onClose={close} />}
+      {picked && person && <Drawer key={`${picked.plan}:${picked.id}`} replay={replay} replayName={name} plan={picked.plan} person={person} onClose={close} />}
     </Stage>
   )
 }
