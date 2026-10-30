@@ -78,6 +78,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m engine.world.glimmer prepare   # new pool/screens: then glimmer_modal.py::decide_table, then `collect`, `check`
 .venv/bin/python -m pytest -q tests
 .venv/bin/python -m engine.backtest.run predict v2 && .venv/bin/python -m engine.backtest.run score
+.venv/bin/python -m engine.backtest.run export   # -> web/public/backtest.json (plain words in backtest/display.yaml)
 .venv/bin/python -m engine.distill.make_data --n 4000 && .venv/bin/python -m engine.distill.format --upload
 .venv/bin/modal run --detach engine/distill/glimmer_modal.py::train --run r1   # then ::evaluate, ::merge, ::evaluate_vllm
 python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
@@ -85,6 +86,7 @@ cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
 scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day, ?replay=engine plays the engine output
 scripts/shot.sh "http://localhost:5173/?day=90&still&person=b:46" out.png   # ?person=<plan>:<id> opens one person's drawer
+scripts/shot.sh "http://localhost:5173/?backtest&still&point=case_5:m2" out.png   # ?backtest opens the backtest screen; &point shows one card
 scripts/shot.sh "http://localhost:5173/?new&still" out.png   # ?new opens the input screen ("Try it yourself"); &step=2 freezes its progress
 ```
 
