@@ -55,7 +55,8 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 ## Layout
 
 ```
-engine/    Python world engine. world/ = geo, decide (decision cache + providers), wonder (people design, verdict), glimmer (per-person pool + table),
+engine/    Python world engine. interview.py + serve.py = the live interview API.
+           world/ = geo, decide (decision cache + providers), wonder (people design, verdict), glimmer (per-person pool + table),
            spark (per-type table), calibrate, sim, output; run.py = CLI.
            fake_replay.py writes the old hand-made placeholder replay.
 plans/     Launch plans + market values (each value cites a rule id in rules/two_sided.md or a benchmark).
@@ -82,10 +83,11 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m engine.distill.make_data --n 4000 && .venv/bin/python -m engine.distill.format --upload
 .venv/bin/modal run --detach engine/distill/glimmer_modal.py::train --run r1   # then ::evaluate, ::merge, ::evaluate_vllm
 python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
+.venv/bin/python -m engine.serve        # live interview API on :8787 (Voice Transcribe + Spark); Vite proxies /api
 cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
 scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day, ?replay=engine plays the engine output
-scripts/shot.sh "http://localhost:5173/?day=90&still&person=b:46" out.png   # ?person=<plan>:<id> opens one person's drawer
+scripts/shot.sh "http://localhost:5173/?day=90&still&person=a:87" out.png   # ?person=<plan>:<id> opens one person's drawer; &ask asks them live
 scripts/shot.sh "http://localhost:5173/?backtest&still&point=case_5:m2" out.png   # ?backtest opens the backtest screen; &point shows one card
 scripts/shot.sh "http://localhost:5173/?new&still" out.png   # ?new opens the input screen ("Try it yourself"); &step=2 freezes its progress
 ```
