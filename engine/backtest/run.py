@@ -209,6 +209,40 @@ def score():
     print(f"wrote {REPORT.relative_to(ROOT)}")
 
 
+DISPLAY = ROOT / "backtest" / "display.yaml"
+SITE = ROOT / "web" / "public" / "backtest.json"
+
+
+def export():
+    """The backtest screen's data: method v2's calls, the real outcomes and the plain words in display.yaml."""
+    cases, answers = load_cases(), yaml.safe_load(ANSWERS.read_text())
+    pred = json.loads(PRED["v2"].read_text())
+    shown = yaml.safe_load(DISPLAY.read_text())
+    called = lambda p, y: p != 0.5 and (p > 0.5) == y        # same rule as score(): 0.5 has no view
+    out, tally = [], {"world": 0, "always_success": 0, "markers": 0}
+    for cid, d in shown["cases"].items():
+        never = _case_no(cid) >= NEW_FROM
+        markers = []
+        for m in cases[cid]["markers"]:
+            p, y = pred[cid][m["id"]]["p"], answers[cid][m["id"]]["answer"]
+            text = d["markers"][m["id"]]
+            month = max(m["at_month"], m["compare"]["than"].get("at_month", 0))
+            markers.append({"id": m["id"], "month": month, "called": called(p, y), "p": p, "answer": y,
+                            "question": text["q"], "note": text["note"],
+                            "source": answers[cid][m["id"]]["source"].split("/")[2].removeprefix("www.")})
+            if never:
+                tally["world"] += called(p, y)
+                tally["always_success"] += called(baselines(cases[cid], m)["always_success"], y)
+                tally["markers"] += 1
+        out.append({"id": cid, "name": answers[cid]["_name"].split(" (")[0], "what": d["what"], "never_seen": never,
+                    "markers": markers})
+    SITE.write_text(json.dumps({"called": tally, "cases": out, "commits": shown["commits"]}, indent=1))
+    print(f"wrote {SITE.relative_to(ROOT)}: {tally}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "predict"
-    {"predict": predict, "score": score}[cmd](" ".join(sys.argv[2:]) or "v2") if cmd == "predict" else score()
+    if cmd == "predict":
+        predict(" ".join(sys.argv[2:]) or "v2")
+    else:
+        {"score": score, "export": export}[cmd]()

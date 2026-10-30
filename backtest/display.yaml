@@ -1,0 +1,71 @@
+# What the backtest screen shows, in plain words. Written after scoring, from answers.yaml.
+# Questions restate predictions_v2.json with the case's own unit (rides, trades, ...);
+# notes shorten the evidence in answers.yaml.
+
+commits:   # the order that makes the backtest honest (git log, 2026-10-29 JST)
+  - {time: "Oct 29 · 19:31", what: "rules frozen", hash: eef683f}
+  - {time: "23:07", what: "cases 5–9, inputs only", hash: 83412f9}
+  - {time: "23:15", what: "predictions", hash: 49122a3}
+  - {time: "23:17", what: "real outcomes", hash: fd71369}
+
+cases:
+  case_5:
+    what: Ride hailing · New York · 2016
+    markers:
+      m1: {q: "More trips in month 3 than at launch?", note: "From about 1,300 to 15,000 trips a day."}
+      m2: {q: "More trips in month 13 than in month 10?", note: "Trips fell by a fifth after the sale was announced."}
+      m3: {q: "More trips in month 21 than in month 13?", note: "Trips more than doubled to an all-time peak."}
+      m4: {q: "More trips in month 28 than in month 21?", note: "Trips fell by about a quarter."}
+      m5: {q: "More trips in month 36 than in month 28?", note: "Trips kept falling; the service ended in 2019."}
+  case_6:
+    what: Nonprofit ride hailing · Austin · 2016
+    markers:
+      m1: {q: "More rides in month 8 than in month 2?", note: "From about 45,000 a month to 60,000 a week."}
+      m2: {q: "More riders at month 8 than at month 2?", note: "Rides grew about fivefold."}
+      m3: {q: "More rides in month 12 than in month 10?", note: "Weekly rides fell from 59,000 to 22,000 when the big apps returned."}
+      m4: {q: "More riders at month 12 than at month 10?", note: "Active drivers fell by a fifth in two weeks."}
+      m5: {q: "More rides in month 22 than in month 12?", note: "Rides settled at 10,000 to 15,000 a week."}
+  case_7:
+    what: On-demand shipping · San Francisco · 2014
+    markers:
+      m1: {q: "More shipments in month 12 than in month 3?", note: "Shipments up nearly 500% (company claim)."}
+      m2: {q: "More users at month 12 than at month 6?", note: "Customers grew about 20% a month (company claim)."}
+      m3: {q: "More users at month 41 than at month 24?", note: "It pulled out of every city but San Francisco."}
+      m4: {q: "More users at month 49 than at month 12?", note: "It shut down in March 2018."}
+  case_8:
+    what: Marketplace app · Japan · 2013
+    markers:
+      m1: {q: "More users at month 3 than at month 1?", note: "A million downloads in two weeks after fees were dropped."}
+      m2: {q: "More trades in month 3 than in month 1?", note: "20,000 trades in two weeks after fees were dropped."}
+      m3: {q: "More users at month 28 than at month 3?", note: "It closed in 2016."}
+  case_9:
+    what: Skills marketplace · Japan · 2012
+    markers:
+      m1: {q: "More trades in month 15 than in month 3?", note: "Monthly trades grew 4.4 times in a year (company claim)."}
+      m2: {q: "More users at month 17 than at month 5?", note: "Members grew 3.3 times to about 73,000."}
+      m3: {q: "More trades in month 33 than in month 15?", note: "About 17,600 trades a month by 2015."}
+  case_1:
+    what: Ride sharing · San Francisco · 2012
+    markers:
+      m1: {q: "More rides in month 3 than at launch?", note: "Rides ran several times the beta pace."}
+      m2: {q: "More riders at month 9 than at month 3?", note: "It raised money and opened new cities."}
+      m3: {q: "More riders at month 42 than at month 12?", note: "It shut down at the end of 2015."}
+  case_2:
+    what: Dating app relaunch · United States · 2016
+    markers:
+      m1: {q: "Is the relaunch ahead of the old app on users at month 12?", note: "Users up 130% a year after the redesign (company claim)."}
+      m2: {q: "Do more people reach a real conversation after the relaunch?", note: "Half of matches started talking, up from one in ten."}
+      m3: {q: "More users at month 12 than at the relaunch?", note: "Users up 130% in a year (company claim)."}
+      m4: {q: "Is the old app ahead in the relaunch's first month?", note: "A free tier came four weeks after the all-paid relaunch."}
+  case_3:
+    what: Laundry pickup · Los Angeles · 2013
+    markers:
+      m1: {q: "More orders in month 15 than in month 6?", note: "Revenue grew eightfold over those months (company claim)."}
+      m2: {q: "More users at month 10 than at month 6?", note: "Demand outran drivers after a second city opened."}
+      m3: {q: "More users at month 42 than at month 15?", note: "It shut down in August 2016."}
+  case_4:
+    what: Marketplace app · Japan, then US · 2013
+    markers:
+      m1: {q: "Does the US app at month 17 have more users than Japan's at month 11?", note: "7 million US downloads against 3 million in Japan."}
+      m2: {q: "More users in Japan at month 16 than at month 10?", note: "Downloads tripled after TV ads began."}
+      m3: {q: "Is Japan ahead of the US on money made by month 17?", note: "Japan charged sellers 10%; the US charged nothing yet."}

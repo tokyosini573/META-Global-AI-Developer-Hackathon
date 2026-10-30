@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Backtest } from './components/Backtest'
 import { Drawer } from './components/Drawer'
 import { Funnel } from './components/Funnel'
 import { Input } from './components/Input'
@@ -52,6 +53,8 @@ export default function App() {
   const close = useCallback(() => setPicked(null), [])
   // ?new opens "Try it yourself": the input screen, filled with the example
   const [input, setInput] = useState(new URLSearchParams(location.search).has('new'))
+  // ?backtest opens the backtest screen
+  const [backtest, setBacktest] = useState(new URLSearchParams(location.search).has('backtest'))
 
   useEffect(() => {
     // ?replay=demo plays the old hand-made placeholder instead of the engine output
@@ -82,6 +85,14 @@ export default function App() {
   const { meta, plans, verdict } = replay
   const person = picked && replay.people[picked.plan].find(p => p.id === picked.id)
   const done = t >= meta.days
+  if (backtest) {
+    return (
+      <Stage>
+        <Backtest onHome={() => { history.replaceState(null, '', location.pathname); setBacktest(false) }} />
+      </Stage>
+    )
+  }
+
   if (input) {
     return (
       <Stage>
@@ -107,6 +118,9 @@ export default function App() {
         <span>
           Swipe dating app · {meta.market} · {meta.days} days · replay
           {meta.placeholder && ' · placeholder data'}
+          {' · '}
+          <button onClick={() => { setPlaying(false); setPicked(null); setBacktest(true) }}
+            className="label cursor-pointer text-strong">Backtest</button>
           {' · '}
           <button onClick={() => { setPlaying(false); setPicked(null); setInput(true) }}
             className="label cursor-pointer text-strong">Try it yourself</button>
