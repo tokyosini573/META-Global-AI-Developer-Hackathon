@@ -55,7 +55,7 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 ## Layout
 
 ```
-engine/    Python world engine. interview.py + serve.py = the live interview API.
+engine/    Python world engine. interview.py + serve.py = the live interview API; site_modal.py = the public site on Modal.
            world/ = geo, decide (decision cache + providers), wonder (people design, verdict), glimmer (per-person pool + table),
            spark (per-type table), calibrate, sim, output; run.py = CLI.
            fake_replay.py writes the old hand-made placeholder replay.
@@ -86,6 +86,7 @@ python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
 .venv/bin/python -m engine.serve        # live interview API on :8787 (Voice Transcribe + Spark); Vite proxies /api
 cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
+.venv/bin/modal deploy engine/site_modal.py   # public site + API (after the build; key in Modal secret rehearsal-meta)
 scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day, ?replay=engine plays the engine output
 scripts/shot.sh "http://localhost:5173/?day=90&still&person=a:87" out.png   # ?person=<plan>:<id> opens one person's drawer; &ask asks them live
 scripts/shot.sh "http://localhost:5173/?backtest&still&point=case_5:m2" out.png   # ?backtest opens the backtest screen; &point shows one card
