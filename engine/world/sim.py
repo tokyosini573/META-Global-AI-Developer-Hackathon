@@ -66,6 +66,7 @@ class Simulation:
         self.w = cfg["people_per_dot"]
         self.per_person = getattr(cache.provider, "per_person", False)
         self.taken = set()        # pool people already in this run
+        self.types = getattr(cache.provider, "types", TYPES)   # Wonder's types for Glimmer, else the placeholders
         self.people = []
         self.matches = []
         self.decisions = []
@@ -74,7 +75,8 @@ class Simulation:
 
     def _new_person(self, t, channel, place, lon, lat, spread_km, source):
         r = self.rng
-        tp = TYPES[r.choice(len(TYPES), p=np.array([x["weight"] for x in TYPES]))]
+        types = self.types
+        tp = types[r.choice(len(types), p=np.array([x["weight"] for x in types]))]
         p = Person(id=len(self.people), type=tp["id"], side="m" if r.random() < self.m["share_male"] else "w",
                    channel=channel, place=place, lon=float(lon), lat=float(lat), spread_km=float(spread_km), source=source,
                    reached=t + float(r.random()),

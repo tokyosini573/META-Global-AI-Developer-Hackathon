@@ -3,7 +3,7 @@ import pytest
 
 from engine.run import ROOT
 from engine.world.calibrate import fit_shifts, shift_options, sigma
-from engine.world.decide import TYPES, DecisionCache, StubProvider
+from engine.world.decide import DecisionCache, StubProvider
 from engine.world.sim import Simulation, totals
 
 
@@ -44,7 +44,8 @@ def test_glimmer_table_covers_the_pool():
     missing = [key(kind, pid, screen, bucket) for pid in g.pool for kind, screen, bucket, *_ in situations()
                if key(kind, pid, screen, bucket) not in g.entries]
     assert not missing
-    assert {(p, t["id"], s) for p in places() for t in TYPES for s in "mw"} <= set(g.cells)
+    assert {(p, t["id"], s) for p in places() for t in g.types for s in "mw"} <= set(g.cells)
+    assert sum(t["weight"] for t in g.types) == pytest.approx(1)
     for e in g.entries.values():
         assert sum(e["probs"].values()) == pytest.approx(1, abs=1e-3)
 

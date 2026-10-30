@@ -44,13 +44,19 @@ def fit_shifts(measure, targets, iters=12, damping=0.6, limit=4.0, shifts=None):
     """Damped fixed-point fit of one logit shift per target.
 
     measure(shifts) -> {name: observed rate}; each round moves b by part of the logit gap,
-    within +-limit. Returns (shifts, last observed rates).
+    within +-limit. The measured rates are noisy (few simulated people reach day 7 or day 30), so
+    the rounds bounce around the answer; the result is the mean of the second half of the rounds.
+    Returns (shifts, observed rates at those shifts).
     """
     shifts = dict(shifts or {k: 0.0 for k in targets})
-    for _ in range(iters):
+    late = []
+    for i in range(iters):
         seen = measure(shifts)
         for k, target in targets.items():
             if seen.get(k) is not None:
                 b = shifts[k] + damping * (logit(target) - logit(seen[k]))
                 shifts[k] = max(-limit, min(limit, b))
+        if i >= iters // 2:
+            late.append(dict(shifts))
+    shifts = {k: sum(x[k] for x in late) / len(late) for k in shifts}
     return shifts, measure(shifts)

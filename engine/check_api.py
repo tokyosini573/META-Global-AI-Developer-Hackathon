@@ -26,7 +26,7 @@ def load_env():
     return env
 
 
-def call(env, method, path, body=None):
+def call(env, method, path, body=None, timeout=60):
     req = urllib.request.Request(
         env["MODEL_API_BASE_URL"].rstrip("/") + path,
         method=method,
@@ -35,7 +35,7 @@ def call(env, method, path, body=None):
     )
     start = time.time()
     try:
-        with urllib.request.urlopen(req, timeout=60) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, json.loads(r.read()), time.time() - start
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode(errors="replace")[:500], time.time() - start
