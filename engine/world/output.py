@@ -59,11 +59,31 @@ def story(p, decisions, provider, trial_days, days):
             "last": screens.paywall_screen(walls[-1][4]) if walls else None, "diary": diary}
 
 
+def plan_card(cfg, plan):
+    """The plan in plain words, for the input screen."""
+    cities = plan.get("cities", [])
+    if cities:
+        names = [c["name"].split(",")[0] for c in cities]
+        where = names[0] + "".join(f", then {n} on day {c['open_day']}" for n, c in zip(names[1:], cities[1:]))
+    else:
+        where = "Nationwide from day 1"
+    ads = {"tiktok": "TikTok, nationwide" if not cities else "local TikTok", "ambassador": "Campus ambassadors"}
+    ads = " and ".join(ads[c["kind"]] for c in sorted(plan["channels"], key=lambda c: c["kind"] != "ambassador"))
+    price = f"${cfg['price_per_week']:.2f} a week"
+    if plan["trial_days"]:
+        price = f"Free for each person's first {plan['trial_days']} days, then {price}"
+    else:
+        price += f". Free users get {plan['free_swipes_per_day']} swipes a day."
+    return {"title": "City by city" if cities else "Nationwide", "where": where, "ads": ads[0].upper() + ads[1:],
+            "price": price}
+
+
 def replay(cfg, results, verdict, provider):
     """results: {plan key: Result} from one representative run (docs/replay-format.md)."""
     days = cfg["days"]
     decisions_source = provider.name
-    plans = {k: {"name": p["name"], "summary": p["summary"], "events": p["events"]} for k, p in cfg["plans"].items()}
+    plans = {k: {"name": p["name"], "summary": p["summary"], "events": p["events"], "card": plan_card(cfg, p)}
+             for k, p in cfg["plans"].items()}
     people = {}
     for k, res in results.items():
         mine = {}
@@ -79,7 +99,8 @@ def replay(cfg, results, verdict, provider):
     return {
         "version": 1,
         "meta": {"app": cfg["app"], "market": cfg["market"], "days": days, "budget_usd": cfg["budget_usd"],
-                 "placeholder": decisions_source not in ("spark", "glimmer"), "people_per_dot": cfg["people_per_dot"]},
+                 "placeholder": decisions_source not in ("spark", "glimmer"), "people_per_dot": cfg["people_per_dot"],
+                 "people_types": [t["name"] for t in getattr(provider, "types", [])]},
         "plans": plans,
         "verdict": verdict,
         "people": people,

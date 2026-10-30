@@ -29,8 +29,15 @@ export type Story = {
 
 export type Replay = {
   version: 1
-  meta: { app: string; market: string; days: number; budget_usd: number; placeholder: boolean }
-  plans: Record<PlanKey, { name: string; summary: string; events: { day: number; label: string }[] }>
+  meta: {
+    app: string; market: string; days: number; budget_usd: number; placeholder: boolean
+    people_types?: string[] // the kinds of people Muse Wonder designed for this market
+    runs?: number           // Monte Carlo runs behind the verdict
+  }
+  plans: Record<PlanKey, {
+    name: string; summary: string; events: { day: number; label: string }[]
+    card?: { title: string; where: string; ads: string; price: string } // the plan in plain words (input screen)
+  }>
   verdict: { winner: PlanKey; headline: string; reason: string }
   people: Record<PlanKey, Person[]>
   matches: Record<PlanKey, [number, number, number][]>

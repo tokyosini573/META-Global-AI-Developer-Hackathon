@@ -11,13 +11,18 @@ Everything on the main screen is computed from this file at a given day `t` (a f
     "market": "United States",
     "days": 90,
     "budget_usd": 40000,         // same for both plans
-    "placeholder": true          // true = not produced by the real engine
+    "placeholder": true,         // true = not produced by the real engine
+    "people_types": ["Serious seeker", "..."], // optional: the kinds of people Muse Wonder designed
+    "runs": 30                   // optional: Monte Carlo runs behind the verdict
   },
   "plans": {
     "a": {
       "name": "Plan A",
       "summary": "Nationwide ads · paywall from day 1",
-      "events": [{ "day": 0, "label": "Ads + paywall" }]   // shown on the timeline
+      "events": [{ "day": 0, "label": "Ads + paywall" }],  // shown on the timeline
+      // optional: the plan in plain words for the input screen (engine/world/output.py plan_card)
+      "card": { "title": "Nationwide", "where": "Nationwide from day 1", "ads": "TikTok, nationwide",
+                "price": "$9.99 a week. Free users get 5 swipes a day." }
     },
     "b": { "...": "same shape" }
   },

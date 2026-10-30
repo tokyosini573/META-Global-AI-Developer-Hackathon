@@ -119,6 +119,7 @@ def main():
         wins = sum(r[w]["paying"] > r["b" if w == "a" else "a"]["paying"] for r in runs)
         v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
         rep["verdict"] = v
+    rep["meta"]["runs"] = args.runs
     out.write_text(json.dumps(rep, separators=(",", ":")))
     db = ROOT / "runs" / f"{args.name}.sqlite"
     db.parent.mkdir(exist_ok=True)
