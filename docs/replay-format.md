@@ -31,7 +31,18 @@ Everything on the main screen is computed from this file at a given day `t` (a f
       // one simulated person. Every day field is the day it happened, or null if it never did.
       { "id": 0, "name": "Maya", "age": 24, "place": "Columbus, Ohio",
         "lon": -83.0, "lat": 40.0,
-        "reached": 3.2, "installed": 3.4, "matched": null, "quit": 6.1, "paid": null }
+        "reached": 3.2, "installed": 3.4, "matched": null, "quit": 6.1, "paid": null,
+        // optional: what the one-person drawer shows (engine/world/output.py `story`)
+        "story": {
+          "sex": "w",                    // "m" / "w": he / she in the drawer labels
+          "persona": "You are 24 and ...", // the pool person's own description (Glimmer runs), else null
+          "ad": "ad",                    // screen seen when reached: web/public/screens/<name>.png
+          "last": "paywall_m0_none",     // last paywall screen seen, or null
+          "diary": [[4, "Saw the ad on TikTok. Installed it.", "Free to try, why not?"],
+                    [6, "Nearest person: 41 miles. Deleted the app.", null]]
+          // [day shown, what happened, their own words or null]. Words appear only when the
+          // person did what the model thought most likely, so the reason always fits the action.
+        } }
     ],
     "b": []
   },

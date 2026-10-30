@@ -84,7 +84,7 @@ def main():
     v = verdict(cfg, runs)
 
     out = ROOT / "web" / "public" / "replays" / f"{args.name}.json"
-    out.write_text(json.dumps(replay(cfg, first, v, cache.provider.name), separators=(",", ":")))
+    out.write_text(json.dumps(replay(cfg, first, v, cache.provider), separators=(",", ":")))
     db = ROOT / "runs" / f"{args.name}.sqlite"
     db.parent.mkdir(exist_ok=True)
     summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs,

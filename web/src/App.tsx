@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Drawer } from './components/Drawer'
 import { Funnel } from './components/Funnel'
 import { PlanMap } from './components/PlanMap'
 import { Stage, STILL } from './components/Stage'
 import { Timeline } from './components/Timeline'
-import { metricsAt, PLANS, type Replay } from './replay'
+import { metricsAt, PLANS, type PlanKey, type Replay } from './replay'
 
 const PLAY_SECONDS = 30 // 90 days = 30 s
 
@@ -42,6 +43,12 @@ export default function App() {
   const [t, setT] = useState(fixedDay ? Number(fixedDay) : 0)
   const [playing, setPlaying] = useState(!fixedDay)
   const last = useRef<number | null>(null)
+  // The person whose drawer is open. ?person=a:482 opens one on load (screenshots, video).
+  const [picked, setPicked] = useState<{ plan: PlanKey; id: number } | null>(() => {
+    const m = new URLSearchParams(location.search).get('person')?.match(/^([ab]):(\d+)$/)
+    return m ? { plan: m[1] as PlanKey, id: Number(m[2]) } : null
+  })
+  const close = useCallback(() => setPicked(null), [])
 
   useEffect(() => {
     // ?replay=demo plays the old hand-made placeholder instead of the engine output
@@ -70,6 +77,7 @@ export default function App() {
   if (!replay) return <Stage>{null}</Stage>
 
   const { meta, plans, verdict } = replay
+  const person = picked && replay.people[picked.plan].find(p => p.id === picked.id)
   const done = t >= meta.days
   const toggle = () => {
     if (!playing && done) setT(0)
@@ -125,7 +133,8 @@ export default function App() {
                 </span>
               )}
             </div>
-            <PlanMap replay={replay} plan={p} t={t} />
+            <PlanMap replay={replay} plan={p} t={t} selected={picked?.plan === p ? picked.id : undefined}
+              onPick={id => { setPlaying(false); setPicked({ plan: p, id }) }} />
           </div>
         ))}
       </section>
@@ -138,6 +147,8 @@ export default function App() {
         <Timeline replay={replay} t={t} playing={playing}
           onSeek={d => { setPlaying(false); setT(d) }} onToggle={toggle} />
       </section>
+
+      {picked && person && <Drawer key={`${picked.plan}:${picked.id}`} replay={replay} plan={picked.plan} person={person} onClose={close} />}
     </Stage>
   )
 }
