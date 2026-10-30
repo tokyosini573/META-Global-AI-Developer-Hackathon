@@ -83,6 +83,7 @@ python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
 cd web && npm run dev                   # http://localhost:5173
 cd web && npm run build                 # type-check + build
 scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes on a day, ?replay=engine plays the engine output
+scripts/shot.sh "http://localhost:5173/?day=90&still&person=b:46" out.png   # ?person=<plan>:<id> opens one person's drawer
 ```
 
 The stage is a fixed 1920×1080 canvas scaled to fit the window, so the site looks exactly like the video at any size.

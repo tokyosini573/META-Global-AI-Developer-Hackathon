@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, type MouseEvent } from 'react'
 import { stateAt, type PlanKey, type Replay } from '../replay'
 import { color } from '../tokens'
 import { halftone, MAP_H, MAP_W, project } from '../usMap'
@@ -33,7 +33,11 @@ function settle(points: [number, number][], order: number[]): [number, number][]
   return out
 }
 
-export function PlanMap({ replay, plan, t }: { replay: Replay; plan: PlanKey; t: number }) {
+const PICK_PX = 8 // a click this close to a dot opens that person
+
+export function PlanMap({ replay, plan, t, selected, onPick }: {
+  replay: Replay; plan: PlanKey; t: number; selected?: number; onPick?: (id: number) => void
+}) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const people = replay.people[plan]
   const xy = useMemo(() => {
@@ -97,8 +101,36 @@ export function PlanMap({ replay, plan, t }: { replay: Replay; plan: PlanKey; t:
       ctx.arc(x, y, 7, 0, Math.PI * 2)
       ctx.stroke()
     }
+    if (selected !== undefined && index.has(selected)) {
+      const [x, y] = xy[index.get(selected)!]
+      ctx.globalAlpha = 1
+      ctx.fillStyle = color.strong
+      ctx.strokeStyle = color.strong
+      ctx.lineWidth = 1.5
+      ctx.beginPath()
+      ctx.arc(x, y, 3, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.beginPath()
+      ctx.arc(x, y, 12, 0, Math.PI * 2)
+      ctx.stroke()
+    }
     ctx.globalAlpha = 1
-  }, [replay, plan, t, people, xy, index])
+  }, [replay, plan, t, people, xy, index, selected])
 
-  return <canvas ref={canvas} style={{ width: MAP_W, height: MAP_H }} className="mt-4 block" />
+  // The stage is scaled to the window, so map the click back to canvas pixels first.
+  const pick = (e: MouseEvent<HTMLCanvasElement>) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    const k = MAP_W / r.width
+    const cx = (e.clientX - r.left) * k, cy = (e.clientY - r.top) * k
+    let best = -1, bestD = PICK_PX ** 2
+    people.forEach((p, i) => {
+      if (stateAt(p, t) === 'hidden') return
+      const d = (xy[i][0] - cx) ** 2 + (xy[i][1] - cy) ** 2
+      if (d < bestD) { bestD = d; best = i }
+    })
+    if (best >= 0) onPick?.(people[best].id)
+  }
+
+  return <canvas ref={canvas} style={{ width: MAP_W, height: MAP_H }} onClick={pick}
+    className={`mt-4 block ${onPick ? 'cursor-pointer' : ''}`} />
 }

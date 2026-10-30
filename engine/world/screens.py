@@ -7,11 +7,13 @@ Each decision key maps to one image: the paywall changes with the person's state
 """
 
 import os
+import shutil
 import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent / "screens"
 OUT = HERE / "out"
+WEB = HERE.parent.parent / "web" / "public" / "screens"   # the one-person drawer shows the same images
 CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
 # nearby bucket -> distance shown for the nearest person
@@ -46,6 +48,8 @@ def render():
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--window-size=390,844",
                         "--virtual-time-budget=3000", f"--screenshot={path(name)}",
                         f"file://{HERE / 'kindred.html'}?{query}"], check=True, capture_output=True)
+        WEB.mkdir(parents=True, exist_ok=True)
+        shutil.copy(path(name), WEB / path(name).name)
         print(path(name).relative_to(HERE.parent.parent))
 
 

@@ -15,6 +15,16 @@ export type Person = {
   matched: number | null
   quit: number | null
   paid: number | null
+  story?: Story
+}
+
+// What the one-person drawer shows (written by engine/world/output.py)
+export type Story = {
+  sex: 'm' | 'w'
+  persona: string | null
+  ad: string                  // screen they saw when reached (web/public/screens/<name>.png)
+  last: string | null         // the last paywall they saw
+  diary: [number, string, string | null][] // [day shown, what happened, their own words]
 }
 
 export type Replay = {
