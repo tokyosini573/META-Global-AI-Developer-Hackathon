@@ -54,30 +54,38 @@ batch. Training and evaluation of run r1 cost about $6 on Modal, data $1.82 on t
 
 ## In the engine (`engine/world/glimmer.py`)
 
-The engine now decides per person. The market has a fixed pool of 2,952 fictional people, written
-with the same persona sentences as the training data: 4 for every (place, type, side) in each of the
-26 metros and small towns, and 600 in each city a plan launches in (Austin, Denver, Nashville), split
-by how often each type and side arrives. A simulated person reached in a place takes one of that
-place's people who is not yet in the run (name, age and story included), and every install and
-paywall decision is that person's own.
+The engine decides per person. Muse Wonder designs the market's people (`engine/world/wonder.py`): it
+looks at Kindred's ad, store page and paywall, the market and both plans, and returns 8 person types
+with shares and age ranges, plus detail sentences (work, money, dating history, mood, habits) that make
+two people of one type differ (`data/wonder/kindred_people.json`). From that design the market gets a
+fixed pool of 2,928 fictional people: 48 in each of the 26 metros and small towns and 600 in each city a
+plan launches in (Austin, Denver, Nashville), split by type share and side. A simulated person reached
+in a place takes one of that place's people who is not yet in the run (name, age and story included),
+and every install and paywall decision is that person's own.
 
 Because the pool is fixed, every decision it can need is known: 3 ads + 18 paywall states per person,
-61,992 in all. `glimmer_modal.py::decide_table` answers them with vLLM on the merged checkpoint (about
-an hour on one H100 in two batches, about $4), all as valid JSON; `prepare` only asks for people not
-yet in the table. The answers, with what each person noticed and
+61,488 in all. `glimmer_modal.py::decide_table` answers them with vLLM on the merged checkpoint (about
+an hour on one H100, about $4), all as valid JSON. The answers, with what each person noticed and
 their reason, are committed in `data/decisions/kindred_glimmer.json`, so runs need no GPU.
+
+**Glimmer on Wonder's people.** Glimmer was trained on people from a hand-written generator, and the
+pool now comes from Wonder, so Spark answered 300 random decisions from the pool to check
+(`python -m engine.world.glimmer check`, `data/distill/wonder_pool_check.md`): Glimmer gives the same
+top choice 90% of the time (install 79%, paywall 91%), mean absolute difference 0.065. That is as close
+as on the distillation test people, so no retraining was needed.
 
 Same plans, same calibration targets, 30 runs:
 
-| Decisions from | Plan B wins | Median paying users (A vs B) | Different decision answers used |
-|---|---|---|---|
-| Spark type table (6 types) | 29 of 30 | 240 vs 720 | 60 |
-| Glimmer, one per person | 30 of 30 | 240 vs 780 | 7,478 |
+| Decisions from | Plan B wins | Median paying users (A vs B) |
+|---|---|---|
+| Spark type table (6 hand-written types) | 29 of 30 | 240 vs 720 |
+| Glimmer, hand-written pool | 30 of 30 | 240 vs 780 |
+| Glimmer, Wonder's pool (engine today) | 25 of 30 | 240 vs 450 |
 
-The verdict holds. In Plan B every one of the ~670 dots is a different person. Per person, the spread is wide: Spark's table says a busy professional pays at
-the paywall 34% of the time; Glimmer's busy professionals average 16%, and the middle 80% of them
-range from 5% to 70%, depending on their money, history and mood
-(`python -m engine.world.glimmer compare`).
+The verdict holds with Wonder's people, by a smaller margin: Wonder's types are slower to pay (its
+largest groups are people tired of swiping, casual users and first-timers who want to try for free).
+After the run, Wonder reads the medians and what people said and writes the reason under the verdict;
+the engine adds the win count.
 
 ## Limits
 
@@ -86,7 +94,8 @@ range from 5% to 70%, depending on their money, history and mood
 - Glimmer learns Spark's answers, including Spark's biases.
 - Glimmer answers without its reasoning channel (the prompt starts the answer directly).
 - Outside the launch cities the pool has 48 people per place, so a nationwide plan repeats some
-  stories in big metros (Plan A: ~1,000 dots, ~670 people). A plan that launches in a new city
-  needs `prepare` and the table job first.
-- The paid-within-30-days measure rests on a few dots per run, so calibration lands near, not on,
-  that target (6.1% vs 4.6% here, 4.3% with the Spark table).
+  stories in big metros. A plan that launches in a new city needs `prepare` and the table job first.
+- Wonder's type shares are its own judgment of the US market, not census figures.
+- The 7-day and 30-day measures rest on a few dots per run, so calibration bounces between rounds;
+  the engine averages the second half of 20 rounds (install 8.7% vs 8.6% target, day 7 9.0% vs 9.6%,
+  paid within 30 days 5.0% vs 4.6%).

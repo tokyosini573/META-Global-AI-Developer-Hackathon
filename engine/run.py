@@ -22,6 +22,7 @@ from engine.world.glimmer import GlimmerProvider
 from engine.world.output import replay, write_sqlite
 from engine.world.sim import Simulation, measures, totals
 from engine.world.spark import SparkProvider
+from engine.world import wonder
 
 ROOT = Path(__file__).resolve().parent.parent
 CALIBRATION_SEEDS = tuple(range(1000, 1006))
@@ -35,7 +36,7 @@ def calibrate(cfg, cache, days):
                 for s in CALIBRATION_SEEDS]
         return {k: statistics.mean(m[k] for m in seen if m[k] is not None) for k in cal["targets"]}
 
-    return fit_shifts(measure, cal["targets"])
+    return fit_shifts(measure, cal["targets"], iters=20)
 
 
 def verdict(cfg, runs):
@@ -53,12 +54,40 @@ def verdict(cfg, runs):
     }
 
 
+def wonder_reason(cfg, runs, rep):
+    """Wonder writes why the winner won, from the medians and what people in the replay said."""
+    plans = cfg["plans"]
+    said = {}
+    for k, ppl in rep["people"].items():
+        words = {"deleted the app": [], "paid": [], "did not install": []}
+        for p in ppl:
+            for _, what, quote in p["story"]["diary"]:
+                if not quote:
+                    continue
+                if "Deleted" in what:
+                    words["deleted the app"].append(quote)
+                elif "Paid" in what:
+                    words["paid"].append(quote)
+                elif p["installed"] is None:
+                    words["did not install"].append(quote)
+        said[plans[k]["name"]] = {w: q[:12] for w, q in words.items()}
+    medians = {plans[k]["name"]: {m: round(statistics.median(r[k][m] for r in runs if r[k][m] is not None), 3)
+                                  for m in runs[0][k]} for k in plans}
+    winner = plans[rep["verdict"]["winner"]]["name"]
+    facts = {"winner": winner, "medians": medians, "what_people_said": said}
+    reason = wonder.verdict_reason(cfg, facts)
+    if any(c.isdigit() for c in reason):
+        raise SystemExit(f"Wonder used a number in the verdict: {reason!r}")
+    return reason
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plans", default="plans/kindred.yaml")
     ap.add_argument("--runs", type=int, default=30)
     ap.add_argument("--days", type=int)
     ap.add_argument("--name", default="engine")
+    ap.add_argument("--no-wonder", action="store_true", help="keep the plain win-count verdict (no Wonder call)")
     ap.add_argument("--provider", choices=["glimmer", "spark", "stub"], default="glimmer",
                     help="glimmer reads data/decisions/kindred_glimmer.json; spark reads kindred_spark.json "
                          "and asks Spark only for missing keys")
@@ -84,7 +113,13 @@ def main():
     v = verdict(cfg, runs)
 
     out = ROOT / "web" / "public" / "replays" / f"{args.name}.json"
-    out.write_text(json.dumps(replay(cfg, first, v, cache.provider), separators=(",", ":")))
+    rep = replay(cfg, first, v, cache.provider)
+    if not args.no_wonder and args.provider == "glimmer":
+        w = v["winner"]
+        wins = sum(r[w]["paying"] > r["b" if w == "a" else "a"]["paying"] for r in runs)
+        v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
+        rep["verdict"] = v
+    out.write_text(json.dumps(rep, separators=(",", ":")))
     db = ROOT / "runs" / f"{args.name}.sqlite"
     db.parent.mkdir(exist_ok=True)
     summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs,

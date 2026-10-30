@@ -1,0 +1,164 @@
+{
+ "types": [
+  {
+   "id": "serious_seeker",
+   "name": "Serious seeker",
+   "share": 0.15,
+   "age_min": 25,
+   "age_max": 34,
+   "persona": "You are {age} and you want a steady relationship, so you would pay for this app if the people on it feel real and close to you.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "office assistant",
+    "store manager",
+    "teacher aide",
+    "electrician"
+   ]
+  },
+  {
+   "id": "tired_of_swiping",
+   "name": "Tired of swiping",
+   "share": 0.17,
+   "age_min": 24,
+   "age_max": 34,
+   "persona": "You are {age} and you have used other dating apps for a long time with little luck, so you doubt big promises and you do not want to pay again too soon.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "restaurant server",
+    "delivery driver",
+    "warehouse worker",
+    "hair stylist"
+   ]
+  },
+  {
+   "id": "curious_first_timer",
+   "name": "Curious first timer",
+   "share": 0.13,
+   "age_min": 18,
+   "age_max": 27,
+   "persona": "You are {age} and you have never really tried dating this way, so a new app feels exciting to you but you want to try it for free and learn how it works first.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "cafe worker",
+    "shop assistant",
+    "food counter worker",
+    "cleaner"
+   ]
+  },
+  {
+   "id": "casual_and_bored",
+   "name": "Casual and bored",
+   "share": 0.16,
+   "age_min": 18,
+   "age_max": 29,
+   "persona": "You are {age} and you are not looking for anything serious right now, so you swipe when you are bored and you would not pay to keep going.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "gym desk worker",
+    "call center worker",
+    "sales assistant",
+    "ticket clerk"
+   ]
+  },
+  {
+   "id": "busy_and_picky",
+   "name": "Busy and picky",
+   "share": 0.12,
+   "age_min": 24,
+   "age_max": 34,
+   "persona": "You are {age} and you have very little free time, so you like getting only a few choices a day if they are good ones and you can pay a small weekly price to save time.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "nurse",
+    "plumber",
+    "project assistant",
+    "software tester"
+   ]
+  },
+  {
+   "id": "hopeful_but_short_on_cash",
+   "name": "Hopeful but short on cash",
+   "share": 0.11,
+   "age_min": 18,
+   "age_max": 26,
+   "persona": "You are {age} and you would love to meet someone soon, but you watch every dollar so a weekly price makes you think hard before you pay.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "grocery clerk",
+    "childcare worker",
+    "fast food cook",
+    "bike repair worker"
+   ]
+  },
+  {
+   "id": "careful_about_trust",
+   "name": "Careful about trust",
+   "share": 0.09,
+   "age_min": 21,
+   "age_max": 34,
+   "persona": "You are {age} and you worry that some people may not be who they say they are, so you read reviews and you wait for proof that people are real before you pay.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "bank clerk",
+    "lab assistant",
+    "bus driver",
+    "cook"
+   ]
+  },
+  {
+   "id": "trying_again",
+   "name": "Trying again",
+   "share": 0.07,
+   "age_min": 24,
+   "age_max": 34,
+   "persona": "You are {age} and you took a break after a past relationship, so you feel ready again and a brand new app makes you hopeful that this time could be different.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "designer",
+    "mechanic",
+    "library assistant",
+    "photo assistant"
+   ]
+  }
+ ],
+ "money": [
+  "You have about $20 a month left for anything fun.",
+  "You have about $50 a month left for anything fun.",
+  "You have about $100 a month left for anything fun.",
+  "You have about $200 a month left for anything fun.",
+  "You check your bank balance before you pay for anything extra.",
+  "You would rather spend your money on a coffee with someone than on an app.",
+  "You sometimes pay for apps and then forget to cancel them.",
+  "You keep a simple budget on your phone and you try to stick to it."
+ ],
+ "history": [
+  "You have been single for a few months.",
+  "You have been single for more than a year.",
+  "You ended your last relationship after less than a year.",
+  "You went on a coffee date a while ago and it did not lead to a second date.",
+  "You have let friends try to set you up before.",
+  "You have been on a few first dates that did not turn into more.",
+  "You have never been in a long relationship."
+ ],
+ "mood": [
+  "You are tired tonight but you still feel like scrolling on your phone.",
+  "You feel lonely this evening and you wish you had someone to talk to.",
+  "You are in a good mood and you feel open to meeting someone new.",
+  "You feel a bit nervous about meeting new people today.",
+  "You are bored and you are looking for something new to try.",
+  "You had a long day and you want something simple that does not take much effort.",
+  "You feel hopeful this week and you keep thinking about your future.",
+  "You are feeling low today and you could use a kind word from someone."
+ ],
+ "quirk": [
+  "You read every review before you download anything.",
+  "You like to ask your friends what they think before you try something new.",
+  "You take a long time to pick your best photos.",
+  "You rewrite your profile lines again and again until they sound like you.",
+  "You notice small details in photos that other people miss.",
+  "You keep your phone on silent when you are with friends.",
+  "You love a good coffee and you judge a first date by how easy it is to talk.",
+  "You laugh at your own jokes even when no one else does."
+ ],
+ "rationale": "These eight types cover the main ways single people aged 18 to 34 in the United States react when a new dating app asks for money, from strong hope for a real relationship to casual use with no wish to pay. The biggest shares go to people who have swiped before with little luck, people who are casual, and people who are curious, because a new app mostly draws trial and hope at first rather than sure payers on day one. Smaller shares go to careful people and people trying again, who are fewer but may stay longer if early matches feel close and real. The mix gives weight to price, trust, free time, and how much each person wants a relationship, which are the points where the two launch plans differ most."
+}
