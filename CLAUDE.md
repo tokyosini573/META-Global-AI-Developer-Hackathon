@@ -82,6 +82,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m engine.backtest.run export   # -> web/public/backtest.json (plain words in backtest/display.yaml)
 .venv/bin/python -m engine.distill.make_data --n 4000 && .venv/bin/python -m engine.distill.format --upload
 .venv/bin/modal run --detach engine/distill/glimmer_modal.py::train --run r1   # then ::evaluate, ::merge, ::evaluate_vllm
+.venv/bin/python -m engine.distill.publish adapter && .venv/bin/modal run engine/distill/publish_modal.py   # weights -> Hugging Face (HF_TOKEN in .env and Modal secret huggingface)
 python3 engine/fake_replay.py          # regenerate web/public/replays/demo.json
 .venv/bin/python -m engine.serve        # live interview API on :8787 (Voice Transcribe + Spark); Vite proxies /api
 cd web && npm run dev                   # http://localhost:5173
