@@ -18,6 +18,7 @@ person*, so a simulation can have thousands of different people instead of six t
 | 3. Train | `engine/distill/glimmer_modal.py::train` | QLoRA on one Modal H100: 4-bit NF4 base (bf16 compute and storage), LoRA r=16 / alpha 32 on q, k, v, o of the language model, vision tower frozen. 400 steps of 16 examples (2 epochs), lr 2e-4. 56 minutes. |
 | 4. Evaluate | `::evaluate`, `engine/distill/score.py` | Glimmer before and after training on the 408 held-out people, against Spark's first answer. |
 | 5. Serve | `::merge`, `::evaluate_vllm` | The adapter merged into the bf16 weights and served with vLLM (its LoRA path fails on this multimodal model). |
+| 6. Publish | `engine/distill/publish.py`, `publish_modal.py` | Both on Hugging Face under Apache 2.0, with a model card: the adapter [Yesini/Rehearsal-Glimmer-30B-r1-LoRA](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1-LoRA) and the merged checkpoint [Yesini/Rehearsal-Glimmer-30B-r1](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1). |
 
 Everything sent to Spark is fictional: the contributor model's inputs may be used by Meta for training.
 

@@ -114,7 +114,10 @@ was fine-tuned to give Spark's answer for each person.
   about 20 s for Spark, at about a sixth of the cost.
 
 Full method and tables: [`docs/distillation.md`](docs/distillation.md).
-The tuned weights will be published on Hugging Face (link to follow).
+**The tuned weights are public (Apache 2.0):** the LoRA adapter
+[Yesini/Rehearsal-Glimmer-30B-r1-LoRA](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1-LoRA) and the
+merged bf16 checkpoint that serves the decisions with vLLM,
+[Yesini/Rehearsal-Glimmer-30B-r1](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1).
 
 ## Does it predict anything real? The backtest
 
