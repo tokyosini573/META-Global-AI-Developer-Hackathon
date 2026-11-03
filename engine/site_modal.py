@@ -5,8 +5,9 @@
 
 The Meta API key comes from the Modal secret `rehearsal-meta` (META_API_KEY), which the owner creates
 once with `modal secret create`; it is never in the repo or the image. The same secret may hold
-ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py). One container serves
-everyone, so the per-visitor and daily caps in serve.py and live.py hold for the whole site.
+ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py: the brief and screens the
+Setup page posts to /api/live). One container serves everyone, so the per-visitor and daily caps in
+serve.py and live.py hold for the whole site, and a live run's files stay in its /tmp/live folder.
 """
 
 import os

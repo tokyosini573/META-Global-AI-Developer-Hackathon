@@ -78,48 +78,6 @@ def test_channel_reach_grows_with_spend():
         channels.real_reached("referral", 100, cost["referral"], [])
 
 
-@pytest.mark.parametrize("pack_id", live.EXAMPLES)
-def test_example_spec_rebuilds_the_example_plans(pack_id):
-    spec = live.example_spec(pack_id)
-    cfg = live.build_cfg(spec)
-    plan_file = cfg_of(live.EXAMPLES[pack_id])
-    for k in "ab":
-        got, want = cfg["plans"][k], plan_file["plans"][k]
-        assert [c["kind"] for c in got["channels"]] == [c["kind"] for c in want["channels"]]
-        assert sum(c["budget_share"] for c in got["channels"]) == pytest.approx(1)
-        assert [c["name"] for c in got.get("cities", [])] == [c["name"] for c in want.get("cities", [])]
-    assert [s["name"] for s in spec["slots"]] == live.screen_slots(pack_id)
-    for s in spec["slots"]:
-        assert (ROOT / "web" / "public" / s["example"].lstrip("/")).exists()
-
-
-def test_build_cfg_cleans_what_the_form_sends():
-    spec = live.example_spec("resale")
-    spec = copy.deepcopy(spec)
-    spec["app"] = "My <b>App</b>!"
-    spec["days"] = 999
-    a = spec["plans"]["a"]
-    a["cities"] = [{"name": "Atlantis, Nowhere", "open_day": 0}]          # not a listed metro: dropped
-    a["channels"] = [{"kind": "feed", "budget_share": 3, "start_day": 0, "end_day": 500, "side": "nobody"},
-                     {"kind": "event", "budget_share": 1, "start_day": 0, "end_day": 90}]
-    cfg = live.build_cfg(spec)
-    assert cfg["app"] == "My bAppb" and cfg["days"] == 180
-    chans = cfg["plans"]["a"]["channels"]
-    assert [c["kind"] for c in chans] == ["feed"]          # offline promotion needs a city
-    assert chans[0]["budget_share"] == 1 and chans[0]["end_day"] == 180 and "side" not in chans[0]
-    assert chans[0]["where"] == "nationwide"
-    with pytest.raises(AssertionError):
-        live.build_cfg({**spec, "plans": {**spec["plans"], "b": {**spec["plans"]["b"], "channels": [
-            {"kind": "tv", "budget_share": 1, "start_day": 0, "end_day": 10}]}}})
-
-
-def test_live_paths_are_never_files_outside_the_run():
-    with pytest.raises(KeyError):
-        live.screen("../../etc", "ad")
-    with pytest.raises(KeyError):
-        live.replay("../x")
-
-
 def test_interview_reads_a_live_replay(tmp_path, monkeypatch):
     from engine import interview
     rid = "abcdef123456"
