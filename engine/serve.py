@@ -107,6 +107,7 @@ def handle_live(env, method, path, admin_key, content_type, raw):
 def main():
     from engine.check_api import load_env
     env, limits = load_env(), Limits()
+    env["ADMIN_KEY"] = os.environ.get("ADMIN_KEY") or env.get("ADMIN_KEY", "")   # e.g. a throwaway key for a test server
 
     class Handler(BaseHTTPRequestHandler):
         def reply(self, status, ctype, body):
