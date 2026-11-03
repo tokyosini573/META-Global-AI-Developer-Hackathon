@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Screens of the fictional demo resale app (Reloop) that simulated people look at.
      Captured at 390×844 by engine/world/screens.py and shown to the models.
-     ?s=ad | store | buy | list  (&match=0|1&near=none|few|many for buy and list)
+     ?s=ad | ad_2 | ad_3 | signup | store | buy | list  (&match=0|1&near=none|few|many for buy and list)
      Depicted app screens, so the design type-size rules do not apply. -->
 <html lang="en">
 <head>
@@ -46,6 +46,24 @@
   .store .shots { display: flex; gap: 10px; margin-top: 18px; }
   .store .shot { flex: 1; height: 300px; border-radius: 14px; background: #1A1D22; padding: 14px; font-size: 17px; font-weight: 600; color: #fff; line-height: 1.15; }
   .store .desc { margin-top: 16px; font-size: 14px; color: #B8BCC4; line-height: 1.4; }
+  /* sign-up */
+  .su { padding: 20px 24px 0; }
+  .su .steps { display: flex; gap: 6px; }
+  .su .steps i { flex: 1; height: 4px; border-radius: 2px; background: #23262D; }
+  .su .steps i.on { background: #E8EAED; }
+  .su h2 { margin-top: 44px; font-size: 32px; line-height: 1.1; letter-spacing: -.02em; color: #fff; font-weight: 600; }
+  .su .lead { margin-top: 12px; font-size: 16px; color: #B8BCC4; line-height: 1.4; }
+  .su .way { margin-top: 12px; height: 52px; border-radius: 14px; border: 1px solid #2E323A; display: grid; place-items: center; font-size: 16px; font-weight: 600; color: #fff; }
+  .su .way.first { margin-top: 40px; background: #E8EAED; color: #0A0B0D; border: none; }
+  .su .asks { margin-top: 32px; padding: 16px; border-radius: 14px; background: #1A1D22; font-size: 14px; color: #B8BCC4; line-height: 1.5; }
+  .su .asks b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .fine { position: absolute; left: 24px; right: 24px; bottom: 40px; font-size: 12px; color: #6B7280; text-align: center; line-height: 1.4; }
+  /* price and trust ads */
+  .ad .big { position: absolute; left: 22px; top: 160px; font-size: 128px; line-height: 1; letter-spacing: -.05em; color: #fff; font-weight: 600; }
+  .ad .badge { position: absolute; left: 24px; top: 150px; width: 72px; height: 72px; border-radius: 50%; border: 2px solid #E8EAED; display: grid; place-items: center; }
+  .ad .proof { position: absolute; left: 24px; right: 24px; top: 480px; display: flex; gap: 10px; }
+  .ad .proof div { flex: 1; padding: 12px; border-radius: 12px; background: rgba(255,255,255,.06); font-size: 13px; color: #B8BCC4; line-height: 1.3; }
+  .ad .proof b { display: block; color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -82,6 +100,27 @@ const screens = {
     <div class="camera">Add photos of your item</div>
     <div class="field">Title</div><div class="field">Price</div>
     <div class="bar"><div class="t">Free to list</div><div class="s">Your listing stays up for 2 weeks</div><div class="cta">List item</div></div>`,
+  // Second ad: the price angle
+  ad_2: `<div class="ad">${status}
+    <div class="big">$0</div>
+    <h1 style="top:300px;font-size:40px">to list.<br>Sellers keep<br>every dollar.</h1>
+    <div class="sub" style="top:450px">Buyers pay a small service fee. Sellers pay nothing.</div>
+    <div class="meta"><b>Reloop</b> · Sponsored<br><span>Buy and sell used things near you. Free to list.</span></div>
+    <div class="install">Install</div></div>`,
+  // Third ad: the trust angle
+  ad_3: `<div class="ad">${status}
+    <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34"><path d="M8 18 L14.5 24.5 L27 10" fill="none" stroke="#E8EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1 style="top:250px">Neighbors,<br>verified.</h1>
+    <div class="sub" style="top:372px">Every buyer and seller confirms a phone number before they can message.</div>
+    <div class="proof"><div><b>Phone-verified</b>every account</div><div><b>Meet nearby</b>hand it over in person</div></div>
+    <div class="meta"><b>Reloop</b> · Sponsored<br><span>Buy and sell used things near you.</span></div>
+    <div class="install">Install</div></div>`,
+  // Right after install: the sign-up screen
+  signup: `${status}<div class="su"><div class="steps"><i class="on"></i><i class=""></i><i class=""></i></div>
+    <h2>Join Reloop</h2><div class="lead">Sell what you no longer use. Find what you need, nearby.</div>
+    <div class="way first">Continue with Apple</div><div class="way">Continue with Google</div><div class="way">Sign up with email</div>
+    <div class="asks"><b>Next, Reloop asks for</b>A quick phone check, so every account is real.<br>Your location, to show things for sale near you.<br>Camera and notifications, to list and to hear from buyers.</div></div>
+    <div class="fine">By continuing you agree to the Terms and the Privacy Policy.</div>`,
 }
 document.body.innerHTML = screens[s]
 </script>
