@@ -238,6 +238,9 @@ Full report, every question and every probability: [`backtest/report.md`](backte
   cannot run with Glimmer; they run with the kinds-of-people provider (a live run) instead.
 - **Kinds of people, not individuals.** Resale, rides and live runs answer once per kind of person,
   so everyone of one kind in the same situation has the same odds. Their quotes are shared too.
+- **One upload per side in live runs.** A live run gets one image per side's screen, so the model
+  sees the same screen whether many or no listings (drivers) are near; only the situation sentence
+  tells it how busy the market is. The example apps render a screen for each state.
 - **Assumed visit rates.** How often people open a resale or ride app is a prior, and it sets how
   many repeat purchases and rides there are. A thin market's results lean on it.
 - **Day wording in interviews.** The paywall prompts in the first week describe the install as a
