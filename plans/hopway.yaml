@@ -1,0 +1,60 @@
+# Two launch plans for a ride-hailing app (engine/packs/rides.py), plus the market they launch into.
+# Market values cite a rule id in rules/two_sided.md, or a benchmark or prior in plans/benchmarks_research.md.
+
+app: Hopway
+pack: rides
+market: United States
+days: 90
+budget_usd: 40000
+people_per_dot: 60
+fare_usd: 14                 # the demo app's own price
+fee_share: 0.20              # drivers keep 80%
+
+world:
+  share_driver: 0.2          # share of drivers among people reached by a channel aimed at no side (prior)
+  lambda_km: 3               # local_density_threshold, [1, 10]: a pickup has to be close
+  success_per_offer: 0.2     # PRIOR: chance one online driver nearby takes a request; new markets leave 20-40% unfilled
+  t_wait_days: 7             # local_density_threshold T_wait, [3, 14]
+  gamma_no_match: 1.5        # local_density_threshold gamma, [0.5, 3.0]
+  beta_per_match: 0.8        # novelty_installs_without_repeat_loop beta, [0.2, 2.0]
+  wom_q_daily: 0.015         # wom_growth_rate_band q_eff_daily, [0.008, 0.026]
+  wom_only_after_match: true
+  churn_curve:               # base daily quit risk by days since install (before calibration)
+    first_day: 0.8           # travel apps D1 about 18% (Business of Apps, 2025)
+    floor: 0.04
+    tau_days: 1.5
+
+calibration:
+  reference_plan: a
+  targets:
+    install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
+    d7_retention: 0.09       # PRIOR: between travel D1 18% and D30 2.8% (Business of Apps)
+    convert_30d: 0.30        # PRIOR: 25-45% of rider installers take a first ride within 30 days
+
+plans:
+  a:
+    name: Plan A
+    summary: Three cities at once · riders and drivers together
+    cities:
+      - {name: "Austin, Texas", lon: -97.74, lat: 30.28, open_day: 0}
+      - {name: "Denver, Colorado", lon: -104.99, lat: 39.74, open_day: 0}
+      - {name: "Nashville, Tennessee", lon: -86.78, lat: 36.16, open_day: 0}
+    channels:
+      - {kind: feed, where: cities, side: rider, budget_share: 0.7, start_day: 0, end_day: 90}
+      - {kind: feed, where: cities, side: driver, budget_share: 0.3, start_day: 0, end_day: 90}
+    events:
+      - {day: 0, label: Three cities}
+  b:
+    name: Plan B
+    summary: Austin → Denver · drivers first
+    cities:
+      - {name: "Austin, Texas", lon: -97.74, lat: 30.28, open_day: 0}
+      - {name: "Denver, Colorado", lon: -104.99, lat: 39.74, open_day: 45}
+    channels:
+      - {kind: event, where: cities, side: driver, budget_share: 0.4, start_day: 0, end_day: 90}
+      - {kind: search, where: cities, side: rider, budget_share: 0.2, start_day: 14, end_day: 90}
+      - {kind: feed, where: cities, side: rider, budget_share: 0.4, start_day: 14, end_day: 90}
+    events:
+      - {day: 0, label: Austin · drivers first}
+      - {day: 14, label: Riders}
+      - {day: 45, label: Denver}

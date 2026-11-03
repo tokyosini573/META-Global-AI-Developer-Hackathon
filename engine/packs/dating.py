@@ -63,6 +63,7 @@ PACK = {
         "ask": {"converted": "Why did you pay?", "quit": "Why did you delete it?",
                 "using": "What do you think of it so far?"},
         "last_screen": "Where {they} left",
+        "since": "Paying since day {day}.",
     },
     "story": {
         "reach": {"feed": "Saw the ad on TikTok.", "event": "A campus ambassador showed off Kindred.",

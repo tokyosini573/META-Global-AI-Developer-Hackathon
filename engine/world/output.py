@@ -27,7 +27,7 @@ def story(p, decisions, provider, trial_days, days, pack=None):
         _, _, kind, screen, bucket, _, chosen = d
         if not hasattr(provider, "answer"):
             return None
-        a = provider.answer(kind, p.persona, screen, bucket)
+        a = provider.answer(kind, p.persona or p.type, screen, bucket)
         return a["reason"] if chosen == max(a["probs"], key=a["probs"].get) else None
 
     pack = pack or packs.load("dating")
@@ -56,7 +56,8 @@ def story(p, decisions, provider, trial_days, days, pack=None):
         diary.append([_diary_day(p.quit), "Stopped opening the app.", None])
     diary.sort(key=lambda x: x[0])
     who = getattr(provider, "pool", {}).get(p.persona, {})
-    return {"sex": p.side, "persona": who.get("text"), "ad": screens.install_screen(install[3], pack),
+    persona = who.get("text") or (provider.describe(p.type, p.age) if hasattr(provider, "describe") else None)
+    return {"sex": p.side, "persona": persona, "ad": screens.install_screen(install[3], pack),
             "last": screens.gate_screen(gate, walls[-1][4], pack) if walls else None, "diary": diary}
 
 
@@ -102,7 +103,7 @@ def replay(cfg, results, verdict, provider):
     return {
         "version": 1,
         "meta": {"app": cfg["app"], "market": cfg["market"], "days": days, "budget_usd": cfg["budget_usd"],
-                 "pack": {"id": pack["id"], "header": pack["header"], **{k: v for k, v in pack["labels"].items()}},
+                 "pack": {"id": pack["id"], "header": pack["header"], "category": pack["category"], **pack["labels"]},
                  "placeholder": decisions_source not in ("spark", "glimmer"), "people_per_dot": cfg["people_per_dot"],
                  "people_types": [t["name"] for t in getattr(provider, "types", [])]},
         "plans": plans,

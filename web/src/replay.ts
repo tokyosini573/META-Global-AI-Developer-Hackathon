@@ -33,6 +33,7 @@ export type Replay = {
     app: string; market: string; days: number; budget_usd: number; placeholder: boolean
     people_types?: string[] // the kinds of people Muse Wonder designed for this market
     runs?: number           // Monte Carlo runs behind the verdict
+    pack?: Pack             // the market's own words (engine/packs); dating when absent
   }
   plans: Record<PlanKey, {
     name: string; summary: string; events: { day: number; label: string }[]
@@ -42,6 +43,26 @@ export type Replay = {
   people: Record<PlanKey, Person[]>
   matches: Record<PlanKey, [number, number, number][]>
 }
+
+// The words a market pack uses on screen (engine/packs/<id>.py "labels")
+export type Pack = {
+  id: string; header: string; category?: string
+  stages: string[]; numbers: string[]; legend: string[]; goal: string
+  ask: { converted: string; quit: string; using: string }
+  last_screen: string; since?: string
+}
+
+const DATING: Pack = {
+  id: 'dating', header: 'Swipe dating app',
+  stages: ['Installed', 'Got a match', 'Still using', 'Paying'],
+  numbers: ['Paying users', 'Got a match', 'Quit in week one'], legend: ['Paying', 'Using', 'Quit'],
+  goal: 'paying users',
+  ask: { converted: 'Why did you pay?', quit: 'Why did you delete it?', using: 'What do you think of it so far?' },
+  last_screen: 'Where {they} left', since: 'Paying since day {day}.',
+}
+
+export const packOf = (r: Replay): Pack => r.meta.pack ?? DATING
+const swipe = (r: Replay) => packOf(r).id === 'dating'
 
 export type State = 'hidden' | 'idle' | 'quit' | 'using' | 'paying'
 
@@ -56,17 +77,16 @@ export function stateAt(p: Person, t: number): State {
 }
 
 // Starts at "Installed": only ~9% of people reached by an ad install, so a "Reached"
-// stage would squeeze everything after it into a hairline.
-export const FUNNEL_STAGES = ['Installed', 'Got a match', 'Still using', 'Paying']
-
-export function funnelAt(people: Person[], t: number): number[] {
+// stage would squeeze everything after it into a hairline. Dating ends at paying; the other
+// markets end at people who traded and are still there.
+export function funnelAt(people: Person[], t: number, dating = true): number[] {
   const f = [0, 0, 0, 0]
   for (const p of people) {
     if (!by(p.installed, t)) continue
     f[0]++
     if (by(p.matched, t)) f[1]++
     if (!by(p.quit, t)) f[2]++
-    if (by(p.paid, t)) f[3]++
+    if (dating ? by(p.paid, t) : by(p.matched, t) && !by(p.quit, t)) f[3]++
   }
   return f
 }
@@ -93,12 +113,16 @@ const pts = (b: number, a: number) => {
 
 // The three on-screen numbers. '—' when they can't be computed.
 export function metricsAt(r: Replay, t: number) {
-  const fa = funnelAt(r.people.a, t), fb = funnelAt(r.people.b, t)
+  const d = swipe(r), [goal, success, quit] = packOf(r).numbers
+  const fa = funnelAt(r.people.a, t, d), fb = funnelAt(r.people.b, t, d)
   const qa = quitWeekOneShare(r.people.a, t), qb = quitWeekOneShare(r.people.b, t)
+  // dating counts paying users; the other markets count completed sales or rides
+  const done = (k: PlanKey) => d ? funnelAt(r.people[k], t, d)[3] : r.matches[k].filter(m => m[2] <= t).length
+  const ga = done('a'), gb = done('b')
   return [
-    { label: 'Paying users', value: fa[3] ? pct(fb[3], fa[3]) : '—' },
+    { label: goal, value: ga ? pct(gb, ga) : gb ? 'only B' : '—' },
     // Percentage points of installers, so it still reads when Plan A has no match at all
-    { label: 'Got a match', value: fa[0] && fb[0] ? pts(fb[1] / fb[0], fa[1] / fa[0]) : '—' },
-    { label: 'Quit in week one', value: qa && qb !== null ? pct(qb, qa) : '—' },
+    { label: success, value: fa[0] && fb[0] ? pts(fb[1] / fb[0], fa[1] / fa[0]) : '—' },
+    { label: quit, value: qa && qb !== null ? pct(qb, qa) : '—' },
   ]
 }

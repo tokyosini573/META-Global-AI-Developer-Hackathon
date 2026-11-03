@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { type PlanKey, type Person, type Replay } from '../replay'
+import { packOf, type Pack, type PlanKey, type Person, type Replay } from '../replay'
 import { record, type Recording } from '../voice'
 import { STILL } from './Stage'
 
 const day = (d: number) => Math.floor(d) + 1 // day 0.4 of the run is "Day 1" on screen
 
-function outcome(p: Person, days: number) {
+function outcome(p: Person, days: number, pack: Pack) {
   if (p.installed === null) return `Did not install the app on day ${day(p.reached!)}.`
-  if (p.paid !== null) return `Paying since day ${day(p.paid)}.`
+  if (p.paid !== null) return (pack.since ?? 'Paying since day {day}.').replace('{day}', String(day(p.paid)))
   if (p.quit !== null) return `Deleted the app on day ${day(p.quit)}.`
   return `Still using the app on day ${days}.`
 }
@@ -19,23 +19,23 @@ function Phone({ label, screen }: { label: string; screen: string }) {
       <div className="label mb-2">{label}</div>
       <div className="h-[240px] overflow-hidden rounded-card border border-line bg-bg">
         <img src={`/screens/${screen}.png`} alt="" className="size-full object-cover"
-          style={{ objectPosition: screen.startsWith('paywall') ? 'center bottom' : 'center 40%' }} />
+          style={{ objectPosition: /_m[01]_/.test(screen) ? 'center bottom' : 'center 40%' }} />
       </div>
     </div>
   )
 }
 
-function suggestion(p: Person) {
+function suggestion(p: Person, pack: Pack) {
   if (p.installed === null) return "Why didn't you install it?"
-  if (p.paid !== null) return 'Why did you pay?'
-  if (p.quit !== null) return 'Why did you delete it?'
-  return 'What do you think of it so far?'
+  if (p.paid !== null) return pack.ask.converted
+  if (p.quit !== null) return pack.ask.quit
+  return pack.ask.using
 }
 
 // Ask the person a question, spoken or typed. Live calls: Muse Voice Transcribe, then Muse Spark
 // answering from this person's record (engine/interview.py, served by engine/serve.py).
-function Ask({ replayName, plan, p }: { replayName: string; plan: PlanKey; p: Person }) {
-  const [question, setQuestion] = useState(suggestion(p))
+function Ask({ replayName, plan, p, pack }: { replayName: string; plan: PlanKey; p: Person; pack: Pack }) {
+  const [question, setQuestion] = useState(suggestion(p, pack))
   const [reply, setReply] = useState<{ text: string; ok: boolean } | null>(null)
   const [state, setState] = useState<'idle' | 'listening' | 'thinking'>('idle')
   const rec = useRef<Recording | null>(null)
@@ -128,8 +128,10 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
   }, [onClose])
 
   const s = p.story
-  const she = s?.sex === 'w' ? 'she' : 'he'
-  const left = p.paid !== null ? `Where ${she} paid` : p.quit !== null ? `Where ${she} left` : `Last paywall ${she} saw`
+  const pack = packOf(replay)
+  const she = pack.id !== 'dating' ? 'they' : s?.sex === 'w' ? 'she' : 'he'
+  const left = pack.id !== 'dating' ? pack.last_screen.replace('{they}', she)
+    : p.paid !== null ? `Where ${she} paid` : p.quit !== null ? `Where ${she} left` : `Last paywall ${she} saw`
   return (
     <>
       <div className="absolute inset-0 bg-bg/55" onClick={onClose} />
@@ -140,7 +142,7 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
         </button>
         <div className={`label ${plan === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>{replay.plans[plan].name} · Person {p.id}</div>
         <h2 className="mt-6 text-number font-medium text-strong">{p.name}, {p.age}</h2>
-        <p className="mt-4 text-body text-dim">{p.place}. {outcome(p, replay.meta.days)}</p>
+        <p className="mt-4 text-body text-dim">{p.place}. {outcome(p, replay.meta.days, pack)}</p>
         {s && (
           <>
             <div className="mt-12 grid grid-cols-2 gap-6">
@@ -160,7 +162,7 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
             </div>
           </>
         )}
-        {s && <Ask replayName={replayName} plan={plan} p={p} />}
+        {s && <Ask replayName={replayName} plan={plan} p={p} pack={pack} />}
       </aside>
     </>
   )

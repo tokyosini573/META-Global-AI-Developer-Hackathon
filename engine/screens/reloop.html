@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- Screens of the fictional demo resale app (Reloop) that simulated people look at.
+     Captured at 390×844 by engine/world/screens.py and shown to the models.
+     ?s=ad | store | buy | list  (&match=0|1&near=none|few|many for buy and list)
+     Depicted app screens, so the design type-size rules do not apply. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 390px; height: 844px; background: #0A0B0D; color: #E8EAED; font-family: Geist, system-ui, sans-serif; overflow: hidden; position: relative; }
+  .status { height: 48px; padding: 16px 24px 0; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; color: #fff; }
+  .top { padding: 8px 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-size: 22px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+  .chip { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #1A1D22; color: #B8BCC4; }
+  .note { margin: 14px 20px 0; font-size: 15px; color: #B8BCC4; }
+  .grid { margin: 14px 16px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .item { height: 210px; border-radius: 16px; background: #1A1D22; position: relative; overflow: hidden; }
+  .item .pic { position: absolute; inset: 0 0 64px; background: linear-gradient(160deg, #3A3F48, #23262D); }
+  .item .p { position: absolute; left: 12px; bottom: 34px; font-size: 18px; font-weight: 600; color: #fff; }
+  .item .d { position: absolute; left: 12px; bottom: 14px; font-size: 13px; color: #B8BCC4; }
+  .empty { margin: 40px 24px 0; height: 300px; border: 1.5px dashed #2E323A; border-radius: 16px; display: grid; place-items: center; text-align: center; color: #6B7280; font-size: 16px; padding: 24px; }
+  .bar { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px 32px; background: #121418; border-top: 1px solid #23262D; }
+  .bar .t { font-size: 15px; color: #fff; font-weight: 500; }
+  .bar .s { font-size: 13px; color: #6B7280; margin-top: 4px; }
+  .cta { margin-top: 14px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 17px; font-weight: 600; background: #E8EAED; color: #0A0B0D; }
+  .camera { margin: 24px 20px 0; height: 330px; border-radius: 20px; background: #1A1D22; display: grid; place-items: center; color: #6B7280; font-size: 15px; }
+  .field { margin: 12px 20px 0; height: 48px; border-radius: 12px; border: 1px solid #23262D; padding: 14px; font-size: 15px; color: #6B7280; }
+  /* ad */
+  .ad { position: absolute; inset: 0; background: linear-gradient(180deg, #1F2A22 0%, #0A0B0D 70%); }
+  .ad h1 { position: absolute; left: 24px; right: 72px; top: 230px; font-size: 50px; line-height: 1.02; letter-spacing: -.03em; color: #fff; font-weight: 600; }
+  .ad .sub { position: absolute; left: 24px; right: 72px; top: 352px; font-size: 18px; color: #B8BCC4; }
+  .ad .meta { position: absolute; left: 16px; right: 80px; bottom: 116px; font-size: 15px; color: #fff; }
+  .ad .meta span { color: #B8BCC4; font-size: 13px; }
+  .ad .install { position: absolute; left: 16px; right: 16px; bottom: 48px; height: 48px; border-radius: 8px; background: #fff; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+  /* store */
+  .store { padding: 8px 20px 0; }
+  .store .row { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
+  .store .icon { width: 96px; height: 96px; border-radius: 22px; background: linear-gradient(160deg, #3A483E, #1A1D22); display: grid; place-items: center; font-size: 44px; font-weight: 600; color: #fff; }
+  .store .name { font-size: 22px; font-weight: 600; color: #fff; }
+  .store .tag { font-size: 14px; color: #B8BCC4; margin-top: 2px; }
+  .store .get { margin-top: 10px; width: 84px; height: 32px; border-radius: 16px; background: #E8EAED; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 15px; }
+  .store .facts { display: flex; justify-content: space-between; margin-top: 20px; padding: 12px 0; border-top: 1px solid #23262D; border-bottom: 1px solid #23262D; font-size: 12px; color: #6B7280; text-align: center; }
+  .store .facts b { display: block; font-size: 16px; color: #E8EAED; font-weight: 600; }
+  .store .shots { display: flex; gap: 10px; margin-top: 18px; }
+  .store .shot { flex: 1; height: 300px; border-radius: 14px; background: #1A1D22; padding: 14px; font-size: 17px; font-weight: 600; color: #fff; line-height: 1.15; }
+  .store .desc { margin-top: 16px; font-size: 14px; color: #B8BCC4; line-height: 1.4; }
+</style>
+</head>
+<body>
+<script>
+const q = new URLSearchParams(location.search)
+const s = q.get('s') || 'buy'
+const done = q.get('match') === '1'
+const near = q.get('near') || 'none'
+const items = { none: 0, few: 6, many: 48 }[near]
+const buyers = { none: 0, few: 4, many: 35 }[near]
+const miles = { none: 23, few: 3.1, many: 0.6 }[near]
+const status = `<div class="status"><span>9:41</span><span>●●●● 5G ▮</span></div>`
+const item = (p, d) => `<div class="item"><div class="pic"></div><div class="p">${p}</div><div class="d">${d}</div></div>`
+const screens = {
+  ad: `<div class="ad">${status}
+    <h1>Sell it to<br>a neighbor.</h1>
+    <div class="sub">List in a minute. Meet nearby to hand it over.</div>
+    <div class="meta"><b>Reloop</b> · Sponsored<br><span>Buy and sell used things near you. Free to list.</span></div>
+    <div class="install">Install</div></div>`,
+  store: `${status}<div class="store">
+    <div class="row"><div class="icon">R</div><div><div class="name">Reloop</div><div class="tag">Buy and sell used things nearby</div><div class="get">Get</div></div></div>
+    <div class="facts"><div><b>4.5</b>★★★★★</div><div><b>12+</b>Age</div><div><b>#61</b>Shopping</div><div><b>Free</b>To list</div></div>
+    <div class="shots"><div class="shot">Snap a photo, set a price.</div><div class="shot">Pick it up down the street.</div></div>
+    <div class="desc">Reloop shows you things for sale close to you first, so you can pick them up the same day. Free to list. Buyers pay a 10% service fee.</div></div>`,
+  // A buyer opens the feed: how much is for sale nearby depends on the market
+  buy: `${status}<div class="top"><span class="brand">Reloop</span><span class="chip">${done ? '1 purchase' : 'No purchases yet'}</span></div>
+    <div class="note">${items ? `${items} things for sale within 5 miles` : 'Nothing for sale within 5 miles yet'}</div>
+    ${items ? `<div class="grid">${item('$24', `Desk lamp · ${miles} mi`)}${item('$40', `Bike helmet · ${miles + 0.4} mi`)}${item('$15', `Board game · ${(miles + 0.9).toFixed(1)} mi`)}${item('$60', `Office chair · ${(miles + 1.3).toFixed(1)} mi`)}</div>`
+      : `<div class="empty">The closest listing is ${miles} miles away.<br><br>More people may list near you soon.</div>`}
+    <div class="bar"><div class="t">Buy now, pick up nearby</div><div class="s">10% service fee on each purchase</div><div class="cta">Buy · Desk lamp $24</div></div>`,
+  // A seller opens the app: how many people browse nearby depends on the market
+  list: `${status}<div class="top"><span class="brand">Reloop</span><span class="chip">${done ? '1 item sold' : 'Nothing sold yet'}</span></div>
+    <div class="note">${buyers ? `${buyers} people browsing within 5 miles today` : 'Almost nobody is browsing near you yet'}</div>
+    <div class="camera">Add photos of your item</div>
+    <div class="field">Title</div><div class="field">Price</div>
+    <div class="bar"><div class="t">Free to list</div><div class="s">Your listing stays up for 2 weeks</div><div class="cta">List item</div></div>`,
+}
+document.body.innerHTML = screens[s]
+</script>
+</body>
+</html>

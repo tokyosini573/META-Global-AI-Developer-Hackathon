@@ -6,7 +6,7 @@ import { Input } from './components/Input'
 import { PlanMap } from './components/PlanMap'
 import { Stage, STILL } from './components/Stage'
 import { Timeline } from './components/Timeline'
-import { metricsAt, PLANS, type PlanKey, type Replay } from './replay'
+import { metricsAt, packOf, PLANS, type PlanKey, type Replay } from './replay'
 
 const PLAY_SECONDS = 30 // 90 days = 30 s
 
@@ -116,7 +116,7 @@ export default function App() {
       <header className="label absolute top-12 right-16 left-16 flex justify-between">
         <span className="text-strong">Rehearsal</span>
         <span>
-          Swipe dating app · {meta.market} · {meta.days} days · replay
+          {packOf(replay).header} · {meta.market} · {meta.days} days · replay
           {meta.placeholder && ' · placeholder data'}
           {' · '}
           <button onClick={() => { setPlaying(false); setPicked(null); setBacktest(true) }}
@@ -157,9 +157,9 @@ export default function App() {
               <span>{plans[p].summary}</span>
               {p === 'b' && (
                 <span className="ml-auto flex gap-6">
-                  <span><i className="mr-2 inline-block size-2 rounded-full bg-strong" />Paying</span>
-                  <span><i className="mr-2 inline-block size-2 rounded-full bg-text opacity-60" />Using</span>
-                  <span><i className="mr-2 inline-block size-2 rounded-full bg-text opacity-20" />Quit</span>
+                  <span><i className="mr-2 inline-block size-2 rounded-full bg-strong" />{packOf(replay).legend[0]}</span>
+                  <span><i className="mr-2 inline-block size-2 rounded-full bg-text opacity-60" />{packOf(replay).legend[1]}</span>
+                  <span><i className="mr-2 inline-block size-2 rounded-full bg-text opacity-20" />{packOf(replay).legend[2]}</span>
                 </span>
               )}
             </div>

@@ -24,7 +24,7 @@ TRANSCRIBE = "muse-voice-transcribe-1.0"
 MAX_QUESTION = 300
 
 SYSTEM = (
-    "You are one real person being interviewed about a dating app you tried. Stay in character and speak "
+    "You are one real person being interviewed about an app you tried. Stay in character and speak "
     "in the first person, the way this person talks: plain, casual, honest. Answer in two or three short "
     "sentences, like talking to a friend: say what you saw on the screen and how it felt, with one concrete "
     "detail from your life. Do not repeat your earlier thoughts word for word. Base every answer on your "
@@ -47,7 +47,8 @@ def record(data, plan, p):
     lines = [f"You are {p['name']}, {p['age']}, from {p['place']}."]
     if s.get("persona"):
         lines.append(s["persona"])
-    lines.append(f"The dating app is {data['meta']['app']}. It launched with this plan: {data['plans'][plan]['summary']}.")
+    category = data["meta"].get("pack", {}).get("category", "a new swipe dating app")
+    lines.append(f"The app is {data['meta']['app']}, {category}. It launched with this plan: {data['plans'][plan]['summary']}.")
     lines.append("What happened to you:")
     for day, what, words in s["diary"]:
         lines.append(f"- Day {day}: {what}" + (f' What went through your head: "{words}"' if words else ""))

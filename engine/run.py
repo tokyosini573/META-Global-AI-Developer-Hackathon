@@ -63,15 +63,17 @@ def wonder_reason(cfg, runs, rep):
     plans = cfg["plans"]
     said = {}
     for k, ppl in rep["people"].items():
-        words = {"deleted the app": [], "paid": [], "did not install": []}
+        dating = packs.of(cfg)["id"] == "dating"
+        done = "paid" if dating else "completed a " + packs.of(cfg)["labels"]["goal"].split()[-1].rstrip("s")
+        words = {"deleted the app": [], done: [], "did not install": []}
         for p in ppl:
             for _, what, quote in p["story"]["diary"]:
                 if not quote:
                     continue
                 if "Deleted" in what:
                     words["deleted the app"].append(quote)
-                elif "Paid" in what:
-                    words["paid"].append(quote)
+                elif ("Paid" in what) if dating else (p["paid"] is not None):
+                    words[done].append(quote)
                 elif p["installed"] is None:
                     words["did not install"].append(quote)
         said[plans[k]["name"]] = {w: q[:12] for w, q in words.items()}
@@ -85,6 +87,33 @@ def wonder_reason(cfg, runs, rep):
     return reason
 
 
+def rehearse(cfg, cache, n_runs=30, use_wonder=True, log=print):
+    """Calibrate, run both plans n_runs times, and build the replay. Returns (replay, summary)."""
+    days = cfg["days"]
+    pack = packs.of(cfg)
+    shifts, seen = calibrate(cfg, cache, days)
+    log("calibration shifts:", {k: round(v, 2) for k, v in shifts.items()})
+    log("reference plan vs targets:", {k: f"{seen[k]:.3f} / {v}" for k, v in cfg["calibration"]["targets"].items()})
+
+    runs, first = [], None
+    for seed in range(n_runs):
+        res = {k: Simulation(cfg, k, cache, shifts, seed, days).run() for k in cfg["plans"]}
+        runs.append({k: totals(r, days, cfg["people_per_dot"], pack) for k, r in res.items()})
+        first = first or res
+    v = verdict(cfg, runs)
+    rep = replay(cfg, first, v, cache.provider)
+    if use_wonder:
+        w = v["winner"]
+        goal = pack["goal_key"]
+        wins = sum(r[w][goal] > r["b" if w == "a" else "a"][goal] for r in runs)
+        v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
+        rep["verdict"] = v
+    rep["meta"]["runs"] = n_runs
+    summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs,
+               "cache": {"calls": cache.calls, "hits": cache.hits}, "provider": cache.provider.name}
+    return rep, summary, first
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plans", default="plans/kindred.yaml")
@@ -93,45 +122,29 @@ def main():
     ap.add_argument("--name", default="engine")
     ap.add_argument("--no-wonder", action="store_true", help="keep the plain win-count verdict (no Wonder call)")
     ap.add_argument("--provider", choices=["glimmer", "spark", "stub"], default="glimmer",
-                    help="glimmer reads data/decisions/kindred_glimmer.json; spark reads kindred_spark.json "
-                         "and asks Spark only for missing keys")
+                    help="dating only: glimmer reads data/decisions/kindred_glimmer.json; spark reads kindred_spark.json "
+                         "and asks Spark only for missing keys. Other markets use their kinds-of-people table")
     args = ap.parse_args()
 
     cfg = yaml.safe_load((ROOT / args.plans).read_text())
     if args.days:
         cfg["days"] = args.days
-    days = cfg["days"]
-    cache = DecisionCache({"glimmer": GlimmerProvider, "spark": SparkProvider, "stub": StubProvider}[args.provider]())
+    if packs.of(cfg)["id"] != "dating":       # Glimmer's pool is the dating demo's; other markets use kinds of people
+        from engine.world import typed
+        cache = DecisionCache(typed.TypedProvider(cfg, *typed.paths(cfg)))
+    else:
+        cache = DecisionCache({"glimmer": GlimmerProvider, "spark": SparkProvider, "stub": StubProvider}[args.provider]())
     t0 = time.time()
-
-    shifts, seen = calibrate(cfg, cache, days)
-    print("calibration shifts:", {k: round(v, 2) for k, v in shifts.items()})
-    print("reference plan vs targets:",
-          {k: f"{seen[k]:.3f} / {v}" for k, v in cfg["calibration"]["targets"].items()})
-
-    runs, first = [], None
-    for seed in range(args.runs):
-        res = {k: Simulation(cfg, k, cache, shifts, seed, days).run() for k in cfg["plans"]}
-        runs.append({k: totals(r, days, cfg["people_per_dot"], packs.of(cfg)) for k, r in res.items()})
-        first = first or res
-    v = verdict(cfg, runs)
+    use_wonder = not args.no_wonder and (args.provider == "glimmer" or packs.of(cfg)["id"] != "dating")
+    rep, summary, first = rehearse(cfg, cache, args.runs, use_wonder)
 
     out = ROOT / "web" / "public" / "replays" / f"{args.name}.json"
-    rep = replay(cfg, first, v, cache.provider)
-    if not args.no_wonder and args.provider == "glimmer":
-        w = v["winner"]
-        goal = packs.of(cfg)["goal_key"]
-        wins = sum(r[w][goal] > r["b" if w == "a" else "a"][goal] for r in runs)
-        v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
-        rep["verdict"] = v
-    rep["meta"]["runs"] = args.runs
     out.write_text(json.dumps(rep, separators=(",", ":")))
     db = ROOT / "runs" / f"{args.name}.sqlite"
     db.parent.mkdir(exist_ok=True)
-    summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs,
-               "cache": {"calls": cache.calls, "hits": cache.hits}, "provider": cache.provider.name}
     write_sqlite(db, first, summary)
 
+    runs, v = summary["runs"], summary["verdict"]
     for k in cfg["plans"]:
         med = {m: statistics.median(r[k][m] for r in runs if r[k][m] is not None) for m in runs[0][k]}
         print(k, {m: (round(x, 3) if m == "quit_week1" else round(x)) for m, x in med.items()})
