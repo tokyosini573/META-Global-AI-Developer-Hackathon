@@ -149,6 +149,24 @@ Caveats that apply throughout:
 - **Driver funnel:** 10–30% of driver sign-ups complete a first trip. The ~11% synthetic figure is the floor; the range accounts for background-check loss.
 - **Driver churn:** 60–70% of drivers inactive by 6 months (NBER).
 
+### C. Sign-up completion (install -> finished sign-up), all three markets
+
+Added 2026-11-03 for the v2 `signup` calibration target (the `sign_up` decision right after install).
+Only runs with a brief use it.
+
+| Value | Unit | What it measures | Source | Period | Conf. |
+|---|---|---|---|---|---|
+| ~50% average (iOS over 79%) | % installs | Dating apps install-to-registration, from paid installs (Liftoff 2022 Dating Apps Report) | https://content.liftoff.io/hubfs/aaa_Reports/2022/2022%20Dating%20Apps%20Report%20-%20EN.pdf | 2021–2022 | medium |
+| 39.9% (Q1), 39.8% (Q2) | % installs | Dating apps install-to-registration (Liftoff, quoted by a trade site) | https://www.globaldatinginsights.com/news/28072015-what-is-the-cost-of-acquiring-dating-app-users-in-2015/ | 2015 | low |
+| 45.8% | % installs | US shopping apps install-to-register (Adjust data, Statista chart) | https://www.statista.com/statistics/1021327/mobile-shopping-app-user-acquisition-rate-usa | 2020 | medium |
+| social 88.4%, eCommerce 70.6%, finance 52.1% | % installs | Install-to-registration by category, paid installs (Liftoff Mobile App Engagement Index) | https://liftoff.io/?p=2828 | Q4 2014 | low (old) |
+| ~20% within week one | % installs | Fintech apps install-to-sign-up (CleverTap fintech benchmark) | https://financialit.net/news/fintech-startups/clevertaps-fintech-benchmark-report-only-1-5-users-install-fintech-apps-sign | 2022–2023 | medium |
+
+- **Dating (Kindred):** 0.50, Liftoff 2022.
+- **Resale (Reloop):** 0.46, the US shopping figure; a resale app asks for the same things (email or phone, location).
+- **Rides (Hopway):** PRIOR 40–70%, point 0.55. No public ride-hailing number. A ride app asks for a phone number
+  and usually a payment card before the first ride, so it sits between the finance and eCommerce figures above.
+
 ---
 
 ## Part 3: Mechanics priors

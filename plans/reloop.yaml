@@ -34,6 +34,7 @@ calibration:
                              # visit, so the level is fit to the two launches together (engine/run.py calibrate)
   targets:
     install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
+    signup: 0.46             # install -> finished sign-up; US shopping apps install-to-register 45.8% (Adjust via Statista, 2020)
     d7_retention: 0.11       # PRIOR: resale D7 10-12% (between Adjust marketplace D1 and the all-vertical curve)
     convert_30d: 0.08        # PRIOR: 5-12% of buyers make a first purchase within 30 days (Liftoff 4.7-10.5%)
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 
 // web/public/backtest.json, written by `python -m engine.backtest.run export`
 type Marker = { id: string; month: number; called: boolean; p: number; answer: boolean; question: string; note: string; source: string }
@@ -69,7 +69,8 @@ function Card({ c, m, left, top, above }: { c: Case; m: Marker; left: number; to
   )
 }
 
-export function Backtest({ onHome }: { onHome: () => void }) {
+// nav draws the stage's top menu (App.tsx) with this screen's own words on the left
+export function Backtest({ nav }: { nav: (context: ReactNode) => ReactNode }) {
   const [data, setData] = useState<Data | null>(null)
   // ?backtest&point=case_5:m2 shows one card (screenshots)
   const [pointed, setPointed] = useState<string | null>(new URLSearchParams(location.search).get('point'))
@@ -100,10 +101,7 @@ export function Backtest({ onHome }: { onHome: () => void }) {
   const { world, always_success, markers } = data.called
   return (
     <>
-      <header className="label absolute top-12 right-16 left-16 flex justify-between">
-        <button onClick={onHome} className="label cursor-pointer text-strong">Rehearsal</button>
-        <span>Backtest · {data.cases.length === 9 ? 'nine' : data.cases.length} real launches · up to four years</span>
-      </header>
+      {nav(<>Backtest · {data.cases.length === 9 ? 'nine' : data.cases.length} real launches · up to four years</>)}
 
       <section className="absolute top-28 left-16 w-[1100px]">
         <h1 className="text-headline font-semibold text-strong">Would it have called it?</h1>

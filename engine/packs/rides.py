@@ -62,6 +62,9 @@ PACK = {
                             "many": "There are cars all around you."}},
     },
     "price_words": price_words,
+    # v2 funnel: a ride is the payment, so there is no "paid" step
+    "funnel": [("saw", "Saw an ad"), ("installed", "Installed"), ("signed_up", "Signed up"),
+               ("first", "Took or gave a ride"), ("active", "Using on day {days}")],
     "labels": {
         "stages": ["Installed", "First ride", "Still using", "Repeat"],
         "numbers": ["Completed rides", "Got a first ride", "Quit in week one"],
@@ -78,6 +81,7 @@ PACK = {
                   "referral": "Got a Hopway invite from a friend.", "friend": "A friend sent a Hopway link."},
         "skip": {"feed": "Scrolled past."},
         "skip_default": "Did not install it.",
+        "signup": {"finish": "Signed up.", "delete_app": "Deleted the app at sign-up."},
         "success": {"driver": "Gave a first ride.", "rider": "Got a first ride."},
         "gate_head": {"drive": "Opened the driver screen.", "ride": "Opened the app."},
         "outcome": {"drive": {"go_online": "Went online to drive.", "come_back_tomorrow": "Came back the next day.",

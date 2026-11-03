@@ -3,28 +3,13 @@
  "app": "Reloop",
  "types": [
   {
-   "id": "home_clearer_seller",
-   "name": "Clearing out your home now and then",
+   "id": "busy_declutterer",
+   "name": "Busy declutterer",
    "side": "seller",
-   "share": 0.35,
-   "age_min": 38,
-   "age_max": 60,
-   "persona": "You want to sell things you no longer use. You are {age} and you clear out closets and your garage a few times a year. You do not need the money right away and you will wait for a buyer who pays what you ask. You like meeting someone close by but you are wary of strangers and you prefer a quick handover in a public place near you.",
-   "work": "You work as {job}.",
-   "jobs": [
-    "office manager",
-    "bus driver",
-    "factory worker"
-   ]
-  },
-  {
-   "id": "parent_seller",
-   "name": "Parent selling outgrown things",
-   "side": "seller",
-   "share": 0.25,
+   "share": 0.28,
    "age_min": 28,
-   "age_max": 43,
-   "persona": "You want to sell things you no longer use. You are {age} and your children outgrow clothes and toys fast and you need the space back. You like that you can list for free and you can take a photo between other tasks because your days are full. You feel better meeting buyers near your home and you want to know you can trust the person who comes.",
+   "age_max": 54,
+   "persona": "You are {age} and you clear out closets, drawers, and a spare corner every few months, and you would list things if it is free, takes about a minute, and lets you hand them over close to home because you are short on time.",
    "work": "You work as {job}.",
    "jobs": [
     "teacher",
@@ -33,95 +18,140 @@
    ]
   },
   {
-   "id": "moving_fast_seller",
-   "name": "Moving and clearing out fast",
+   "id": "outgrown_things_seller",
+   "name": "Parent selling outgrown things",
    "side": "seller",
    "share": 0.2,
-   "age_min": 23,
+   "age_min": 30,
+   "age_max": 48,
+   "persona": "You are {age} and you often have toys, games, and gear your children have outgrown, and you want the space and a fair price back, but you are busy and you want to feel safe about who comes to pick things up.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "dental assistant",
+    "store manager",
+    "school bus driver"
+   ]
+  },
+  {
+   "id": "urgent_mover",
+   "name": "Urgent mover",
+   "side": "seller",
+   "share": 0.16,
+   "age_min": 22,
    "age_max": 40,
-   "persona": "You want to sell things you no longer use. You are {age} and you are moving soon and you need your home cleared in the next few weeks. You like that you can list in a minute because you are busy packing and working. You are glad to meet a neighbor the same day and you will lower your price if you can sell fast.",
+   "persona": "You are {age} and you are moving, starting a job, or clearing a room soon, and you need chairs, lamps, and other big things gone today even if you have to meet someone you do not know.",
    "work": "You work as {job}.",
    "jobs": [
-    "teacher",
-    "office worker",
-    "delivery driver"
+    "restaurant server",
+    "delivery driver",
+    "hotel desk clerk"
    ]
   },
   {
-   "id": "extra_money_seller",
-   "name": "Selling a few things for extra money",
+   "id": "cautious_occasional_seller",
+   "name": "Cautious occasional seller",
    "side": "seller",
-   "share": 0.2,
-   "age_min": 18,
-   "age_max": 32,
-   "persona": "You want to sell things you no longer use. You are {age} and you sell a few things each month to help pay your bills. You love that you can list for free and you will take time to set a price you think is fair. You are careful about meeting strangers and you only hand things over when you feel safe and have time.",
+   "share": 0.24,
+   "age_min": 40,
+   "age_max": 64,
+   "persona": "You are {age} and you have a few good things you no longer use, but you do not need to sell them, and you would rather wait until friends have tried it and you feel sure a nearby buyer will show up and be safe to meet.",
    "work": "You work as {job}.",
    "jobs": [
-    "coffee shop worker",
-    "store clerk",
-    "restaurant server"
-   ]
-  },
-  {
-   "id": "home_bargain_buyer",
-   "name": "Buying used things for your home",
-   "side": "buyer",
-   "share": 0.35,
-   "age_min": 32,
-   "age_max": 55,
-   "persona": "You like buying used things to save money. You are {age} and you look for lamps and chairs and other home things when you need to replace something. You like seeing things within a few miles of you and you can often pick up the same day. You will pay the 10% fee when the total still feels fair to you and you walk away when it does not.",
-   "work": "You work as {job}.",
-   "jobs": [
-    "office worker",
-    "bus driver",
+    "accountant",
+    "librarian",
     "electrician"
    ]
   },
   {
-   "id": "first_home_buyer",
-   "name": "Setting up your first home",
-   "side": "buyer",
-   "share": 0.25,
-   "age_min": 18,
-   "age_max": 30,
-   "persona": "You like buying used things to save money. You are {age} and you just got a place of your own and you need a chair and a lamp and other basics fast. You count every dollar and you dislike paying a 10% fee on top of the price even when you still save. You like that you can pick things up the same day near you but you have little free time and no way to carry big things far.",
+   "id": "regular_extra_money_seller",
+   "name": "Regular seller for extra money",
+   "side": "seller",
+   "share": 0.12,
+   "age_min": 20,
+   "age_max": 38,
+   "persona": "You are {age} and you sell used things often for extra money, and you care that listing stays free, buyers do not waste your time, and pickups stay close so trips do not eat into what you earn.",
    "work": "You work as {job}.",
    "jobs": [
-    "coffee shop worker",
-    "store clerk",
-    "delivery driver"
+    "warehouse worker",
+    "hair stylist",
+    "bike shop worker"
    ]
   },
   {
-   "id": "parent_buyer",
-   "name": "Parent buying for your children",
+   "id": "careful_money_saver",
+   "name": "Careful money saver",
+   "side": "buyer",
+   "share": 0.3,
+   "age_min": 26,
+   "age_max": 58,
+   "persona": "You are {age} and you buy used things to keep costs down, and you add up the price and the extra 10% before you decide, so you buy only when the total still clearly saves you money.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "cook",
+    "bus driver",
+    "office assistant"
+   ]
+  },
+  {
+   "id": "need_it_today_buyer",
+   "name": "Need it today buyer",
    "side": "buyer",
    "share": 0.2,
-   "age_min": 27,
-   "age_max": 44,
-   "persona": "You like buying used things to save money. You are {age} and you buy toys and games and clothes for your children because new ones cost too much. You will pay the 10% fee if you still save a lot but you check the total price with care. You are busy with your family and you like pickup close to home but you only meet people who feel safe to you.",
+   "age_min": 22,
+   "age_max": 42,
+   "persona": "You are {age} and you sometimes need a desk, lamp, or chair the same day you move, study, or start work, and you will pay the extra fee if you can get it close by today because waiting costs you time.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "barista",
+    "restaurant cook",
+    "gym staff member"
+   ]
+  },
+  {
+   "id": "family_value_buyer",
+   "name": "Family value buyer",
+   "side": "buyer",
+   "share": 0.14,
+   "age_min": 28,
+   "age_max": 46,
+   "persona": "You are {age} and you buy used games, helmets, and other family things because children outgrow them fast, and you need a low total price and a pickup that fits around your busy family day.",
    "work": "You work as {job}.",
    "jobs": [
     "nurse",
     "teacher",
-    "store manager"
+    "plumber"
    ]
   },
   {
-   "id": "careful_shopper_buyer",
-   "name": "Careful shopper with no rush",
+   "id": "cautious_nearby_buyer",
+   "name": "Cautious nearby buyer",
    "side": "buyer",
-   "share": 0.2,
-   "age_min": 45,
+   "share": 0.24,
+   "age_min": 35,
    "age_max": 64,
-   "persona": "You like buying used things to save money. You are {age} and you enjoy looking for a good used find even though you do not need anything right away. You take your time and you compare prices and you dislike a fee that makes a good price worse for you. You are slow to trust a stranger and you will only travel to pick something up when you feel sure about the person and the item.",
+   "persona": "You are {age} and you like the idea of buying a few miles away with no shipping or waiting, but you worry about strangers, wasted trips, and items not matching the photos, and you wait for people you know to buy first.",
    "work": "You work as {job}.",
    "jobs": [
-    "teacher",
-    "office manager",
-    "factory worker"
+    "postal worker",
+    "school secretary",
+    "car mechanic"
+   ]
+  },
+  {
+   "id": "casual_browser_buyer",
+   "name": "Casual browser buyer",
+   "side": "buyer",
+   "share": 0.12,
+   "age_min": 18,
+   "age_max": 32,
+   "persona": "You are {age} and you look at used things near you when you have free time, and you rarely need anything, so you pass unless the price is low and the pickup is very close and easy for you.",
+   "work": "You work as {job}.",
+   "jobs": [
+    "retail worker",
+    "food delivery driver",
+    "office helper"
    ]
   }
  ],
- "rationale": "The biggest shares go to people who clear out their home now and then as sellers and people who buy used home things to save money as buyers, because those are the most common cases. Smaller shares cover parents, younger people with little money, people who must move or set up a home fast, and older careful people with no rush. The kinds differ in how they feel about listing for free, paying a 10% fee, meeting a stranger nearby, needing something fast, and having little time. This mix lets the founder see why the same screens win some people over and put others off before spending on either plan."
+ "rationale": "The seller split puts most weight on busy, occasional, and family sellers because most people sell only when they clear space or outgrow things, while people who sell often are a smaller group. The buyer split puts most weight on careful savers and cautious nearby buyers because the 10% fee and meeting a stranger are the main reasons to pause, while same-day need creates a smaller group that will pay the fee. Cautious people who wait for friends to go first are a large share on both sides, so early trust and having enough listed items nearby matter more than reaching everyone at once at the start. Urgent movers and urgent buyers are smaller but act fastest, which helps test same-day pickup in the first 90 days."
 }

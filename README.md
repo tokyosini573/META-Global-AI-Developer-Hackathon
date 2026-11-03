@@ -1,8 +1,10 @@
 # Rehearsal
 
-**Rehearse a launch before you spend the budget.** Rehearsal is a launch world model: give it two
-launch plans for one app, and it plays both out in a simulated US market for 90 days, says which
-plan wins, and lets you ask any simulated person why they did what they did.
+**Rehearse a launch before you spend the budget.** Rehearsal is a launch world model: give it your
+app's screens, up to three ads and two experiments, and thousands of simulated Americans see an ad,
+install, sign up, use it, pay or leave over 90 days. Each of them says why. Rehearsal shows which
+experiment wins, where people left and in their own words why, which kinds of people answered which
+ad, and lets you ask any one of them a question.
 
 **Live demo: https://tokyosini573--rehearsal.modal.run**
 
@@ -11,30 +13,37 @@ Muse Glimmer and Muse Voice Transcribe.
 
 | Open | What you see |
 |---|---|
-| [`/`](https://tokyosini573--rehearsal.modal.run) | The front page: what Rehearsal does, how it works, the three markets, the backtest and the models, with a live preview of both plans. "Start a rehearsal" at the bottom opens an example or the live run. |
-| [`/?play`](https://tokyosini573--rehearsal.modal.run/?play) | The rehearsal itself: the two plans play out on two US maps, one dot per 60 people. The verdict is on top. |
-| [`/?day=90&person=a:87`](https://tokyosini573--rehearsal.modal.run/?day=90&person=a:87) | One person's drawer: who they are, the ad and paywall they saw, what they did each day. Ask them a question by voice or text. |
-| [`/?new`](https://tokyosini573--rehearsal.modal.run/?new) | "Try it yourself": the input screen, filled with the example plans. Switch between the three example markets there. |
-| [`/?new&admin`](https://tokyosini573--rehearsal.modal.run/?new&admin) | The live run (admin key): upload your own screens, set channels and budgets, run with Muse Wonder and Muse Spark. |
+| [`/`](https://tokyosini573--rehearsal.modal.run) | The front page: what Rehearsal does, how it works, what you get, the three markets, the backtest and the models, with a live preview of the report. "Start a rehearsal" at the bottom opens an example or the live run. |
+| [`/?new&replay=engine`](https://tokyosini573--rehearsal.modal.run/?new&replay=engine) | The Setup page, read-only for an example: app profile, audience, product, money, ads, competition, retention, and the two experiments. Switch markets at the top. |
+| [`/?new&admin`](https://tokyosini573--rehearsal.modal.run/?new&admin) | The same page for the admin's live run: upload your own screens and ads, set both experiments, run with Muse Wonder and Muse Spark. |
+| [`/?play`](https://tokyosini573--rehearsal.modal.run/?play) | The rehearsal: both experiments play out on two US maps, with the funnel below and the verdict on top. |
+| [`/?replay=engine&report`](https://tokyosini573--rehearsal.modal.run/?replay=engine&report) | Where people left, and why: each funnel step, up to three reasons in people's own words, grouped by Muse Wonder and counted by the engine. Click a reason to see those people. |
+| [`/?replay=engine&ads`](https://tokyosini573--rehearsal.modal.run/?replay=engine&ads) | Which kinds of people answered which ad. |
+| [`/?day=90&person=a:87`](https://tokyosini573--rehearsal.modal.run/?day=90&person=a:87) | One person's drawer: who they are, the ad they saw, sign-up, what they did each day and why they stopped. Ask them a question by voice or text. |
 | [`/?replay=reloop`](https://tokyosini573--rehearsal.modal.run/?replay=reloop), [`/?replay=hopway`](https://tokyosini573--rehearsal.modal.run/?replay=hopway) | The same rehearsal for a local resale app and a ride-hailing app. |
 | [`/?backtest`](https://tokyosini573--rehearsal.modal.run/?backtest) | The backtest: the same world predicting what happened to 9 real two-sided apps. |
 
+Every number on screen is a simulation, calibrated to public benchmarks; none is observed data.
+
 ## The example
 
-Kindred is a new dating app made up for this demo (its ad, store page and paywall are in
-`engine/screens/`). Both plans spend $40,000 over 90 days and charge $9.99 a week for unlimited
-swipes; free users get 5 swipes a day.
+Kindred is a new dating app made up for this demo (its ads, store page, sign-up screen and paywall
+are in `engine/screens/`; what its founder would tell Rehearsal is in `plans/kindred.brief.yaml`).
+Both experiments spend $40,000 over 90 days, reach 10,000 simulated people each through paid
+channels, and charge $9.99 a week for unlimited swipes; free users get 5 swipes a day. Each person
+reached by an ad sees one of three: a feature ad, a price ad and a trust ad.
 
-- **Plan A:** TikTok ads nationwide, paywall from day 1.
-- **Plan B:** Austin, then Denver on day 30, then Nashville on day 60, with campus ambassadors and
-  local TikTok ads. Each person's first 30 days are free.
+- **Experiment A:** TikTok ads nationwide, paywall from day 1.
+- **Experiment B:** Austin, then Denver on day 30, then Nashville on day 60, with campus ambassadors
+  and local TikTok ads. Each person's first 30 days are free.
 
-**Plan B wins in 25 of 30 runs.** Median paying users after 90 days: 450 for B against 240 for A.
-Plan A reaches more people (59,000 against 39,000) and gets more installs (5,400 against 3,300),
-but its users are spread over the whole country. In 20 of 30 runs no Plan A user gets a single
-match, and 91% of its users quit in the first week, against 41% for Plan B. A dating app is worth nothing until
-there is someone nearby to match with, and Plan B packs its users close enough together to find
-each other.
+**B wins in 25 of 30 runs.** A reaches more people and gets more installs, but its users are spread
+over the whole country: almost none of them ever gets a match, and about nine in ten quit in the
+first week. The report says where the rest went. Most people who saw an ad and did not install
+said the free swipes were too few or the price too high, or that they wanted proof the people are
+real; at sign-up, people balked at sharing their location and photos for five free swipes. The ads
+table shows the price ad worked best on curious first-timers and busy people, and the trust ad on
+people who are hopeful but short on cash or careful about trust.
 
 ## Three markets
 
@@ -45,14 +54,16 @@ how a success happens, the screen each side decides on, and the words on screen.
 | Market | Demo app | Sides | A success | Example plans | Result |
 |---|---|---|---|---|---|
 | Dating | Kindred | men, women | both browse nearby and match; free users hit a paywall | nationwide TikTok vs three cities with ambassadors | **B** wins 25 of 30 runs |
-| Resale | Reloop | sellers, buyers | a buyer buys a listing within reach; an item sells once | nationwide feed ads vs Seattle then Portland, sellers first | **B** wins 30 of 30 runs: 540 sales against 0 |
-| Rides | Hopway | drivers, riders | a rider's request is taken by an online driver within reach | three cities at once vs Austin then Denver, drivers first | **A** wins 27 of 30 runs: 1,485 rides against 780 |
+| Resale | Reloop | sellers, buyers | a buyer buys a listing within reach; an item sells once | nationwide feed ads vs Seattle then Portland, sellers first | **B** wins 30 of 30 runs: 1,837 sales against 0 (median) |
+| Rides | Hopway | drivers, riders | a rider's request is taken by an online driver within reach | three cities at once vs Austin then Denver, drivers first | **B** wins 22 of 30 runs: 387 rides against 321 (median) |
 
 Reloop and Hopway are made up for this demo too (`engine/screens/reloop.html`, `hopway.html`).
 "Sellers first" wins for Reloop because a buyer who opens the app to an empty feed leaves, and a
-nationwide launch leaves nearly every feed empty. "Drivers first" loses for Hopway: the offline
-promotion that recruits drivers costs far more per person than feed ads, so Plan B reaches half as
-many people, while Plan A's three cities still get enough drivers and riders together.
+nationwide launch leaves nearly every feed empty. For Hopway it is close: the offline
+promotion that recruits drivers costs far more per person than feed ads, so Plan B reaches about half
+as many people, but once sign-up is part of the funnel only a share of drivers make it in, and Plan B's
+drivers-first start in one city is what leaves riders a car nearby. B wins 22 of 30 runs. (Before the
+v2 funnel, without sign-up, A won 27 of 30: the result depends on how many drivers get through.)
 
 **Channels are grouped by how a person first meets the app**, not by brand: online feed ads
 (TikTok, Instagram, YouTube), search and app store ads, offline promotion (booths, ambassadors),
@@ -67,8 +78,10 @@ designs 6 to 10 kinds of people, 3 to 5 per side; Muse Spark answers each decisi
 person, per screen state, three times, averaged (`engine/world/typed.py`, tables in
 `data/decisions/<app>_spark.json`). That is about 200 keys and 600 small calls per market.
 
-**Live runs (admin only).** `/?new&admin` opens a form: upload the app's ad, store page and the
-screen each side sees, edit both plans, and run. The server runs Wonder, Spark standard (uploads are
+**Live runs (admin only).** `/?new&admin` opens the Setup page: fill in the brief
+(`docs/brief-format.md`), upload the store page, the sign-up screen, the screen each side uses (and
+the paywall for dating) and up to three ads, set a shared campaign and what each experiment
+changes, and run. The server runs Wonder, Spark standard (uploads are
 not sent where they may be used for training), 30 Monte Carlo runs and Wonder's reason, and opens
 the result on the main screen. A run takes a few minutes and costs well under a dollar, so it needs
 the admin key (`ADMIN_KEY` in `.env`, or in the Modal secret on the public site) and is capped at
@@ -158,6 +171,32 @@ calibration, with these differences:
   shows install 8.5% (target 8.6%), day-7 retention 11.1% (11%), first purchase 9.1% (8%); rides
   show 8.8% (8.6%), 9.5% (9%) and first ride 28.8% (30%).
 
+### The full funnel (v2)
+
+- **Ads.** A person reached through an ad-led channel sees one of the experiment's ads, drawn
+  uniformly. The install question carries that ad's angle and line, why the founder says people
+  would pick the app, and what people use today (`engine/world/decide.py install_question`). The ads
+  table counts, over all 30 runs, how many people of each kind saw each ad and installed.
+- **Sign-up.** Right after install, people see the sign-up screen with its sign-up methods and the
+  permissions it asks for, and finish or delete the app. Its level is calibrated to a sign-up
+  benchmark (Kindred 50%, Liftoff dating; Reloop 46%, Adjust shopping; Hopway a PRIOR of 55%).
+- **Paying.** The question people face while using the app now says how it makes money and when it
+  asks: the price, when the paywall appears, what is free and what is paid. An experiment with its
+  own price is asked with that price. Sellers and drivers do not pay, so their question has no money words.
+- **Why people stop.** When the retention curve makes someone stop, that person says why in one
+  sentence, asked once per kind of person and situation (matched or not, how busy it is nearby,
+  which week), with the founder's retention notes as context. When people stop is still the
+  calibrated curve; why is their own words.
+- **The report.** For each step, the people who reached the step before and never this one, and the
+  words of the decision that stopped them (`story.stop` in `docs/replay-format.md`). Muse Wonder
+  names up to three themes per step and sorts each distinct sentence into one; the engine counts the
+  people, so no number comes from the model. When Wonder cannot answer, identical sentences are
+  grouped instead (`engine/world/report.py`).
+- **How many people.** The brief's 1,000, 5,000 or 10,000 simulated people are reached by the
+  experiment with the most paid reach; each stands for the same number of real people in both.
+- **The replayed run.** The maps replay the first of the 30 runs that the winner won, so the screen
+  never shows the loser ahead while the verdict says otherwise.
+
 ## Distilling Spark into Glimmer
 
 Muse Spark makes these decisions well, but it takes about 20 seconds a call and is capped at 150
@@ -245,6 +284,17 @@ Full report, every question and every probability: [`backtest/report.md`](backte
   tells it how busy the market is. The example apps render a screen for each state.
 - **Assumed visit rates.** How often people open a resale or ride app is a prior, and it sets how
   many repeat purchases and rides there are. A thin market's results lean on it.
+- **Hopway's first-ride level is out of reach.** With sign-up and drivers' own churn, about 10% of
+  rider installers take a first ride within 30 days, against a PRIOR of 25-45% (30%). Calibration
+  stops at its limit, so Hopway's absolute numbers are low; the comparison of the two experiments
+  is what it shows.
+- **Two models in Kindred's ads table.** Glimmer answers the original ad as it was trained; Spark
+  answers the two new ads and sign-up per kind of person. The two models can differ, so Kindred's
+  ads comparison is softer than the other markets'.
+- **Theme names can fall back to sentences.** When Muse Wonder gives no usable grouping for a step,
+  the report shows the most common identical sentences instead of named themes.
+- **No market outside the US, no one-sided apps.** The map, census weights and ad costs are US
+  data, and the backtest rules are for two-sided apps.
 - **Day wording in interviews.** The paywall prompts in the first week describe the install as a
   few days ago, so a person may say "three days" about day 1.
 
@@ -306,17 +356,17 @@ The distillation steps (data, training, the decision table) are listed in
 ```
 engine/world/     the world: people (Wonder), decisions (Glimmer, Spark), channels, simulation, calibration, replay
 engine/packs/     market packs: dating, resale, rides
-engine/live.py    the admin's live run from uploaded screens
+engine/live.py    the admin's live run from a brief and its images; engine/world/report.py the per-step reasons
 engine/distill/   Spark -> Glimmer: data, QLoRA training, evaluation, vLLM serving on Modal
 engine/backtest/  backtest runner and scoring
 engine/screens/   the demo apps' screens (HTML rendered to images the models look at)
 engine/interview.py, serve.py, site_modal.py   live interview API and the public site
-plans/            each market's two launch plans and values, channel costs, benchmark research
+plans/            each market's two launch plans and values, its brief (<app>.brief.yaml), channel costs, benchmark research
 rules/            frozen two-sided launch rules and their evidence
 backtest/         cases (inputs), predictions, answers, report
 data/             Wonder's people, Glimmer's decisions, distillation results
 web/              the site (Vite, React, Tailwind); replays in web/public/replays
-docs/             distillation, replay format
+docs/             distillation, replay format, brief format
 ```
 
 ## Cost

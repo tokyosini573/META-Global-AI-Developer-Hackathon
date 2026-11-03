@@ -1,0 +1,53 @@
+# What the founder of the demo dating app tells Rehearsal (docs/brief-format.md). Kindred is
+# fictional; every line here is made up for the demo. The two experiments' channels, cities and
+# prices are plans.a and plans.b in plans/kindred.yaml.
+
+version: 2
+app: Kindred
+category: dating
+market: United States
+
+profile:
+  does: A swipe dating app that shows you people who are actually nearby, so a match can turn into a date this week.
+  why: Fewer, closer profiles instead of endless scrolling through people who live an hour away.
+  features: [Nearby profiles first, 5 free swipes a day, Unlimited swipes with Kindred Plus]
+
+audience:
+  age: [18, 34]
+  who: Students and young professionals in US cities who want to meet someone nearby soon.
+  income: mixed
+  new_apps: early
+
+product:
+  signup_methods: [phone, apple]
+  permissions: [location, photos, notifications]
+  free_limits: 5 swipes a day
+
+money:
+  model: subscription
+  price: 9.99
+  per: week
+  trial_days: 0                # plan B gives 30 days free (plans/kindred.yaml)
+  paywall: after_free_limit
+  free: 5 swipes a day, matching and chat
+  paid: Unlimited swipes and seeing who liked you
+
+ads:
+  - {id: ad_1, angle: feature, line: "Swipe less. Meet more."}
+  - {id: ad_2, angle: price, line: "Free to start. 5 swipes a day on us."}
+  - {id: ad_3, angle: trust, line: "Real people, verified with a selfie."}
+
+competition:
+  now: The big swipe apps, where most profiles are far away or no longer active.
+  switch: Kindred only shows people close enough to meet this week.
+
+retention:
+  back: A daily note when someone nearby liked you.
+  leave: No matches nearby in the first week, or the paywall before a first match.
+
+setup:
+  people: 10000
+  days: 90
+  experiments:
+    a: {changes: "Nationwide TikTok ads, paywall from day 1"}
+    b: {changes: "Austin, then Denver and Nashville; campus ambassadors; 30 days free"}

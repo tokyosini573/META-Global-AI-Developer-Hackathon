@@ -5,8 +5,9 @@
 
 The Meta API key comes from the Modal secret `rehearsal-meta` (META_API_KEY), which the owner creates
 once with `modal secret create`; it is never in the repo or the image. The same secret may hold
-ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py). One container serves
-everyone, so the per-visitor and daily caps in serve.py and live.py hold for the whole site.
+ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py: the brief and screens the
+Setup page posts to /api/live). One container serves everyone, so the per-visitor and daily caps in
+serve.py and live.py hold for the whole site, and a live run's files stay in its /tmp/live folder.
 """
 
 import os
@@ -36,6 +37,7 @@ def site():
     from fastapi import FastAPI, Request
     from fastapi.concurrency import run_in_threadpool
     from fastapi.responses import JSONResponse
+    from fastapi.middleware.gzip import GZipMiddleware
     from fastapi.staticfiles import StaticFiles
 
     from fastapi.responses import Response
@@ -47,6 +49,7 @@ def site():
     os.environ.setdefault("MODEL_API_KEY", env["MODEL_API_KEY"])     # for Wonder and Spark inside a live run
     limits = Limits()
     web = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+    web.add_middleware(GZipMiddleware, minimum_size=1024)   # replays of 10,000 people are 8-16 MB of JSON
 
     @web.api_route("/api/live{rest:path}", methods=["GET", "POST"])
     async def live(rest: str, request: Request):
@@ -66,6 +69,17 @@ def site():
         ip = (request.headers.get("x-forwarded-for") or request.client.host).split(",")[0].strip()
         status, data = await run_in_threadpool(handle, env, limits, f"/api/{name}", ip, raw)
         return JSONResponse(data, status_code=status)
+
+    @web.middleware("http")
+    async def cache(request: Request, call_next):
+        # Mounted files carry a 1970 Last-Modified, so browsers would keep an old index.html for years
+        # and ask for a script the next deploy removed. Only the hashed build files may be kept.
+        response = await call_next(request)
+        if request.url.path.startswith("/assets/"):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        else:
+            response.headers["Cache-Control"] = "no-cache"
+        return response
 
     web.mount("/", StaticFiles(directory="/root/web/dist", html=True))
     return web

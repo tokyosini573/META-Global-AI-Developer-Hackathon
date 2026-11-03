@@ -30,6 +30,7 @@ calibration:
   reference_plan: a
   targets:
     install: 0.086          # store page -> install, all categories (app-store average)
+    signup: 0.50            # install -> finished sign-up; Liftoff 2022 Dating Apps Report: registration ~50% (brief runs only)
     d7_retention: 0.096     # AppsFlyer US dating, Q3 2026
     paid_30d: 0.046         # AppsFlyer US dating, share paying within 30 days, Q2 2026
 

@@ -5,7 +5,8 @@ public site serves the same handler from Modal (engine/site_modal.py).
 
 POST /api/transcribe  body: 16-bit mono WAV           -> {"text": ...}
 POST /api/interview   {"replay", "plan", "id", "question"} -> {"answer": ...}
-/api/live...          the admin's live rehearsal runs (engine/live.py), with the X-Admin-Key header
+/api/live...          the admin's live rehearsal runs (engine/live.py), with the X-Admin-Key header:
+                      POST multipart brief + images, GET <id>, <id>/replay, <id>/screen/<name>
 
 Each visitor (by IP) gets LIMIT calls an hour and the whole server DAILY a day, so a public demo
 cannot drain the API credit.
@@ -76,21 +77,21 @@ def parse_multipart(content_type, raw):
 
 
 def handle_live(env, method, path, admin_key, content_type, raw):
-    """(status, content type, body bytes) for the live-run API."""
+    """(status, content type, body bytes) for the live-run API (engine/live.py)."""
     from engine import live
     js = lambda status, data: (status, "application/json", json.dumps(data).encode())   # noqa: E731
-    parts = path.strip("/").split("/")[2:]          # after api/live
+    parts = path.split("?")[0].strip("/").split("/")[2:]          # after api/live
     try:
-        if method == "GET" and len(parts) == 2 and parts[0] == "example":
-            return js(200, live.example_spec(parts[1]))
         if method == "GET" and len(parts) == 3 and parts[1] == "screen":
-            return 200, "image/png", live.screen(parts[0], parts[2])
+            return (200, *live.screen(parts[0], parts[2]))
         if not live.authorized(env, admin_key):
             return js(403, {"error": "Live runs are for the admin."})
         if method == "POST" and not parts:
             fields = parse_multipart(content_type, raw)
-            spec = json.loads(fields.pop("spec"))
-            return js(200, {"id": live.start(spec, fields, env)})
+            if "brief" not in fields:
+                raise ValueError("the request needs a brief")
+            brief = json.loads(fields.pop("brief"))
+            return js(200, {"id": live.start(brief, fields, env)})
         if method == "GET" and len(parts) == 1:
             return js(200, live.status(parts[0]))
         if method == "GET" and len(parts) == 2 and parts[1] == "replay":
@@ -100,8 +101,8 @@ def handle_live(env, method, path, admin_key, content_type, raw):
         return js(429, {"error": str(e)})
     except (KeyError, FileNotFoundError):
         return js(404, {"error": "not found"})
-    except (ValueError, AssertionError) as e:
-        return js(400, {"error": str(e) or "bad request"})
+    except (ValueError, AssertionError, TypeError, AttributeError) as e:
+        return js(400, {"error": str(e)[:200] or "bad request"})
 
 
 def main():
