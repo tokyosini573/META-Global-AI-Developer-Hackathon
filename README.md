@@ -261,7 +261,8 @@ Full report, every question and every probability: [`backtest/report.md`](backte
 - **No product data.** No code, data or design from any existing company's product is used.
   MiroFish (AGPL-3.0) was design inspiration only, and none of its code is used.
 - **Licenses.** The map uses `us-atlas` (ISC, from US Census Bureau boundaries) and the fonts are
-  Geist and Geist Mono (SIL OFL).
+  Geist and Geist Mono (SIL OFL). The dolphin character on the front page was made by the author
+  with an AI image tool for this project (`web/public/landing/dolphin/`).
 
 ### Changes to the frozen rules
 
