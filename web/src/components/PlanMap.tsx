@@ -39,8 +39,9 @@ function settle(points: [number, number][], order: number[]): [number, number][]
 
 const PICK_PX = 8 // a click this close to a dot opens that person
 
-export function PlanMap({ replay, plan, t, selected, onPick }: {
+export function PlanMap({ replay, plan, t, selected, onPick, width = MAP_W }: {
   replay: Replay; plan: PlanKey; t: number; selected?: number; onPick?: (id: number) => void
+  width?: number // display width in px; the drawing keeps its own size (landing page preview)
 }) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const people = replay.people[plan]
@@ -135,6 +136,6 @@ export function PlanMap({ replay, plan, t, selected, onPick }: {
     if (best >= 0) onPick?.(people[best].id)
   }
 
-  return <canvas ref={canvas} style={{ width: MAP_W, height: MAP_H }} onClick={pick}
-    className={`mt-4 block ${onPick ? 'cursor-pointer' : ''}`} />
+  return <canvas ref={canvas} style={{ width, maxWidth: '100%', aspectRatio: `${MAP_W} / ${MAP_H}` }} onClick={pick}
+    className={`block ${width === MAP_W ? 'mt-4' : ''} ${onPick ? 'cursor-pointer' : ''}`} />
 }

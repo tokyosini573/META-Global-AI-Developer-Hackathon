@@ -11,9 +11,11 @@ Muse Glimmer and Muse Voice Transcribe.
 
 | Open | What you see |
 |---|---|
-| [`/`](https://tokyosini573--rehearsal.modal.run) | The two plans play out on two US maps, one dot per 60 people. The verdict is on top. |
+| [`/`](https://tokyosini573--rehearsal.modal.run) | The front page: what Rehearsal does, how it works, the three markets, the backtest and the models, with a live preview of both plans. "Start a rehearsal" at the bottom opens an example or the live run. |
+| [`/?play`](https://tokyosini573--rehearsal.modal.run/?play) | The rehearsal itself: the two plans play out on two US maps, one dot per 60 people. The verdict is on top. |
 | [`/?day=90&person=a:87`](https://tokyosini573--rehearsal.modal.run/?day=90&person=a:87) | One person's drawer: who they are, the ad and paywall they saw, what they did each day. Ask them a question by voice or text. |
 | [`/?new`](https://tokyosini573--rehearsal.modal.run/?new) | "Try it yourself": the input screen, filled with the example plans. Switch between the three example markets there. |
+| [`/?new&admin`](https://tokyosini573--rehearsal.modal.run/?new&admin) | The live run (admin key): upload your own screens, set channels and budgets, run with Muse Wonder and Muse Spark. |
 | [`/?replay=reloop`](https://tokyosini573--rehearsal.modal.run/?replay=reloop), [`/?replay=hopway`](https://tokyosini573--rehearsal.modal.run/?replay=hopway) | The same rehearsal for a local resale app and a ride-hailing app. |
 | [`/?backtest`](https://tokyosini573--rehearsal.modal.run/?backtest) | The backtest: the same world predicting what happened to 9 real two-sided apps. |
 
@@ -259,7 +261,8 @@ Full report, every question and every probability: [`backtest/report.md`](backte
 - **No product data.** No code, data or design from any existing company's product is used.
   MiroFish (AGPL-3.0) was design inspiration only, and none of its code is used.
 - **Licenses.** The map uses `us-atlas` (ISC, from US Census Bureau boundaries) and the fonts are
-  Geist and Geist Mono (SIL OFL).
+  Geist and Geist Mono (SIL OFL). The dolphin character on the front page was made by the author
+  with an AI image tool for this project (`web/public/landing/dolphin/`).
 
 ### Changes to the frozen rules
 

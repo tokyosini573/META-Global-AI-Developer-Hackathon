@@ -119,7 +119,7 @@ export default function App() {
     return (
       <Stage>
         <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
-          style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
+          style={{ background: 'radial-gradient(closest-side, rgb(27 91 245 / .07), rgb(27 91 245 / 0))' }} />
         <AdminInput onReplay={(rep, id) => {
           setAdmin(false); setInput(false); setReplay(rep); setName(`live_${id}`)
           history.replaceState(null, '', `${location.pathname}?replay=live_${id}`)
@@ -133,7 +133,7 @@ export default function App() {
     return (
       <Stage>
         <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
-          style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
+          style={{ background: 'radial-gradient(closest-side, rgb(27 91 245 / .07), rgb(27 91 245 / 0))' }} />
         <Input replay={replay} name={name} onSwitch={switchTo}
           onDone={() => { home(); setInput(false); setT(0); setPlaying(true) }} />
       </Stage>
@@ -148,10 +148,10 @@ export default function App() {
   return (
     <Stage>
       <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
-        style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
+        style={{ background: 'radial-gradient(closest-side, rgb(27 91 245 / .07), rgb(27 91 245 / 0))' }} />
 
       <header className="label absolute top-12 right-16 left-16 flex justify-between">
-        <span className="text-strong">Rehearsal</span>
+        <a href="/" className="text-strong">Rehearsal</a>
         <span>
           {packOf(replay).header} · {meta.market} · {meta.days} days · replay
           {meta.placeholder && ' · placeholder data'}
@@ -164,11 +164,11 @@ export default function App() {
         </span>
       </header>
 
-      <section className="absolute top-28 left-16 w-[900px]">
+      <section className="absolute top-28 left-16 w-[1120px]">
         <h1 className="text-headline font-semibold text-strong">
           {done ? <Headline text={verdict.headline} /> : 'Two launches.'}
         </h1>
-        <p className="mt-6 max-w-[760px] text-body">
+        <p className="mt-6 max-w-[1120px] text-body">
           {done
             ? verdict.reason
             : `Same $${meta.budget_usd.toLocaleString('en-US')} budget. ${replay.people.a.length.toLocaleString('en-US')} people each. ${meta.days} days in ${PLAY_SECONDS} seconds.`}

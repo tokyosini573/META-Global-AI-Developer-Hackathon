@@ -130,3 +130,9 @@ def test_interview_reads_a_live_replay(tmp_path, monkeypatch):
     pid = rep["people"]["b"][0]["id"]
     data, p = interview.person(f"live_{rid}", "b", pid)
     assert p["id"] == pid and "Reloop" in interview.record(data, "b", p)
+
+
+def test_admin_key_ignores_surrounding_whitespace():
+    assert live.authorized({"ADMIN_KEY": "abc\n"}, " abc ")
+    assert not live.authorized({"ADMIN_KEY": "abc"}, "abd")
+    assert not live.authorized({"ADMIN_KEY": " "}, "")
