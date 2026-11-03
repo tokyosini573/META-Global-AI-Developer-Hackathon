@@ -1,47 +1,33 @@
-import { useMemo } from 'react'
-import { funnelAt, packOf, PLANS, type Replay } from '../replay'
+import { Fragment, useMemo } from 'react'
+import { countAt, funnelOf, PLANS, type Replay } from '../replay'
 
-const W = 1792, H = 136, TOP = 32, ROW = 44, GAP = 8
-
-// One river per plan. Thickness = people still in at that step, on one scale for both plans.
-function river(f: number[], total: number, cy: number) {
-  const step = W / (f.length - 1)
-  const hw = (v: number) => Math.max(1.5, (v / total) * ROW / 2)
-  let d = `M 0 ${cy - hw(f[0])}`
-  for (let i = 1; i < f.length; i++) {
-    const xa = (i - 1) * step, xb = i * step, xm = (xa + xb) / 2
-    d += ` C ${xm} ${cy - hw(f[i - 1])}, ${xm} ${cy - hw(f[i])}, ${xb} ${cy - hw(f[i])}`
-  }
-  d += ` L ${W} ${cy + hw(f[f.length - 1])}`
-  for (let i = f.length - 1; i > 0; i--) {
-    const xa = (i - 1) * step, xb = i * step, xm = (xa + xb) / 2
-    d += ` C ${xm} ${cy + hw(f[i])}, ${xm} ${cy + hw(f[i - 1])}, ${xa} ${cy + hw(f[i - 1])}`
-  }
-  return d + ' Z'
-}
-
+// The funnel at day t: one row per plan, one bar per step. A bar fills toward the bigger of the two
+// plans at that step on the last day, so the rows compare A with B step by step.
 export function Funnel({ replay, t }: { replay: Replay; t: number }) {
-  const FUNNEL_STAGES = packOf(replay).stages
-  const dating = packOf(replay).id === 'dating'
-  const step = W / (FUNNEL_STAGES.length - 1)
-  const total = useMemo(
-    () => Math.max(1, ...PLANS.map(k => funnelAt(replay.people[k], replay.meta.days)[0])), [replay])
+  const steps = funnelOf(replay)
+  const end = useMemo(() => steps.map(s =>
+    Math.max(1, ...PLANS.map(k => countAt(replay.people[k], s.key, replay.meta.days)))), [replay, steps])
   return (
-    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
-      {FUNNEL_STAGES.map((name, i) => (
-        <g key={name}>
-          <text x={i * step} y={13} textAnchor={i === 0 ? 'start' : i === FUNNEL_STAGES.length - 1 ? 'end' : 'middle'}
-            className="label" fill="currentColor">{name}</text>
-          <line x1={i * step} y1={TOP - 4} x2={i * step} y2={H} className="stroke-line" />
-        </g>
+    <div className="grid items-center gap-x-2 gap-y-2" style={{ gridTemplateColumns: `160px repeat(${steps.length}, 1fr)` }}>
+      <div />
+      {steps.map(s => <div key={s.key} className="label truncate">{s.label}</div>)}
+      {PLANS.map(k => (
+        <Fragment key={k}>
+          <div className={`label ${k === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>{replay.plans[k].name}</div>
+          {steps.map((s, i) => {
+            const n = countAt(replay.people[k], s.key, t)
+            return (
+              <div key={s.key} className={`relative h-10 overflow-hidden rounded-card ${k === 'a' ? 'bg-plan-a/10' : 'bg-plan-b/10'}`}>
+                <div className={`absolute inset-y-0 left-0 ${k === 'a' ? 'bg-plan-a/30' : 'bg-plan-b/25'}`}
+                  style={{ width: `${(n / end[i]) * 100}%` }} />
+                <span className="relative px-3 text-body leading-10 font-medium text-strong tabular-nums">
+                  {n.toLocaleString('en-US')}
+                </span>
+              </div>
+            )
+          })}
+        </Fragment>
       ))}
-      {PLANS.map((plan, row) => {
-        const people = replay.people[plan]
-        return (
-          <path key={plan} d={river(funnelAt(people, t, dating), total, TOP + row * (ROW + GAP) + ROW / 2)}
-            className={plan === 'a' ? 'fill-plan-a' : 'fill-plan-b'} fillOpacity={plan === 'b' ? 0.9 : 0.75} />
-        )
-      })}
-    </svg>
+    </div>
   )
 }
