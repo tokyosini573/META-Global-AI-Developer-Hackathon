@@ -48,14 +48,27 @@ def person(replay, plan, pid):
 def record(data, plan, p):
     """The person's record in words: who they are and what happened, as the drawer shows it."""
     s = p["story"]
+    meta = data["meta"]
     lines = [f"You are {p['name']}, {p['age']}, from {p['place']}."]
     if s.get("persona"):
         lines.append(s["persona"])
-    category = data["meta"].get("pack", {}).get("category", "a new swipe dating app")
-    lines.append(f"The app is {data['meta']['app']}, {category}. It launched with this plan: {data['plans'][plan]['summary']}.")
+    category = meta.get("pack", {}).get("category", "a new swipe dating app")
+    does = ((meta.get("brief") or {}).get("profile") or {}).get("does")
+    lines.append(f"The app is {meta['app']}, {category}." + (f" {does}" if does else "")
+                 + f" It launched with this plan: {data['plans'][plan]['summary']}.")
+    ad = next((a for a in meta.get("ads", []) if a["id"] == p.get("ad_id")), None)
+    if ad and ad.get("line"):
+        lines.append(f'The ad you saw said: "{ad["line"]}"')
     lines.append("What happened to you:")
+    said = set()
     for day, what, words in s["diary"]:
         lines.append(f"- Day {day}: {what}" + (f' What went through your head: "{words}"' if words else ""))
+        said |= {what, words}
+    stop = (s.get("stop") or {}).get("words")
+    for why, head in ((s.get("quit_reason"), "Why you stopped using it"), (stop, "What held you back")):
+        if why and not any(why in x for x in said if x):     # v2, when the diary does not say it already
+            lines.append(f'{head}: "{why}"')
+            said.add(why)
     return "\n".join(lines)
 
 

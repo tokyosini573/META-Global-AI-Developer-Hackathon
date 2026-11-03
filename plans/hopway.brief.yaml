@@ -1,0 +1,58 @@
+# What the founder of the demo ride app tells Rehearsal (docs/brief-format.md). Hopway is
+# fictional; every line here is made up for the demo. The two experiments' channels, cities and
+# budget are plans.a and plans.b in plans/hopway.yaml.
+
+version: 2
+app: Hopway
+category: rides
+market: United States
+
+profile:
+  does: A ride app for getting around town. Riders request a car in two taps; drivers go online when they want and keep more of each fare.
+  why: Fair, steady prices for riders, and drivers keep 80% of every fare.
+  features: [Request in two taps, Price shown up front, Drivers keep 80%, Drive on your own hours]
+
+audience:
+  age: [21, 64]
+  who: People in US cities who take a ride a few times a month, and people who want to earn on their own hours by driving.
+  income: mixed
+  lifestyle: Commuters, students, nights out, side jobs
+  new_apps: friends
+
+product:
+  signup_methods: [phone, apple, google]
+  permissions: [location, notifications]
+  free_limits: Free to join and check prices
+
+money:
+  model: per_ride_fee
+  price: 14
+  per: transaction
+  trial_days: 0
+  paywall: at_checkout
+  free: Joining, checking prices and wait times
+  paid: Riders pay each fare, about $14 a ride in town; drivers keep 80%
+
+ads:
+  - {id: ad_1, angle: feature, line: "Rides in minutes."}
+  - {id: ad_2, angle: price, line: "About $14 a ride around town. No surprise surge."}
+  - {id: ad_3, angle: trust, line: "Every driver is background-checked."}
+
+competition:
+  now: The big ride apps, with prices that jump at busy hours and drivers who keep less of each fare.
+  switch: Hopway shows one fair price up front, and drivers keep more, so more of them stay online.
+
+retention:
+  back: A note when a car is close by at the time you usually ride.
+  leave: Long waits because few drivers are online, or a driver screen with no requests.
+
+extra:
+  fare_usd: 14
+  driver_share: 0.2
+
+setup:
+  people: 10000
+  days: 90
+  experiments:
+    a: {changes: "Austin, Denver and Nashville at once; riders and drivers together"}
+    b: {changes: "Austin, then Denver on day 45; drivers first at local events, rider ads from day 14"}

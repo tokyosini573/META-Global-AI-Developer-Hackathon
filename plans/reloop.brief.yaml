@@ -1,0 +1,58 @@
+# What the founder of the demo resale app tells Rehearsal (docs/brief-format.md). Reloop is
+# fictional; every line here is made up for the demo. The two experiments' channels, cities and
+# budget are plans.a and plans.b in plans/reloop.yaml.
+
+version: 2
+app: Reloop
+category: resale
+market: United States
+
+profile:
+  does: A local resale app. Snap a photo of something you no longer use, set a price, and hand it over to someone nearby the same day.
+  why: Things for sale close to you come first, so there is no shipping, no waiting and no long drive to pick up.
+  features: [Nearby listings first, List in a minute, Free for sellers, Pick up the same day]
+
+audience:
+  age: [18, 64]
+  who: People in US cities with a closet of things to sell, and people who would rather buy used and nearby than new.
+  income: mixed
+  interests: Saving money, decluttering, buying second hand
+  new_apps: friends
+
+product:
+  signup_methods: [email, google, apple]
+  permissions: [location, camera, notifications]
+  free_limits: Free to list and browse
+
+money:
+  model: service_fee
+  price: 0.10
+  per: percent
+  trial_days: 0
+  paywall: at_checkout
+  free: Listing, browsing and messaging
+  paid: Buyers pay a 10% service fee on each purchase
+
+ads:
+  - {id: ad_1, angle: feature, line: "Sell it to a neighbor."}
+  - {id: ad_2, angle: price, line: "Free to list. Sellers keep every dollar."}
+  - {id: ad_3, angle: trust, line: "Every buyer and seller is phone-verified."}
+
+competition:
+  now: Big online marketplaces with shipping, and local listing boards full of strangers who never show up.
+  switch: Reloop only shows things close enough to pick up today, from people with a verified phone.
+
+retention:
+  back: A note when something you saved drops in price or someone nearby lists what you looked for.
+  leave: Nothing for sale nearby, or listings that sit for weeks with no buyer.
+
+extra:
+  fee_share: 0.10
+  seller_share: 0.42
+
+setup:
+  people: 10000
+  days: 90
+  experiments:
+    a: {changes: "Nationwide feed and search ads, everyone at once"}
+    b: {changes: "Seattle, then Portland on day 45; sellers first at local events, feed ads from day 14"}
