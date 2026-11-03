@@ -79,7 +79,7 @@ function HeroMaps() {
   if (!replay) return <div className="aspect-[2/1] rounded-card bg-surface" />
   const days = replay.meta.days
   return (
-    <div className="rounded-card border border-line bg-white p-6 md:p-8">
+    <div>
       <div className="flex flex-wrap items-baseline justify-between gap-4">
         <span className="label">Dating example · same $40,000 budget</span>
         <span className="label text-strong">{t >= days ? 'Plan B wins' : `Day ${Math.floor(t)} of ${days}`}</span>
@@ -205,7 +205,7 @@ export function Landing() {
       </nav>
 
       <header className={`${wrap} pt-8 pb-24`}>
-        <div className="grid items-center gap-12 md:grid-cols-[1fr_360px]">
+        <div className="grid items-center gap-12 md:grid-cols-[1fr_180px]">
           <div>
             <div className="label text-blue-600">Launch rehearsal for two-sided apps</div>
             <h1 className="mt-4 text-title font-semibold text-strong md:text-headline">Rehearse your launch.</h1>
@@ -221,9 +221,9 @@ export function Landing() {
               </a>
             </div>
           </div>
-          <div className="relative mx-auto hidden h-[400px] w-[360px] md:block">
-            <div className="absolute inset-x-0 bottom-0 h-[300px] rounded-full bg-blue-50" />
-            <img src={`${DOLPHIN}smile.webp`} alt="" className="absolute bottom-6 left-1/2 h-[380px] -translate-x-1/2" />
+          <div className="relative mx-auto hidden h-[200px] w-[180px] md:block">
+            <div className="absolute inset-x-0 bottom-0 h-[150px] rounded-full bg-blue-50" />
+            <img src={`${DOLPHIN}smile.webp`} alt="" className="absolute bottom-3 left-1/2 h-[190px] -translate-x-1/2" />
           </div>
         </div>
         <div className="mt-16"><HeroMaps /></div>

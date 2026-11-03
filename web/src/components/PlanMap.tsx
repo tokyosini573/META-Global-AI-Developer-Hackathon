@@ -61,10 +61,11 @@ export function PlanMap({ replay, plan, t, selected, onPick, width = MAP_W }: {
     ctx.clearRect(0, 0, MAP_W, MAP_H)
     const tint = plan === 'a' ? color.a : color.b
 
-    ctx.fillStyle = color.dotIdle
+    // The map sits on a blue-50 card, so the land dots take a deeper blue to stand out from the white page
+    ctx.fillStyle = color.land
     for (const [x, y] of halftone) {
       ctx.beginPath()
-      ctx.arc(x, y, 1.6, 0, Math.PI * 2)
+      ctx.arc(x, y, 1.8, 0, Math.PI * 2)
       ctx.fill()
     }
 
@@ -137,5 +138,5 @@ export function PlanMap({ replay, plan, t, selected, onPick, width = MAP_W }: {
   }
 
   return <canvas ref={canvas} style={{ width, maxWidth: '100%', aspectRatio: `${MAP_W} / ${MAP_H}` }} onClick={pick}
-    className={`block ${width === MAP_W ? 'mt-4' : ''} ${onPick ? 'cursor-pointer' : ''}`} />
+    className={`block rounded-card bg-blue-50 ${width === MAP_W ? 'mt-4' : ''} ${onPick ? 'cursor-pointer' : ''}`} />
 }
