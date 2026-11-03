@@ -7,7 +7,9 @@ const day = (d: number) => Math.floor(d) + 1 // day 0.4 of the run is "Day 1" on
 
 function outcome(p: Person, days: number, pack: Pack) {
   if (p.installed === null) return `Did not install the app on day ${day(p.reached!)}.`
-  if (p.paid !== null) return (pack.since ?? 'Paying since day {day}.').replace('{day}', String(day(p.paid)))
+  const since = (pack.since ?? 'Paying since day {day}.').replace('{day}', String(day(p.paid ?? 0)))
+  if (p.paid !== null && p.quit !== null && pack.id !== 'dating') return `${since} Deleted the app on day ${day(p.quit)}.`
+  if (p.paid !== null) return since
   if (p.quit !== null) return `Deleted the app on day ${day(p.quit)}.`
   return `Still using the app on day ${days}.`
 }
@@ -18,7 +20,7 @@ function Phone({ label, screen }: { label: string; screen: string }) {
     <div>
       <div className="label mb-2">{label}</div>
       <div className="h-[240px] overflow-hidden rounded-card border border-line bg-bg">
-        <img src={`/screens/${screen}.png`} alt="" className="size-full object-cover"
+        <img src={screen.startsWith('/') ? screen : `/screens/${screen}.png`} alt="" className="size-full object-cover"
           style={{ objectPosition: /_m[01]_/.test(screen) ? 'center bottom' : 'center 40%' }} />
       </div>
     </div>
@@ -27,6 +29,7 @@ function Phone({ label, screen }: { label: string; screen: string }) {
 
 function suggestion(p: Person, pack: Pack) {
   if (p.installed === null) return "Why didn't you install it?"
+  if (p.paid !== null && p.quit !== null && pack.id !== 'dating') return pack.ask.quit
   if (p.paid !== null) return pack.ask.converted
   if (p.quit !== null) return pack.ask.quit
   return pack.ask.using
@@ -146,7 +149,7 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
         {s && (
           <>
             <div className="mt-12 grid grid-cols-2 gap-6">
-              <Phone label={`The ${s.ad === 'ad' ? 'ad' : 'page'} ${she} saw`} screen={s.ad} />
+              <Phone label={`The ${/(^|_|\/)ad$/.test(s.ad) ? 'ad' : 'page'} ${she} saw`} screen={s.ad} />
               {s.last && <Phone label={left} screen={s.last} />}
             </div>
             <div className="mt-12 grid grid-cols-[72px_1fr] gap-y-4">

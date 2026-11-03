@@ -15,19 +15,23 @@ function settle(points: [number, number][], order: number[]): [number, number][]
   for (const i of order) {
     const [x, y] = points[i]
     const gx = Math.round(x / CELL), gy = Math.round(y / CELL)
-    for (let r = 0; r < 60; r++) {
-      let best: [number, number] | null = null, bestD = Infinity
+    // Rings are square, so after the first ring with a free cell keep looking out to r·√2: a crowded
+    // city then grows as a round patch, not a square one. Cells stay inside the map.
+    let best: [number, number] | null = null, bestD = Infinity, last = 60
+    for (let r = 0; r <= last; r++) {
       for (let dx = -r; dx <= r; dx++)
         for (let dy = -r; dy <= r; dy++) {
-          if (Math.max(Math.abs(dx), Math.abs(dy)) !== r || taken.has(`${gx + dx},${gy + dy}`)) continue
-          const d = ((gx + dx) * CELL - x) ** 2 + ((gy + dy) * CELL - y) ** 2
-          if (d < bestD) { bestD = d; best = [gx + dx, gy + dy] }
+          const cx = gx + dx, cy = gy + dy
+          if (Math.max(Math.abs(dx), Math.abs(dy)) !== r || taken.has(`${cx},${cy}`)) continue
+          if (cx < 0 || cy < 0 || cx * CELL > MAP_W || cy * CELL > MAP_H) continue
+          const d = (cx * CELL - x) ** 2 + (cy * CELL - y) ** 2
+          if (d < bestD) { bestD = d; best = [cx, cy] }
         }
-      if (best) {
-        taken.add(`${best[0]},${best[1]}`)
-        out[i] = [best[0] * CELL, best[1] * CELL]
-        break
-      }
+      if (best && last === 60) last = Math.min(60, Math.ceil(r * Math.SQRT2))
+    }
+    if (best) {
+      taken.add(`${best[0]},${best[1]}`)
+      out[i] = [best[0] * CELL, best[1] * CELL]
     }
   }
   return out

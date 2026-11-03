@@ -33,9 +33,13 @@ def calibrate(cfg, cache, days):
     cal = cfg["calibration"]
     pack = packs.of(cfg)
 
+    seeds = range(CALIBRATION_SEEDS[0], CALIBRATION_SEEDS[0] + cal.get("seeds", len(CALIBRATION_SEEDS)))
+    # "both": the benchmark holds for the two launches together, so neither plan's choice sets the level
+    ref = list(cfg["plans"]) if cal["reference_plan"] == "both" else [cal["reference_plan"]]
+
     def measure(shifts):
-        seen = [measures(Simulation(cfg, cal["reference_plan"], cache, shifts, s, days).run(), days, pack)
-                for s in CALIBRATION_SEEDS]
+        seen = [measures(Simulation(cfg, k, cache, shifts, s, days).run(), days, pack)
+                for s in seeds for k in ref]
         return {k: statistics.mean(m[k] for m in seen if m[k] is not None) for k in cal["targets"]}
 
     return fit_shifts(measure, cal["targets"], iters=20)

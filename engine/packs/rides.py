@@ -67,7 +67,7 @@ PACK = {
         "numbers": ["Completed rides", "Got a first ride", "Quit in week one"],
         "legend": ["Rode or drove", "Using", "Quit"],
         "goal": "completed rides",
-        "ask": {"converted": "Why did you keep using it?", "quit": "Why did you delete it?",
+        "ask": {"converted": "How did your first ride go?", "quit": "Why did you delete it?",
                 "using": "What do you think of it so far?"},
         "last_screen": "What {they} saw last",
         "since": "First ride on day {day}.",

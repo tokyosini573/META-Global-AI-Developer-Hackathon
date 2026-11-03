@@ -6,7 +6,8 @@ pack: resale
 market: United States
 days: 90
 budget_usd: 40000
-people_per_dot: 60
+people_per_dot: 30          # real people one simulated person stands for: more dots than dating, so a thin
+                             # market's few buyers still give calibration enough people
 fee_share: 0.10              # buyers pay a 10% service fee (the demo app's own price)
 
 world:
@@ -18,13 +19,19 @@ world:
   beta_per_match: 0.8        # novelty_installs_without_repeat_loop beta, [0.2, 2.0]
   wom_q_daily: 0.015         # wom_growth_rate_band q_eff_daily, [0.008, 0.026]
   wom_only_after_match: true
+  visits_per_day:            # PRIOR: share of days an active user opens the app (about twice a week); a buyer
+    seller: 0.3              # who buys every day they look would make dozens of purchases a quarter
+    buyer: 0.3
   churn_curve:               # base daily quit risk by days since install (before calibration)
     first_day: 0.75          # PRIOR: marketplace D1 about 22% (Adjust: 24.8% global, 2023-25)
     floor: 0.04
     tau_days: 1.5
 
 calibration:
-  reference_plan: a
+  seeds: 12                  # runs per calibration round (dating: 6); the few early buyers make each run noisy
+  reference_plan: both       # the targets describe an app whose buyers find listings; Plan A alone (nationwide,
+                             # almost no listing within reach) can only meet them by making everyone buy every
+                             # visit, so the level is fit to the two launches together (engine/run.py calibrate)
   targets:
     install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
     d7_retention: 0.11       # PRIOR: resale D7 10-12% (between Adjust marketplace D1 and the all-vertical curve)

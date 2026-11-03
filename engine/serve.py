@@ -12,13 +12,14 @@ cannot drain the API credit.
 """
 
 import json
+import os
 import time
 from collections import defaultdict, deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from engine.interview import answer, transcribe
 
-PORT = 8787
+PORT = int(os.environ.get("API_PORT", 8787))
 LIMIT = 30           # calls per visitor per hour
 DAILY = 2000         # calls per day for everyone
 MAX_AUDIO = 4_000_000

@@ -41,8 +41,9 @@ def story(p, decisions, provider, trial_days, days, pack=None):
     skip = st["skip"].get(p.channel, st["skip_default"])
     diary = [[_diary_day(p.reached), f"{st['reach'][p.channel]} {'Installed it.' if p.installed is not None else skip}",
               quote(install)]]
-    if p.matched is not None and p.matched <= days:
-        diary.append([_diary_day(p.matched), st["success"][p.side], None])
+    success = [_diary_day(p.matched), st["success"][p.side], None] if p.matched is not None and p.matched <= days else None
+    if success and pack["mechanics"] == "swipe":
+        diary.append(success)
     walls = [d for d in mine if d[2] == gate]
     if walls:
         first = walls[0]
@@ -52,6 +53,8 @@ def story(p, decisions, provider, trial_days, days, pack=None):
         last = walls[-1]
         if last is not first and last[6] != "come_back_tomorrow":
             diary.append([last[0] + 1, f"{nearest(last[4], p.side)} {outcome[last[6]]}", quote(last)])
+    if success and pack["mechanics"] == "transaction":    # after the same day's ask that led to it
+        diary.append(success)
     if p.quit is not None and p.quit <= days and not (walls and walls[-1][6] == "delete_app"):
         diary.append([_diary_day(p.quit), "Stopped opening the app.", None])
     diary.sort(key=lambda x: x[0])
@@ -64,8 +67,11 @@ def story(p, decisions, provider, trial_days, days, pack=None):
 def plan_card(cfg, plan):
     """The plan in plain words, for the input screen."""
     cities = plan.get("cities", [])
-    if cities:
-        names = [c["name"].split(",")[0] for c in cities]
+    together = len(cities) > 1 and len({c["open_day"] for c in cities}) == 1
+    names = [c["name"].split(",")[0] for c in cities]
+    if together:
+        where = ", ".join(names[:-1]) + f" and {names[-1]} from day {cities[0]['open_day'] + 1}"
+    elif cities:
         where = names[0] + "".join(f", then {n} on day {c['open_day']}" for n, c in zip(names[1:], cities[1:]))
     else:
         where = "Nationwide from day 1"
@@ -75,10 +81,24 @@ def plan_card(cfg, plan):
     def ad(c):
         if c["kind"] in words:
             return words[c["kind"]][1 if cities else 0]
-        return channels.LABELS[c["kind"]].lower() + (", nationwide" if c["where"] == "nationwide" else "")
-    ads = " and ".join(ad(c) for c in sorted(plan["channels"], key=lambda c: c["kind"] != "event"))
-    return {"title": "City by city" if cities else "Nationwide", "where": where, "ads": ads[0].upper() + ads[1:],
-            "price": pack["price_words"](cfg, plan)}
+        return channels.LABELS[c["kind"]].lower() + (", nationwide" if c["where"] == "nationwide" and cities else "")
+    kinds = {}                            # one phrase per kind of channel, with the sides it is aimed at
+    for c in sorted(plan["channels"], key=lambda c: c["kind"] != "event"):
+        kinds.setdefault(c["kind"], (c, []))[1].append(c.get("side"))
+    phrases = [ad(c) + (" to " + " and ".join(s + "s" for s in sides) if all(sides) else "")
+               for c, sides in kinds.values()]
+    ads = ", ".join(phrases[:-1]) + (" and " if len(phrases) > 1 else "") + phrases[-1]
+    title = "All at once" if together else "City by city" if cities else "Nationwide"
+    return {"title": title, "where": where, "ads": ads[0].upper() + ads[1:], "price": pack["price_words"](cfg, plan)}
+
+
+
+def input_screens(pack):
+    """What people see, as the input screen shows it: the ad, the store page and each side's screen."""
+    pre = pack.get("screen_prefix", "")
+    nearby = "none" if pack["mechanics"] == "swipe" else "few"   # dating's paywall with nobody near; a feed with a few
+    return [pre + "ad", pre + "store"] + [screens.gate_screen(g, ("no", nearby, "w1"), pack)
+                                          for g in sorted(set(pack["gates"].values()))]
 
 
 def replay(cfg, results, verdict, provider):
@@ -103,7 +123,8 @@ def replay(cfg, results, verdict, provider):
     return {
         "version": 1,
         "meta": {"app": cfg["app"], "market": cfg["market"], "days": days, "budget_usd": cfg["budget_usd"],
-                 "pack": {"id": pack["id"], "header": pack["header"], "category": pack["category"], **pack["labels"]},
+                 "pack": {"id": pack["id"], "header": pack["header"], "category": pack["category"],
+                          "screens": input_screens(pack), **pack["labels"]},
                  "placeholder": decisions_source not in ("spark", "glimmer"), "people_per_dot": cfg["people_per_dot"],
                  "people_types": [t["name"] for t in getattr(provider, "types", [])]},
         "plans": plans,

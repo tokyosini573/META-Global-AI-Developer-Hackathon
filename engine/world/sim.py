@@ -169,7 +169,7 @@ class Simulation:
 
     def _quit_risk(self, t, p):
         """Daily risk that an active free user stops using the app."""
-        c = self.m["churn_curve"]
+        c = self.m.get("churn_by_side", {}).get(p.side, self.m["churn_curve"])   # e.g. drivers stay longer than riders
         since = t - math.floor(p.installed)
         h = c["floor"] + (c["first_day"] - c["floor"]) * math.exp(-since / c["tau_days"])
         x = logit(h) - self.shifts.get("d7_retention", 0.0)
@@ -299,9 +299,22 @@ class Simulation:
         def place(ps):
             return np.array([p.lon for p in ps]), np.array([p.lat for p in ps])
 
+        # visits_per_day: people open a resale or ride app on some days, not every day (dating's paywall is
+        # daily), and always on the day they install it
+        visits = self.m.get("visits_per_day", {})
+
+        def away(p):
+            if t - math.floor(p.installed) < 1 or r.random() < visits.get(p.side, 1.0):
+                return False
+            if r.random() < self._quit_risk(t, p):
+                p.quit = t + float(r.random())
+            return True
+
         if supply:
             near = self.w * self._density(demand, *place(supply)) if demand else np.zeros(len(supply))
             for i, p in enumerate(supply):
+                if away(p):
+                    continue
                 chosen, g = self._gate(t, p, near[i])
                 if chosen == g["act"]:
                     p.offer_until = t + pk["offer_days"]
@@ -316,6 +329,8 @@ class Simulation:
         near = self.w * self._density(offers, lon, lat) if offers else np.zeros(len(demand))
         q = self.m["success_per_offer"]
         for i, p in enumerate(demand):
+            if away(p):
+                continue
             chosen, g = self._gate(t, p, near[i])
             if chosen == g["act"]:
                 if offers and r.random() < 1 - (1 - q) ** near[i]:

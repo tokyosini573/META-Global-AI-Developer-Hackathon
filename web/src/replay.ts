@@ -34,6 +34,7 @@ export type Replay = {
     people_types?: string[] // the kinds of people Muse Wonder designed for this market
     runs?: number           // Monte Carlo runs behind the verdict
     pack?: Pack             // the market's own words (engine/packs); dating when absent
+    live?: boolean          // an admin's live run from uploaded screens (engine/live.py)
   }
   plans: Record<PlanKey, {
     name: string; summary: string; events: { day: number; label: string }[]
@@ -50,6 +51,7 @@ export type Pack = {
   stages: string[]; numbers: string[]; legend: string[]; goal: string
   ask: { converted: string; quit: string; using: string }
   last_screen: string; since?: string
+  screens?: string[]          // what people see, for the input screen (names in web/public/screens, or live paths)
 }
 
 const DATING: Pack = {
@@ -111,16 +113,17 @@ const pts = (b: number, a: number) => {
   return `${v >= 0 ? '+' : '−'}${Math.abs(v)} pts`
 }
 
-// The three on-screen numbers. '—' when they can't be computed.
+// The three on-screen numbers: the winner against the other plan. '—' when they can't be computed.
 export function metricsAt(r: Replay, t: number) {
   const d = swipe(r), [goal, success, quit] = packOf(r).numbers
-  const fa = funnelAt(r.people.a, t, d), fb = funnelAt(r.people.b, t, d)
-  const qa = quitWeekOneShare(r.people.a, t), qb = quitWeekOneShare(r.people.b, t)
+  const w = r.verdict.winner, l: PlanKey = w === 'a' ? 'b' : 'a'
+  const fa = funnelAt(r.people[l], t, d), fb = funnelAt(r.people[w], t, d)
+  const qa = quitWeekOneShare(r.people[l], t), qb = quitWeekOneShare(r.people[w], t)
   // dating counts paying users; the other markets count completed sales or rides
   const done = (k: PlanKey) => d ? funnelAt(r.people[k], t, d)[3] : r.matches[k].filter(m => m[2] <= t).length
-  const ga = done('a'), gb = done('b')
+  const ga = done(l), gb = done(w)
   return [
-    { label: goal, value: ga ? pct(gb, ga) : gb ? 'only B' : '—' },
+    { label: goal, value: ga ? pct(gb, ga) : gb ? `only ${w.toUpperCase()}` : '—' },
     // Percentage points of installers, so it still reads when Plan A has no match at all
     { label: success, value: fa[0] && fb[0] ? pts(fb[1] / fb[0], fa[1] / fa[0]) : '—' },
     { label: quit, value: qa && qb !== null ? pct(qb, qa) : '—' },

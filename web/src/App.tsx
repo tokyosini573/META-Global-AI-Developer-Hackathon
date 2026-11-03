@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { AdminInput } from './components/AdminInput'
 import { Backtest } from './components/Backtest'
 import { Drawer } from './components/Drawer'
 import { Funnel } from './components/Funnel'
@@ -56,11 +57,26 @@ export default function App() {
   // ?backtest opens the backtest screen
   const [backtest, setBacktest] = useState(new URLSearchParams(location.search).has('backtest'))
 
-  // ?replay=demo plays the old hand-made placeholder instead of the engine output
-  const name = new URLSearchParams(location.search).get('replay') ?? 'engine'
+  // ?new&admin opens the admin's live run instead (components/AdminInput.tsx)
+  const [admin, setAdmin] = useState(input && new URLSearchParams(location.search).has('admin'))
+
+  // ?replay=reloop plays another market's example; ?replay=live_<id> an admin's live run
+  const [name, setName] = useState(new URLSearchParams(location.search).get('replay') ?? 'engine')
   useEffect(() => {
-    fetch(`/replays/${encodeURIComponent(name)}.json`).then(r => r.json()).then(setReplay)
+    const live = name.match(/^live_([a-z0-9]{12})$/)
+    let key = ''
+    try { key = localStorage.getItem('rehearsal-admin-key') ?? '' } catch { /* private window */ }
+    fetch(live ? `/api/live/${live[1]}/replay` : `/replays/${encodeURIComponent(name)}.json`,
+      { headers: live ? { 'X-Admin-Key': key } : {} }).then(r => r.json()).then(setReplay)
   }, [name])
+  const switchTo = (next: string) => {
+    if (next === name) return
+    const q = new URLSearchParams(location.search)
+    if (next === 'engine') q.delete('replay')
+    else q.set('replay', next)
+    history.replaceState(null, '', `${location.pathname}?${q}`.replace(/\?$/, ''))
+    setName(next)
+  }
 
   useEffect(() => {
     if (!replay || !playing) return
@@ -93,12 +109,33 @@ export default function App() {
     )
   }
 
+  const home = () => {
+    const q = new URLSearchParams(location.search)
+    for (const k of ['new', 'admin', 'step']) q.delete(k)
+    history.replaceState(null, '', `${location.pathname}?${q}`.replace(/\?$/, ''))
+  }
+
+  if (admin) {
+    return (
+      <Stage>
+        <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
+          style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
+        <AdminInput onReplay={(rep, id) => {
+          setAdmin(false); setInput(false); setReplay(rep); setName(`live_${id}`)
+          history.replaceState(null, '', `${location.pathname}?replay=live_${id}`)
+          setT(0); setPlaying(true)
+        }} />
+      </Stage>
+    )
+  }
+
   if (input) {
     return (
       <Stage>
         <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
           style={{ background: 'radial-gradient(closest-side, rgb(79 124 255 / .10), rgb(79 124 255 / 0))' }} />
-        <Input replay={replay} onDone={() => { history.replaceState(null, '', location.pathname); setInput(false); setT(0); setPlaying(true) }} />
+        <Input replay={replay} name={name} onSwitch={switchTo}
+          onDone={() => { home(); setInput(false); setT(0); setPlaying(true) }} />
       </Stage>
     )
   }
@@ -141,7 +178,7 @@ export default function App() {
       <section className="absolute top-[120px] right-16 flex gap-16">
         {metricsAt(replay, t).map(m => (
           <div key={m.label}>
-            <div className="text-number font-medium text-plan-b tabular-nums">
+            <div className={`text-number font-medium tabular-nums ${verdict.winner === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>
               {done ? <CountUp value={m.value} /> : <span className="text-dot-idle">—</span>}
             </div>
             <div className="label mt-4">{m.label}</div>

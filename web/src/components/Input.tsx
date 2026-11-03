@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
-import { PLANS, type Replay } from '../replay'
+import { packOf, PLANS, type Replay } from '../replay'
 import { STILL } from './Stage'
 
 const STEP_MS = 900 // the example is precomputed, so the steps only show what was done for it
 
-// The screens people see, exactly as the engine's models looked at them
+// The screens people see, exactly as the engine's models looked at them (replays without meta.pack: dating)
 const SCREENS = ['ad', 'store', 'paywall_m0_none']
+
+// The precomputed example of each market a visitor can switch between
+const MARKETS = [['engine', 'Dating'], ['reloop', 'Resale'], ['hopway', 'Rides']] as const
+const src = (s: string) => (s.startsWith('/') ? s : `/screens/${s}.png`)
 
 function Step({ state, text }: { state: 'done' | 'now' | 'todo'; text: string }) {
   return (
@@ -17,13 +21,17 @@ function Step({ state, text }: { state: 'done' | 'now' | 'todo'; text: string })
   )
 }
 
-export function Input({ replay, onDone }: { replay: Replay; onDone: () => void }) {
+export function Input({ replay, name, onSwitch, onDone }: {
+  replay: Replay; name: string; onSwitch: (name: string) => void; onDone: () => void
+}) {
   const { meta, plans } = replay
+  const pack = packOf(replay)
+  const screens = pack.screens ?? SCREENS
   // ?new&step=2 freezes the progress on a step (screenshots)
   const fixed = new URLSearchParams(location.search).get('step')
   const [step, setStep] = useState<number | null>(fixed ? Number(fixed) : null)
   const steps = [
-    'Read the ad, the store page and the paywall',
+    pack.id === 'dating' ? 'Read the ad, the store page and the paywall' : "Read the ad, the store page and each side's screen",
     `Designed ${meta.people_types?.length ?? 'the'} kinds of people for this market`,
     'Gave each person a life, a job and a mood',
     `Ran ${meta.days} days, both plans, ${meta.runs ?? 'many'} times`,
@@ -50,11 +58,18 @@ export function Input({ replay, onDone }: { replay: Replay; onDone: () => void }
       </section>
 
       <section className="absolute top-[328px] left-16">
-        <div className="label">Your app · {meta.app} · what people see</div>
-        <div className="mt-4 flex gap-6">
-          {SCREENS.map(s => (
-            <div key={s} className="h-[432px] w-[220px] overflow-hidden rounded-card border border-line bg-surface">
-              <img src={`/screens/${s}.png`} alt="" className="size-full object-cover" />
+        <div className="label flex gap-4">
+          {MARKETS.map(([n, words]) => (
+            <button key={n} onClick={() => step === null && onSwitch(n)}
+              className={`label cursor-pointer ${n === name ? 'text-strong' : ''}`}>{words}</button>
+          ))}
+          <span>· {meta.app} · what people see</span>
+        </div>
+        <div className={`mt-4 flex ${screens.length > 3 ? 'gap-4' : 'gap-6'}`}>
+          {screens.map(s => (
+            <div key={s} className={`${screens.length > 3 ? 'h-[374px]' : 'h-[432px]'} overflow-hidden rounded-card border border-line bg-surface ${
+              screens.length > 3 ? 'w-[173px]' : 'w-[220px]'}`}>
+              <img src={src(s)} alt="" className="size-full object-cover" />
             </div>
           ))}
         </div>

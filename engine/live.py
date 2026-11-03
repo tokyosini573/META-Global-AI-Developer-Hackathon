@@ -175,6 +175,7 @@ def _run(rid, cfg, env):
                 for f in ("ad", "last"):
                     if s.get(f):
                         s[f] = f"/api/live/{rid}/screen/{images[s[f]].stem}"
+        rep["meta"]["pack"]["screens"] = [f"/api/live/{rid}/screen/{s}" for s in screen_slots(pack["id"])]
         rep["meta"]["live"] = True
         (d / "replay.json").write_text(json.dumps(rep, separators=(",", ":")))
         job["state"] = "done"
@@ -191,6 +192,8 @@ def status(rid):
 
 
 def replay(rid):
+    if not re.fullmatch(r"[a-z0-9]{12}", rid):
+        raise KeyError(rid)
     return (DIR / rid / "replay.json").read_bytes()
 
 
@@ -217,6 +220,17 @@ def example_spec(pack_id):
             q["trial_days"], q["free_swipes_per_day"] = p["trial_days"], p["free_swipes_per_day"]
         plans[k] = q
     pack = packs.load(pack_id)
+    two = pack["mechanics"] == "transaction"
+    labels = {"ad": "The ad", "store": "The store page"}
+    for side, gate in pack["gates"].items():
+        labels[gate] = f"What a {side} sees" if two else "The paywall"
     return {"pack": pack_id, "app": cfg["app"], "days": cfg["days"], "plans": plans,
-            "slots": screen_slots(pack_id), "sides": [s for s, _ in pack["sides"]] if pack["mechanics"] == "transaction" else [],
-            "prefix": pack.get("screen_prefix", "")}
+            "slots": [{"name": s, "label": labels[s], "example": f"/screens/{example_screen(pack, s)}.png"}
+                      for s in screen_slots(pack_id)],
+            "sides": [s for s, _ in pack["sides"]] if two else [], "metros": [m[0] for m in geo.METROS]}
+
+
+def example_screen(pack, slot):
+    """The demo app's own image for an upload slot, so the admin form starts with the example's screens."""
+    pre = pack.get("screen_prefix", "")
+    return pre + slot if slot in ("ad", "store") else screens.gate_screen(slot, ("no", "few", "w1"), pack)

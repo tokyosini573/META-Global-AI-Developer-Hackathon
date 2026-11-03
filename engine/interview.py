@@ -36,7 +36,11 @@ SYSTEM = (
 def person(replay, plan, pid):
     if not replay.isidentifier():   # a replay name, never a path
         raise ValueError(replay)
-    data = json.loads((REPLAYS / f"{replay}.json").read_text())
+    if replay.startswith("live_"):  # the admin's live run (engine/live.py)
+        from engine import live
+        data = json.loads(live.replay(replay[5:]))
+    else:
+        data = json.loads((REPLAYS / f"{replay}.json").read_text())
     p = next(x for x in data["people"][plan] if x["id"] == pid)
     return data, p
 

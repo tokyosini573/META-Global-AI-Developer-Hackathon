@@ -6,7 +6,7 @@ pack: rides
 market: United States
 days: 90
 budget_usd: 40000
-people_per_dot: 60
+people_per_dot: 30          # more dots than dating, so calibration has enough riders (see reloop.yaml)
 fare_usd: 14                 # the demo app's own price
 fee_share: 0.20              # drivers keep 80%
 
@@ -19,13 +19,22 @@ world:
   beta_per_match: 0.8        # novelty_installs_without_repeat_loop beta, [0.2, 2.0]
   wom_q_daily: 0.015         # wom_growth_rate_band q_eff_daily, [0.008, 0.026]
   wom_only_after_match: true
+  visits_per_day:            # share of days an active user opens the app
+    driver: 0.4              # PRIOR: part-time drivers go online two or three days a week
+    rider: 0.2               # Uber: about 6.2 trips per monthly active user per month (Q3 2025), so about 1 day in 5
   churn_curve:               # base daily quit risk by days since install (before calibration)
     first_day: 0.8           # travel apps D1 about 18% (Business of Apps, 2025)
     floor: 0.04
     tau_days: 1.5
+  churn_by_side:             # drivers signed up to earn and leave far slower than riders
+    driver:                  # NBER w24732: 68% of new US drivers inactive 26 weeks after a first trip,
+      first_day: 0.25        # about 0.6% a day (floor); PRIOR: a quarter leave on day one
+      floor: 0.006
+      tau_days: 3
 
 calibration:
-  reference_plan: a
+  seeds: 12
+  reference_plan: both       # fit to the two launches together (see reloop.yaml)
   targets:
     install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
     d7_retention: 0.09       # PRIOR: between travel D1 18% and D30 2.8% (Business of Apps)

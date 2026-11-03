@@ -6,8 +6,10 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 
 ## Hard constraints
 
-- Build only what the 3-minute video needs (`../06_영상스토리보드.md`): main screen, one-person drawer, input screen, backtest screen. Nothing else (no settings, login, run list, stats tables).
-- Never use code, data or design from any existing company's product. The demo dating app is new and must not resemble an existing app.
+- Build only these screens: main screen, one-person drawer, input screen, backtest screen (the 3-minute video, `../06_영상스토리보드.md`), plus the admin's live-run form (`?new&admin`). Scope since 2026-11-03: two-sided apps in three market packs (dating, resale, rides), channels grouped by how people meet the app, and admin-only live runs from uploaded screens (they cost money); the public site plays precomputed replays. Nothing else (no settings, login, run list, stats tables).
+- Never use code, data or design from any existing company's product. The demo apps (Kindred, Reloop, Hopway) are new and must not resemble existing apps.
+- Only fictional data goes to the Spark contributor model (Meta may train on it). Uploaded screens and visitor questions go to Spark standard.
+- After any engine change, `python -m engine.run` must reproduce the committed `web/public/replays/engine.json` exactly (the Wonder verdict cache hit depends on identical facts).
 - MiroFish (AGPL-3.0) is design inspiration only. Never copy its code.
 - Every dataset and asset must have a license that allows this use.
 - Everything in this repo is English: screen copy, code comments, docs, commit messages, PR titles/bodies/comments and the README (global competition). Only the planning docs one folder up are Korean.
@@ -57,9 +59,12 @@ Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스�
 ```
 engine/    Python world engine. interview.py + serve.py = the live interview API; site_modal.py = the public site on Modal.
            world/ = geo, decide (decision cache + providers), wonder (people design, verdict), glimmer (per-person pool + table),
-           spark (per-type table), calibrate, sim, output; run.py = CLI.
+           spark (per-type table), typed (Wonder's kinds of people + Spark per kind, any pack), channels, calibrate,
+           sim, output, screens; run.py = CLI. live.py = the admin's live run (Wonder -> Spark standard -> rehearse).
            fake_replay.py writes the old hand-made placeholder replay.
-plans/     Launch plans + market values (each value cites a rule id in rules/two_sided.md or a benchmark).
+           packs/ = dating, resale, rides: what differs per market (sides, mechanics, gate screen, words).
+plans/     Launch plans + market values per demo app (kindred, reloop, hopway); channels.yaml = channel costs;
+           benchmarks_research.md = sources (PRIOR = no public number). Each value cites a rule id or a benchmark.
 rules/     Frozen rule cards (commit eef683f). Changing them must be recorded in the README.
 backtest/  Held-out backtest cases, predictions, answers and report (protocol_v2.md); rule-set case facts.
 engine/distill/  Spark -> Glimmer distillation: data, format, Modal training/eval/serving, score (docs/distillation.md).
@@ -75,6 +80,9 @@ scripts/   shot.sh: 1920×1080 screenshots with headless Chrome.
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m engine.run --runs 30    # Glimmer table; calibrate + Monte Carlo -> web/public/replays/engine.json, runs/engine.sqlite
+.venv/bin/python -m engine.run --plans plans/reloop.yaml --name reloop   # resale (hopway.yaml: rides); ?replay=reloop
+.venv/bin/python -m engine.world.typed plans/reloop.yaml   # Wonder's kinds + Spark contributor table (incremental, ~$0.4)
+.venv/bin/python -m engine.world.screens resale rides      # render a pack's demo screens (needs Google Chrome)
 .venv/bin/python -m engine.world.wonder people     # Wonder designs the people -> data/wonder/kindred_people.json
 .venv/bin/python -m engine.world.glimmer prepare   # new pool/screens: then glimmer_modal.py::decide_table, then `collect`, `check`
 .venv/bin/python -m pytest -q tests
@@ -92,6 +100,8 @@ scripts/shot.sh "http://localhost:5173/?day=90&still" out.png   # ?day=N freezes
 scripts/shot.sh "http://localhost:5173/?day=90&still&person=a:87" out.png   # ?person=<plan>:<id> opens one person's drawer; &ask asks them live
 scripts/shot.sh "http://localhost:5173/?backtest&still&point=case_5:m2" out.png   # ?backtest opens the backtest screen; &point shows one card
 scripts/shot.sh "http://localhost:5173/?new&still" out.png   # ?new opens the input screen ("Try it yourself"); &step=2 freezes its progress
+scripts/shot.sh "http://localhost:5173/?new&admin&still" out.png   # the admin's live-run form (ADMIN_KEY in .env; the key field is typed by the admin)
+API_PORT=8788 .venv/bin/python -m engine.serve   # another port; start Vite with the same API_PORT
 ```
 
 The stage is a fixed 1920×1080 canvas scaled to fit the window, so the site looks exactly like the video at any size.

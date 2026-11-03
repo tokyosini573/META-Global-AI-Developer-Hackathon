@@ -1,0 +1,3222 @@
+{
+ "model": "muse-spark-1.3-contributor",
+ "repeats": 3,
+ "entries": {
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.18333333333333332
+   },
+   "reasons": [
+    "That fee ruins the savings, and I can't even see it.",
+    "That extra fee kills the bargain \u2014 I'm in no hurry.",
+    "I don't need it now and that fee ruins the deal."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.043333333333333335,
+    "come_back_tomorrow": 0.8566666666666667,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "I'm just browsing for a bargain, no rush to pay fees.",
+    "That fee ruins the savings, and I don't need this now.",
+    "I'm just browsing, and fees spoil a good used bargain."
+   ],
+   "noticed": [
+    "The 10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "The 10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.7833333333333333,
+    "delete_app": 0.16666666666666666
+   },
+   "reasons": [
+    "That fee ruins the savings, and I can't even see it.",
+    "Nothing I need, and that fee ruins a bargain.",
+    "That fee ruins a good deal and I can't even see it."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.8533333333333334,
+    "delete_app": 0.09666666666666666
+   },
+   "reasons": [
+    "I'm in no rush and that fee bugs me.",
+    "I don't need a lamp and hate that extra fee.",
+    "I'm in no hurry and that fee stings."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.8433333333333334,
+    "delete_app": 0.10666666666666667
+   },
+   "reasons": [
+    "Just browsing for bargains, that fee puts me off.",
+    "That fee ruins the bargain, but I'll keep browsing.",
+    "I'm in no hurry, but that extra fee bothers me."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.85,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "That fee turns a bargain into no deal.",
+    "That fee ruins a good deal, I'm just browsing.",
+    "I'm in no hurry and that 10% fee bothers me."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.03666666666666667,
+    "come_back_tomorrow": 0.6133333333333333,
+    "delete_app": 0.35000000000000003
+   },
+   "reasons": [
+    "Not driving 23 miles for a used lamp with a fee.",
+    "Not driving 23 miles plus a fee for a lamp.",
+    "Too far to drive for a lamp I don't need."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.03666666666666667,
+    "come_back_tomorrow": 0.68,
+    "delete_app": 0.2833333333333333
+   },
+   "reasons": [
+    "Too far to drive for a lamp, especially with that fee.",
+    "Too far to drive for a lamp with extra fees.",
+    "Not driving 23 miles and paying a fee on top."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.04,
+    "come_back_tomorrow": 0.56,
+    "delete_app": 0.4
+   },
+   "reasons": [
+    "Twenty-three miles for a lamp plus fee isn't worth it.",
+    "Too far to drive for a lamp plus extra fee.",
+    "Not driving 23 miles for a $24 lamp plus a fee."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.86,
+    "delete_app": 0.09000000000000001
+   },
+   "reasons": [
+    "Nothing I need, and that fee ruins a good deal.",
+    "I'm just browsing and that 10% fee bothers me.",
+    "I'm in no hurry and that fee spoils a good deal."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.060000000000000005,
+    "come_back_tomorrow": 0.8566666666666667,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "That fee ruins a good deal, I'll just browse later.",
+    "That fee ruins a good price, I'll check back later.",
+    "That fee spoils the bargain and I'm not in a hurry."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.060000000000000005,
+    "come_back_tomorrow": 0.8866666666666667,
+    "delete_app": 0.05333333333333334
+   },
+   "reasons": [
+    "I'm in no hurry and hate paying that extra fee.",
+    "I'm just browsing, and that fee sours the deal.",
+    "I don't need it now and hate that extra fee."
+   ],
+   "noticed": [
+    "The 10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.08333333333333334,
+    "come_back_tomorrow": 0.8333333333333334,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "That fee ruins a good deal and I'm just browsing.",
+    "I'm in no hurry, and that fee stings.",
+    "In no hurry, and I hate that extra fee."
+   ],
+   "noticed": [
+    "the 10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "the 10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.06666666666666667,
+    "come_back_tomorrow": 0.8766666666666667,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "No rush, and that fee ruins a bargain.",
+    "No rush, that fee ruins the deal so I'll browse later.",
+    "I'm just looking, and that fee ruins a bargain."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.09333333333333334,
+    "come_back_tomorrow": 0.8566666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "No rush to buy, and I hate paying extra fees.",
+    "No rush, and that fee ruins a good deal.",
+    "Nothing I need today, and fees spoil a good deal."
+   ],
+   "noticed": [
+    "10% service fee on each purchase",
+    "10% service fee on each purchase",
+    "10% service fee on each purchase"
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.2
+   },
+   "reasons": [
+    "Too far to drive, and that fee ruins the price.",
+    "Too far to drive for a lamp I don't need right now.",
+    "23 miles is too far to drive for a lamp."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.7166666666666667,
+    "delete_app": 0.23333333333333334
+   },
+   "reasons": [
+    "Twenty-three miles is too far for a twenty-four dollar lamp.",
+    "Not driving 23 miles plus a fee for a lamp.",
+    "Nothing close, and I'm not driving 23 miles for a lamp."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"careful_shopper_buyer\", \"buy\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.043333333333333335,
+    "come_back_tomorrow": 0.7233333333333333,
+    "delete_app": 0.23333333333333334
+   },
+   "reasons": [
+    "Twenty-three miles plus a fee isn't saving money.",
+    "Not driving that far for a lamp with extra fee.",
+    "Too far to drive for a lamp I don't need."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.6666666666666666,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Finally a cheap lamp close by I can grab today.",
+    "I need a lamp ASAP and that's cheap enough.",
+    "That $24 lamp is exactly what I need."
+   ],
+   "noticed": [
+    "$24 desk lamp 3.1 miles away",
+    "Desk lamp for $24 just 3.1 miles away",
+    "The $24 desk lamp just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.5666666666666667,
+    "come_back_tomorrow": 0.3333333333333333,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Need a lamp fast but hate that extra fee.",
+    "I need a lamp bad and that's cheap and close.",
+    "Need a lamp bad, but $24 plus fee feels steep."
+   ],
+   "noticed": [
+    "$24 desk lamp 3.1 miles away",
+    "The $24 desk lamp 3.1 miles away",
+    "$24 desk lamp 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.55,
+    "come_back_tomorrow": 0.33999999999999997,
+    "delete_app": 0.11
+   },
+   "reasons": [
+    "Need a lamp now, but that extra fee stings.",
+    "I really need a lamp and that's cheap and close.",
+    "Finally a cheap lamp close by I can grab today."
+   ],
+   "noticed": [
+    "$24 desk lamp 3.1 mi away",
+    "$24 desk lamp 3.1 miles away",
+    "$24 desk lamp just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.7166666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "That lamp's perfect but that 10% fee sucks.",
+    "I need that lamp now and it's super close.",
+    "Finally a cheap lamp right by me I can grab."
+   ],
+   "noticed": [
+    "The $24 desk lamp only 0.6 miles away",
+    "The $24 desk lamp just 0.6 miles away",
+    "Desk lamp for $24 just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.7,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "That lamp's cheap, close, and I need one now.",
+    "I really need a lamp and this one's cheap and close.",
+    "Need a lamp bad, and $24 close is perfect."
+   ],
+   "noticed": [
+    "$24 desk lamp only 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away",
+    "Desk lamp for $24 only 0.6 mi away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.6,
+    "come_back_tomorrow": 0.3333333333333333,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Need a lamp bad but hate that extra fee.",
+    "That's exactly what I need close and cheap.",
+    "Need a lamp bad and that's cheap and close."
+   ],
+   "noticed": [
+    "Desk lamp for $24 only 0.6 miles away",
+    "The $24 desk lamp only 0.6 miles away",
+    "$24 desk lamp 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.060000000000000005,
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.75
+   },
+   "reasons": [
+    "I need a lamp now, but 23 miles is way too far.",
+    "Too far to grab and I hate that extra fee.",
+    "Ain't going 23 miles for a lamp plus fees."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.7333333333333333
+   },
+   "reasons": [
+    "Twenty-three miles is way too far for me to get a lamp.",
+    "Twenty-three miles is way too far for me.",
+    "23 miles is way too far and there's still that fee."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.18333333333333332,
+    "delete_app": 0.7666666666666667
+   },
+   "reasons": [
+    "Waited a month, still nothing close and a fee? I'm done.",
+    "Too far away and I hate that extra fee.",
+    "Ain't going 23 miles for a lamp plus extra fee."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.66,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "I need a lamp and this one's cheap nearby.",
+    "I really need a lamp and $24 is cheap enough.",
+    "I need a lamp now and this one's cheap and close."
+   ],
+   "noticed": [
+    "$24 desk lamp only 3.1 miles away",
+    "The $24 desk lamp 3.1 miles away",
+    "Desk lamp for $24 just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.7,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need that lamp now and it's close and cheap.",
+    "I need a lamp fast and this one's cheap nearby.",
+    "I need a lamp now and $24 is doable."
+   ],
+   "noticed": [
+    "$24 desk lamp just 3.1 miles away",
+    "The $24 desk lamp just 3.1 miles away",
+    "Desk lamp for $24 just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.6666666666666666,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need a lamp fast and can grab this one.",
+    "I really need a lamp and that's cheap and close.",
+    "I need a lamp now and $24 close works."
+   ],
+   "noticed": [
+    "$24 desk lamp just 3.1 miles away",
+    "$24 desk lamp just 3.1 miles away",
+    "Desk lamp for $24 only 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.7433333333333333,
+    "come_back_tomorrow": 0.20666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Need a lamp fast and this one's cheap and close.",
+    "I need a lamp now and that's cheap and close.",
+    "Need a lamp bad and that's cheap and close."
+   ],
+   "noticed": [
+    "The $24 desk lamp just 0.6 miles away",
+    "The $24 desk lamp just 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.7233333333333333,
+    "come_back_tomorrow": 0.22666666666666668,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need a lamp now and that's close and cheap.",
+    "I need that cheap lamp close by right now.",
+    "Cheap lamp super close I can grab today."
+   ],
+   "noticed": [
+    "The $24 desk lamp 0.6 miles away",
+    "Desk lamp for $24 just 0.6 miles away",
+    "Desk lamp for $24 only 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.6833333333333333,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need a lamp bad and that's right by me.",
+    "I need a lamp bad and that's close and cheap.",
+    "Cheap lamp super close, I need one right now."
+   ],
+   "noticed": [
+    "$24 desk lamp only 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away",
+    "The $24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.6833333333333333
+   },
+   "reasons": [
+    "23 miles away? I can't get there with no car.",
+    "23 miles is way too far with no car and no time.",
+    "Too far to pick up and I need a lamp now."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.7166666666666667
+   },
+   "reasons": [
+    "I ain't driving 23 miles plus extra fee for a lamp.",
+    "23 miles away? I can't get there, need stuff now.",
+    "Ain't paying extra fee to drive 23 miles."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"first_home_buyer\", \"buy\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.7
+   },
+   "reasons": [
+    "23 miles away? I can't get there with no time.",
+    "I need a lamp now, not a road trip.",
+    "23 miles away? I need a lamp now, not a road trip."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.6333333333333333,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "That lamp's close, cheap, and I can grab it today.",
+    "Cheap lamp nearby, I can grab it today.",
+    "That desk lamp is cheap, close, and I need one."
+   ],
+   "noticed": [
+    "Cheap $24 desk lamp only 3.1 miles away",
+    "Desk lamp for $24 only 3.1 miles away",
+    "The $24 desk lamp just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.6833333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Need a lamp nearby and that price works.",
+    "I need a lamp and that's cheap and close by.",
+    "I need a lamp and that's cheap and close."
+   ],
+   "noticed": [
+    "$24 Desk lamp 3.1 miles away",
+    "$24 desk lamp 3.1 miles away",
+    "$24 desk lamp 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.49333333333333335,
+    "come_back_tomorrow": 0.4166666666666667,
+    "delete_app": 0.09
+   },
+   "reasons": [
+    "That desk lamp is cheap, close, and I need one.",
+    "Good price nearby, but I want to see it first.",
+    "Cheap lamp nearby I can grab today."
+   ],
+   "noticed": [
+    "$24 desk lamp 3.1 miles away",
+    "$24 desk lamp 3.1 miles away",
+    "The $24 desk lamp 3.1 mi away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Cheap lamp close by I can grab today.",
+    "Cheap lamp close by, I need one.",
+    "Cheap desk lamp right nearby I can grab today."
+   ],
+   "noticed": [
+    "The $24 desk lamp just 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.65,
+    "come_back_tomorrow": 0.29333333333333333,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "That's what I need and I can grab it today.",
+    "Cheap lamp close by I can grab today.",
+    "Cheap desk lamp nearby I can pick up today."
+   ],
+   "noticed": [
+    "$24 desk lamp 0.6 miles away",
+    "Desk lamp for $24 only 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.6566666666666666,
+    "come_back_tomorrow": 0.29333333333333333,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Cheap lamp nearby, I can grab it today.",
+    "That lamp's close, cheap, and just what I need.",
+    "That lamp is cheap, close, I can pick it up today."
+   ],
+   "noticed": [
+    "$24 Desk lamp just 0.6 mi away",
+    "Desk lamp for $24 just 0.6 miles away",
+    "Desk lamp for $24 only 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.04,
+    "come_back_tomorrow": 0.22666666666666668,
+    "delete_app": 0.7333333333333333
+   },
+   "reasons": [
+    "Twenty-three miles is way too far to pick up.",
+    "Too far to drive for a lamp.",
+    "Twenty-three miles is way too far to drive."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.7333333333333333
+   },
+   "reasons": [
+    "Twenty-three miles is way too far to pick up.",
+    "23 miles is way too far to pick up.",
+    "Too far to drive for a lamp after two weeks."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.7833333333333333
+   },
+   "reasons": [
+    "Waited a month and still nothing close enough to grab.",
+    "Too far to drive for a lamp, not worth it.",
+    "Still nothing close after a month, not driving 23 miles."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.75,
+    "come_back_tomorrow": 0.21,
+    "delete_app": 0.04
+   },
+   "reasons": [
+    "Need a lamp, price is fair and pickup is close.",
+    "That lamp's cheap, close, and I need one.",
+    "That $24 desk lamp close by is what I need."
+   ],
+   "noticed": [
+    "$24 desk lamp 3.1 miles away",
+    "Desk lamp $24 only 3.1 miles away",
+    "Desk lamp for $24 just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.6833333333333333,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "That lamp's close and cheap enough even with fee.",
+    "Cheap lamp close by I can pick up today.",
+    "That lamp's cheap, close, and I need one."
+   ],
+   "noticed": [
+    "Desk lamp for $24 just 3.1 miles away",
+    "$24 desk lamp 3.1 miles away",
+    "$24 desk lamp 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.7233333333333333,
+    "come_back_tomorrow": 0.22666666666666668,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "That lamp's cheap, close, and I can grab it today.",
+    "That lamp's cheap, close, and I can grab it today.",
+    "Cheap lamp close by, I can grab it today."
+   ],
+   "noticed": [
+    "Desk lamp for $24 just 3.1 miles away",
+    "$24 desk lamp 3.1 miles away",
+    "Desk lamp for $24 just 3.1 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.7433333333333334,
+    "come_back_tomorrow": 0.20666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Need a lamp and I can grab it today.",
+    "That cheap lamp's close enough to grab today.",
+    "I need a cheap lamp and that's right nearby."
+   ],
+   "noticed": [
+    "$24 desk lamp just 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away",
+    "The $24 desk lamp only 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.69,
+    "come_back_tomorrow": 0.26,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "It's cheap, close, and I can pick it up today.",
+    "That desk lamp is cheap and super close to me.",
+    "That lamp's cheap, close, I can grab it today."
+   ],
+   "noticed": [
+    "$24 desk lamp only 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away",
+    "$24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.7533333333333333,
+    "come_back_tomorrow": 0.20666666666666667,
+    "delete_app": 0.04
+   },
+   "reasons": [
+    "Cheap lamp nearby I can grab today.",
+    "Cheap lamp close by, I can pick it up today.",
+    "I need a lamp and that's close and cheap."
+   ],
+   "noticed": [
+    "$24 desk lamp only 0.6 miles away",
+    "$24 desk lamp only 0.6 miles away",
+    "The $24 desk lamp just 0.6 miles away"
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.08,
+    "come_back_tomorrow": 0.38666666666666666,
+    "delete_app": 0.5333333333333333
+   },
+   "reasons": [
+    "Nothing close, and I'm not driving 23 miles for a lamp.",
+    "Not driving 23 miles for a used lamp.",
+    "Not driving 23 miles for a used lamp."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.41666666666666663,
+    "delete_app": 0.5333333333333333
+   },
+   "reasons": [
+    "Twenty-three miles is way too far for a lamp pickup.",
+    "Twenty-three miles is too far to drive for a lamp.",
+    "Twenty-three miles is way too far to drive."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"home_bargain_buyer\", \"buy\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05000000000000001,
+    "come_back_tomorrow": 0.3666666666666667,
+    "delete_app": 0.5833333333333334
+   },
+   "reasons": [
+    "23 miles is way too far for pickup.",
+    "Twenty-three miles is too far for a used lamp.",
+    "Twenty-three miles is way too far to pick up."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.04,
+    "come_back_tomorrow": 0.6433333333333333,
+    "delete_app": 0.31666666666666665
+   },
+   "reasons": [
+    "Desk lamp's useless but board game could work for kids.",
+    "That desk lamp isn't for my kids, but board game might be.",
+    "That board game could be good but I don't need a lamp."
+   ],
+   "noticed": [
+    "The $15 board game 4.0 mi away",
+    "$15 Board game 4.0 mi",
+    "$15 Board game 4.0 mi away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.03666666666666667,
+    "come_back_tomorrow": 0.5966666666666667,
+    "delete_app": 0.36666666666666664
+   },
+   "reasons": [
+    "I want kids stuff, not a lamp, but that game could work.",
+    "Board game could work for my kids, not that lamp.",
+    "Board game could work for kids but lamp buy isn't it."
+   ],
+   "noticed": [
+    "$15 Board game 4.0 mi away",
+    "$15 board game 4.0 mi away",
+    "$15 board game 4.0 mi away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.13333333333333333,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.26666666666666666
+   },
+   "reasons": [
+    "That board game could be cheap fun for my kids.",
+    "Might be good for my kids, but I need to see more.",
+    "Finally something for the kids, but need to check total."
+   ],
+   "noticed": [
+    "$15 board game 4 miles away",
+    "The $15 board game 4.0 miles away",
+    "$15 board game 4.0 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.1,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Cheap game for my kids close to home.",
+    "Need kid stuff, not a lamp, but I'll check again.",
+    "I want the board game, not this lamp."
+   ],
+   "noticed": [
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 mi away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.26666666666666666,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Saw a cheap board game for my kids to check later.",
+    "I need kids stuff, not a desk lamp.",
+    "That $15 board game is perfect for my kids."
+   ],
+   "noticed": [
+    "$15 Board game 1.5 mi away",
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.09333333333333334,
+    "come_back_tomorrow": 0.7566666666666667,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Board game could be good for kids if cheap enough.",
+    "That board game looks cheap and close for my kids.",
+    "That board game could be great for my kids."
+   ],
+   "noticed": [
+    "$15 board game 1.5 miles away",
+    "The $15 board game 1.5 miles away",
+    "$15 Board game 1.5 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.03333333333333333,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.75
+   },
+   "reasons": [
+    "Nothing for my kids close by, not driving that far.",
+    "Too far to drive for a lamp I don't need.",
+    "I'm not driving 23 miles for a lamp."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.016666666666666666,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.75
+   },
+   "reasons": [
+    "Nothing near me for my kids, and I don't need a lamp.",
+    "I'm not driving 23 miles for a lamp I don't need.",
+    "Too far to drive and no toys for my kids."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.026666666666666665,
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.7833333333333333
+   },
+   "reasons": [
+    "I need kids' clothes nearby, not a lamp 23 miles away.",
+    "Still nothing for my kids and too far to drive.",
+    "Nothing close for my kids after a month, I'm done."
+   ],
+   "noticed": [
+    "Nothing for sale within 5 miles yet",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.07666666666666667,
+    "come_back_tomorrow": 0.8233333333333334,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "That board game could be great for my kids.",
+    "Board game is perfect for kids but I'm not buying a lamp",
+    "My kids love board games and that's cheap."
+   ],
+   "noticed": [
+    "$15 Board game 4.0 miles away",
+    "$15 board game 4 miles away",
+    "The $15 board game 4.0 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.8333333333333334,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Only the board game is for my kids, not buying lamp.",
+    "Board game could be good for my kids, not the lamp.",
+    "I only want cheap games for my kids, not lamps."
+   ],
+   "noticed": [
+    "$15 board game four miles away",
+    "$15 board game 4.0 miles away",
+    "$15 Board game \u00b7 4.0 mi"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.8266666666666667,
+    "delete_app": 0.12333333333333334
+   },
+   "reasons": [
+    "That board game could work but I don't need a lamp.",
+    "I don't need a lamp, but that game is perfect.",
+    "Lamp isn't for my kids, but that board game might be."
+   ],
+   "noticed": [
+    "$15 Board game 4.0 mi away",
+    "$15 board game 4 miles away",
+    "$15 board game 4 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.13333333333333333,
+    "come_back_tomorrow": 0.8166666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Board game looks perfect for my kids, but not buying a lamp.",
+    "That cheap board game is perfect for my kids.",
+    "I don't need a lamp, but that game looks great for the kids."
+   ],
+   "noticed": [
+    "The $15 board game 1.5 miles away",
+    "$15 Board game 1.5 mi away",
+    "$15 board game 1.5 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.1,
+    "come_back_tomorrow": 0.8433333333333334,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "Don't need a lamp, but that game looks good.",
+    "Desk lamp's not for my kids but that game might be.",
+    "Don't need a lamp, but kids would love that board game."
+   ],
+   "noticed": [
+    "The $15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.05,
+    "come_back_tomorrow": 0.8933333333333333,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "I need kid stuff, not a lamp, I'll check that game later.",
+    "Board game could be great for my kids, want a closer look.",
+    "Don't need a lamp, but cheap games for kids interest me."
+   ],
+   "noticed": [
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away",
+    "$15 board game 1.5 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "buy_item": 0.03333333333333333,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.6833333333333333
+   },
+   "reasons": [
+    "No kids stuff nearby and I'm not driving 23 miles.",
+    "Twenty-three miles is too far with kids and work.",
+    "23 miles is way too far with my kids."
+   ],
+   "noticed": [
+    "Nothing for sale within 5 miles yet",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away"
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "buy_item": 0.043333333333333335,
+    "come_back_tomorrow": 0.5066666666666666,
+    "delete_app": 0.45
+   },
+   "reasons": [
+    "Too far to drive and nothing my kids need.",
+    "Too far to drive for a lamp I don't need.",
+    "23 miles is way too far and I don't need a lamp."
+   ],
+   "noticed": [
+    "Nothing for sale within 5 miles yet",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"buy\", \"parent_buyer\", \"buy\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "buy_item": 0.030000000000000002,
+    "come_back_tomorrow": 0.2866666666666667,
+    "delete_app": 0.6833333333333333
+   },
+   "reasons": [
+    "Nothing near me after a month, and I don't need a lamp.",
+    "Lamp's not for my kids and 23 miles is too far.",
+    "Nothing close for my kids and 23 miles is too far."
+   ],
+   "noticed": [
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away.",
+    "The closest listing is 23 miles away."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "reasons": [
+    "That ten percent fee ruins a good bargain for me.",
+    "I love used deals but that 10% fee ruins it.",
+    "That 10% fee ruins a good bargain for me."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.41000000000000003,
+    "scroll_past": 0.59
+   },
+   "reasons": [
+    "I love a used bargain and free sounds fair.",
+    "I'm always hunting used bargains, but meeting strangers worries me.",
+    "Sounds handy for finds, but meeting strangers worries me."
+   ],
+   "noticed": [
+    "Buy and sell used things near you, free to list",
+    "Buy and sell used things near you",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.26666666666666666,
+    "scroll_past": 0.7333333333333333
+   },
+   "reasons": [
+    "That 10% fee ruins a good bargain for me.",
+    "That 10% fee ruins a good bargain for me.",
+    "I love a bargain, but that 10% fee spoils it."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.69,
+    "scroll_past": 0.31
+   },
+   "reasons": [
+    "Free local used stuff sounds perfect for my bargain hunting.",
+    "I love a good used bargain close by.",
+    "I love browsing used finds with no fees attached."
+   ],
+   "noticed": [
+    "Buy and sell used things near you, free to list",
+    "Buy and sell used things near you.",
+    "Free to list."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.26666666666666666,
+    "scroll_past": 0.7333333333333333
+   },
+   "reasons": [
+    "I love used deals but hate extra fees on top.",
+    "That 10% fee ruins a good bargain for me.",
+    "That 10% fee ruins a good deal for me."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"careful_shopper_buyer\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.25,
+    "scroll_past": 0.75
+   },
+   "reasons": [
+    "That 10% buyer fee would spoil a good deal.",
+    "I'm not paying extra 10% on top of used prices.",
+    "That 10% fee would spoil a good deal for me."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Free to list and I set my own price, perfect.",
+    "Free to list means I keep more for bills.",
+    "Free to list so I can sell without losing money."
+   ],
+   "noticed": [
+    "Free to list",
+    "Free to list",
+    "Free to list"
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.8333333333333334,
+    "scroll_past": 0.16666666666666666
+   },
+   "reasons": [
+    "I need free listings to sell my extra stuff fast.",
+    "I need free listings to sell stuff for bills.",
+    "Free listings help me sell extras for bills."
+   ],
+   "noticed": [
+    "Free to list",
+    "Free to list.",
+    "Free to list"
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "My friend sold stuff and listing's free, so worth trying.",
+    "My friend sold fast and listing's free so why not.",
+    "Free to list and I set my own price, perfect for me."
+   ],
+   "noticed": [
+    "Free to list.",
+    "Free to list",
+    "Free to list."
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Free listing helps my bills, this looks perfect.",
+    "Free listing nearby could help pay bills fast.",
+    "Perfect for selling my stuff free and nearby."
+   ],
+   "noticed": [
+    "It's free to list stuff near me",
+    "Free to list",
+    "Free to list and sell to a neighbor"
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I can list free and get credit, helps with bills.",
+    "Free to list and I set the price, perfect for bills.",
+    "Free to list means I keep more for bills."
+   ],
+   "noticed": [
+    "Free to list",
+    "Free to list.",
+    "Free to list"
+   ]
+  },
+  "[\"install\", \"extra_money_seller\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Free to list and I set my own price, perfect.",
+    "Free listing means I can sell without losing money.",
+    "Free to list and I set my own price, perfect for bills."
+   ],
+   "noticed": [
+    "Free to list.",
+    "Free to list",
+    "It's free to list"
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.25666666666666665,
+    "scroll_past": 0.7433333333333334
+   },
+   "reasons": [
+    "That 10% fee kills it, I'm already broke furnishing place.",
+    "I hate extra fees when I'm already broke.",
+    "I need cheap stuff but hate extra fees."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.5266666666666666,
+    "scroll_past": 0.47333333333333333
+   },
+   "reasons": [
+    "I need to buy a chair, not sell stuff.",
+    "I need a cheap chair and lamp nearby fast.",
+    "Need cheap chair and lamp near me ASAP."
+   ],
+   "noticed": [
+    "Sell it to a neighbor.",
+    "Buy and sell used things near you, free to list",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.26666666666666666,
+    "scroll_past": 0.7333333333333333
+   },
+   "reasons": [
+    "I hate extra fees when I'm already broke furnishing my place.",
+    "That 10% fee adds up when I'm already broke.",
+    "That extra 10% fee is a dealbreaker for me."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.75,
+    "scroll_past": 0.25
+   },
+   "reasons": [
+    "Need cheap chair and lamp near me fast.",
+    "Need cheap chair and lamp I can grab nearby.",
+    "I need a cheap chair and lamp nearby fast."
+   ],
+   "noticed": [
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.31666666666666665,
+    "scroll_past": 0.6833333333333333
+   },
+   "reasons": [
+    "I need cheap stuff but hate extra fees and hauling.",
+    "I need cheap stuff fast but hate that extra fee.",
+    "Need cheap lamp fast but hate that extra fee."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"first_home_buyer\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.23333333333333334,
+    "scroll_past": 0.7666666666666667
+   },
+   "reasons": [
+    "That extra 10% kills my tight budget.",
+    "I need cheap stuff fast but hate extra fees.",
+    "I'm broke and that 10% fee is a dealbreaker."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I need cheap lamps and chairs I can pick up today.",
+    "Finally, cheap lamps and chairs I can grab today nearby.",
+    "I need cheap home stuff nearby I can grab fast."
+   ],
+   "noticed": [
+    "Pick it up down the street, close to you first for same-day pickup",
+    "Pick it up down the street.",
+    "Pick it up down the street, close to you first"
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.7,
+    "scroll_past": 0.3
+   },
+   "reasons": [
+    "I always hunt cheap chairs and lamps close by.",
+    "Sounds perfect for finding cheap chairs nearby.",
+    "I always need cheap lamps and chairs nearby."
+   ],
+   "noticed": [
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Same-day pickup nearby for used home stuff is exactly what I need.",
+    "Friend sold stuff, and I can grab lamps nearby today.",
+    "Perfect for grabbing cheap chairs nearby same day."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "things for sale close to you first, so you can pick them up the same day",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.8166666666666667,
+    "scroll_past": 0.18333333333333335
+   },
+   "reasons": [
+    "Need cheap chairs nearby I can grab today.",
+    "I can grab cheap chairs and lamps nearby.",
+    "I buy used lamps and chairs nearby anyway."
+   ],
+   "noticed": [
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you",
+    "It says buy and sell used things near you"
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.8666666666666667,
+    "scroll_past": 0.13333333333333333
+   },
+   "reasons": [
+    "Friend's credit plus cheap nearby lamps sounds worth a try.",
+    "Sounds just like how I hunt cheap lamps nearby.",
+    "Cheap used home stuff nearby I can grab today."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"home_bargain_buyer\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Looks perfect for grabbing cheap chairs and lamps nearby.",
+    "Perfect for finding cheap chairs nearby I can grab today.",
+    "Perfect for finding cheap chairs nearby I can grab today."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Pick it up down the street, same-day pickup close by"
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.84,
+    "scroll_past": 0.16
+   },
+   "reasons": [
+    "I can sell my garage stuff close by for free.",
+    "Perfect for my closet cleanouts nearby and I keep my price.",
+    "Free to list and nearby pickup suits my garage cleanouts."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Free to list."
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.7066666666666667,
+    "scroll_past": 0.29333333333333333
+   },
+   "reasons": [
+    "I can finally clear my closets and meet close by.",
+    "Finally a quick way to clear my garage locally.",
+    "I always have stuff to sell locally."
+   ],
+   "noticed": [
+    "Meet nearby to hand it over.",
+    "Meet nearby to hand it over.",
+    "Sell it to a neighbor."
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.8333333333333334,
+    "scroll_past": 0.16666666666666666
+   },
+   "reasons": [
+    "Friend sold hers, it's free and close by.",
+    "My friend sold something, and listing costs me nothing.",
+    "My friend sold fast and I want nearby pickup too."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Free to list, buyers pay the fee",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.86,
+    "scroll_past": 0.13999999999999999
+   },
+   "reasons": [
+    "That's exactly how I clear my garage.",
+    "I can list fast and meet close for handoff.",
+    "I can list fast and meet close for a quick handover."
+   ],
+   "noticed": [
+    "Meet nearby to hand it over.",
+    "Meet nearby to hand it over.",
+    "Meet nearby to hand it over."
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I get my asking price and it's close by, worth trying.",
+    "Free to list and nearby pickup sounds perfect for my cleanouts.",
+    "Free to list locally and I set my price, perfect for my cleanouts."
+   ],
+   "noticed": [
+    "Buyers pay a 10% service fee.",
+    "Free to list. Buyers pay a 10% service fee.",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"home_clearer_seller\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Free to list and close by for quick handoffs.",
+    "I can list my closet stuff free and get my price.",
+    "Free to list nearby is exactly what I need."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Free to list - buyers pay a 10% service fee",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.9,
+    "scroll_past": 0.1
+   },
+   "reasons": [
+    "I need to clear my place fast and this looks quick.",
+    "I'm packing nonstop and need to list fast for my move.",
+    "I'm moving and need to list stuff in a minute."
+   ],
+   "noticed": [
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Perfect, I need to clear stuff fast before moving.",
+    "I need to clear my place fast before moving.",
+    "Perfect timing, I need this stuff gone before I move."
+   ],
+   "noticed": [
+    "List in a minute. Meet nearby to hand it over.",
+    "List in a minute.",
+    "List in a minute."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.9,
+    "scroll_past": 0.1
+   },
+   "reasons": [
+    "Need to clear my stuff fast before I move.",
+    "Perfect, I need this stuff gone before I move.",
+    "I'm moving and need to list stuff fast for free."
+   ],
+   "noticed": [
+    "Snap a photo, set a price.",
+    "Pick it up down the street.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.9,
+    "scroll_past": 0.1
+   },
+   "reasons": [
+    "I need to clear everything fast before moving.",
+    "I need to clear stuff fast before moving.",
+    "I'm packing nonstop and need stuff gone fast."
+   ],
+   "noticed": [
+    "List in a minute. Meet nearby to hand it over.",
+    "List in a minute",
+    "List in a minute. Meet nearby to hand it over."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.8933333333333333,
+    "scroll_past": 0.10666666666666667
+   },
+   "reasons": [
+    "Perfect, I can list fast and clear out before moving.",
+    "I need this stuff gone before I move.",
+    "I need to clear stuff fast before moving."
+   ],
+   "noticed": [
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"moving_fast_seller\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.8933333333333333,
+    "scroll_past": 0.10666666666666667
+   },
+   "reasons": [
+    "Perfect, I can list fast and clear stuff before moving.",
+    "Perfect, I need to list fast and sell nearby before moving.",
+    "I need fast free listings before I move."
+   ],
+   "noticed": [
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.8,
+    "scroll_past": 0.2
+   },
+   "reasons": [
+    "Cheap kids stuff nearby I can grab fast sounds perfect.",
+    "I need cheap kids stuff nearby I can pick up fast.",
+    "Need cheap kids clothes nearby I can grab fast."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.66,
+    "scroll_past": 0.34
+   },
+   "reasons": [
+    "Need cheap toys and clothes nearby for my kids.",
+    "I need cheap kids stuff pickup near home.",
+    "Could grab cheap kids stuff close to home."
+   ],
+   "noticed": [
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.75,
+    "scroll_past": 0.25
+   },
+   "reasons": [
+    "Cheap toys near home would save me so much.",
+    "Need cheap toys and clothes I can pick up fast.",
+    "Used kids stuff saves cash, but I need to see total."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Buyers pay a 10% service fee."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.7166666666666667,
+    "scroll_past": 0.2833333333333333
+   },
+   "reasons": [
+    "Could get cheap kids toys close to home.",
+    "I need cheap toys close to home for the kids.",
+    "Need cheap kids toys close to home."
+   ],
+   "noticed": [
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you.",
+    "Buy and sell used things near you."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.8333333333333334,
+    "scroll_past": 0.16666666666666666
+   },
+   "reasons": [
+    "Need cheap kids stuff nearby fast, plus friend credit.",
+    "Need cheap kids stuff nearby plus friend credit.",
+    "Need cheap kids toys close by, and friend credit helps."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Pick it up down the street.",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"parent_buyer\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.84,
+    "scroll_past": 0.16
+   },
+   "reasons": [
+    "Cheap used kids stuff near me I can grab fast.",
+    "I need cheap kids stuff I can grab fast nearby.",
+    "Same-day pickup nearby would save me so much on kids stuff."
+   ],
+   "noticed": [
+    "Buy and sell used things nearby",
+    "Buy and sell used things nearby",
+    "Pick it up down the street."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I need to clear kids' stuff fast and free.",
+    "Perfect for clearing kids' old stuff fast and free.",
+    "Perfect for clearing kids' outgrown stuff fast and free."
+   ],
+   "noticed": [
+    "Free to list \u2014 snap a photo, set a price",
+    "Snap a photo, set a price.",
+    "Free to list."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "Finally clear the kids' piles without driving anywhere.",
+    "My kids' old stuff needs gone and this is nearby.",
+    "I need space back and free listing sounds perfect."
+   ],
+   "noticed": [
+    "Sell it to a neighbor.",
+    "Sell it to a neighbor.",
+    "Sell it to a neighbor."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.8666666666666667,
+    "scroll_past": 0.13333333333333333
+   },
+   "reasons": [
+    "I can snap kids' outgrown clothes fast for free.",
+    "Finally clear the kids' clutter without paying to list.",
+    "I need these toys gone fast and this looks easy."
+   ],
+   "noticed": [
+    "Free to list.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.8766666666666667,
+    "scroll_past": 0.12333333333333334
+   },
+   "reasons": [
+    "Finally clear the kids' stuff without driving far.",
+    "Finally clear kids' outgrown stuff right nearby.",
+    "This is exactly what I need for kids' stuff."
+   ],
+   "noticed": [
+    "Sell it to a neighbor.",
+    "Sell it to a neighbor.",
+    "Sell it to a neighbor."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.86,
+    "scroll_past": 0.13999999999999999
+   },
+   "reasons": [
+    "Perfect for clearing kids' stuff fast near home.",
+    "Perfect for clearing kids' stuff fast and free.",
+    "Perfect for clearing kids' stuff fast near home."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"install\", \"parent_seller\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.8666666666666667,
+    "scroll_past": 0.13333333333333333
+   },
+   "reasons": [
+    "I can snap kids' stuff fast and sell nearby for free.",
+    "I can list kids' clothes fast between classes for free.",
+    "I can list kids' clothes fast for free between classes."
+   ],
+   "noticed": [
+    "Pick it up down the street.",
+    "Snap a photo, set a price.",
+    "Snap a photo, set a price."
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.7,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Free to list and buyers are close, so let's try.",
+    "It's free and four people might actually buy.",
+    "It's free so I might as well list my stuff."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "Free to list"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.5,
+    "come_back_tomorrow": 0.41666666666666663,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "People are nearby looking and listing's free, worth a shot.",
+    "Free is good but I need pics and a fair price first.",
+    "Free to list and people nearby, worth trying again."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.6333333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Need bill money and four people are looking nearby.",
+    "Might actually sell with people nearby and it's free.",
+    "Might as well list it, it's free after all."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.7833333333333333,
+    "come_back_tomorrow": 0.17333333333333334,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Free to list and buyers nearby, worth putting my stuff up.",
+    "Bills are due and 35 people might actually buy my stuff.",
+    "Free to list with 35 browsers nearby, gotta try selling."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7666666666666666,
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Free to list and 35 people might actually buy.",
+    "Free to list and people looking, worth posting my stuff now.",
+    "35 locals browsing and it's free, worth listing my stuff."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.6833333333333333,
+    "come_back_tomorrow": 0.24,
+    "delete_app": 0.07666666666666667
+   },
+   "reasons": [
+    "I need cash and 35 people might buy.",
+    "Thirty-five people nearby means I might actually sell.",
+    "Free to list and buyers nearby, worth listing my stuff."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.21666666666666667,
+    "come_back_tomorrow": 0.3833333333333333,
+    "delete_app": 0.4
+   },
+   "reasons": [
+    "Free is nice but I need buyers to pay bills.",
+    "Free is nice but no buyers won't pay my bills.",
+    "No one's looking, why waste time listing now?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.3666666666666667,
+    "come_back_tomorrow": 0.3333333333333333,
+    "delete_app": 0.3
+   },
+   "reasons": [
+    "It's free to list, so worth a shot even with no browsers.",
+    "Free is nice but no browsers means no money.",
+    "Two weeks, zero sales, nobody even browsing here."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.09333333333333334,
+    "come_back_tomorrow": 0.22333333333333333,
+    "delete_app": 0.6833333333333333
+   },
+   "reasons": [
+    "Nobody's browsing so I'm just wasting my time.",
+    "If nobody's browsing I can't pay my bills.",
+    "No buyers after a month, I'm done wasting time."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8,
+    "come_back_tomorrow": 0.16,
+    "delete_app": 0.04
+   },
+   "reasons": [
+    "I already sold one and people are browsing now.",
+    "Free to list and buyers nearby, need cash for bills.",
+    "Need cash and buyers are nearby right now."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7833333333333333,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Buyers are nearby and listing's free, need the cash.",
+    "Free to list and buyers are nearby, worth posting stuff.",
+    "Buyers are nearby and listing is free, so I'll post."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.8166666666666667,
+    "come_back_tomorrow": 0.15333333333333335,
+    "delete_app": 0.030000000000000002
+   },
+   "reasons": [
+    "People nearby are looking and listing's free, so let's try.",
+    "Buyers are nearby and listing's free, let's do it.",
+    "Need extra cash and buyers are close by right now."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.85,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "Got bills to pay and buyers are right here.",
+    "Free to list and buyers nearby, time to sell.",
+    "Lots of locals looking and it's free, so let's do it."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.8,
+    "come_back_tomorrow": 0.15666666666666668,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Bills are tight and 35 locals browsing means quick cash.",
+    "Free to list and buyers nearby, worth listing my stuff.",
+    "Free to list and tons of buyers nearby right now."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.8166666666666667,
+    "come_back_tomorrow": 0.15,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "Lots of locals looking, free to list, gotta pay bills.",
+    "Free to list and tons of buyers nearby, let's do this.",
+    "Free to list and buyers nearby means quick cash."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.7166666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "It's free so I'll list anyway, even if nobody's looking.",
+    "It's free to list and I already sold one, so why not.",
+    "No buyers means no money for my bills."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Free to list",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.5,
+    "come_back_tomorrow": 0.41666666666666663,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Free to list, so worth trying even if slow.",
+    "No buyers around, but listing's free so maybe worth it.",
+    "Free doesn't help if nobody's there to buy."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"extra_money_seller\", \"list\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.5333333333333333,
+    "come_back_tomorrow": 0.39999999999999997,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Listing's free, so I'll try even with no browsers.",
+    "Nobody's even browsing, not worth my time right now.",
+    "Need the cash and listing's free anyway"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Free to list"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.65,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Might as well list since it's free and buyers are close.",
+    "Someone nearby might want my stuff, and it's free.",
+    "Nearby buyers and free to list, I can wait."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.5666666666666667,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Locals are browsing and it's free, so I'll try.",
+    "Four nearby browsers, I can wait for my price.",
+    "Free to list for locals, just need to grab photos."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.2833333333333333,
+    "come_back_tomorrow": 0.5833333333333334,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Four locals looking, but I haven't sold a thing yet.",
+    "Haven't sold in a month, but free and local buyers helps.",
+    "Need photos first, but free and local buyers sounds good."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.6833333333333333,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Good, 35 locals browsing and listing is free.",
+    "Good, plenty of locals might want my stuff.",
+    "Free and locals are looking, worth listing my closet stuff."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7166666666666667,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Free to list and locals are browsing, worth a try.",
+    "Finally, some locals might want what I'm clearing out.",
+    "Lots of buyers close by, worth a try."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.5833333333333334,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Plenty of neighbors looking, worth listing my closet stuff.",
+    "Free to list and locals are browsing, let's clear this closet out.",
+    "Plenty of neighbors looking, worth listing my closet stuff."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.11666666666666667,
+    "come_back_tomorrow": 0.4666666666666667,
+    "delete_app": 0.4166666666666667
+   },
+   "reasons": [
+    "Nobody's even looking, why bother listing now?",
+    "Why list if nobody's around to buy it?",
+    "Why list for two weeks if nobody's even looking?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.08333333333333334,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.7
+   },
+   "reasons": [
+    "No buyers nearby so why bother listing anything.",
+    "Two weeks, no sales, no browsers \u2014 not worth my time.",
+    "No buyers nearby means no point listing stuff."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.08333333333333334,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.6833333333333333
+   },
+   "reasons": [
+    "Nobody's browsing after a month, I'm done wasting time.",
+    "Why bother listing when nobody's browsing around here?",
+    "Nobody's even looking, so why bother listing?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.7733333333333333,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Sold one already and buyers are close, easy listing.",
+    "Already sold one, free and stays up two weeks.",
+    "Got stuff to clear, sold before, buyers are close by."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I've got garage stuff to sell and locals are looking.",
+    "Sold one already and neighbors are looking, so why not list more.",
+    "Sold one already, and locals are looking \u2014 worth listing."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.75,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Free and locals are looking, worth listing my closet stuff.",
+    "It's free and locals are browsing, worth listing my stuff.",
+    "Sold one before, folks nearby, might as well list it."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8333333333333334,
+    "come_back_tomorrow": 0.13666666666666666,
+    "delete_app": 0.030000000000000002
+   },
+   "reasons": [
+    "Sold one already and buyers are nearby, let's list another.",
+    "Sold one already and buyers are nearby, so let's list again.",
+    "Sold one already and plenty of locals looking."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7766666666666667,
+    "come_back_tomorrow": 0.17333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Sold one already and lots of locals browsing now.",
+    "I've sold before and buyers are close by.",
+    "Free, locals are looking, and I sold one already."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.75,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Free to list and folks nearby are looking.",
+    "I've sold before and plenty of neighbors are looking.",
+    "Plenty of locals looking and it's free, so why not."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.38333333333333336,
+    "come_back_tomorrow": 0.5,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Sold one already, so I'll list and wait for right price.",
+    "Sold one, but no point listing if no one's looking.",
+    "Nobody nearby to buy, why bother listing now?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.35,
+    "come_back_tomorrow": 0.5333333333333333,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "No one's looking, so why bother photographing stuff now?",
+    "Nobody's even browsing, not worth my time right now.",
+    "Sold one already, and it's free so I'll try another."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"home_clearer_seller\", \"list\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.23333333333333334,
+    "come_back_tomorrow": 0.65,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "No one's looking, but it's free so maybe later.",
+    "Nobody's browsing nearby, so listing feels like wasted effort.",
+    "No buyers nearby, so why bother photographing stuff now?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8333333333333334,
+    "come_back_tomorrow": 0.12333333333333334,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "I need this stuff gone before I move, buyers are close.",
+    "Perfect, I can clear stuff before moving day.",
+    "I\u2019m packing, it\u2019s free, and neighbors are looking now."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.8066666666666666,
+    "come_back_tomorrow": 0.12666666666666668,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Four neighbors looking today, I need this stuff gone fast.",
+    "Four people nearby today means I might sell fast.",
+    "Need this gone before I move, and buyers are nearby."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.7666666666666667,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Need this gone before I move, and people are looking now.",
+    "I'm packing and need buyers now, and they're close.",
+    "Need this stuff gone before I move, and it's free."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8166666666666667,
+    "come_back_tomorrow": 0.13333333333333333,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Need this stuff gone before I move, buyers are here.",
+    "Someone nearby might grab this before I move.",
+    "I'm packing and need it gone fast with buyers nearby."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Lots of buyers nearby, I need this stuff gone before moving.",
+    "Moving soon and 35 locals browsing means I could sell today.",
+    "Need this gone before I move, buyers are right here."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.75,
+    "come_back_tomorrow": 0.15,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Gotta clear stuff fast and 35 neighbors are looking now.",
+    "Moving soon and buyers are right here today.",
+    "35 nearby browsers means I could finally clear stuff fast."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.15,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.6666666666666666
+   },
+   "reasons": [
+    "No point listing if no one's looking.",
+    "Nobody's browsing so I can't sell fast before my move.",
+    "Nobody's browsing so I can't sell before I move."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.33333333333333337,
+    "come_back_tomorrow": 0.16666666666666669,
+    "delete_app": 0.5
+   },
+   "reasons": [
+    "I need to move and no one is even looking.",
+    "Nobody's browsing so I can't sell before I move.",
+    "Need this gone before I move, so I'll try anyway."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.13333333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.6166666666666667
+   },
+   "reasons": [
+    "No one's even looking, so why waste my time listing?",
+    "No buyers nearby, so why bother listing before my move?",
+    "Nobody's browsing so listing feels like a waste of time."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.85,
+    "come_back_tomorrow": 0.12333333333333334,
+    "delete_app": 0.026666666666666665
+   },
+   "reasons": [
+    "I need this gone before I move, buyers are here.",
+    "Need this stuff gone before I move, buyers are nearby.",
+    "I've already sold one thing and need the rest gone fast."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.85,
+    "come_back_tomorrow": 0.12666666666666668,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "Buyers are nearby and I need this stuff gone fast.",
+    "I need this gone fast and buyers are already nearby.",
+    "Need this gone before I move, buyers are nearby now."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.85,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "Need my place cleared fast and buyers are right nearby.",
+    "I need stuff gone fast and neighbors are looking right now.",
+    "I'm packing and need stuff gone, buyers are close."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8766666666666667,
+    "come_back_tomorrow": 0.1,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "I need this gone fast before my move.",
+    "Need stuff gone before move and buyers are right here.",
+    "Need this stuff gone before I move, buyers are here."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.8833333333333333,
+    "come_back_tomorrow": 0.09333333333333334,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "35 locals browsing means I could sell this fast today.",
+    "Moving soon so I need these buyers to see my stuff now.",
+    "Need this gone before I move, buyers are right here."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.8733333333333333,
+    "come_back_tomorrow": 0.09666666666666666,
+    "delete_app": 0.030000000000000002
+   },
+   "reasons": [
+    "Moving soon, need buyers fast and listing takes a minute.",
+    "I need this stuff gone fast and buyers are here.",
+    "I need to clear stuff fast and buyers are nearby."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.75,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I have to clear stuff before I move.",
+    "I already sold one, and listing is free and fast.",
+    "Sold one already, need the rest gone before I move."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.65,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Free and fast to list, but nobody's even looking.",
+    "It's free and fast, even if no one is browsing.",
+    "No one's browsing but it's free and I'm moving fast."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"moving_fast_seller\", \"list\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.75,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "I need to clear out fast before moving.",
+    "Need stuff gone fast before I move, it's free.",
+    "Free and quick, but nobody browsing worries me with move coming."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.6333333333333333,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Need this stuff gone and neighbors are already looking.",
+    "Kids' stuff piling up and buyers are close by.",
+    "Someone close might buy, and it's free and quick."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.6,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Need this clutter gone and buyers are close by.",
+    "Kids stuff piling up and buyers are right nearby.",
+    "Free, quick, and neighbors might finally take this stuff."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.16666666666666666,
+    "come_back_tomorrow": 0.36666666666666664,
+    "delete_app": 0.4666666666666667
+   },
+   "reasons": [
+    "Been a month with zero sales, I'm done wasting time.",
+    "Still nothing sold and I'm too busy for this today.",
+    "A month in and still nothing sold, feels pointless."
+   ],
+   "noticed": [
+    "Nothing sold yet",
+    "Nothing sold yet badge at the top",
+    "Nothing sold yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.7333333333333333,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Need space back and buyers are close by.",
+    "Neighbors are looking and I need this clutter gone!",
+    "So many neighbors looking, worth snapping a photo quick."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.6333333333333333,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Kids' stuff piling up and buyers are right nearby.",
+    "Thirty-five locals browsing means my kids' stuff could actually sell.",
+    "Need space, buyers are close, listing's free and quick."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.6666666666666666,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Clutter's piling up and buyers are close, just so busy.",
+    "Kids' stuff piling up and buyers are nearby today.",
+    "Kids stuff piling up, 35 locals looking, it's free."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.13333333333333333,
+    "come_back_tomorrow": 0.4666666666666667,
+    "delete_app": 0.4
+   },
+   "reasons": [
+    "No one's looking, so why waste time now?",
+    "No one's looking, so why waste my time listing?",
+    "Why bother photographing toys if nobody's even browsing?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.08333333333333334,
+    "come_back_tomorrow": 0.25,
+    "delete_app": 0.6666666666666666
+   },
+   "reasons": [
+    "Nobody's even browsing, I'm wasting my time here.",
+    "No one's even looking, so why bother listing?",
+    "No one's even looking, why waste my time?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.07666666666666667,
+    "come_back_tomorrow": 0.25666666666666665,
+    "delete_app": 0.6666666666666666
+   },
+   "reasons": [
+    "Why list if nobody nearby will even see it?",
+    "No one's even looking, so why waste my time?",
+    "No one's looking, so why waste my time listing?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.76,
+    "come_back_tomorrow": 0.19,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Sold one already, neighbors are looking, listing is free.",
+    "Someone close by might take this quickly.",
+    "Buyers are nearby and it's free, so why wait?"
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.7166666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Buyers are nearby and it's free, so I'll list quick.",
+    "Need the space, buyers are close and listing's free",
+    "Kids' stuff piles up and buyers are right nearby."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.7566666666666666,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Sold one already, buyers nearby, might as well snap a photo.",
+    "Sold one already and buyers are nearby, let's clear some space.",
+    "Nearby browsers mean I could clear space fast."
+   ],
+   "noticed": [
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today",
+    "4 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.8099999999999999,
+    "come_back_tomorrow": 0.15666666666666668,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "I already sold one, more buyers waiting near me.",
+    "Need this stuff gone and buyers are right nearby.",
+    "Sold one already and neighbors are looking, so let's clear space."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.8333333333333334,
+    "come_back_tomorrow": 0.1266666666666667,
+    "delete_app": 0.04000000000000001
+   },
+   "reasons": [
+    "Thirty-five people nearby today, I could clear space fast.",
+    "Neighbors are looking and I need this stuff gone.",
+    "Need space back and buyers are right nearby."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.8266666666666667,
+    "come_back_tomorrow": 0.14666666666666667,
+    "delete_app": 0.026666666666666665
+   },
+   "reasons": [
+    "Kids outgrew stuff and buyers are right nearby.",
+    "Need the space and buyers are right nearby.",
+    "Kids' stuff piling up and buyers are right nearby."
+   ],
+   "noticed": [
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today",
+    "35 people browsing within 5 miles today"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "list_item": 0.25,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "No buyers nearby, I'm too busy to bother today.",
+    "Sold one but no one's around now, I'll try later.",
+    "Sold one, but no browsers now so I'll try later."
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "list_item": 0.16666666666666666,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.21666666666666667
+   },
+   "reasons": [
+    "No point listing if no one's around to buy.",
+    "Nobody's browsing, so listing feels like wasted effort.",
+    "Why bother listing when nobody's even looking?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  },
+  "[\"list\", \"parent_seller\", \"list\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "list_item": 0.21666666666666667,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Nobody's browsing, so my kids' stuff won't sell.",
+    "No one's even looking, I don't have time to waste.",
+    "Why list my kids' stuff if no one will see it?"
+   ],
+   "noticed": [
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet",
+    "Almost nobody is browsing near you yet"
+   ]
+  }
+ }
+}

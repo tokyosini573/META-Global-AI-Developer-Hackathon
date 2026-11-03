@@ -69,7 +69,7 @@ PACK = {
         "numbers": ["Completed sales", "Sold or bought", "Quit in week one"],
         "legend": ["Traded", "Using", "Quit"],
         "goal": "completed sales",
-        "ask": {"converted": "Why did you buy it?", "quit": "Why did you delete it?",
+        "ask": {"converted": "How did your first sale or purchase go?", "quit": "Why did you delete it?",
                 "using": "What do you think of it so far?"},
         "last_screen": "What {they} saw last",
         "since": "First sale or purchase on day {day}.",
