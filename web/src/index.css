@@ -3,16 +3,21 @@
 /* Tokens match the CLAUDE.md table. Default colors and type sizes are cleared so nothing outside the tokens can be used. */
 @theme static {
   --color-*: initial;
-  --color-bg: #0A0B0D;
-  --color-surface: #121418;
-  --color-line: #23262D;
-  --color-dot-idle: #2E323A;
-  --color-dim: #6B7280;
-  --color-text: #E8EAED;
-  --color-strong: #FFFFFF;
-  --color-plan-a: #F2A93B;
-  --color-plan-b: #4F7CFF;
-  --color-black: #000000;
+  --color-bg: #FFFFFF;
+  --color-surface: #F4F7FB;
+  --color-line: #E1E7EF;
+  --color-dot-idle: #D5DDE7;
+  --color-dim: #5B6B7A;
+  --color-text: #1C2B39;
+  --color-strong: #0B1A2C;
+  --color-plan-a: #E08A00;
+  --color-plan-b: #1B5BF5;
+  --color-blue-50: #EEF4FF;
+  --color-blue-100: #DCE7FF;
+  --color-blue-200: #BCD1FF;
+  --color-blue-600: #1B5BF5;
+  --color-blue-900: #0B2A5B;
+  --color-white: #FFFFFF;
 
   --text-*: initial;
   --text-headline: 88px;
@@ -21,10 +26,15 @@
   --text-number: 56px;
   --text-number--line-height: 1;
   --text-number--letter-spacing: -0.02em;
-  --text-body: 18px;
+  --text-body: 20px;
   --text-body--line-height: 1.5;
-  --text-label: 13px;
+  --text-label: 15px;
   --text-label--line-height: 1.4;
+  --text-lead: 22px;
+  --text-lead--line-height: 1.5;
+  --text-title: 48px;
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.02em;
 
   --font-sans: Geist, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
@@ -37,10 +47,10 @@
   font-weight: 500;
   font-size: var(--text-label);
   line-height: var(--text-label--line-height);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-dim);
 }
 
 html, body, #root { height: 100%; }
-body { margin: 0; background: var(--color-black); color: var(--color-text); font-family: var(--font-sans); }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); }

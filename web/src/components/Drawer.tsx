@@ -137,8 +137,8 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
     : p.paid !== null ? `Where ${she} paid` : p.quit !== null ? `Where ${she} left` : `Last paywall ${she} saw`
   return (
     <>
-      <div className="absolute inset-0 bg-bg/55" onClick={onClose} />
-      <aside className="absolute top-0 right-0 h-[1080px] w-[560px] rounded-l-card border-l border-line bg-surface p-12
+      <div className="absolute inset-0 bg-blue-900/20" onClick={onClose} />
+      <aside className="absolute top-0 right-0 h-[1080px] w-[640px] rounded-l-card border-l border-line bg-surface p-12
         transition-transform duration-[250ms] ease-out" style={{ transform: open ? 'none' : 'translateX(100%)' }}>
         <button onClick={onClose} aria-label="Close" className="absolute top-10 right-10 cursor-pointer">
           <svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 2 L14 14 M14 2 L2 14" stroke="currentColor" strokeWidth="1.5" className="text-dim" /></svg>

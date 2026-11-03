@@ -211,7 +211,7 @@ export function AdminInput({ onReplay }: { onReplay: (r: Replay, id: string) => 
   return (
     <>
       <header className="label absolute top-12 right-16 left-16 flex justify-between">
-        <span className="text-strong">Rehearsal</span>
+        <a href="/" className="text-strong">Rehearsal</a>
         <span>Live rehearsal · admin · {spec?.days ?? 90} days</span>
       </header>
 
@@ -260,7 +260,7 @@ export function AdminInput({ onReplay }: { onReplay: (r: Replay, id: string) => 
       {!status || status.state === 'error' ? (
         <section className="absolute top-[952px] right-16 left-16 flex items-center gap-6">
           <button onClick={run} disabled={!ready}
-            className="cursor-pointer rounded-card bg-strong px-8 py-5 text-body font-medium text-bg disabled:cursor-default disabled:opacity-40">
+            className="cursor-pointer rounded-card bg-blue-600 px-8 py-5 text-body font-medium text-white disabled:cursor-default disabled:opacity-40">
             Run both plans
           </button>
           <input type="password" value={key} onChange={e => setKey(e.target.value)} placeholder="Admin key"

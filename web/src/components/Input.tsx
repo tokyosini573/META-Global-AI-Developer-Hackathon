@@ -46,7 +46,7 @@ export function Input({ replay, name, onSwitch, onDone }: {
   return (
     <>
       <header className="label absolute top-12 right-16 left-16 flex justify-between">
-        <span className="text-strong">Rehearsal</span>
+        <a href="/" className="text-strong">Rehearsal</a>
         <span>New rehearsal · {meta.market} · {meta.days} days</span>
       </header>
 
@@ -95,7 +95,7 @@ export function Input({ replay, name, onSwitch, onDone }: {
       {step === null ? (
         <section className="absolute top-[824px] right-16 left-16 flex items-center gap-6">
           <button onClick={() => setStep(0)}
-            className="cursor-pointer rounded-card bg-strong px-8 py-5 text-body font-medium text-bg">
+            className="cursor-pointer rounded-card bg-blue-600 px-8 py-5 text-body font-medium text-white">
             Run both plans
           </button>
           <span className="label">
