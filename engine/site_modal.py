@@ -67,5 +67,16 @@ def site():
         status, data = await run_in_threadpool(handle, env, limits, f"/api/{name}", ip, raw)
         return JSONResponse(data, status_code=status)
 
+    @web.middleware("http")
+    async def cache(request: Request, call_next):
+        # Mounted files carry a 1970 Last-Modified, so browsers would keep an old index.html for years
+        # and ask for a script the next deploy removed. Only the hashed build files may be kept.
+        response = await call_next(request)
+        if request.url.path.startswith("/assets/"):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        else:
+            response.headers["Cache-Control"] = "no-cache"
+        return response
+
     web.mount("/", StaticFiles(directory="/root/web/dist", html=True))
     return web
