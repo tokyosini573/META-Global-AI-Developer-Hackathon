@@ -204,8 +204,8 @@ def screen(rid, name):
 
 
 def authorized(env, key):
-    admin = env.get("ADMIN_KEY", "")
-    return bool(admin) and key == admin
+    admin = env.get("ADMIN_KEY", "").strip()      # a pasted key often carries a space or a newline
+    return bool(admin) and key.strip() == admin
 
 
 def example_spec(pack_id):

@@ -177,7 +177,7 @@ export function AdminInput({ onReplay }: { onReplay: (r: Replay, id: string) => 
     setShown(x => ({ ...x, [name]: URL.createObjectURL(f) }))
   }
 
-  const headers = { 'X-Admin-Key': key }
+  const headers = { 'X-Admin-Key': key.trim() }
   const run = async () => {
     if (!spec) return
     setError('')
