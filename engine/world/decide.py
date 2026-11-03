@@ -84,6 +84,47 @@ def signup_question(app, brief):
     return " ".join(parts) + " What do you do?"
 
 
+PAYWALL = {"after_signup": "right after sign-up", "after_free_limit": "once you use up what is free",
+           "after_trial": "when the free trial ends", "at_checkout": "when you buy or book something"}
+PER = {"week": "a week", "month": "a month", "transaction": "each time", "percent": "of each purchase"}
+PRICE_KEY = {"dating": "price_per_week", "resale": "fee_share", "rides": "fare_usd"}
+
+
+def price_override(screen):
+    """A gate screen key with an experiment's own price ("paywall@4.99") -> (gate, price or None)."""
+    gate, _, price = screen.partition("@")
+    return gate, float(price) if price else None
+
+
+def gate_key(pack, plan, gate):
+    """The screen part of a gate decision's key: the gate, plus the experiment's own price when it has one,
+    so an experiment that changes the price is asked with that price."""
+    key = PRICE_KEY.get(pack["id"])
+    return f"{gate}@{plan[key]}" if key and key in plan else gate
+
+
+def gate_question(question, brief, price=None):
+    """The question while using the app, with how the app makes money and when it asks (P5).
+    `price` is an experiment's own price, which replaces the brief's."""
+    if not brief or not brief.get("money"):
+        return question
+    m = brief["money"]
+    amount = m["price"] if price is None else price
+    cost = f"{amount:.0%}" if m.get("per") == "percent" else f"${amount:,.2f}"
+    parts = [question.removesuffix("What do you do?").strip(),
+             f"It costs {cost} {PER.get(m.get('per'), '')}".strip() + ","
+             f" and it asks you to pay {PAYWALL.get(m.get('paywall'), 'at some point')}."]
+    if m.get("trial_days"):
+        parts.append(f"New users get {int(m['trial_days'])} days free first.")
+    if m.get("free"):
+        parts.append(f"Free: {_cut(m['free'], 120)}.")
+    if m.get("paid"):
+        parts.append(f"Paid: {_cut(m['paid'], 120)}.")
+    if (brief.get("product") or {}).get("free_limits"):
+        parts.append(f"Free users get {_cut(brief['product']['free_limits'], 80)}.")
+    return " ".join(parts) + " What do you do?"
+
+
 def why_quit_question(app, brief):
     """When someone stops opening the app (R7). The retention text is only the context they answer in."""
     ret = brief.get("retention") or {}

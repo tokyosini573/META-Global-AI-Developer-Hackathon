@@ -243,6 +243,7 @@ def test_typed_questions_carry_the_brief(name, tmp_path):
 
 def test_design_prompt_uses_the_audience_ages():
     cfg = cfg_with_brief("reloop")
+    cfg["brief"]["audience"]["age"] = [25, 50]
     assert typed.age_range(cfg) == (25, 50)
     cfg["brief"]["audience"]["age"] = [10, 99]
     assert typed.age_range(cfg) == packs.of(cfg)["age"]

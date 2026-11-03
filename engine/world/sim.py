@@ -25,7 +25,7 @@ from engine import packs
 
 from . import channels, geo
 from .calibrate import logit, shift, shift_options, sigma
-from .decide import TYPES, week_bucket, nearby_bucket
+from .decide import TYPES, gate_key, week_bucket, nearby_bucket
 
 FIRST_NAMES = ["Maya", "Jordan", "Sam", "Alex", "Riley", "Taylor", "Chris", "Jamie", "Morgan", "Casey", "Avery",
                "Drew", "Priya", "Luis", "Ana", "Marcus", "Jasmine", "Tyler", "Nina", "Omar", "Grace", "Ethan",
@@ -302,7 +302,7 @@ class Simulation:
                 continue
             bucket = self._bucket(t, p, nearby[i])
             # The retention shift also moves "delete": quitting at the paywall is quitting too.
-            chosen = self._decide(t, p, "paywall", "paywall", bucket, {"pay": self.shifts.get("paid_30d", 0.0),
+            chosen = self._decide(t, p, "paywall", gate_key(self.pack, self.plan, "paywall"), bucket, {"pay": self.shifts.get("paid_30d", 0.0),
                                                                        "delete_app": -self.shifts.get("d7_retention", 0.0)},
                                   "come_back_tomorrow")
             if chosen == "pay":
@@ -320,7 +320,7 @@ class Simulation:
         kind = self.pack["gates"][p.side]
         g = self.pack["gate"][kind]
         bucket = self._bucket(t, p, nearby)
-        return self._decide(t, p, kind, kind, bucket,
+        return self._decide(t, p, kind, gate_key(self.pack, self.plan, kind), bucket,
                             {g["act"]: self.shifts.get(self.pack["convert_target"], 0.0),
                              "delete_app": -self.shifts.get("d7_retention", 0.0)}, "come_back_tomorrow"), g
 

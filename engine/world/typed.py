@@ -30,7 +30,7 @@ from engine import packs
 from engine.check_api import load_env
 
 from . import screens, spark, wonder
-from .decide import install_question, signup_question, why_quit_question
+from .decide import gate_key, gate_question, install_question, price_override, signup_question, why_quit_question
 from .decide import nearby_bucket, week_bucket  # noqa: F401  (the buckets the gate keys use)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -147,7 +147,11 @@ def design(cfg, images, out_path):
 
 
 def _data_url(path):
-    return "data:image/png;base64," + base64.b64encode(Path(path).read_bytes()).decode()
+    """The image as a data URL with its real media type (uploads may be JPEG or WebP saved as .png)."""
+    data = Path(path).read_bytes()
+    kind = ("image/jpeg" if data[:3] == b"\xff\xd8\xff" else
+            "image/webp" if data[:4] == b"RIFF" and data[8:12] == b"WEBP" else "image/png")
+    return f"data:{kind};base64," + base64.b64encode(data).decode()
 
 
 def _key_str(key):
@@ -194,7 +198,8 @@ class TypedProvider:
             gates = [self.pack["gates"][t["side"]]] if "side" in t else sorted(set(self.pack["gates"].values()))
             for g in gates:
                 for b in BUCKETS:
-                    yield (g, t["id"], g, b)
+                    for screen in sorted({gate_key(self.pack, p, g) for p in self.cfg["plans"].values()}):
+                        yield (g, t["id"], screen, b)
                     if self.brief:
                         yield ("why_quit", t["id"], g, b)
 
@@ -217,14 +222,15 @@ class TypedProvider:
             return persona, image, install_question(self.pack, screen, self.brief, ad), ("install", "scroll_past"), "each"
         if kind == "sign_up":
             return persona, screen, signup_question(app, self.brief), ("finish", "delete_app"), "each"
-        gate = screen if kind == "why_quit" else kind
+        gate, price = price_override(screen) if kind != "why_quit" else (screen, None)
+        gate = gate if kind == "why_quit" else kind
         g = self.pack["gate"][gate]
         success, near, week = bucket
         persona += " " + " ".join([g["week"][week], g["success"][success], g["nearby"][near]])
         image = screens.gate_screen(gate, bucket, self.pack)
         if kind == "why_quit":
             return persona, image, why_quit_question(app, self.brief), ("quit",), "reason"
-        return persona, image, g["question"], g["options"], "v1"
+        return persona, image, gate_question(g["question"], self.brief, price), g["options"], "v1"
 
     def _q(self, key):
         persona, image, question, *_ = self._prompt(key)

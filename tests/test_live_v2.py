@@ -1,5 +1,7 @@
 """v2 live run, report and demo briefs: checks that need no API call (Wonder and Spark are stubbed)."""
 
+import threading
+import types
 import copy
 import json
 import shutil
@@ -226,13 +228,22 @@ def test_live_paths_are_never_files_outside_the_run():
 
 
 def test_a_live_run_end_to_end_with_stubbed_models(run_dir, monkeypatch):
-    """The whole run on the resale demo's kinds of people and decision table; any model call fails the test."""
+    """The whole run on the resale demo's kinds of people and decision table; Spark is a free stub, Wonder must not be called."""
     from engine import run
     from engine.world import spark, typed, wonder
 
     def no_call(*a, **k):
         raise AssertionError("a paid model call")
-    monkeypatch.setattr(spark, "ask_body", no_call)
+    def fake_spark(env, body, key):
+        """Answers in the requested shape, at no cost: the v2 questions the demo table lacks."""
+        props = body["response_format"]["json_schema"]["schema"]["properties"]
+        out = {"noticed": "stub", "reason": "Stub reason."}
+        if "probabilities" in props:
+            opts = list(props["probabilities"]["properties"])
+            out["probabilities"] = {o: 1 / len(opts) for o in opts}
+            out["reasons"] = {o: "Stub reason." for o in opts}
+        return out, 0.0
+    monkeypatch.setattr(spark, "ask_body", fake_spark)
     monkeypatch.setattr(wonder, "ask", no_call)
 
     def design(cfg, images, out_path):
@@ -242,7 +253,8 @@ def test_a_live_run_end_to_end_with_stubbed_models(run_dir, monkeypatch):
     monkeypatch.setattr(typed, "design", design)
     monkeypatch.setattr(run, "wonder_reason", no_call)
     monkeypatch.setattr(live, "RUNS", 2)
-    monkeypatch.setattr(live.threading, "Thread", Inline)
+    # only live.py's own thread runs inline; the thread pools inside the run stay real
+    monkeypatch.setattr(live, "threading", types.SimpleNamespace(Thread=Inline, Lock=threading.Lock))
     b = live_brief()
     b["setup"]["days"] = 90      # until calibration runs apart from the chosen days (W1), a shorter run cannot fit it
     rid = live.start(b, {s: PNG for s in live.image_slots("resale", 3)}, {})
