@@ -22,6 +22,7 @@ from engine.world.glimmer import GlimmerProvider
 from engine.world.output import replay, write_sqlite
 from engine.world.sim import Simulation, measures, totals
 from engine.world.spark import SparkProvider
+from engine import packs
 from engine.world import wonder
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -30,9 +31,10 @@ CALIBRATION_SEEDS = tuple(range(1000, 1006))
 
 def calibrate(cfg, cache, days):
     cal = cfg["calibration"]
+    pack = packs.of(cfg)
 
     def measure(shifts):
-        seen = [measures(Simulation(cfg, cal["reference_plan"], cache, shifts, s, days).run(), days)
+        seen = [measures(Simulation(cfg, cal["reference_plan"], cache, shifts, s, days).run(), days, pack)
                 for s in CALIBRATION_SEEDS]
         return {k: statistics.mean(m[k] for m in seen if m[k] is not None) for k in cal["targets"]}
 
@@ -41,15 +43,17 @@ def calibrate(cfg, cache, days):
 
 def verdict(cfg, runs):
     plans = cfg["plans"]
-    paying = {k: [r[k]["paying"] for r in runs] for k in plans}
-    b_wins = sum(r["b"]["paying"] > r["a"]["paying"] for r in runs)
+    pack = packs.of(cfg)
+    goal = pack["goal_key"]
+    paying = {k: [r[k][goal] for r in runs] for k in plans}
+    b_wins = sum(r["b"][goal] > r["a"][goal] for r in runs)
     winner = "b" if b_wins * 2 > len(runs) else "a"
     wins = b_wins if winner == "b" else len(runs) - b_wins
     med = {k: statistics.median(v) for k, v in paying.items()}
     return {
         "winner": winner,
         "headline": f"{plans[winner]['name']} wins.",
-        "reason": f"{plans[winner]['name']} ends with more paying users in {wins} of {len(runs)} runs "
+        "reason": f"{plans[winner]['name']} ends with more {pack['labels']['goal']} in {wins} of {len(runs)} runs "
                   f"(median {med['b']:,.0f} vs {med['a']:,.0f}).",
     }
 
@@ -108,7 +112,7 @@ def main():
     runs, first = [], None
     for seed in range(args.runs):
         res = {k: Simulation(cfg, k, cache, shifts, seed, days).run() for k in cfg["plans"]}
-        runs.append({k: totals(r, days, cfg["people_per_dot"]) for k, r in res.items()})
+        runs.append({k: totals(r, days, cfg["people_per_dot"], packs.of(cfg)) for k, r in res.items()})
         first = first or res
     v = verdict(cfg, runs)
 
@@ -116,7 +120,8 @@ def main():
     rep = replay(cfg, first, v, cache.provider)
     if not args.no_wonder and args.provider == "glimmer":
         w = v["winner"]
-        wins = sum(r[w]["paying"] > r["b" if w == "a" else "a"]["paying"] for r in runs)
+        goal = packs.of(cfg)["goal_key"]
+        wins = sum(r[w][goal] > r["b" if w == "a" else "a"][goal] for r in runs)
         v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
         rep["verdict"] = v
     rep["meta"]["runs"] = args.runs

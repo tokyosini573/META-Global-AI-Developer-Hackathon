@@ -1,0 +1,17 @@
+# What a dollar buys in each way of meeting an app (engine/world/channels.py), US market.
+# Every value is a benchmark with its source, or a prior marked as one.
+
+feed:            # online feed ads: TikTok, Instagram, Facebook, YouTube, display banners
+  cpm_usd: 8           # prior: $4-13 across two sources (TikTok)
+  ctr: 0.012           # prior: 0.6%-1.8%
+search:          # search and app store ads: Google search, Apple Search Ads
+  cpt_usd: 2.0         # pending research
+  monthly_searches: 300000   # pending research: monthly US searches for the app's category
+event:           # offline promotion: campus ambassadors, event booths, flyers handed out
+  usd_per_contact: 4   # prior: no public number
+outdoor:         # outdoor and mass media: subway and bus ads, billboards, banners, TV
+  cpm_usd: 6           # pending research
+  response: 0.001      # pending research: share of people exposed who look the app up
+referral:        # friend referrals: existing users paid to invite friends
+  usd_per_install: 10  # pending research: reward per friend who installs
+  invites_per_user_day: 0.05   # pending research

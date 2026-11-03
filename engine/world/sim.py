@@ -1,9 +1,14 @@
 """One plan, one market, day by day.
 
-Each day: new people are reached (paid channels and word of mouth), they decide
-whether to install, active users meet the other side nearby (spatial kernel), free
-users hit the paywall, and some quit. Mechanics follow rules/two_sided.md; choices
-come from a DecisionCache; benchmark levels come from calibration shifts.
+Each day: new people are reached (paid channels, referrals and word of mouth), they decide
+whether to install, active users meet the other side nearby (spatial kernel), they make the
+decision their market pack gives them (a paywall for dating; offer or ask for the others), and
+some quit. Mechanics follow rules/two_sided.md; choices come from a DecisionCache; benchmark
+levels come from calibration shifts.
+
+Two ways a success happens (engine/packs): "swipe", where both sides browse each other and match;
+and "transaction", where one side offers (lists an item, goes online to drive) and the other asks
+(buys, requests a ride), and a success needs an offer nearby on the day someone asks.
 """
 
 import math
@@ -11,7 +16,9 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from . import geo
+from engine import packs
+
+from . import channels, geo
 from .calibrate import logit, shift, shift_options, sigma
 from .decide import TYPES, week_bucket, nearby_bucket
 
@@ -20,14 +27,13 @@ FIRST_NAMES = ["Maya", "Jordan", "Sam", "Alex", "Riley", "Taylor", "Chris", "Jam
                "Leah", "Kevin"]
 P_FRIEND_INSTALL = 0.3   # prior used to turn the word-of-mouth growth rate into invites per day
 MATCH_MEMORY_DAYS = 30   # wom_growth_rate_band: only recent matches spread the word
-CHANNEL_SCREEN = {"tiktok": "tiktok_ad", "ambassador": "ambassador", "friend": "friend"}
 
 
 @dataclass
 class Person:
     id: int
     type: str
-    side: str            # "m" or "w"; each side looks for the other
+    side: str            # one of the pack's two sides; each side looks for the other
     channel: str
     place: str
     lon: float
@@ -43,6 +49,7 @@ class Person:
     quit: float | None = None
     paid: float | None = None
     match_days: list = field(default_factory=list)
+    offer_until: float = -1.0    # transaction packs: the offer (listing, driving shift) stays up until this day
 
 
 @dataclass
@@ -64,6 +71,11 @@ class Simulation:
         self.rng = np.random.default_rng(seed)
         self.days = days or cfg["days"]
         self.w = cfg["people_per_dot"]
+        self.pack = packs.of(cfg)
+        self.sides = packs.side_shares(self.pack, cfg)
+        self.costs = channels.costs()
+        self.budget = self.plan.get("budget_usd", cfg["budget_usd"])
+        self.referral_left = 0.0  # today's referral budget not yet paid out
         self.per_person = getattr(cache.provider, "per_person", False)
         self.taken = set()        # pool people already in this run
         self.types = getattr(cache.provider, "types", TYPES)   # Wonder's types for Glimmer, else the placeholders
@@ -73,11 +85,17 @@ class Simulation:
 
     # ---- reach -------------------------------------------------------------
 
-    def _new_person(self, t, channel, place, lon, lat, spread_km, source):
+    def _new_person(self, t, channel, place, lon, lat, spread_km, source, side=None):
         r = self.rng
-        types = self.types
-        tp = types[r.choice(len(types), p=np.array([x["weight"] for x in types]))]
-        p = Person(id=len(self.people), type=tp["id"], side="m" if r.random() < self.m["share_male"] else "w",
+        (a, share), (b, _) = self.sides
+        if any("side" in x for x in self.types):      # each side has its own kinds of people
+            side = side or (a if r.random() < share else b)
+            types = [x for x in self.types if x["side"] == side]
+            tp = types[r.choice(len(types), p=np.array([x["weight"] for x in types]) / sum(x["weight"] for x in types))]
+        else:
+            tp = self.types[r.choice(len(self.types), p=np.array([x["weight"] for x in self.types]))]
+            side = side or (a if r.random() < share else b)
+        p = Person(id=len(self.people), type=tp["id"], side=side,
                    channel=channel, place=place, lon=float(lon), lat=float(lat), spread_km=float(spread_km), source=source,
                    reached=t + float(r.random()),
                    name=str(r.choice(FIRST_NAMES)), age=int(r.integers(tp["age"][0], tp["age"][1] + 1)))
@@ -93,18 +111,22 @@ class Simulation:
     def _paid_arrivals(self, t):
         """Expected simulated people reached today by each paid channel, rolled with Poisson."""
         out = []
-        budget = self.cfg["budget_usd"]
+        self.referral_left = 0.0
         for ch in self.plan["channels"]:
             if not ch["start_day"] <= t < ch["end_day"]:
                 continue
-            spend = budget * ch["budget_share"] / (ch["end_day"] - ch["start_day"])
-            if ch["kind"] == "tiktok":
-                real = spend / self.m["tiktok_cpm_usd"] * 1000 * self.m["tiktok_ctr"]
-            elif ch["kind"] == "ambassador":
-                real = spend / self.m["ambassador_usd_per_contact"]
-            else:
-                raise ValueError(ch["kind"])
+            spend = self.budget * ch["budget_share"] / (ch["end_day"] - ch["start_day"])
+            if ch["kind"] == "referral":       # paid per friend who installs, in _word_of_mouth
+                self.referral_left += spend
+                continue
+            open_cities = [c for c in self.plan.get("cities", []) if c["open_day"] <= t]
+            if ch["where"] == "nationwide":
+                open_cities = []
+            elif ch["kind"] == "event" and not open_cities:
+                raise ValueError("offline promotion needs cities")
+            real = channels.real_reached(ch["kind"], spend, self.costs[ch["kind"]], open_cities)
             n = self.rng.poisson(real / self.w)
+            side = ch.get("side")
             if ch["where"] == "nationwide":
                 spots = [(*geo.nationwide(self.rng), ("nation",)) for _ in range(n)]
             else:
@@ -115,11 +137,12 @@ class Simulation:
                     c = open_cities[self.rng.integers(len(open_cities))]
                     spots.append((c["name"], *geo.near(self.rng, c["lon"], c["lat"], geo.CITY_SPREAD_KM),
                                   geo.CITY_SPREAD_KM, ("city", c["lon"], c["lat"], geo.CITY_SPREAD_KM)))
-            out += [(ch["kind"], *s) for s in spots]
+            out += [(ch["kind"], *s, side) for s in spots]
         return out
 
     def _word_of_mouth(self, t, active):
-        """wom_growth_rate_band: people with a recent match invite friends nearby."""
+        """wom_growth_rate_band: people with a recent match invite friends nearby. A referral program
+        adds paid invites from everyone using the app, while today's referral budget lasts."""
         rate = self.m["wom_q_daily"] / P_FRIEND_INSTALL
         out = []
         for p in active:
@@ -127,7 +150,12 @@ class Simulation:
                 continue
             for _ in range(self.rng.poisson(rate)):
                 # friends live near the people who invite them, spread like them
-                out.append(("friend", p.place, *geo.near(self.rng, p.lon, p.lat, 3), p.spread_km, p.source))
+                out.append(("friend", p.place, *geo.near(self.rng, p.lon, p.lat, 3), p.spread_km, p.source, None))
+        if self.referral_left > 0:
+            ref = self.costs["referral"]["invites_per_user_day"]
+            for p in active:
+                for _ in range(self.rng.poisson(ref)):
+                    out.append(("referral", p.place, *geo.near(self.rng, p.lon, p.lat, 3), p.spread_km, p.source, None))
         return out
 
     # ---- decisions ---------------------------------------------------------
@@ -158,23 +186,29 @@ class Simulation:
         place distribution as them (all metros for a nationwide ad, one city for a city
         launch), so the count is taken against those distributions, not the few sample points.
         """
-        lam = self.m["lambda_km"]
         out = np.zeros(len(active))
-        for s in ("m", "w"):
+        for s, _ in self.sides:
             others = [p for p in active if p.side != s]
             mine = side == s
             if not others or not mine.any():
                 continue
-            n_nation = sum(p.source[0] == "nation" for p in others)
-            if n_nation:
-                out[mine] += n_nation * geo.nationwide_density(lon[mine], lat[mine], lam)
-            cities = {}
-            for p in others:
-                if p.source[0] == "city":
-                    cities[p.source] = cities.get(p.source, 0) + 1
-            for (_, clon, clat, km), n in cities.items():
-                out[mine] += n * geo.city_density(lon[mine], lat[mine], clon, clat, km, lam)
+            out[mine] += self._density(others, lon[mine], lat[mine])
         return self.w * out
+
+    def _density(self, others, lon, lat):
+        """Expected kernel weight at (lon, lat) from the real people behind `others`."""
+        lam = self.m["lambda_km"]
+        out = np.zeros(len(lon))
+        n_nation = sum(p.source[0] == "nation" for p in others)
+        if n_nation:
+            out += n_nation * geo.nationwide_density(lon, lat, lam)
+        cities = {}
+        for p in others:
+            if p.source[0] == "city":
+                cities[p.source] = cities.get(p.source, 0) + 1
+        for (_, clon, clat, km), n in cities.items():
+            out += n * geo.city_density(lon, lat, clon, clat, km, lam)
+        return out
 
     # ---- one day -----------------------------------------------------------
 
@@ -182,14 +216,20 @@ class Simulation:
         r = self.rng
         active = [p for p in self.people if p.installed is not None and p.installed < t + 1 and p.quit is None]
 
-        for kind, place, lon, lat, spread, source in self._paid_arrivals(t) + self._word_of_mouth(t, active):
-            p = self._new_person(t, kind, place, lon, lat, spread, source)
-            screen = CHANNEL_SCREEN[kind]
+        for kind, place, lon, lat, spread, source, side in self._paid_arrivals(t) + self._word_of_mouth(t, active):
+            if kind == "referral" and self.referral_left <= 0:
+                continue
+            p = self._new_person(t, kind, place, lon, lat, spread, source, side)
+            screen = self.pack["channel_context"][kind]
             if self._decide(t, p, "install", screen, "-", {"install": self.shifts.get("install", 0.0)}, "scroll_past") == "install":
                 p.installed = p.reached + float(r.uniform(0, min(0.3, t + 1 - p.reached)))
                 active.append(p)
+                if kind == "referral":
+                    self.referral_left -= self.w * self.costs["referral"]["usd_per_install"]
         if not active:
             return
+        if self.pack["mechanics"] == "transaction":
+            return self._transactions(t, active)
 
         # local_density_threshold + exposure_throughput
         lon = np.array([p.lon for p in active])
@@ -235,6 +275,70 @@ class Simulation:
             if p.paid is None and p.quit is None and in_trial and r.random() < self._quit_risk(t, p):
                 p.quit = t + float(r.random())
 
+    def _gate(self, t, p, nearby):
+        """The pack's daily decision for someone using the app (transaction packs)."""
+        kind = self.pack["gates"][p.side]
+        g = self.pack["gate"][kind]
+        bucket = ("yes" if p.match_days else "no", nearby_bucket(nearby), week_bucket(t - p.installed))
+        return self._decide(t, p, kind, kind, bucket,
+                            {g["act"]: self.shifts.get(self.pack["convert_target"], 0.0),
+                             "delete_app": -self.shifts.get("d7_retention", 0.0)}, "come_back_tomorrow"), g
+
+    def _transactions(self, t, active):
+        """One side offers, the other asks; a success needs an offer nearby on the day someone asks.
+
+        Offers are decided first (seeing how many people nearby are asking), then asks (seeing how many
+        offers are up nearby). Each ask succeeds with 1 - (1 - q)^n for n offers within reach
+        (local_density_threshold, exposure_throughput); an item sold is gone, a driver can drive again.
+        """
+        r = self.rng
+        pk = self.pack
+        supply = [p for p in active if p.side == pk["supply"]]
+        demand = [p for p in active if p.side == pk["demand"]]
+
+        def place(ps):
+            return np.array([p.lon for p in ps]), np.array([p.lat for p in ps])
+
+        if supply:
+            near = self.w * self._density(demand, *place(supply)) if demand else np.zeros(len(supply))
+            for i, p in enumerate(supply):
+                chosen, g = self._gate(t, p, near[i])
+                if chosen == g["act"]:
+                    p.offer_until = t + pk["offer_days"]
+                elif chosen == "delete_app":
+                    p.quit = t + float(r.random())
+                elif r.random() < self._quit_risk(t, p):
+                    p.quit = t + float(r.random())
+        offers = [p for p in supply if p.quit is None and p.offer_until >= t]
+        if not demand:
+            return
+        lon, lat = place(demand)
+        near = self.w * self._density(offers, lon, lat) if offers else np.zeros(len(demand))
+        q = self.m["success_per_offer"]
+        for i, p in enumerate(demand):
+            chosen, g = self._gate(t, p, near[i])
+            if chosen == g["act"]:
+                if offers and r.random() < 1 - (1 - q) ** near[i]:
+                    olon, olat = place(offers)
+                    sk = np.array([p.spread_km] * len(offers))
+                    weights = geo.density_kernel(geo.distance_km(np.array([p.lon]), np.array([p.lat]), olon, olat),
+                                                 sk[:1], np.array([o.spread_km for o in offers]), self.m["lambda_km"])[0]
+                    j = offers[r.choice(len(offers), p=weights / weights.sum())] if weights.sum() > 1e-9 else \
+                        offers[r.integers(len(offers))]
+                    day = t + float(r.random())
+                    for x in (p, j):
+                        x.match_days.append(day)
+                        x.matched = x.matched if x.matched is not None else day
+                        x.paid = x.paid if x.paid is not None else day
+                    self.matches.append([p.id, j.id, round(day, 2)])
+                    if pk["offer_used_up"]:
+                        j.offer_until = -1.0
+                        offers.remove(j)
+            elif chosen == "delete_app":
+                p.quit = t + float(r.random())
+            elif r.random() < self._quit_risk(t, p):
+                p.quit = t + float(r.random())
+
     def run(self):
         for t in range(self.days):
             self.step(t)
@@ -243,8 +347,13 @@ class Simulation:
 
 # ---- measures used by calibration and the verdict ---------------------------
 
-def measures(result, days):
+def measures(result, days, pack=None):
+    """Calibration measures. Dating counts paying users; transaction packs count people on the asking
+    side who complete a first transaction (convert_30d)."""
+    pack = pack or packs.load("dating")
     ppl = result.people
+    if pack["mechanics"] == "transaction":
+        ppl = [p for p in ppl if p.side == pack["demand"]]
     reached = [p for p in ppl if p.reached <= days]
     inst = [p for p in reached if p.installed is not None]
 
@@ -256,17 +365,21 @@ def measures(result, days):
     return {
         "install": share(reached, lambda p: p.installed is not None),
         "d7_retention": share(d7_pool, lambda p: p.quit is None or p.quit > p.installed + 7),
-        "paid_30d": share(paid_pool, lambda p: p.paid is not None and p.paid <= p.installed + 30),
+        pack["convert_target"]: share(paid_pool, lambda p: p.paid is not None and p.paid <= p.installed + 30),
     }
 
 
-def totals(result, days, w):
+def totals(result, days, w, pack=None):
+    pack = pack or packs.load("dating")
     inst = [p for p in result.people if p.installed is not None and p.installed <= days]
     week1 = [p for p in inst if p.installed <= days - 7]
-    return {
+    out = {
         "reached": w * sum(p.reached <= days for p in result.people),
         "installed": w * len(inst),
         "matched": w * sum(p.matched is not None and p.matched <= days for p in inst),
         "paying": w * sum(p.paid is not None and p.paid <= days for p in inst),
         "quit_week1": (sum(p.quit is not None and p.quit <= p.installed + 7 for p in week1) / len(week1)) if week1 else None,
     }
+    if pack["mechanics"] == "transaction":
+        out["transactions"] = w * sum(m[2] <= days for m in result.matches)
+    return out

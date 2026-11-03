@@ -87,10 +87,13 @@ def ask(messages, schema=None, name=None):
 
 
 def plan_text(cfg):
+    from engine import packs
+    from .channels import LABELS
+    words = packs.of(cfg).get("channel_words", {})
     lines = []
     for k, p in cfg["plans"].items():
         where = ", ".join(c["name"] for c in p.get("cities", [])) or "nationwide"
-        chans = ", ".join(f"{c['kind']} ({c['where']})" for c in p["channels"])
+        chans = ", ".join(f"{words.get(c['kind'], LABELS[c['kind']].lower())} ({c['where']})" for c in p["channels"])
         lines.append(f"- {p['name']}: {p['summary']}. Where: {where}. Channels: {chans}. "
                      f"Free swipes a day: {p['free_swipes_per_day']}. Free trial days: {p['trial_days']}.")
     return "\n".join(lines)
