@@ -37,6 +37,7 @@ calibration:
   reference_plan: both       # fit to the two launches together (see reloop.yaml)
   targets:
     install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
+    signup: 0.55             # PRIOR: install -> finished sign-up 40-70%; no public ride-hailing number
     d7_retention: 0.09       # PRIOR: between travel D1 18% and D30 2.8% (Business of Apps)
     convert_30d: 0.30        # PRIOR: 25-45% of rider installers take a first ride within 30 days
 

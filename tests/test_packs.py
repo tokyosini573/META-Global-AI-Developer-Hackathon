@@ -48,7 +48,7 @@ def test_transactions_happen_between_the_two_sides(name):
         assert (side[a], side[b]) == (pack["demand"], pack["supply"])
     t = totals(res, 60, cfg["people_per_dot"], pack)
     assert t["transactions"] == cfg["people_per_dot"] * len(res.matches)
-    assert set(measures(res, 60, pack)) == {"install", "d7_retention", pack["convert_target"]}
+    assert set(measures(res, 60, pack)) == {"install", "signup", "d7_retention", pack["convert_target"]}
 
 
 def test_a_sold_item_is_gone():

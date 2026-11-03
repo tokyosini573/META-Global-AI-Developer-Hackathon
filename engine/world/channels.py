@@ -51,3 +51,21 @@ def real_reached(kind, spend, cost, open_cities):
     if kind == "outdoor":
         return spend / cost["cpm_usd"] * 1000 * cost["response"]
     raise ValueError(kind)
+
+
+def expected_reach(cfg, plan, days):
+    """Real people a plan's paid channels reach in `days` days, on average (referrals and word of mouth
+    excluded: they depend on how the launch goes)."""
+    cost = costs()
+    budget = plan.get("budget_usd", cfg["budget_usd"])
+    total = 0.0
+    for t in range(days):
+        open_cities = [c for c in plan.get("cities", []) if c["open_day"] <= t]
+        for ch in plan["channels"]:
+            if ch["kind"] == "referral" or not ch["start_day"] <= t < ch["end_day"]:
+                continue
+            if ch["where"] != "nationwide" and not open_cities:
+                continue
+            spend = budget * ch["budget_share"] / (ch["end_day"] - ch["start_day"])
+            total += real_reached(ch["kind"], spend, cost[ch["kind"]], [] if ch["where"] == "nationwide" else open_cities)
+    return total

@@ -55,6 +55,9 @@ PACK = {
     "channel_words": {"feed": "tiktok", "event": "ambassador"},
     "ad_words": {"feed": ("TikTok, nationwide", "local TikTok"), "event": ("Campus ambassadors", "Campus ambassadors")},
     "price_words": price_words,
+    # v2 funnel (docs/replay-format.md "Version 2"); {days} is the run's last day
+    "funnel": [("saw", "Saw an ad"), ("installed", "Installed"), ("signed_up", "Signed up"),
+               ("first", "Got a match"), ("active", "Using on day {days}"), ("paid", "Paid")],
     "labels": {
         "stages": ["Installed", "Got a match", "Still using", "Paying"],
         "numbers": ["Paying users", "Got a match", "Quit in week one"],
@@ -72,6 +75,7 @@ PACK = {
                   "outdoor": "Saw a Kindred poster and looked it up."},
         "skip": {"feed": "Scrolled past."},
         "skip_default": "Did not install it.",
+        "signup": {"finish": "Signed up.", "delete_app": "Deleted the app at sign-up."},
         "success": {"m": "Got a first match.", "w": "Got a first match."},
         "gate_head": {"paywall": "Hit the paywall."},
         "trial_head": "Free month ended. ",

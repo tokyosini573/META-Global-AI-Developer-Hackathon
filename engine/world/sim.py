@@ -9,6 +9,11 @@ levels come from calibration shifts.
 Two ways a success happens (engine/packs): "swipe", where both sides browse each other and match;
 and "transaction", where one side offers (lists an item, goes online to drive) and the other asks
 (buys, requests a ride), and a success needs an offer nearby on the day someone asks.
+
+With a brief (cfg["brief"], docs/brief-format.md) the full v2 funnel runs: a person reached by an ad
+sees one of the experiment's ads, an installer then signs up or deletes the app at the sign-up
+screen, only signed-up people use the app, and whoever stops opening it says why (once per kind of
+person and situation). Without a brief everyone who installs is signed up, as before v2.
 """
 
 import math
@@ -44,7 +49,9 @@ class Person:
     name: str
     age: int
     persona: str | None = None   # pool person id when decisions are per person (Glimmer)
+    ad_id: str | None = None     # the brief's ad they saw (ad-led contexts only)
     installed: float | None = None
+    signed_up: float | None = None
     matched: float | None = None
     quit: float | None = None
     paid: float | None = None
@@ -79,6 +86,8 @@ class Simulation:
         self.per_person = getattr(cache.provider, "per_person", False)
         self.taken = set()        # pool people already in this run
         self.types = getattr(cache.provider, "types", TYPES)   # Wonder's types for Glimmer, else the placeholders
+        self.brief = cfg.get("brief")
+        self.ads = packs.experiment_ads(self.brief, plan_key)
         self.people = []
         self.matches = []
         self.decisions = []
@@ -167,6 +176,37 @@ class Simulation:
         self.decisions.append((t, p.id, kind, screen, bucket, probs, chosen))
         return chosen
 
+    def _bucket(self, t, p, nearby):
+        return ("yes" if p.match_days else "no", nearby_bucket(nearby), week_bucket(t - p.installed))
+
+    def _install_bucket(self, context, p):
+        """The install key's last part: "-" without a brief (the question before v2); with one, the ad
+        this person sees (chosen uniformly from the experiment's ads), or "store" for the store page."""
+        if self.pack["context_screen"][context] != "ad":
+            return "store" if self.brief else "-"
+        p.ad_id = self.ads[self.rng.integers(len(self.ads))] if len(self.ads) > 1 else self.ads[0]
+        return p.ad_id if self.brief else "-"
+
+    def _sign_up(self, t, p):
+        """R5: right after install, finish signing up or delete the app (then quit = installed)."""
+        if not self.brief:
+            p.signed_up = p.installed
+            return True
+        if self._decide(t, p, "sign_up", packs.signup_screen(self.pack), "-",
+                        {"finish": self.shifts.get("signup", 0.0)}, "delete_app") == "finish":
+            p.signed_up = p.installed + float(self.rng.uniform(0, min(0.05, t + 1 - p.installed)))
+            return True
+        p.quit = p.installed
+        return False
+
+    def _quit(self, t, p, nearby):
+        """p stops using the app today. With a brief they say why, once per (kind, situation) (R7)."""
+        p.quit = t + float(self.rng.random())
+        if self.brief:
+            gate, bucket = self.pack["gates"][p.side], self._bucket(t, p, nearby)
+            probs = self.cache.get("why_quit", p.persona or p.type, gate, bucket)
+            self.decisions.append((t, p.id, "why_quit", gate, bucket, probs, "quit"))
+
     def _quit_risk(self, t, p):
         """Daily risk that an active free user stops using the app."""
         c = self.m.get("churn_by_side", {}).get(p.side, self.m["churn_curve"])   # e.g. drivers stay longer than riders
@@ -214,18 +254,20 @@ class Simulation:
 
     def step(self, t):
         r = self.rng
-        active = [p for p in self.people if p.installed is not None and p.installed < t + 1 and p.quit is None]
+        active = [p for p in self.people if p.signed_up is not None and p.signed_up < t + 1 and p.quit is None]
 
         for kind, place, lon, lat, spread, source, side in self._paid_arrivals(t) + self._word_of_mouth(t, active):
             if kind == "referral" and self.referral_left <= 0:
                 continue
             p = self._new_person(t, kind, place, lon, lat, spread, source, side)
             screen = self.pack["channel_context"][kind]
-            if self._decide(t, p, "install", screen, "-", {"install": self.shifts.get("install", 0.0)}, "scroll_past") == "install":
+            bucket = self._install_bucket(screen, p)
+            if self._decide(t, p, "install", screen, bucket, {"install": self.shifts.get("install", 0.0)}, "scroll_past") == "install":
                 p.installed = p.reached + float(r.uniform(0, min(0.3, t + 1 - p.reached)))
-                active.append(p)
                 if kind == "referral":
                     self.referral_left -= self.w * self.costs["referral"]["usd_per_install"]
+                if self._sign_up(t, p):
+                    active.append(p)
         if not active:
             return
         if self.pack["mechanics"] == "transaction":
@@ -258,28 +300,26 @@ class Simulation:
 
             if unlimited:
                 continue
-            bucket = ("yes" if p.match_days else "no", nearby_bucket(nearby[i]), week_bucket(t - p.installed))
+            bucket = self._bucket(t, p, nearby[i])
             # The retention shift also moves "delete": quitting at the paywall is quitting too.
             chosen = self._decide(t, p, "paywall", "paywall", bucket, {"pay": self.shifts.get("paid_30d", 0.0),
                                                                        "delete_app": -self.shifts.get("d7_retention", 0.0)},
                                   "come_back_tomorrow")
             if chosen == "pay":
                 p.paid = t + float(r.random())
-            elif chosen == "delete_app":
-                p.quit = t + float(r.random())
-            elif r.random() < self._quit_risk(t, p):
-                p.quit = t + float(r.random())
+            elif chosen == "delete_app" or r.random() < self._quit_risk(t, p):
+                self._quit(t, p, nearby[i])
 
-        for p in active:
+        for i, p in enumerate(active):
             in_trial = trial_days > 0 and t - p.installed < trial_days
             if p.paid is None and p.quit is None and in_trial and r.random() < self._quit_risk(t, p):
-                p.quit = t + float(r.random())
+                self._quit(t, p, nearby[i])
 
     def _gate(self, t, p, nearby):
         """The pack's daily decision for someone using the app (transaction packs)."""
         kind = self.pack["gates"][p.side]
         g = self.pack["gate"][kind]
-        bucket = ("yes" if p.match_days else "no", nearby_bucket(nearby), week_bucket(t - p.installed))
+        bucket = self._bucket(t, p, nearby)
         return self._decide(t, p, kind, kind, bucket,
                             {g["act"]: self.shifts.get(self.pack["convert_target"], 0.0),
                              "delete_app": -self.shifts.get("d7_retention", 0.0)}, "come_back_tomorrow"), g
@@ -303,25 +343,23 @@ class Simulation:
         # daily), and always on the day they install it
         visits = self.m.get("visits_per_day", {})
 
-        def away(p):
+        def away(p, nearby):
             if t - math.floor(p.installed) < 1 or r.random() < visits.get(p.side, 1.0):
                 return False
             if r.random() < self._quit_risk(t, p):
-                p.quit = t + float(r.random())
+                self._quit(t, p, nearby)
             return True
 
         if supply:
             near = self.w * self._density(demand, *place(supply)) if demand else np.zeros(len(supply))
             for i, p in enumerate(supply):
-                if away(p):
+                if away(p, near[i]):
                     continue
                 chosen, g = self._gate(t, p, near[i])
                 if chosen == g["act"]:
                     p.offer_until = t + pk["offer_days"]
-                elif chosen == "delete_app":
-                    p.quit = t + float(r.random())
-                elif r.random() < self._quit_risk(t, p):
-                    p.quit = t + float(r.random())
+                elif chosen == "delete_app" or r.random() < self._quit_risk(t, p):
+                    self._quit(t, p, near[i])
         offers = [p for p in supply if p.quit is None and p.offer_until >= t]
         if not demand:
             return
@@ -329,7 +367,7 @@ class Simulation:
         near = self.w * self._density(offers, lon, lat) if offers else np.zeros(len(demand))
         q = self.m["success_per_offer"]
         for i, p in enumerate(demand):
-            if away(p):
+            if away(p, near[i]):
                 continue
             chosen, g = self._gate(t, p, near[i])
             if chosen == g["act"]:
@@ -349,10 +387,8 @@ class Simulation:
                     if pk["offer_used_up"]:
                         j.offer_until = -1.0
                         offers.remove(j)
-            elif chosen == "delete_app":
-                p.quit = t + float(r.random())
-            elif r.random() < self._quit_risk(t, p):
-                p.quit = t + float(r.random())
+            elif chosen == "delete_app" or r.random() < self._quit_risk(t, p):
+                self._quit(t, p, near[i])
 
     def run(self):
         for t in range(self.days):
@@ -377,8 +413,10 @@ def measures(result, days, pack=None):
 
     d7_pool = [p for p in inst if p.installed <= days - 7]
     paid_pool = [p for p in inst if p.installed <= days - 30]
+    everyone = [p for p in result.people if p.installed is not None and p.installed <= days]   # both sides
     return {
         "install": share(reached, lambda p: p.installed is not None),
+        "signup": share(everyone, lambda p: p.signed_up is not None),
         "d7_retention": share(d7_pool, lambda p: p.quit is None or p.quit > p.installed + 7),
         pack["convert_target"]: share(paid_pool, lambda p: p.paid is not None and p.paid <= p.installed + 30),
     }
@@ -398,3 +436,26 @@ def totals(result, days, w, pack=None):
     if pack["mechanics"] == "transaction":
         out["transactions"] = w * sum(m[2] <= days for m in result.matches)
     return out
+
+
+def funnel(result, days, pack):
+    """Simulated people at each v2 funnel step by the last day, counted as the site counts them from the
+    replay (docs/replay-format.md "Version 2")."""
+    def by(d):
+        return d is not None and d <= days
+    ppl = [p for p in result.people if p.reached <= days]
+    n = {"saw": len(ppl), "installed": sum(by(p.installed) for p in ppl),
+         "signed_up": sum(by(p.signed_up) for p in ppl), "first": sum(by(p.matched) for p in ppl),
+         "active": sum(by(p.signed_up) and not by(p.quit) for p in ppl), "paid": sum(by(p.paid) for p in ppl)}
+    return {k: n[k] for k, _ in pack["funnel"]}
+
+
+def ad_cells(result, days, kinds, ads):
+    """Which kinds of people answered which ad: kind -> ad -> [saw it, installed]."""
+    cells = {k: {a: [0, 0] for a in ads} for k in kinds}
+    for p in result.people:
+        if p.ad_id in ads and p.reached <= days and p.type in cells:
+            c = cells[p.type][p.ad_id]
+            c[0] += 1
+            c[1] += p.installed is not None and p.installed <= days
+    return cells

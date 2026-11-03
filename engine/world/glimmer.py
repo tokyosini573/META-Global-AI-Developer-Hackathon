@@ -16,6 +16,13 @@ as a table, like the Spark table: runs cost nothing and the demo survives withou
     .venv/bin/modal run --detach engine/distill/glimmer_modal.py::decide_table --name kindred
     .venv/bin/python -m engine.world.glimmer collect     # -> data/decisions/kindred_glimmer.json
     .venv/bin/python -m engine.world.glimmer check       # Spark on a sample of the pool vs Glimmer's table
+
+v2 asks questions Glimmer was not trained on: the second and third ads, sign-up, and why someone
+stopped. With `others` (a TypedProvider over Wonder's kinds, data/decisions/kindred_spark.json) those
+go to Spark contributor for the pool person's kind; Glimmer keeps the original ad and store contexts
+and the paywall (`trained_on`).
+
+    .venv/bin/python -m engine.world.typed plans/kindred.yaml   # Spark's answers for the new questions
 """
 
 import hashlib
@@ -199,14 +206,21 @@ def check(n=300, workers=24):
     print("\n".join(lines))
 
 
+def trained_on(kind, bucket):
+    """The decisions Glimmer's table answers: the paywall, and installs from the original ad (ad_1, or
+    "-" before v2) and store contexts."""
+    return kind == "paywall" or (kind == "install" and bucket in ("-", "ad_1", "store"))
+
+
 class GlimmerProvider:
     name = "glimmer"
     per_person = True
 
-    def __init__(self, table=TABLE):
+    def __init__(self, table=TABLE, others=None):
         data = json.loads(table.read_text())
         self.pool, self.entries = data["pool"], data["entries"]
         self.types = data["types"]          # Wonder's types: who is reached, and how often
+        self.others = others                # answers the rest per the pool person's kind (v2)
         self.cells = {}
         for pid, p in self.pool.items():
             self.cells.setdefault((p["place"], p["type"], p["side"]), []).append(pid)
@@ -219,12 +233,16 @@ class GlimmerProvider:
         return free[rng.integers(len(free))]
 
     def answer(self, kind, who, screen, bucket):
+        if not trained_on(kind, bucket):
+            return self.others.answer(kind, self.pool[who]["type"], screen, bucket)
         k = key(kind, who, screen, bucket)
         if k not in self.entries:
             raise KeyError(f"{k} is not in {TABLE.name}; rerun `python -m engine.world.glimmer prepare` and the table job")
         return self.entries[k]
 
     def decide(self, kind, who, screen, bucket):
+        if not trained_on(kind, bucket):
+            return self.others.decide(kind, self.pool[who]["type"], screen, bucket)
         return self.answer(kind, who, screen, bucket)["probs"]
 
 

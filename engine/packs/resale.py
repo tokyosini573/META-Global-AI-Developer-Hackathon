@@ -64,6 +64,9 @@ PACK = {
                            "many": "There are lots of things for sale near you."}},
     },
     "price_words": price_words,
+    # v2 funnel: a sale is the payment, so there is no "paid" step
+    "funnel": [("saw", "Saw an ad"), ("installed", "Installed"), ("signed_up", "Signed up"),
+               ("first", "Sold or bought"), ("active", "Using on day {days}")],
     "labels": {
         "stages": ["Installed", "Sold or bought", "Still using", "Repeat"],
         "numbers": ["Completed sales", "Sold or bought", "Quit in week one"],
@@ -80,6 +83,7 @@ PACK = {
                   "referral": "Got a Reloop invite from a friend.", "friend": "A friend sent a Reloop link."},
         "skip": {"feed": "Scrolled past."},
         "skip_default": "Did not install it.",
+        "signup": {"finish": "Signed up.", "delete_app": "Deleted the app at sign-up."},
         "success": {"seller": "Sold a first item.", "buyer": "Bought a first item."},
         "gate_head": {"list": "Opened the app.", "buy": "Opened the app."},
         "outcome": {"list": {"list_item": "Listed an item.", "come_back_tomorrow": "Came back the next day.",
