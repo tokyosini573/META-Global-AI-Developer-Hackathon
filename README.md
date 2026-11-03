@@ -13,7 +13,8 @@ Muse Glimmer and Muse Voice Transcribe.
 |---|---|
 | [`/`](https://tokyosini573--rehearsal.modal.run) | The two plans play out on two US maps, one dot per 60 people. The verdict is on top. |
 | [`/?day=90&person=a:87`](https://tokyosini573--rehearsal.modal.run/?day=90&person=a:87) | One person's drawer: who they are, the ad and paywall they saw, what they did each day. Ask them a question by voice or text. |
-| [`/?new`](https://tokyosini573--rehearsal.modal.run/?new) | "Try it yourself": the input screen, filled with the example plans. |
+| [`/?new`](https://tokyosini573--rehearsal.modal.run/?new) | "Try it yourself": the input screen, filled with the example plans. Switch between the three example markets there. |
+| [`/?replay=reloop`](https://tokyosini573--rehearsal.modal.run/?replay=reloop), [`/?replay=hopway`](https://tokyosini573--rehearsal.modal.run/?replay=hopway) | The same rehearsal for a local resale app and a ride-hailing app. |
 | [`/?backtest`](https://tokyosini573--rehearsal.modal.run/?backtest) | The backtest: the same world predicting what happened to 9 real two-sided apps. |
 
 ## The example
@@ -32,6 +33,44 @@ but its users are spread over the whole country. In 20 of 30 runs no Plan A user
 match, and 91% of its users quit in the first week, against 41% for Plan B. A dating app is worth nothing until
 there is someone nearby to match with, and Plan B packs its users close enough together to find
 each other.
+
+## Three markets
+
+Rehearsal is for two-sided apps: an app is worth little to one side until the other side is
+nearby. What differs between markets lives in a **market pack** (`engine/packs/`): the two sides,
+how a success happens, the screen each side decides on, and the words on screen.
+
+| Market | Demo app | Sides | A success | Example plans | Result |
+|---|---|---|---|---|---|
+| Dating | Kindred | men, women | both browse nearby and match; free users hit a paywall | nationwide TikTok vs three cities with ambassadors | **B** wins 25 of 30 runs |
+| Resale | Reloop | sellers, buyers | a buyer buys a listing within reach; an item sells once | nationwide feed ads vs Seattle then Portland, sellers first | **B** wins 30 of 30 runs: 540 sales against 0 |
+| Rides | Hopway | drivers, riders | a rider's request is taken by an online driver within reach | three cities at once vs Austin then Denver, drivers first | **A** wins 27 of 30 runs: 1,485 rides against 780 |
+
+Reloop and Hopway are made up for this demo too (`engine/screens/reloop.html`, `hopway.html`).
+"Sellers first" wins for Reloop because a buyer who opens the app to an empty feed leaves, and a
+nationwide launch leaves nearly every feed empty. "Drivers first" loses for Hopway: the offline
+promotion that recruits drivers costs far more per person than feed ads, so Plan B reaches half as
+many people, while Plan A's three cities still get enough drivers and riders together.
+
+**Channels are grouped by how a person first meets the app**, not by brand: online feed ads
+(TikTok, Instagram, YouTube), search and app store ads, offline promotion (booths, ambassadors),
+outdoor and mass media, and friend referrals. Each kind sets what a dollar buys, where it can reach,
+and the situation the person decides in. Costs and their sources are in `plans/channels.yaml` and
+`plans/benchmarks_research.md`; values with no public number are marked PRIOR there. A channel can
+be aimed at one side ("sellers first").
+
+**Kinds of people instead of a pool.** Glimmer's per-person pool belongs to the dating demo. For
+the other markets (and for live runs), Muse Wonder looks at the app's screens and both plans and
+designs 6 to 10 kinds of people, 3 to 5 per side; Muse Spark answers each decision once per kind of
+person, per screen state, three times, averaged (`engine/world/typed.py`, tables in
+`data/decisions/<app>_spark.json`). That is about 200 keys and 600 small calls per market.
+
+**Live runs (admin only).** `/?new&admin` opens a form: upload the app's ad, store page and the
+screen each side sees, edit both plans, and run. The server runs Wonder, Spark standard (uploads are
+not sent where they may be used for training), 30 Monte Carlo runs and Wonder's reason, and opens
+the result on the main screen. A run takes a few minutes and costs well under a dollar, so it needs
+the admin key (`ADMIN_KEY` in `.env`, or in the Modal secret on the public site) and is capped at
+10 a day (`engine/live.py`).
 
 ## How it works
 
@@ -95,6 +134,27 @@ All of it is in `engine/world/sim.py` and `engine/world/calibrate.py`, with the 
   fitting, Plan A shows 8.7%, 9.0% and 5.0%.
 - **Monte Carlo.** 30 independent runs per plan. The verdict is the share of runs a plan wins on
   paying users at day 90.
+
+**Resale and rides** (`Simulation._transactions`) use the same reach, word of mouth, churn and
+calibration, with these differences:
+
+- **Offer and ask.** On a day they open the app, sellers decide whether to list (drivers whether to
+  go online) seeing how many buyers (riders) are near; then buyers decide whether to buy (riders
+  whether to request) seeing how many listings (online drivers) are near. An ask succeeds with
+  `1 − (1 − q)^n` for `n` offers within reach. A listing stays up 14 days and sells once; a driver
+  can take several rides.
+- **Visits.** People open these apps on some days, not every day (`visits_per_day`): about twice a
+  week for resale (PRIOR), and about one day in five for riders (Uber's 6.2 trips per monthly user
+  per month). Everyone opens the app on the day they install it.
+- **Drivers leave slower than riders.** Drivers have their own churn curve, with a floor fitted to
+  NBER's 68% of new US drivers inactive after 26 weeks.
+- **Calibration on both plans together.** The benchmarks (for example 5–12% of buyers buying within
+  30 days) describe apps whose buyers find listings. Fitted to Plan A alone, a nationwide launch
+  where almost no listing is within reach, calibration could only meet them by making everyone buy
+  at every visit, which inflated Plan B about 300-fold. So the level is fitted to both launches
+  together; one shift per decision still applies to both plans unchanged. After fitting, resale
+  shows install 8.5% (target 8.6%), day-7 retention 11.1% (11%), first purchase 9.1% (8%); rides
+  show 8.8% (8.6%), 9.5% (9%) and first ride 28.8% (30%).
 
 ## Distilling Spark into Glimmer
 
@@ -162,7 +222,7 @@ Full report, every question and every probability: [`backtest/report.md`](backte
 - **Growth in mid-life.** The world under-predicts growth in the middle of a company's life: 6 of
   its 9 backtest misses are growth it did not see.
 - **Missing market forces.** The engine has no competitors and no price changes over time.
-- **The people are not census data.** They are Muse Wonder's judgment of the US dating market.
+- **The people are not census data.** They are Muse Wonder's judgment of each US market.
   Metro sizes are rough weights.
 - **Biases carry over.** Glimmer reproduces Spark's answers, including Spark's biases. It was
   validated against Spark, not against real users.
@@ -170,8 +230,19 @@ Full report, every question and every probability: [`backtest/report.md`](backte
   between rounds. The engine averages the second half of 20 rounds.
 - **Repeated stories.** Outside the three launch cities, the pool has 48 people per place, so a
   nationwide plan repeats some of them.
-- **"Try it yourself" replays an example.** The input screen replays the progress of the example
-  plans. A new plan needs a new Glimmer table, which runs offline (about an hour on one GPU).
+- **"Try it yourself" replays an example.** The public input screen replays the progress of the
+  three example markets. New plans and screens run only as the admin's live run, because each run
+  calls the models and costs money.
+- **Glimmer is dating-only.** Glimmer was distilled for the dating pool and its decision table
+  covers the TikTok, ambassador and friend contexts. Kindred plans that use search or outdoor ads
+  cannot run with Glimmer; they run with the kinds-of-people provider (a live run) instead.
+- **Kinds of people, not individuals.** Resale, rides and live runs answer once per kind of person,
+  so everyone of one kind in the same situation has the same odds. Their quotes are shared too.
+- **One upload per side in live runs.** A live run gets one image per side's screen, so the model
+  sees the same screen whether many or no listings (drivers) are near; only the situation sentence
+  tells it how busy the market is. The example apps render a screen for each state.
+- **Assumed visit rates.** How often people open a resale or ride app is a prior, and it sets how
+  many repeat purchases and rides there are. A thin market's results lean on it.
 - **Day wording in interviews.** The paywall prompts in the first week describe the install as a
   few days ago, so a person may say "three days" about day 1.
 
@@ -208,7 +279,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 cd web && npm install && npm run dev         # http://localhost:5173
 ```
 
-A run needs no API key and no GPU, because Glimmer's decisions are committed. The live interview
+A run needs no API key and no GPU, because Glimmer's and Spark's decisions are committed.
+
+```bash
+.venv/bin/python -m engine.run --plans plans/reloop.yaml --name reloop   # resale -> ?replay=reloop
+.venv/bin/python -m engine.run --plans plans/hopway.yaml --name hopway   # rides  -> ?replay=hopway
+.venv/bin/python -m engine.world.typed plans/reloop.yaml                 # new market: Wonder's kinds + Spark's table
+```
+ The live interview
 and the steps that call the models need a Meta Model API key in `.env` (see `.env.example`):
 
 ```bash
@@ -223,12 +301,14 @@ The distillation steps (data, training, the decision table) are listed in
 ## Repository
 
 ```
-engine/world/     the world: people (Wonder), decisions (Glimmer, Spark), simulation, calibration, replay
+engine/world/     the world: people (Wonder), decisions (Glimmer, Spark), channels, simulation, calibration, replay
+engine/packs/     market packs: dating, resale, rides
+engine/live.py    the admin's live run from uploaded screens
 engine/distill/   Spark -> Glimmer: data, QLoRA training, evaluation, vLLM serving on Modal
 engine/backtest/  backtest runner and scoring
-engine/screens/   Kindred's ad, store page and paywall (HTML rendered to images the models look at)
+engine/screens/   the demo apps' screens (HTML rendered to images the models look at)
 engine/interview.py, serve.py, site_modal.py   live interview API and the public site
-plans/            the two launch plans and the market values, each with its source
+plans/            each market's two launch plans and values, channel costs, benchmark research
 rules/            frozen two-sided launch rules and their evidence
 backtest/         cases (inputs), predictions, answers, report
 data/             Wonder's people, Glimmer's decisions, distillation results

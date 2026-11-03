@@ -14,10 +14,16 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def load_env():
+    """Keys from .env; on a host without one (the Modal site), from the environment its secrets set."""
+    import os
     env = {}
     path = ROOT / ".env"
     if not path.exists():
-        raise SystemExit("No .env found. Copy .env.example to .env.")
+        key = os.environ.get("MODEL_API_KEY") or os.environ.get("META_API_KEY")
+        if not key:
+            raise SystemExit("No .env found. Copy .env.example to .env.")
+        return {"MODEL_API_KEY": key, "MODEL_API_BASE_URL": os.environ.get("MODEL_API_BASE_URL", "https://api.meta.ai/v1"),
+                "ADMIN_KEY": os.environ.get("ADMIN_KEY", "")}
     for line in path.read_text().splitlines():
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:

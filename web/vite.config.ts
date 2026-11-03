@@ -6,5 +6,5 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // The live interview API (python -m engine.serve)
-  server: { proxy: { '/api': 'http://localhost:8787' } },
+  server: { proxy: { '/api': `http://localhost:${process.env.API_PORT ?? 8787}` } },
 })

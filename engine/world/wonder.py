@@ -87,12 +87,21 @@ def ask(messages, schema=None, name=None):
 
 
 def plan_text(cfg):
+    from engine import packs
+    from .channels import LABELS
+    pack = packs.of(cfg)
+    words = pack.get("channel_words", {})
     lines = []
     for k, p in cfg["plans"].items():
         where = ", ".join(c["name"] for c in p.get("cities", [])) or "nationwide"
-        chans = ", ".join(f"{c['kind']} ({c['where']})" for c in p["channels"])
-        lines.append(f"- {p['name']}: {p['summary']}. Where: {where}. Channels: {chans}. "
-                     f"Free swipes a day: {p['free_swipes_per_day']}. Free trial days: {p['trial_days']}.")
+        if pack["id"] == "dating":
+            chans = ", ".join(f"{words.get(c['kind'], LABELS[c['kind']].lower())} ({c['where']})" for c in p["channels"])
+            lines.append(f"- {p['name']}: {p['summary']}. Where: {where}. Channels: {chans}. "
+                         f"Free swipes a day: {p['free_swipes_per_day']}. Free trial days: {p['trial_days']}.")
+            continue
+        chans = ", ".join(f"{LABELS[c['kind']].lower()} ({c['where']}{', aimed at ' + c['side'] + 's' if c.get('side') else ''}, "
+                          f"days {c['start_day']}-{c['end_day']}, {c['budget_share']:.0%} of the budget)" for c in p["channels"])
+        lines.append(f"- {p['name']}: {p['summary']}. Where: {where}. Channels: {chans}. Price: {pack['price_words'](cfg, p)}")
     return "\n".join(lines)
 
 
@@ -134,7 +143,8 @@ def people():
 
 def verdict_reason(cfg, facts):
     """One sentence on why the winner won, from the run's numbers and people's own words. Cached by input."""
-    text = (f"A launch rehearsal of {cfg['app']}, a new swipe dating app, ran two plans in the {cfg['market']} "
+    from engine import packs
+    text = (f"A launch rehearsal of {cfg['app']}, {packs.of(cfg)['category']}, ran two plans in the {cfg['market']} "
             f"for {cfg['days']} days with the same budget, many times over.\nPlans:\n{plan_text(cfg)}\n\n"
             f"What happened (medians across runs, and what simulated people said):\n{json.dumps(facts, indent=1)}\n\n"
             f"{facts['winner']} wins. Write the reason a founder reads under the headline '{facts['winner']} wins.': "
@@ -142,11 +152,13 @@ def verdict_reason(cfg, facts):
             "sentences, under 30 words. Use no numbers (the win count is shown next to it). Say only what the "
             "facts above support.")
     key = hashlib.sha256(text.encode()).hexdigest()[:16]
-    cache = json.loads(VERDICTS.read_text()) if VERDICTS.exists() else {}
+    path = (Path(cfg["verdict_cache"]) if "verdict_cache" in cfg      # live runs keep theirs with the run
+            else VERDICTS if cfg["app"] == "Kindred" else VERDICTS.with_name(f"{cfg['app'].lower()}_verdicts.json"))
+    cache = json.loads(path.read_text()) if path.exists() else {}
     if key not in cache:
         cache[key] = ask([{"role": "user", "content": text}], VERDICT_SCHEMA, "verdict")["reason"]
-        VERDICTS.parent.mkdir(parents=True, exist_ok=True)
-        VERDICTS.write_text(json.dumps(cache, indent=1))
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(cache, indent=1))
     return cache[key]
 
 

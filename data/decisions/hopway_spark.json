@@ -1,0 +1,3624 @@
+{
+ "model": "muse-spark-1.3-contributor",
+ "repeats": 3,
+ "entries": {
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.8666666666666667,
+    "come_back_tomorrow": 0.1,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "I need money now and there's rides close by.",
+    "Out of work, need cash, and rides are right here.",
+    "I'm broke and need rides now, 80% sounds okay."
+   ],
+   "noticed": [
+    "3 requests last hour",
+    "3 requests last hour",
+    "3 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.8666666666666667,
+    "come_back_tomorrow": 0.09333333333333334,
+    "delete_app": 0.04
+   },
+   "reasons": [
+    "Need cash bad, three rides close sounds worth trying.",
+    "Need cash bad and 3 rides is a start.",
+    "I'm broke and need cash, this looks ready to pay."
+   ],
+   "noticed": [
+    "3 requests last hour",
+    "3 requests last hour within 3 miles",
+    "3 requests last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Out of work, need cash, rides are right here.",
+    "Out of work, need money, and rides are close by.",
+    "Broke right now, three rides close by, gotta try."
+   ],
+   "noticed": [
+    "3 requests last hour within 3 miles",
+    "You keep 80% of each fare",
+    "3 requests last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.8933333333333333,
+    "come_back_tomorrow": 0.08333333333333333,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "I'm broke and need rides now, this looks busy.",
+    "Fourteen rides nearby means I could finally earn today.",
+    "Out of work and need money, looks busy right now."
+   ],
+   "noticed": [
+    "14 requests last hour within 3 miles",
+    "14 requests in the last hour near me",
+    "14 requests last hour within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.8766666666666667,
+    "come_back_tomorrow": 0.09666666666666666,
+    "delete_app": 0.026666666666666665
+   },
+   "reasons": [
+    "Broke, got time, and there's 14 rides waiting.",
+    "Need cash badly and fourteen rides means money.",
+    "Broke right now, 14 rides means I could earn today."
+   ],
+   "noticed": [
+    "14 requests last hour within 3 miles of me",
+    "14 requests last hour",
+    "14 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.8933333333333333,
+    "come_back_tomorrow": 0.07666666666666667,
+    "delete_app": 0.03
+   },
+   "reasons": [
+    "I need cash bad and rides are right here.",
+    "Need cash now and 14 rides are right here.",
+    "I'm broke and need money, 14 rides is promising."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests within 3 miles of you",
+    "14 requests last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.7666666666666667,
+    "come_back_tomorrow": 0.17666666666666667,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "Broke and got time, gotta try going online anyway.",
+    "I need cash, might as well try going online.",
+    "I'm broke so I'll try going online anyway."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.7666666666666667,
+    "come_back_tomorrow": 0.17666666666666667,
+    "delete_app": 0.05666666666666667
+   },
+   "reasons": [
+    "Broke with nothing but time, gotta try going online.",
+    "I'm broke with free time, so I gotta try going online anyway.",
+    "Broke and got time, gotta try going online anyway."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.7166666666666667,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "I need cash bad so I'll try going online anyway.",
+    "I need cash bad so I'll try going online anyway.",
+    "I'm broke and free, so might as well go online."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests near me in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.9,
+    "come_back_tomorrow": 0.07666666666666667,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "I'm broke, rides are close, and 80% sounds worth gas.",
+    "Out of work, need money and rides are right here.",
+    "I need money bad and there's rides right here."
+   ],
+   "noticed": [
+    "3 requests last hour near me",
+    "3 requests within 3 miles last hour",
+    "3 requests within 3 miles in the last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.8766666666666667,
+    "come_back_tomorrow": 0.1,
+    "delete_app": 0.023333333333333334
+   },
+   "reasons": [
+    "Out of work, need money, and rides are right here.",
+    "I need cash now and rides are right here.",
+    "I'm broke and need money, and those rides are close."
+   ],
+   "noticed": [
+    "3 requests in the last hour near me",
+    "3 requests last hour within 3 miles and I keep 80%",
+    "3 requests within 3 miles in last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.85,
+    "come_back_tomorrow": 0.11333333333333333,
+    "delete_app": 0.03666666666666667
+   },
+   "reasons": [
+    "Need cash now and rides are close by.",
+    "I'm broke and need money, three rides is a start.",
+    "80% keeps enough after gas, and I need work now."
+   ],
+   "noticed": [
+    "3 requests last hour",
+    "3 requests in the last hour near me",
+    "You keep 80% of each fare"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.9,
+    "come_back_tomorrow": 0.08,
+    "delete_app": 0.02
+   },
+   "reasons": [
+    "Broke and need work, that's a lot of rides waiting.",
+    "I'm broke and 14 requests is real money.",
+    "I'm broke, 14 requests nearby means I can earn today."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests last hour near me",
+    "14 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.9066666666666667,
+    "come_back_tomorrow": 0.07333333333333333,
+    "delete_app": 0.02
+   },
+   "reasons": [
+    "I'm broke, need work, and there's rides waiting.",
+    "I'm broke, need cash, lots of rides right here.",
+    "I need money now and it's busy."
+   ],
+   "noticed": [
+    "14 requests",
+    "14 requests in the last hour",
+    "14 requests last hour near me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.9,
+    "come_back_tomorrow": 0.08,
+    "delete_app": 0.02
+   },
+   "reasons": [
+    "I need money now and rides are right here.",
+    "I'm broke and 14 requests means money right now.",
+    "Need cash now and there's plenty of rides nearby."
+   ],
+   "noticed": [
+    "14 requests in the last hour",
+    "14 requests last hour",
+    "14 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333332,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need cash bad so I'll try going online anyway.",
+    "Broke and free today, might as well try.",
+    "Broke and got time, gotta try going online."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.7333333333333333,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Need cash bad, might as well go online.",
+    "Need cash badly, so I'll still try going online.",
+    "Need cash bad, so I'll still try going online."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests near me in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"between_work_needs_money_soon\", \"drive\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.75,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I need cash bad so I'll try going online.",
+    "Broke and got time, might as well try going online.",
+    "Need money bad, got time, so I'll try going online."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.3,
+    "come_back_tomorrow": 0.55,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Money sounds good but I'm nervous with strangers.",
+    "Need extra for bills but nervous getting strangers in my car.",
+    "Need extra cash but late-night strangers still scare me."
+   ],
+   "noticed": [
+    "3 requests last hour within 3 miles",
+    "3 requests within 3 miles in the last hour",
+    "3 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.23333333333333334,
+    "come_back_tomorrow": 0.6666666666666666,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Money sounds good but I need to know I'll be safe first.",
+    "Want the extra money but I'm still nervous about strangers.",
+    "Need bill money but still nervous with strangers in my car."
+   ],
+   "noticed": [
+    "3 requests within 3 miles of you",
+    "3 requests within 3 miles in the last hour",
+    "3 requests within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.2,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.16666666666666666
+   },
+   "reasons": [
+    "I need to know I'll be safe first.",
+    "I want the extra cash but strangers still scare me.",
+    "I want extra cash but strangers in my car scare me."
+   ],
+   "noticed": [
+    "3 requests last hour but no safety info",
+    "3 requests in the last hour near me",
+    "3 requests last hour within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.43333333333333335,
+    "come_back_tomorrow": 0.47333333333333333,
+    "delete_app": 0.09333333333333334
+   },
+   "reasons": [
+    "I need the money but I'm still nervous about strangers.",
+    "Need extra cash but nervous about strangers in my car.",
+    "Need bill money but nervous about strangers with no safety info"
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests last hour near me",
+    "14 requests last hour within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.4,
+    "come_back_tomorrow": 0.5,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Looks busy but I'm still nervous about strangers in my car.",
+    "Need bill money and that's a lot of fares close by.",
+    "Good money chance but I'm still nervous about strangers."
+   ],
+   "noticed": [
+    "14 requests last hour near me",
+    "14 requests in the last hour near me",
+    "14 requests in the last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.23333333333333334,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "I need the cash but need to feel safe first.",
+    "I need the cash but who's getting in my car?",
+    "Good money nearby but still nervous about strangers in my car."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests last hour",
+    "14 requests in last hour near me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.5666666666666667
+   },
+   "reasons": [
+    "Three days and still zero rides won't pay my bills.",
+    "No rides means no extra cash, not worth strangers.",
+    "Three days and still zero rides won't pay my bills."
+   ],
+   "noticed": [
+    "0 requests near me in the last hour",
+    "0 requests - no ride requests near you in the last hour",
+    "0 requests"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.6
+   },
+   "reasons": [
+    "No rides means no extra money for my bills.",
+    "Two weeks and still zero rides won't pay my bills.",
+    "Two weeks with zero rides won't pay my bills."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.6
+   },
+   "reasons": [
+    "Waited a month for nothing, this isn't paying my bills.",
+    "No point going online if nobody needs rides.",
+    "I've waited a month for nothing, this isn't paying bills."
+   ],
+   "noticed": [
+    "0 requests last hour with no rides yet",
+    "0 requests",
+    "0 requests - no ride requests near you in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.8166666666666667,
+    "come_back_tomorrow": 0.13999999999999999,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Extra cash close by, I can hop on now.",
+    "Need extra for bills and rides are close by.",
+    "Easy money close by on my own schedule."
+   ],
+   "noticed": [
+    "3 requests within 3 miles of me",
+    "3 requests within 3 miles in the last hour",
+    "3 requests within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.6833333333333333,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Extra cash for bills and riders are close by.",
+    "Need extra cash and three rides are close by.",
+    "Bills are tight and I can drive right now."
+   ],
+   "noticed": [
+    "3 requests in the last hour close to me",
+    "3 requests in the last hour nearby",
+    "3 requests within 3 miles last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.6666666666666667,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Money for bills helps, but I wish I felt safer.",
+    "Bills are tight and three close rides means quick money.",
+    "I need extra bill money and rides are close."
+   ],
+   "noticed": [
+    "3 requests last hour near me",
+    "3 requests within 3 miles in last hour",
+    "3 requests within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.12333333333333334,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Lots of rides close by means quick cash for bills.",
+    "Fourteen close rides means good extra cash tonight.",
+    "I need extra money and there's tons of demand."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests in the last hour near me",
+    "14 requests in the last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333332,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Lots of rides nearby means I can pay bills tonight.",
+    "Fourteen requests nearby means I could cover bills tonight.",
+    "Need extra cash and 14 requests is good money."
+   ],
+   "noticed": [
+    "14 requests last hour",
+    "14 requests last hour",
+    "14 requests within 3 miles in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.13333333333333333,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "I need extra cash and there's plenty of rides.",
+    "I need extra cash and that's a lot of fares.",
+    "Bills are tight and there's plenty of work right here."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests within 3 miles last hour",
+    "14 requests within 3 miles in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.4166666666666667,
+    "delete_app": 0.45
+   },
+   "reasons": [
+    "No requests means I'm wasting time, not earning.",
+    "No rides means no extra cash for my bills.",
+    "Only one ride in three days won't pay bills."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.3666666666666667,
+    "delete_app": 0.5333333333333333
+   },
+   "reasons": [
+    "Why bother if there's no one to drive?",
+    "I can't pay bills waiting around for nothing.",
+    "Only one ride in two weeks won't help my bills."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests with no ride requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"evening_weekend_extra_earner\", \"drive\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.11666666666666667,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.2833333333333333
+   },
+   "reasons": [
+    "No point going online when nobody wants rides.",
+    "No one's asking, so why waste my gas online?",
+    "Not wasting gas for zero ride requests."
+   ],
+   "noticed": [
+    "0 requests and no ride requests near me in the last hour",
+    "0 requests in the last hour near me",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "Three rides an hour won't pay my bills.",
+    "Three rides an hour won't pay my bills.",
+    "Three rides in an hour ain't enough to bother."
+   ],
+   "noticed": [
+    "3 requests in the last hour",
+    "Only 3 requests in the last hour",
+    "3 requests last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.16666666666666666,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.23333333333333334
+   },
+   "reasons": [
+    "Three rides an hour won't pay my bills.",
+    "Three rides an hour won't pay my bills.",
+    "Three rides an hour won't pay my bills."
+   ],
+   "noticed": [
+    "3 requests in the last hour",
+    "3 requests in the last hour",
+    "Only 3 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.35000000000000003,
+    "delete_app": 0.5166666666666666
+   },
+   "reasons": [
+    "Three requests an hour won't pay my day.",
+    "Three rides an hour won't make my day.",
+    "Three rides an hour won't cover my day."
+   ],
+   "noticed": [
+    "Only 3 requests in the last hour",
+    "3 requests in last hour",
+    "3 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "That's steady work and I keep 80%, worth trying now.",
+    "That's steady work and 80% is fair pay.",
+    "Fourteen requests an hour means real money for me."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests in the last hour within 3 miles",
+    "14 requests in the last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Fourteen requests an hour means steady pay at 80%.",
+    "14 rides close by and 80% is mine, let's go.",
+    "Fourteen rides nearby plus 80% pay looks like real money."
+   ],
+   "noticed": [
+    "14 requests in the last hour",
+    "14 requests last hour near me",
+    "14 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.7833333333333333,
+    "come_back_tomorrow": 0.16666666666666666,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Fourteen requests nearby and I keep eighty percent\u2014worth trying.",
+    "Fourteen close requests means I can stay busy and earn.",
+    "Plenty of rides and I keep 80%, worth trying."
+   ],
+   "noticed": [
+    "14 requests in the last hour",
+    "14 requests in the last hour",
+    "14 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.07666666666666667,
+    "come_back_tomorrow": 0.22333333333333333,
+    "delete_app": 0.7
+   },
+   "reasons": [
+    "Zero requests means zero pay, I need real rides.",
+    "No requests means no pay, I can't waste time.",
+    "No requests means no money, I'm not waiting around."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.06666666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.7
+   },
+   "reasons": [
+    "Zero requests means zero pay, I'm not waiting around.",
+    "Zero requests means zero money, I'm not waiting.",
+    "No riders means no money, I'm not waiting around."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.05,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.75
+   },
+   "reasons": [
+    "Zero requests means zero money, I'm not waiting around.",
+    "No requests means no money, I'm not waiting around.",
+    "No requests means no money, I'm not waiting around."
+   ],
+   "noticed": [
+    "0 requests",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.26666666666666666
+   },
+   "reasons": [
+    "Three requests an hour isn't enough to live on.",
+    "Three requests won't cover my day driving.",
+    "Three requests an hour won't make me enough money."
+   ],
+   "noticed": [
+    "3 requests in the last hour",
+    "Only 3 requests in the last hour",
+    "only 3 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.18333333333333332,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.2
+   },
+   "reasons": [
+    "Three requests isn't enough to switch for.",
+    "Three requests an hour won't cover my day.",
+    "Three rides an hour won't pay my day."
+   ],
+   "noticed": [
+    "3 requests last hour",
+    "Only 3 requests in the last hour",
+    "Only 3 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "Three rides an hour won't pay my bills.",
+    "Three rides in an hour won't cover my day.",
+    "Three rides an hour won't pay my bills."
+   ],
+   "noticed": [
+    "Only 3 requests in the last hour",
+    "Only 3 requests in the last hour",
+    "3 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.87,
+    "come_back_tomorrow": 0.1,
+    "delete_app": 0.030000000000000002
+   },
+   "reasons": [
+    "Fourteen close requests at 80% is real money.",
+    "Fourteen rides nearby and I keep eighty percent.",
+    "14 rides close by at 80% pay is worth it."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests in the last hour near me",
+    "14 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Fourteen rides nearby at eighty percent is real money.",
+    "Fourteen requests at 80% is steady money for me.",
+    "14 rides nearby plus 80% cut means real money."
+   ],
+   "noticed": [
+    "14 requests last hour",
+    "14 requests last hour within 3 miles",
+    "14 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.86,
+    "come_back_tomorrow": 0.1,
+    "delete_app": 0.04
+   },
+   "reasons": [
+    "Fourteen requests nearby with 80% keep is steady pay.",
+    "Fourteen close requests at 80% is real money.",
+    "14 rides close by and I keep 80%, that's real money."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests last hour within 3 miles",
+    "14 requests last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.05,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.65
+   },
+   "reasons": [
+    "No riders means no money, I'm not waiting around.",
+    "Zero requests means zero pay, I can't waste gas.",
+    "Zero requests means zero pay, I can't waste time."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests in the last hour",
+    "0 requests last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.06666666666666667,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.6666666666666666
+   },
+   "reasons": [
+    "Zero requests means zero pay, I need real work.",
+    "Zero rides means zero money, I'm not waiting around.",
+    "Zero requests means zero pay, I'm not waiting around."
+   ],
+   "noticed": [
+    "0 requests",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"full_time_experienced_driver\", \"drive\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.05,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.6666666666666666
+   },
+   "reasons": [
+    "No rides means no money, I'm not waiting around.",
+    "No rides means no money waiting here.",
+    "Zero rides means zero pay, I'm not waiting around."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.06666666666666667,
+    "come_back_tomorrow": 0.7833333333333333,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "I want clear steps and someone to call first.",
+    "I need to know about safety and pay first.",
+    "I won't start till I know pay and safety details."
+   ],
+   "noticed": [
+    "You keep 80% of each fare.",
+    "It says I keep 80% of each fare.",
+    "You keep 80% of each fare."
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.11666666666666667,
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.18333333333333335
+   },
+   "reasons": [
+    "I won't go online till I know about safety and pay.",
+    "I need clear steps and someone to call first.",
+    "I'm not going online till I understand pay and safety."
+   ],
+   "noticed": [
+    "You keep 80% of each fare.",
+    "It says I keep 80% but not how I get paid",
+    "It says 3 requests and 80% but nothing about safety or getting paid"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.11666666666666667,
+    "come_back_tomorrow": 0.7166666666666667,
+    "delete_app": 0.16666666666666669
+   },
+   "reasons": [
+    "I want a real person to explain pay and rider safety first.",
+    "I won't start without knowing safety and pay details.",
+    "I won't start till I know riders are vetted and pay is safe."
+   ],
+   "noticed": [
+    "It says I keep 80% of each fare.",
+    "You keep 80% of each fare",
+    "It says I keep 80% but not how or when I'm paid"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Need to know how riders are vetted and payment works first.",
+    "I want someone to explain pay and safety first.",
+    "I want to know about rider checks and pay first."
+   ],
+   "noticed": [
+    "You keep 80% of each fare.",
+    "14 requests last hour within 3 miles",
+    "You keep 80% of each fare."
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.15,
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "I want to know about rider safety and pay first.",
+    "I want to know about rider checks and pay first.",
+    "I need to know about safety and pay first."
+   ],
+   "noticed": [
+    "You keep 80% of each fare",
+    "14 requests last hour near me",
+    "14 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.08333333333333334,
+    "come_back_tomorrow": 0.7833333333333333,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "I won't go online till I trust pay and safety.",
+    "I still don't know how pay or safety works.",
+    "I won't start till I know payment and safety details."
+   ],
+   "noticed": [
+    "14 requests last hour within 3 miles of me",
+    "14 requests in the last hour near me",
+    "14 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.65,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "No riders nearby and I still don't know about pay.",
+    "No requests means no pay, and I need help to trust this.",
+    "No requests and no help number, I'm not risking it yet."
+   ],
+   "noticed": [
+    "0 requests",
+    "0 requests - no ride requests near you in the last hour",
+    "0 requests"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "No one needs a ride, so I'll check back later.",
+    "Zero requests and no pay info, I'll check later.",
+    "Nobody needs a ride, so I'll try again tomorrow."
+   ],
+   "noticed": [
+    "0 requests near you in the last hour",
+    "0 requests in the last hour",
+    "0 requests near me in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.06666666666666667,
+    "come_back_tomorrow": 0.6666666666666666,
+    "delete_app": 0.26666666666666666
+   },
+   "reasons": [
+    "No riders nearby and no one to call for help.",
+    "I need riders and pay info first, not an empty map.",
+    "Still zero riders, so why bother going online?"
+   ],
+   "noticed": [
+    "0 requests - no ride requests near you in the last hour",
+    "No ride requests near you in the last hour.",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.16666666666666669,
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "I need someone to explain pay and safety first.",
+    "I want to know about safety and pay first.",
+    "Need to know riders are safe and pay is clear first."
+   ],
+   "noticed": [
+    "You keep 80% of each fare",
+    "You keep 80% of each fare",
+    "3 requests last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.18333333333333335,
+    "come_back_tomorrow": 0.7333333333333333,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "I won't pick up strangers without knowing safety and pay first.",
+    "I still don't know how pay or rider checks work.",
+    "I need to know about safety checks and pay timing."
+   ],
+   "noticed": [
+    "3 requests last hour near me",
+    "You keep 80% of each fare.",
+    "You keep 80% of each fare"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.45,
+    "come_back_tomorrow": 0.4666666666666667,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Extra money close by sounds good, I've done this before.",
+    "I like local demand but need to be sure about pay and safety.",
+    "Good demand, but I need to trust pay and rider checks first."
+   ],
+   "noticed": [
+    "3 requests within 3 miles in last hour",
+    "You keep 80% of each fare",
+    "3 requests in the last hour within 3 miles"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.6166666666666667,
+    "come_back_tomorrow": 0.33333333333333337,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Pay sounds fair but I want safety and support info first.",
+    "Fourteen ride requests nearby means I could earn a little.",
+    "Good demand close by, I could use extra money."
+   ],
+   "noticed": [
+    "You keep 80% of each fare",
+    "14 requests in the last hour near me",
+    "14 requests last hour within 3 miles of me"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.4166666666666667,
+    "come_back_tomorrow": 0.5166666666666666,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Pay looks okay but I still need to know about rider safety.",
+    "Fourteen requests close by means I could earn well.",
+    "Good demand but I need pay and safety details first."
+   ],
+   "noticed": [
+    "14 requests last hour near me",
+    "14 requests in the last hour near me",
+    "14 requests in the last hour close by"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.6666666666666666,
+    "come_back_tomorrow": 0.29000000000000004,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Lots of requests nearby, I could use the extra money.",
+    "Good demand nearby, but I want help and payment clarity first.",
+    "Fourteen requests means I could earn a little tonight."
+   ],
+   "noticed": [
+    "14 requests in the last hour near me",
+    "14 requests within 3 miles of me",
+    "14 requests in the last hour near me"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "go_online": 0.13333333333333333,
+    "come_back_tomorrow": 0.7333333333333334,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "No requests means no pay, I'll check later.",
+    "Nobody's asking for rides, so I'll try another day.",
+    "No rides nearby, I'll try later when it's busier."
+   ],
+   "noticed": [
+    "0 requests",
+    "0 requests near me in the last hour",
+    "0 requests"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "go_online": 0.11666666666666667,
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.18333333333333335
+   },
+   "reasons": [
+    "No point using gas if nobody needs a ride.",
+    "No point going online with no riders around.",
+    "Nobody needs a ride, why bother going online?"
+   ],
+   "noticed": [
+    "No ride requests near you in the last hour.",
+    "0 requests in the last hour",
+    "0 requests in the last hour"
+   ]
+  },
+  "[\"drive\", \"older_part_time_driver\", \"drive\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "go_online": 0.1,
+    "come_back_tomorrow": 0.4666666666666667,
+    "delete_app": 0.43333333333333335
+   },
+   "reasons": [
+    "Nothing coming in, this won't pay my bills.",
+    "Another hour with nothing \u2014 I can't earn like this.",
+    "Only one ride in a month won't pay my bills."
+   ],
+   "noticed": [
+    "0 requests in the last hour",
+    "0 requests",
+    "0 requests"
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.8866666666666667,
+    "scroll_past": 0.11333333333333333
+   },
+   "reasons": [
+    "I'm broke, it's free and $11 a ride works for me.",
+    "I'm broke, have a car, and 80% sounds worth trying.",
+    "I need work now and 80% of $14 sounds worth it."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I'm broke and need driving gigs that actually pay.",
+    "I'm broke and need driving work that pays gas.",
+    "I'm out of work and need driving money now."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.88,
+    "scroll_past": 0.12
+   },
+   "reasons": [
+    "Out of work, need cash, 80% and free sounds worth trying.",
+    "Need cash now and I can drive anytime for 80 percent.",
+    "I'm out of work and need flexible driving cash now."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "reasons": [
+    "I need driving work and keeping more fare sounds good.",
+    "Out of work, need driving cash and keep more sounds good.",
+    "I'm broke, need driving cash and keep more pay matters."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.8666666666666667,
+    "scroll_past": 0.13333333333333333
+   },
+   "reasons": [
+    "Out of work, need driving cash and this is free.",
+    "I'm broke and need driving work right now.",
+    "I need work now and keeping 80% sounds worth it."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"between_work_needs_money_soon\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.86,
+    "scroll_past": 0.13999999999999999
+   },
+   "reasons": [
+    "Free to join and I need driving cash now.",
+    "I'm broke and need driving work, this is free and pays.",
+    "Out of work, free to join and I keep most fare."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "No driver name, arrival time, or exact price shown.",
+    "About $14 isn't a full price, and no ETA shown.",
+    "About isn't exact, and I need ETA and driver upfront."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.07666666666666667,
+    "scroll_past": 0.9233333333333333
+   },
+   "reasons": [
+    "Sounds vague, no fare or ETA, I don't have time.",
+    "Need real price and ETA, not slogans.",
+    "Needs details before I waste time downloading."
+   ],
+   "noticed": [
+    "Rides in minutes.",
+    "Rides in minutes with no real time or price shown",
+    "No price, driver name, or arrival time shown"
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.23333333333333334,
+    "scroll_past": 0.7666666666666667
+   },
+   "reasons": [
+    "About isn't exact, and no driver or ETA shown.",
+    "No driver, time, or exact price shown, so I'm skipping.",
+    "No driver, ETA, or exact price shown, so I'm out."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "It says 'about $14 a ride' with no exact price upfront",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.13,
+    "scroll_past": 0.87
+   },
+   "reasons": [
+    "I need real price and ETA, not vague promises.",
+    "No price, ETA, or driver info \u2014 can't risk it.",
+    "No driver, time, or full price shown."
+   ],
+   "noticed": [
+    "Fair prices with no actual price shown",
+    "Fair prices with no actual price listed",
+    "Rides in minutes."
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.21666666666666667,
+    "scroll_past": 0.7833333333333333
+   },
+   "reasons": [
+    "No exact price, driver, or arrival time shown, so I'm out.",
+    "Says about $14 with no driver or ETA upfront.",
+    "About $14 isn't exact, and I need details before booking."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"busy_family_backup_rider\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.23333333333333334,
+    "scroll_past": 0.7666666666666667
+   },
+   "reasons": [
+    "About $14 isn't a clear price, and I need details.",
+    "About $14 isn't exact and I see no driver or time.",
+    "About $14 isn't a clear price, I need details first."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.6833333333333333,
+    "scroll_past": 0.31666666666666665
+   },
+   "reasons": [
+    "Fourteen bucks to get home safe after drinks is worth it.",
+    "Fourteen bucks to get home after drinks sounds perfect.",
+    "That's my budget for getting home safe after nights out."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "reasons": [
+    "Sounds fast but I need driver ratings to feel safe.",
+    "I want fast pickups but need ratings to feel safe.",
+    "Fast pickup sounds good but no ratings makes me nervous."
+   ],
+   "noticed": [
+    "Rides in minutes.",
+    "Rides in minutes.",
+    "Rides in minutes."
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.74,
+    "scroll_past": 0.26
+   },
+   "reasons": [
+    "Perfect price for getting home safe after nights out.",
+    "Friend used it and $14 for a ride home works for me.",
+    "Friend tried it and $14 is fine for getting home safe."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "About $14 a ride in town",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.48333333333333334,
+    "scroll_past": 0.5166666666666667
+   },
+   "reasons": [
+    "I need quick rides home after nights out.",
+    "Sounds quick but I need ratings to feel safe.",
+    "Need quick ride home but want driver ratings first."
+   ],
+   "noticed": [
+    "Rides in minutes.",
+    "Rides in minutes.",
+    "Rides in minutes."
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.7333333333333333,
+    "scroll_past": 0.26666666666666666
+   },
+   "reasons": [
+    "I need safe rides home, and $14 with friend credit works.",
+    "$14 for a safe ride home sounds perfect.",
+    "Need safe rides home and $14 fits my budget."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"car_owner_evening_rider\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.6,
+    "scroll_past": 0.39999999999999997
+   },
+   "reasons": [
+    "Fourteen bucks for a quick ride home sounds perfect.",
+    "Fourteen bucks for a quick ride home is exactly what I need.",
+    "Price is right but I need driver ratings to feel safe."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "I drive myself, price is fine but wait isn't clear.",
+    "I drive myself mostly and don't see wait time.",
+    "I mostly drive myself and see no wait time here."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.05,
+    "scroll_past": 0.95
+   },
+   "reasons": [
+    "No real price or reviews, so I'm not trying it.",
+    "I drive myself and need a real price first.",
+    "Never heard of it and I don't see a price."
+   ],
+   "noticed": [
+    "It says fair prices but shows no actual price",
+    "Fair prices with no actual dollar amount shown",
+    "It says fair prices but shows no actual price"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.3,
+    "scroll_past": 0.7
+   },
+   "reasons": [
+    "Price is clear but I don't see wait time.",
+    "Price is clear, but I drive myself most days.",
+    "I drive myself mostly and don't see wait time listed."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.09333333333333334,
+    "scroll_past": 0.9066666666666667
+   },
+   "reasons": [
+    "I need a real price and proof others trust it.",
+    "No real price or proof, I'm not risking it.",
+    "No clear price or reviews, and I mostly drive myself."
+   ],
+   "noticed": [
+    "Says fair prices but shows no actual price",
+    "It says fair prices but shows no actual price",
+    "Says fair prices but doesn't show any price"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.2833333333333333,
+    "scroll_past": 0.7166666666666667
+   },
+   "reasons": [
+    "Fourteen bucks is plain, but will a driver actually show up?",
+    "I drive myself mostly and don't know the wait.",
+    "Price is clear but I don't see wait time."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town.",
+    "about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"careful_occasional_rider\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.25,
+    "scroll_past": 0.75
+   },
+   "reasons": [
+    "Price is clear but I'm not sure I trust it yet.",
+    "Price is clear, but I don't trust new apps quickly.",
+    "Price is clear but I don't know if rides show up."
+   ],
+   "noticed": [
+    "The line saying riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.6900000000000001,
+    "scroll_past": 0.31
+   },
+   "reasons": [
+    "Flexible pay sounds great for bills, but strangers worry me.",
+    "I can work my own hours for extra bill money.",
+    "I need flexible evening cash, but strangers in my car worry me."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.21666666666666667,
+    "scroll_past": 0.7833333333333333
+   },
+   "reasons": [
+    "Sounds good for pay but says nothing about my safety.",
+    "Keeps more pay sounds good but no safety mention.",
+    "Want extra cash but need to know I'll be safe first."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.6666666666666666,
+    "scroll_past": 0.3333333333333333
+   },
+   "reasons": [
+    "Hours fit my shifts, but strangers in my car scare me.",
+    "I need flexible extra cash but worry about strangers in my car.",
+    "I need flexible extra cash but worry about strangers in my car."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.43333333333333335,
+    "scroll_past": 0.5666666666666667
+   },
+   "reasons": [
+    "Sounds good for pay but says nothing about safety.",
+    "Pays more sounds nice, but I need to feel safe first.",
+    "More fare money helps bills, but I worry about strangers."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.75,
+    "scroll_past": 0.25
+   },
+   "reasons": [
+    "Flexible pay fits my schedule but strangers worry me.",
+    "Perfect side gig for my changing nurse schedule.",
+    "Keeping 80% on my own schedule could help my bills."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"evening_weekend_extra_earner\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.7766666666666667,
+    "scroll_past": 0.22333333333333333
+   },
+   "reasons": [
+    "Extra cash on my schedule sounds perfect for bills.",
+    "Could earn on my odd evenings and pick my hours.",
+    "I could pick up evening fares around my shifts for bills."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "80% is good but three rides won't pay bills.",
+    "Love the 80% cut but need steady rides first.",
+    "Love the 80% cut but no proof of steady rides here."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drivers keep 80% of each fare"
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "reasons": [
+    "Vague on my cut and no proof of steady rides.",
+    "Keep more sounds good but three rides won't pay.",
+    "Three rides an hour won't pay my bills."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare"
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "Good cut but I need steady rides, not promises.",
+    "Love the 80% cut but need more riders first.",
+    "80% is good but three rides won't pay."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "reasons": [
+    "Three requests an hour won't cover my daily earnings.",
+    "Three requests an hour won't pay my bills.",
+    "Three requests an hour isn't enough work for me."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.23333333333333334,
+    "scroll_past": 0.7666666666666667
+   },
+   "reasons": [
+    "Three rides an hour won't pay my bills.",
+    "80% sounds good but three rides won't pay bills.",
+    "Like the 80% cut but need steady rides first."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"full_time_experienced_driver\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.21666666666666667,
+    "scroll_past": 0.7833333333333333
+   },
+   "reasons": [
+    "Keep 80% is nice, but I need steady rides to bother.",
+    "Three rides an hour won't pay my bills.",
+    "Eighty percent is great, but I need more rides than this."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "reasons": [
+    "$14 each time is too high for me.",
+    "Fourteen bucks per ride adds up too fast for me.",
+    "Fourteen bucks a ride will kill my budget fast."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.18333333333333332,
+    "scroll_past": 0.8166666666666667
+   },
+   "reasons": [
+    "Need rides to work but fair means nothing to me.",
+    "No real time or price, can't risk being late.",
+    "No price or time shown, can't risk being late."
+   ],
+   "noticed": [
+    "Rides in minutes.",
+    "Rides in minutes.",
+    "Rides in minutes."
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.16,
+    "scroll_past": 0.84
+   },
+   "reasons": [
+    "Fourteen bucks every ride is too much for work.",
+    "Fourteen dollars each ride is too high for work every week.",
+    "Fourteen dollars per ride is too steep for daily work trips."
+   ],
+   "noticed": [
+    "$14 a ride in town",
+    "Riders pay about $14 a ride in town",
+    "$14 a ride in town"
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.7866666666666667,
+    "scroll_past": 0.21333333333333335
+   },
+   "reasons": [
+    "Can't be late for work and need cheap rides.",
+    "Late for work hurts me, and I need cheaper rides.",
+    "I need fast cheap rides to work constantly."
+   ],
+   "noticed": [
+    "Rides in minutes.",
+    "Rides in minutes.",
+    "Rides in minutes."
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.23333333333333334,
+    "scroll_past": 0.7666666666666667
+   },
+   "reasons": [
+    "I can't afford $14 for work rides every week.",
+    "Fourteen bucks each time is too much for me.",
+    "Fourteen bucks adds up fast when I ride all week."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"no_car_frequent_rider\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "reasons": [
+    "I can't pay fourteen dollars that often.",
+    "Fourteen dollars a ride would drain me getting to work.",
+    "$14 a ride is too much for work every week."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town.",
+    "$14 a ride in town cost"
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.15,
+    "scroll_past": 0.85
+   },
+   "reasons": [
+    "I want a real person to explain pay and rider checks.",
+    "I like the 80% but need safety and pay details first.",
+    "Sounds nice but I don't trust strangers without safety and pay details."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.11333333333333333,
+    "scroll_past": 0.8866666666666667
+   },
+   "reasons": [
+    "Sounds nice but tells me nothing about pay or safety.",
+    "Sounds nice but tells me nothing about safety or pay.",
+    "Sounds nice but tells me nothing about pay or safety."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.18333333333333335,
+    "scroll_past": 0.8166666666666667
+   },
+   "reasons": [
+    "Sounds nice but I need to know about safety and pay first.",
+    "Sounds nice but I need to know about safety and pay first.",
+    "Sounds good but I need safety and pay details first."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.13,
+    "scroll_past": 0.87
+   },
+   "reasons": [
+    "Sounds nice but tells me nothing about pay or safety.",
+    "Sounds nice but tells me nothing about pay or rider safety.",
+    "I need to know about rider checks and pay first."
+   ],
+   "noticed": [
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare.",
+    "Drivers keep more of every fare."
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.18333333333333335,
+    "scroll_past": 0.8166666666666667
+   },
+   "reasons": [
+    "I like the 80% part but need more trust first.",
+    "I want to drive, but need safety and pay details first.",
+    "I like the 80%, but where's the help number?"
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"older_part_time_driver\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "reasons": [
+    "Sounds nice but I need safety and pay details first.",
+    "I like 80% but need safety and pay details first.",
+    "I need to know about rider safety and pay first."
+   ],
+   "noticed": [
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%.",
+    "Drive when you want. Keep 80%."
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"event\", \"-\"]": {
+   "probs": {
+    "install": 0.18333333333333332,
+    "scroll_past": 0.8166666666666667
+   },
+   "reasons": [
+    "$14 is too much when I can bus it.",
+    "Fourteen bucks is way too much, bus is cheaper.",
+    "Two taps sounds nice but $14 is too steep for me."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "Riders pay about $14 a ride in town",
+    "Riders pay about $14 a ride in town."
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"feed\", \"-\"]": {
+   "probs": {
+    "install": 0.3333333333333333,
+    "scroll_past": 0.6666666666666666
+   },
+   "reasons": [
+    "Sounds cheap and fast, I need rides sometimes.",
+    "Cheap rides beat the bus when I'm tired.",
+    "Sounds cheap but I usually just bus or bum a ride."
+   ],
+   "noticed": [
+    "Fair prices. Drivers keep more of every fare.",
+    "Fair prices.",
+    "Fair prices promise"
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"friend\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "Bus is cheaper than fourteen dollars, so no thanks.",
+    "Not paying $14 when the bus is way cheaper.",
+    "Fourteen bucks is too steep when bus is cheaper."
+   ],
+   "noticed": [
+    "Riders pay about $14 a ride in town.",
+    "$14 a ride in town",
+    "Riders pay about $14 a ride in town"
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"outdoor\", \"-\"]": {
+   "probs": {
+    "install": 0.65,
+    "scroll_past": 0.35
+   },
+   "reasons": [
+    "Fair prices caught me, I bus everywhere and need cheap backup rides.",
+    "Sounds cheap and fast, might save me after late shifts",
+    "If it's actually cheap I'll try it for late shifts."
+   ],
+   "noticed": [
+    "Fair prices.",
+    "Fair prices.",
+    "Fair prices."
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"referral\", \"-\"]": {
+   "probs": {
+    "install": 0.2,
+    "scroll_past": 0.8
+   },
+   "reasons": [
+    "Fourteen bucks? Bus is way cheaper for me.",
+    "$14 is steep when I can bus or bum a ride.",
+    "Fourteen bucks is too much when bus is cheaper."
+   ],
+   "noticed": [
+    "$14 a ride in town",
+    "$14 a ride in town",
+    "$14 a ride in town"
+   ]
+  },
+  "[\"install\", \"young_low_cost_rider\", \"search\", \"-\"]": {
+   "probs": {
+    "install": 0.26666666666666666,
+    "scroll_past": 0.7333333333333333
+   },
+   "reasons": [
+    "Two taps sounds great but fourteen bucks is steep for me.",
+    "Two taps sounds great but $14 is way too steep for me.",
+    "Two taps is nice but $14 is too much for me."
+   ],
+   "noticed": [
+    "$14 a ride in town",
+    "$14 a ride in town",
+    "$14 a ride in town"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.18333333333333335,
+    "come_back_tomorrow": 0.5666666666666667,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "Nine minutes is too long without driver or arrival details.",
+    "Nine minutes is too long and there's no driver or arrival info.",
+    "Nine minutes plus no driver details is not fast enough."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.15,
+    "come_back_tomorrow": 0.5833333333333334,
+    "delete_app": 0.26666666666666666
+   },
+   "reasons": [
+    "I can't wait nine minutes with no driver details.",
+    "Nine minutes is too long and I don't even see driver details.",
+    "I'm busy, not waiting nine minutes blind with no driver info."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away with no driver name"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.21666666666666667,
+    "come_back_tomorrow": 0.5166666666666667,
+    "delete_app": 0.26666666666666666
+   },
+   "reasons": [
+    "Nine minutes waiting is too much with my schedule.",
+    "Nine minutes plus no driver details, I can't risk being late.",
+    "Nine minutes is too long and I don't see driver or arrival."
+   ],
+   "noticed": [
+    "9 min away pickup time",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.7333333333333333,
+    "come_back_tomorrow": 0.19333333333333333,
+    "delete_app": 0.07333333333333333
+   },
+   "reasons": [
+    "That's fast enough and $14 is fair, booking now.",
+    "Quick pickup, price is my limit, but no driver details yet.",
+    "Fast and fair price but I need driver and arrival details."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away pickup for $14",
+    "3 min away for $14"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.8333333333333334,
+    "come_back_tomorrow": 0.12333333333333334,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Fast pickup at my $14 limit, though no driver name yet.",
+    "Three minutes and fourteen bucks, I'm booking it.",
+    "I'm stuck and 3 minutes is fast enough, let's go."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away for $14",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.5166666666666667,
+    "come_back_tomorrow": 0.38333333333333336,
+    "delete_app": 0.10000000000000002
+   },
+   "reasons": [
+    "No driver name or arrival time, so I'm not booking.",
+    "Three minutes fits my packed day perfectly.",
+    "That's fast enough and fair, let's just get going."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "3 min away for $14"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.060000000000000005,
+    "come_back_tomorrow": 0.37333333333333335,
+    "delete_app": 0.5666666666666667
+   },
+   "reasons": [
+    "Eighteen minutes is way too long, I'm too busy for this.",
+    "Eighteen minutes is too long when I'm already packed.",
+    "I don't have 18 minutes to wait around."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.21666666666666665,
+    "delete_app": 0.7333333333333334
+   },
+   "reasons": [
+    "Eighteen minutes is too long when I'm already busy.",
+    "Eighteen minutes is way too long when I'm slammed.",
+    "I don't have 18 minutes to wait around."
+   ],
+   "noticed": [
+    "18 min away with few drivers online",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.08333333333333334,
+    "come_back_tomorrow": 0.26666666666666666,
+    "delete_app": 0.65
+   },
+   "reasons": [
+    "Eighteen minutes is way too long when I'm already late.",
+    "Eighteen minutes is way too long when I'm slammed.",
+    "Eighteen minutes is way too long for my packed day."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.25,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Nine minutes is too long with my packed day.",
+    "Nine minutes is too long with my packed schedule.",
+    "9 minutes is too long and no driver name shown."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.18333333333333335,
+    "come_back_tomorrow": 0.6833333333333333,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Nine minutes is too long when I'm packed.",
+    "Nine minute wait doesn't work with my packed schedule.",
+    "Nine-minute wait with no driver name, I can't risk delay."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away pickup estimate",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.23333333333333334,
+    "come_back_tomorrow": 0.7,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Nine minutes is too long when I'm already packed.",
+    "No driver name and nine minutes? I don't have time.",
+    "Nine minutes is too long, and no driver details yet."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.86,
+    "come_back_tomorrow": 0.10666666666666667,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "That's quick and fair, I need to go now.",
+    "Three minutes and fourteen bucks gets me moving now.",
+    "Three minutes and fourteen bucks works for my packed day."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away for $14 with cars all around",
+    "3 min away for $14"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.85,
+    "come_back_tomorrow": 0.12000000000000001,
+    "delete_app": 0.030000000000000002
+   },
+   "reasons": [
+    "Cars are close, price is fair, I need to move.",
+    "3 minutes for $14, that works, let's go.",
+    "Three minutes and fourteen bucks gets me moving fast."
+   ],
+   "noticed": [
+    "3 min away for $14",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.86,
+    "come_back_tomorrow": 0.10666666666666667,
+    "delete_app": 0.03333333333333333
+   },
+   "reasons": [
+    "Three minutes is perfect and fourteen bucks works for me.",
+    "Fast pickup at my price, I need to go now.",
+    "Three minutes and fourteen bucks gets me moving fast."
+   ],
+   "noticed": [
+    "3 min away for $14 with cars all around me",
+    "3 min away with cars right around me",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.060000000000000005,
+    "come_back_tomorrow": 0.7733333333333333,
+    "delete_app": 0.16666666666666669
+   },
+   "reasons": [
+    "Eighteen minutes is way too long with my schedule today.",
+    "Eighteen minutes is way too long with my schedule today.",
+    "I can't wait 18 minutes with my schedule today."
+   ],
+   "noticed": [
+    "18 min away wait time",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.11666666666666667,
+    "come_back_tomorrow": 0.7166666666666667,
+    "delete_app": 0.16666666666666666
+   },
+   "reasons": [
+    "I can't wait 18 minutes with work and family waiting.",
+    "Can't wait 18 minutes with work and family waiting.",
+    "18 minutes is way too long when I'm busy."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"busy_family_backup_rider\", \"ride\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.08333333333333334,
+    "come_back_tomorrow": 0.7333333333333333,
+    "delete_app": 0.18333333333333332
+   },
+   "reasons": [
+    "Eighteen minutes is too long when I'm already packed.",
+    "18 minutes is way too long to wait.",
+    "Eighteen minutes is too long when I'm already packed."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.5,
+    "come_back_tomorrow": 0.36666666666666664,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Nine minutes is okay and I can do $14 tonight.",
+    "Nine minutes feels long and I don't see who's driving.",
+    "Nine minutes is longer than I hoped with no driver details."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away with no rating or car details",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.4333333333333333,
+    "come_back_tomorrow": 0.43333333333333335,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Nine minutes is fine, $14 works to get home safe.",
+    "Nine minutes feels long and I see no driver info.",
+    "Nine minutes is a bit long and I don't know the driver."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away with no driver or car details"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.3,
+    "come_back_tomorrow": 0.5833333333333334,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Nine minutes is a bit long and I can't see who's driving.",
+    "Nine minutes feels long and I see no driver details.",
+    "$14's okay but 9 minutes with no driver info worries me."
+   ],
+   "noticed": [
+    "9 min away pickup time",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.84,
+    "come_back_tomorrow": 0.11,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Only $14 and three minutes, just get me home safe.",
+    "Three minutes is perfect and I can cover fourteen bucks tonight.",
+    "3 minutes for $14, I'm ready to get home."
+   ],
+   "noticed": [
+    "3 min away for $14",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Only 3 minutes and 14 bucks to get home safe.",
+    "Three minutes away is perfect, I just want home.",
+    "Only 3 minutes and $14 works for tonight."
+   ],
+   "noticed": [
+    "3 min away for $14",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.8333333333333334,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Three minutes and fourteen bucks gets me home safe tonight.",
+    "Quick pickup I can afford after a night out.",
+    "Only three minutes and fourteen bucks gets me home safe."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away for $14",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.12333333333333334,
+    "come_back_tomorrow": 0.4933333333333333,
+    "delete_app": 0.38333333333333336
+   },
+   "reasons": [
+    "I'm not waiting 18 minutes for a stranger with no details.",
+    "Eighteen minutes is way too long to wait tonight.",
+    "Eighteen minutes is way too long to wait."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.11666666666666667,
+    "come_back_tomorrow": 0.5833333333333334,
+    "delete_app": 0.3
+   },
+   "reasons": [
+    "Eighteen minutes is way too long to wait.",
+    "Eighteen minutes is way too long to wait tonight.",
+    "I'm not waiting 18 minutes when I just want to get home."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.1,
+    "come_back_tomorrow": 0.6833333333333333,
+    "delete_app": 0.21666666666666665
+   },
+   "reasons": [
+    "Eighteen minutes is way too long to wait tonight.",
+    "18 minutes is way too long to wait tonight.",
+    "Eighteen minutes is too long when I need to get home."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.5499999999999999,
+    "come_back_tomorrow": 0.38333333333333336,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "$14 is fine but nine minutes feels long tonight.",
+    "Nine minutes is too long and $14 with no driver info worries me.",
+    "Nine minutes is long, but $14 works to get home safe."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away wait time"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.8,
+    "come_back_tomorrow": 0.15,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "$14's fine and 9 minutes isn't bad to get home safe.",
+    "Nine minutes is fine, I just want to get home safe.",
+    "Nine minutes is a bit long but $14 works to get home safe."
+   ],
+   "noticed": [
+    "9 min away pickup time",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.7666666666666667,
+    "come_back_tomorrow": 0.18333333333333335,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Nine minutes is fine, and fourteen bucks I can do.",
+    "Nine minutes is fine and fourteen bucks works for tonight.",
+    "Nine minutes is fine, fourteen bucks works to get home safe."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.8866666666666667,
+    "come_back_tomorrow": 0.09333333333333334,
+    "delete_app": 0.02
+   },
+   "reasons": [
+    "That's cheap and fast enough to get me home.",
+    "Only 3 minutes and $14 is fine for tonight.",
+    "Three minutes and fourteen bucks gets me home safe tonight."
+   ],
+   "noticed": [
+    "3 min away for $14",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.9133333333333333,
+    "come_back_tomorrow": 0.06666666666666667,
+    "delete_app": 0.02
+   },
+   "reasons": [
+    "Perfect, three minutes is quick and fourteen's fine.",
+    "Three minutes is fast and fourteen bucks is fine.",
+    "Quick 3-minute pickup for $14 gets me home safe."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "3 min away pickup"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.8866666666666667,
+    "come_back_tomorrow": 0.08666666666666667,
+    "delete_app": 0.026666666666666665
+   },
+   "reasons": [
+    "Perfect, quick pickup and I can cover $14 tonight.",
+    "Three minutes and fourteen bucks gets me home safe.",
+    "Three minutes and fourteen bucks gets me home safe tonight."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.1,
+    "come_back_tomorrow": 0.7166666666666667,
+    "delete_app": 0.18333333333333335
+   },
+   "reasons": [
+    "I'm not waiting 18 minutes when I could drive myself.",
+    "18 minutes is too long to wait tonight.",
+    "Eighteen minutes is way too long to wait tonight."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.11666666666666667,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "18 minutes is way too long when I'm ready to go home.",
+    "I'm not waiting 18 minutes alone at night.",
+    "Eighteen minutes is too long when I want to get home."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"car_owner_evening_rider\", \"ride\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.13333333333333333,
+    "come_back_tomorrow": 0.7833333333333333,
+    "delete_app": 0.08333333333333333
+   },
+   "reasons": [
+    "18 minutes is way too long to wait tonight.",
+    "I'm not waiting 18 minutes tonight.",
+    "18 minutes is way too long to wait tonight."
+   ],
+   "noticed": [
+    "18 min away wait time",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.16666666666666666,
+    "come_back_tomorrow": 0.5833333333333334,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "I don't trust it yet and nine minutes feels long.",
+    "I won't pay $14 till I know others trust it.",
+    "I won't pay $14 until I know a driver is really coming."
+   ],
+   "noticed": [
+    "No rides yet at the top",
+    "No rides yet",
+    "9 min away for $14"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.13333333333333333,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.23333333333333334
+   },
+   "reasons": [
+    "I don't trust it yet to pay $14 upfront.",
+    "I won't pay till I know others trust it.",
+    "Nine minutes feels long and I've still never tried it."
+   ],
+   "noticed": [
+    "No rides yet at the top",
+    "No rides yet at the top",
+    "9 min away for $14"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.1,
+    "come_back_tomorrow": 0.7000000000000001,
+    "delete_app": 0.2
+   },
+   "reasons": [
+    "No one else uses it and I don't want to pay blind.",
+    "I won't pay $14 without proof this works.",
+    "I don't see others trust it, so I'm waiting."
+   ],
+   "noticed": [
+    "No rides yet at the top",
+    "No rides yet",
+    "No rides yet at the top"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.21666666666666667,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.16666666666666669
+   },
+   "reasons": [
+    "Cars look close but I don't trust it with no rides yet.",
+    "Price looks fine but I need proof first.",
+    "Clear price and wait, but I'm not sure when I'd pay."
+   ],
+   "noticed": [
+    "No rides yet at the top",
+    "No rides yet with no reviews to trust",
+    "3 min away for $14, plain and clear"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.21666666666666667,
+    "come_back_tomorrow": 0.6666666666666666,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "Clear price and wait, but where's proof others trust it?",
+    "I see the price, but I'm not sure enough to tap yet.",
+    "Price is clear but I don't know if I trust it."
+   ],
+   "noticed": [
+    "3 min away for $14",
+    "3 min away for $14",
+    "That 'No rides yet' at the top"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.18333333333333332,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.18333333333333332
+   },
+   "reasons": [
+    "Price looks fine but I need proof others trust it.",
+    "I see the price, but where's proof this works?",
+    "Price looks clear but I still don't trust it enough."
+   ],
+   "noticed": [
+    "No rides yet at the top",
+    "The 'No rides yet' label at the top",
+    "$14 and 3 min away shown plainly together"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.35
+   },
+   "reasons": [
+    "Too far away, I'm not risking my money on that.",
+    "Eighteen minutes is too long and I don't trust it yet.",
+    "Eighteen minutes is too long, I'll just drive myself today."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.07666666666666667,
+    "come_back_tomorrow": 0.6066666666666667,
+    "delete_app": 0.31666666666666665
+   },
+   "reasons": [
+    "Eighteen minutes is too long to wait and trust.",
+    "Eighteen minutes is too long and feels uncertain.",
+    "Eighteen minutes is too long, I'll just drive myself."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.5166666666666667,
+    "delete_app": 0.4333333333333333
+   },
+   "reasons": [
+    "I'm not waiting eighteen minutes with no drivers around.",
+    "Too long to wait when I can drive myself.",
+    "Too long to wait and I'm not sure a driver will come."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away is way too far to wait",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.66,
+    "come_back_tomorrow": 0.25666666666666665,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Clear $14 and 9 minutes, I've done this before.",
+    "I see the $14 price and 9 minutes upfront.",
+    "$14 is clear but nine minutes feels long to wait."
+   ],
+   "noticed": [
+    "9 min away",
+    "9 min away",
+    "9 min away wait time"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.7166666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I know the wait and cost upfront this time.",
+    "Price and wait are clear, and I've ridden before.",
+    "I've ridden before, price is clear, nine minutes I can wait."
+   ],
+   "noticed": [
+    "9 min away for $14",
+    "9 min away",
+    "9 min away wait time"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.7166666666666667,
+    "come_back_tomorrow": 0.23333333333333334,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "I've used it before and $14 for 9 minutes is clear enough.",
+    "Clear $14 and 9 minutes, and it's worked before.",
+    "Price and wait are clear, and I've ridden before."
+   ],
+   "noticed": [
+    "9 min away for $14",
+    "9 min away for $14",
+    "The $14 price with 9 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.84,
+    "come_back_tomorrow": 0.11666666666666667,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Price and wait are clear, and I've ridden before.",
+    "I can see price, wait, and cars so I'm less worried.",
+    "Price and wait are clear, and I've done this before."
+   ],
+   "noticed": [
+    "3 min away for $14 with cars nearby",
+    "3 min away for $14 with cars all around",
+    "3 min away for $14"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.8333333333333334,
+    "come_back_tomorrow": 0.12333333333333334,
+    "delete_app": 0.043333333333333335
+   },
+   "reasons": [
+    "Price and wait are clear, and I've used it before.",
+    "Clear price, short wait, I've done this before.",
+    "I've used it before and $14 for 3 minutes is clear enough."
+   ],
+   "noticed": [
+    "3 min away for $14 is plain to see",
+    "3 min away",
+    "3 min away for $14"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.87,
+    "come_back_tomorrow": 0.10333333333333333,
+    "delete_app": 0.026666666666666665
+   },
+   "reasons": [
+    "I've used it before and this is clear and close.",
+    "Price and pickup are clear, and I've ridden before.",
+    "Price and wait are clear and I've ridden before."
+   ],
+   "noticed": [
+    "3 min away pickup for $14",
+    "3 min away for $14",
+    "$14 price next to 3 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.1,
+    "come_back_tomorrow": 0.7833333333333333,
+    "delete_app": 0.11666666666666667
+   },
+   "reasons": [
+    "I'm not paying $14 to wait 18 minutes.",
+    "Too long to wait when I can just drive myself.",
+    "Eighteen minutes is too long when I can just drive myself."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.1,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Too long to wait when I could just drive myself.",
+    "18 minutes is too long, I'll just drive myself.",
+    "Eighteen minutes is too long to risk paying for."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away with few drivers online",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"careful_occasional_rider\", \"ride\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.08333333333333334,
+    "come_back_tomorrow": 0.8166666666666667,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "Too long to wait and I'm not sure it'll come.",
+    "Eighteen minutes is too far, I'm not sure a driver will come.",
+    "Eighteen minutes is too long to wait and hope."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.3833333333333333,
+    "come_back_tomorrow": 0.4166666666666667,
+    "delete_app": 0.2
+   },
+   "reasons": [
+    "Nine minutes is okay but fourteen bucks is too much.",
+    "Nine minutes works but fourteen dollars hurts.",
+    "Nine minutes works but fourteen bucks is too much."
+   ],
+   "noticed": [
+    "$14 price",
+    "9 min away",
+    "$14"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.31666666666666665,
+    "come_back_tomorrow": 0.5166666666666667,
+    "delete_app": 0.16666666666666666
+   },
+   "reasons": [
+    "Fourteen bucks is steep when I need rides all the time.",
+    "Nine minutes works but I can't pay $14 all the time.",
+    "Nine minutes is fine, but $14 is too steep."
+   ],
+   "noticed": [
+    "$14 price",
+    "$14 price",
+    "$14"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.3833333333333333,
+    "come_back_tomorrow": 0.4666666666666667,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Nine minutes gets me to work on time, price hurts though.",
+    "Nine minutes works, but fourteen dollars hurts on my pay.",
+    "Nine minutes is fine but fourteen dollars hurts on my pay."
+   ],
+   "noticed": [
+    "9 min away",
+    "$14 price",
+    "$14 price"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.30000000000000004,
+    "come_back_tomorrow": 0.5,
+    "delete_app": 0.19999999999999998
+   },
+   "reasons": [
+    "Fast pickup helps work but $14 is too steep weekly.",
+    "Three minutes saves my shift, though fourteen dollars stings.",
+    "Can't pay fourteen dollars every time I need work."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "$14"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.56,
+    "come_back_tomorrow": 0.3566666666666667,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Three minutes gets me to work on time despite price.",
+    "3 minutes is perfect but $14 is steep for me.",
+    "Three minutes means I won't be late, but fourteen bucks stings."
+   ],
+   "noticed": [
+    "3 min away",
+    "The $14 price",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.31666666666666665,
+    "come_back_tomorrow": 0.45,
+    "delete_app": 0.23333333333333334
+   },
+   "reasons": [
+    "Fourteen bucks is too much for me every week.",
+    "I can't be late, but $14 every time hurts.",
+    "Can't pay fourteen dollars all the time for work."
+   ],
+   "noticed": [
+    "$14 price on the screen",
+    "3 min away",
+    "$14 price"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.3833333333333333,
+    "delete_app": 0.5666666666666667
+   },
+   "reasons": [
+    "Eighteen minutes and fourteen bucks will make me late and broke.",
+    "Eighteen minutes will make me late and fourteen bucks is too much.",
+    "Eighteen minutes will make me late and fourteen bucks is too much."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.6333333333333333
+   },
+   "reasons": [
+    "Eighteen minutes will make me late and $14 is too much.",
+    "Eighteen minutes makes me late and fourteen bucks is too much.",
+    "Eighteen minutes is too late for work and $14 is too much."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.07,
+    "come_back_tomorrow": 0.23,
+    "delete_app": 0.7
+   },
+   "reasons": [
+    "Eighteen minutes is too late and $14 is too much.",
+    "Eighteen minutes makes me late and $14 is too much.",
+    "Eighteen minutes will make me late and fourteen bucks is too much."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.6,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Nine minutes is okay but $14 is steep for me.",
+    "Nine minutes gets me to work on time, but $14 hurts.",
+    "Nine minutes keeps me on time, but $14 hurts."
+   ],
+   "noticed": [
+    "$14 price",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.6166666666666667,
+    "come_back_tomorrow": 0.31666666666666665,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Nine minutes keeps me on time, but $14 hurts.",
+    "Nine mins is okay but $14 is too much right now.",
+    "Nine minutes gets me to work on time, price hurts though."
+   ],
+   "noticed": [
+    "9 min away",
+    "$14",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.65,
+    "come_back_tomorrow": 0.2833333333333333,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Nine minutes is fine, but $14 stings when I ride a lot.",
+    "Nine minutes gets me to work on time, but $14 stings.",
+    "Nine minutes gets me to work on time, but fourteen bucks stings."
+   ],
+   "noticed": [
+    "$14",
+    "9 min away",
+    "9 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.75,
+    "come_back_tomorrow": 0.2,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Three minutes is perfect but fourteen bucks stings every time.",
+    "Three minutes gets me to work on time despite price.",
+    "I can't be late, even if $14 stings."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.7333333333333333,
+    "come_back_tomorrow": 0.21666666666666667,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Three minutes is great but fourteen bucks stings every time.",
+    "I can't be late, three minutes saves me.",
+    "Three minutes means I won't be late for work."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "3 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.65,
+    "come_back_tomorrow": 0.3,
+    "delete_app": 0.05
+   },
+   "reasons": [
+    "Three minutes gets me on time, but $14 stings.",
+    "Can't be late for my shift, but $14 stings.",
+    "Three minutes is great but fourteen bucks hurts."
+   ],
+   "noticed": [
+    "3 min away",
+    "3 min away",
+    "$14 price"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.31666666666666665
+   },
+   "reasons": [
+    "Too long to wait and too pricey for my daily rides.",
+    "18 minutes will make me late and $14 is too much.",
+    "18 minutes is too late for work and $14 is too much."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.08666666666666667,
+    "come_back_tomorrow": 0.6633333333333333,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "Eighteen minutes will make me late and $14 is too much.",
+    "I can't be late for work and pay that much.",
+    "Eighteen minutes and fourteen bucks is too much for work."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away when I need 9",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"no_car_frequent_rider\", \"ride\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.060000000000000005,
+    "come_back_tomorrow": 0.6900000000000001,
+    "delete_app": 0.25
+   },
+   "reasons": [
+    "Eighteen minutes will make me late and $14 is too much.",
+    "Eighteen minutes will make me late and fourteen bucks is too much.",
+    "Eighteen minutes will make me late and $14 is too much."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.13333333333333333,
+    "come_back_tomorrow": 0.55,
+    "delete_app": 0.31666666666666665
+   },
+   "reasons": [
+    "Fourteen bucks and nine minutes? I'll just take the bus.",
+    "Way too pricey and slow, I'll bus or walk instead.",
+    "Fourteen bucks? I'll just walk or bus it."
+   ],
+   "noticed": [
+    "9 min away for $14",
+    "$14 for 9 min away",
+    "$14 price tag"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.13333333333333333,
+    "come_back_tomorrow": 0.65,
+    "delete_app": 0.21666666666666667
+   },
+   "reasons": [
+    "Fourteen bucks and 9 minutes? I'll just take the bus.",
+    "Fourteen dollars is too much, I'll bus or walk instead.",
+    "Fourteen dollars is way too much when the bus is cheaper."
+   ],
+   "noticed": [
+    "$14 price",
+    "$14 price",
+    "$14 for a 9 minute wait"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.11666666666666667,
+    "come_back_tomorrow": 0.6,
+    "delete_app": 0.2833333333333333
+   },
+   "reasons": [
+    "9 minutes and $14? I'll just take the bus.",
+    "Too pricey and too far, bus is cheaper.",
+    "I'm not paying $14 when the bus is cheaper."
+   ],
+   "noticed": [
+    "$14 for the ride",
+    "$14 for the ride",
+    "$14 price for the ride"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.2,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.18333333333333335
+   },
+   "reasons": [
+    "Fourteen bucks is way too much, I'll just bus.",
+    "$14 is way too much when I can just bus.",
+    "Fourteen bucks is steep when the bus is cheaper."
+   ],
+   "noticed": [
+    "The $14 price for 3 min away",
+    "$14 price next to 3 min away",
+    "$14 price"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.16666666666666666,
+    "come_back_tomorrow": 0.65,
+    "delete_app": 0.18333333333333335
+   },
+   "reasons": [
+    "I'm not paying fourteen dollars when the bus is cheap.",
+    "Fourteen bucks? I can just bus or walk instead.",
+    "Fourteen dollars is way too much, I'll just bus."
+   ],
+   "noticed": [
+    "the $14 price",
+    "$14 price",
+    "$14 price next to 3 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.5166666666666666,
+    "come_back_tomorrow": 0.38333333333333336,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "$14 is a lot when I can bus or walk.",
+    "Three minutes away and one tap, just try it.",
+    "I can bus or walk for way cheaper than that."
+   ],
+   "noticed": [
+    "The $14 price next to 3 min away",
+    "$14 for a 3 min pickup",
+    "the $14 price"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.5166666666666667,
+    "delete_app": 0.4333333333333333
+   },
+   "reasons": [
+    "18 minutes and $14? I'll just take the bus.",
+    "No way I'm waiting 18 minutes and paying $14.",
+    "Fourteen bucks and eighteen minutes? I'll just take the bus."
+   ],
+   "noticed": [
+    "18 min away for $14",
+    "18 min away for $14",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.6166666666666667,
+    "delete_app": 0.3333333333333333
+   },
+   "reasons": [
+    "Fourteen bucks and 18 minutes? I'll just take the bus.",
+    "I'm not paying $14 to wait 18 minutes, no way.",
+    "18 minutes and $14? I'll just take the bus."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away for $14",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"no\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.05,
+    "come_back_tomorrow": 0.5333333333333333,
+    "delete_app": 0.4166666666666667
+   },
+   "reasons": [
+    "18 minutes and fourteen bucks? I'll just bus it.",
+    "No way I'm paying $14 to wait 18 minutes.",
+    "Way too long and too expensive, I'm taking the bus."
+   ],
+   "noticed": [
+    "18 min away for $14",
+    "18 min away for $14",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"few\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.15,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Fourteen bucks and nine minutes? Nah, I'll bus it.",
+    "Fourteen bucks and nine minutes? I'll just take the bus.",
+    "Nine minutes for fourteen bucks is too much, I'll walk."
+   ],
+   "noticed": [
+    "$14 price for the ride",
+    "$14 for a 9 min wait",
+    "$14 price for the ride"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.13333333333333333,
+    "come_back_tomorrow": 0.7333333333333333,
+    "delete_app": 0.13333333333333333
+   },
+   "reasons": [
+    "Nine minutes and fourteen bucks? I'll just take the bus.",
+    "Fourteen bucks and nine minutes? I'll just bus it.",
+    "Nine minutes and fourteen bucks? I'll just walk."
+   ],
+   "noticed": [
+    "$14 price tag",
+    "$14 price",
+    "the $14 price"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"few\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.15,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.1
+   },
+   "reasons": [
+    "I'm not paying fourteen bucks and waiting nine minutes.",
+    "Nine minutes and fourteen bucks? Bus is cheaper.",
+    "Fourteen bucks is too steep, I'll just bus or walk."
+   ],
+   "noticed": [
+    "$14 price for 9 min away",
+    "$14 price next to 9 min away",
+    "$14 and 9 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"many\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.15,
+    "come_back_tomorrow": 0.7666666666666667,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "$14 is too much, I'll just bus.",
+    "$14 is too much, I'll just take the bus.",
+    "Fourteen dollars is steep when I can bus or walk."
+   ],
+   "noticed": [
+    "the $14 price",
+    "$14 price for a 3 minute pickup",
+    "the $14 price for 3 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.2833333333333333,
+    "come_back_tomorrow": 0.6333333333333333,
+    "delete_app": 0.08333333333333334
+   },
+   "reasons": [
+    "Fourteen dollars is steep for my coffee-shop budget.",
+    "I can walk or bus for way less than that.",
+    "Fourteen dollars is a lot for me right now."
+   ],
+   "noticed": [
+    "$14 fare",
+    "The $14 price",
+    "$14 price next to 3 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"many\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.18333333333333335,
+    "come_back_tomorrow": 0.75,
+    "delete_app": 0.06666666666666667
+   },
+   "reasons": [
+    "Fourteen dollars is steep, I can bus or walk instead.",
+    "I'm not paying fourteen dollars when I can bus it.",
+    "Fourteen bucks is too much when the bus is cheaper."
+   ],
+   "noticed": [
+    "The $14 price",
+    "The $14 price for a 3-minute pickup",
+    "$14 price"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"none\", \"w1\"]]": {
+   "probs": {
+    "request_ride": 0.07333333333333333,
+    "come_back_tomorrow": 0.7766666666666667,
+    "delete_app": 0.15
+   },
+   "reasons": [
+    "Way too long and pricey, I'll just bus it.",
+    "Too expensive and too far, I'll take the bus instead.",
+    "Fourteen bucks and 18 minutes? I'll just take the bus."
+   ],
+   "noticed": [
+    "18 min away for $14",
+    "18 min away for $14",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "probs": {
+    "request_ride": 0.05666666666666667,
+    "come_back_tomorrow": 0.66,
+    "delete_app": 0.2833333333333333
+   },
+   "reasons": [
+    "Eighteen minutes and fourteen bucks? I'm taking the bus.",
+    "Too far and too pricey, I'll just walk or bus.",
+    "18 minutes plus $14? I'll just walk or bus."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away for $14",
+    "18 min away"
+   ]
+  },
+  "[\"ride\", \"young_low_cost_rider\", \"ride\", [\"yes\", \"none\", \"w5+\"]]": {
+   "probs": {
+    "request_ride": 0.060000000000000005,
+    "come_back_tomorrow": 0.8433333333333334,
+    "delete_app": 0.09666666666666666
+   },
+   "reasons": [
+    "Fourteen bucks and 18 minutes? I'll just take the bus.",
+    "18 minutes and $14? I'll just walk or bus.",
+    "Fourteen bucks and 18 minutes? I'll take the bus."
+   ],
+   "noticed": [
+    "18 min away",
+    "18 min away for $14",
+    "18 min away for $14"
+   ]
+  }
+ }
+}

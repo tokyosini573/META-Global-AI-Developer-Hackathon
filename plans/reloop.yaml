@@ -1,0 +1,61 @@
+# Two launch plans for a local resale app (engine/packs/resale.py), plus the market they launch into.
+# Market values cite a rule id in rules/two_sided.md, or a benchmark or prior in plans/benchmarks_research.md.
+
+app: Reloop
+pack: resale
+market: United States
+days: 90
+budget_usd: 40000
+people_per_dot: 30          # real people one simulated person stands for: more dots than dating, so a thin
+                             # market's few buyers still give calibration enough people
+fee_share: 0.10              # buyers pay a 10% service fee (the demo app's own price)
+
+world:
+  share_seller: 0.42         # Poshmark S-1: 4.5M active sellers to 6.2M active buyers (2020)
+  lambda_km: 10              # local_density_threshold, [1, 10]: people drive across town to pick up
+  success_per_offer: 0.045   # exposure_throughput q_e_curated, [0.03, 0.06]: chance one nearby listing fits a buyer
+  t_wait_days: 7             # local_density_threshold T_wait, [3, 14]
+  gamma_no_match: 1.5        # local_density_threshold gamma, [0.5, 3.0]
+  beta_per_match: 0.8        # novelty_installs_without_repeat_loop beta, [0.2, 2.0]
+  wom_q_daily: 0.015         # wom_growth_rate_band q_eff_daily, [0.008, 0.026]
+  wom_only_after_match: true
+  visits_per_day:            # PRIOR: share of days an active user opens the app (about twice a week); a buyer
+    seller: 0.3              # who buys every day they look would make dozens of purchases a quarter
+    buyer: 0.3
+  churn_curve:               # base daily quit risk by days since install (before calibration)
+    first_day: 0.75          # PRIOR: marketplace D1 about 22% (Adjust: 24.8% global, 2023-25)
+    floor: 0.04
+    tau_days: 1.5
+
+calibration:
+  seeds: 12                  # runs per calibration round (dating: 6); the few early buyers make each run noisy
+  reference_plan: both       # the targets describe an app whose buyers find listings; Plan A alone (nationwide,
+                             # almost no listing within reach) can only meet them by making everyone buy every
+                             # visit, so the level is fit to the two launches together (engine/run.py calibrate)
+  targets:
+    install: 0.086           # US store page -> install, all categories (AppTweak, 2025)
+    d7_retention: 0.11       # PRIOR: resale D7 10-12% (between Adjust marketplace D1 and the all-vertical curve)
+    convert_30d: 0.08        # PRIOR: 5-12% of buyers make a first purchase within 30 days (Liftoff 4.7-10.5%)
+
+plans:
+  a:
+    name: Plan A
+    summary: Nationwide feed ads · everyone at once
+    channels:
+      - {kind: feed, where: nationwide, budget_share: 0.8, start_day: 0, end_day: 60}
+      - {kind: search, where: nationwide, budget_share: 0.2, start_day: 0, end_day: 90}
+    events:
+      - {day: 0, label: Feed ads nationwide}
+  b:
+    name: Plan B
+    summary: Seattle → Portland · sellers first
+    cities:
+      - {name: "Seattle, Washington", lon: -122.33, lat: 47.61, open_day: 0}
+      - {name: "Portland, Oregon", lon: -122.68, lat: 45.52, open_day: 45}
+    channels:
+      - {kind: event, where: cities, side: seller, budget_share: 0.4, start_day: 0, end_day: 90}
+      - {kind: feed, where: cities, budget_share: 0.6, start_day: 14, end_day: 90}
+    events:
+      - {day: 0, label: Seattle · sellers first}
+      - {day: 14, label: Local feed ads}
+      - {day: 45, label: Portland}

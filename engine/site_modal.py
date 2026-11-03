@@ -4,8 +4,9 @@
     .venv/bin/modal deploy engine/site_modal.py     # https://<workspace>--rehearsal.modal.run
 
 The Meta API key comes from the Modal secret `rehearsal-meta` (META_API_KEY), which the owner creates
-once with `modal secret create`; it is never in the repo or the image. One container serves everyone,
-so the per-visitor and daily caps in serve.py hold for the whole site.
+once with `modal secret create`; it is never in the repo or the image. The same secret may hold
+ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py). One container serves
+everyone, so the per-visitor and daily caps in serve.py and live.py hold for the whole site.
 """
 
 import os
@@ -18,8 +19,10 @@ app = modal.App("rehearsal")
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
-    .pip_install("fastapi[standard]==0.115.12")
+    .pip_install("fastapi[standard]==0.115.12", "numpy>=2.0", "pyyaml>=6.0")
+    .env({"LIVE_DIR": "/tmp/live"})
     .add_local_python_source("engine")
+    .add_local_dir("plans", "/root/plans")                              # market values for live runs
     .add_local_dir("web/public/replays", "/root/web/public/replays")   # the interview reads records from here
     .add_local_dir("web/dist", "/root/web/dist")
 )
@@ -35,11 +38,25 @@ def site():
     from fastapi.responses import JSONResponse
     from fastapi.staticfiles import StaticFiles
 
-    from engine.serve import MAX_AUDIO, Limits, handle
+    from fastapi.responses import Response
 
-    env = {"MODEL_API_BASE_URL": BASE_URL, "MODEL_API_KEY": os.environ["META_API_KEY"]}
+    from engine.serve import MAX_AUDIO, MAX_UPLOAD, Limits, handle, handle_live
+
+    env = {"MODEL_API_BASE_URL": BASE_URL, "MODEL_API_KEY": os.environ["META_API_KEY"],
+           "ADMIN_KEY": os.environ.get("ADMIN_KEY", "")}
+    os.environ.setdefault("MODEL_API_KEY", env["MODEL_API_KEY"])     # for Wonder and Spark inside a live run
     limits = Limits()
     web = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+
+    @web.api_route("/api/live{rest:path}", methods=["GET", "POST"])
+    async def live(rest: str, request: Request):
+        if int(request.headers.get("content-length", 0)) > MAX_UPLOAD:
+            return JSONResponse({"error": "too large"}, status_code=413)
+        raw = await request.body()
+        status, ctype, body = await run_in_threadpool(handle_live, env, request.method, "/api/live" + rest,
+                                                      request.headers.get("x-admin-key", ""),
+                                                      request.headers.get("content-type", ""), raw)
+        return Response(body, status_code=status, media_type=ctype)
 
     @web.post("/api/{name}")
     async def api(name: str, request: Request):

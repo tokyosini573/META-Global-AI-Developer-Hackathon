@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { FUNNEL_STAGES, funnelAt, PLANS, type Replay } from '../replay'
+import { funnelAt, packOf, PLANS, type Replay } from '../replay'
 
 const W = 1792, H = 136, TOP = 32, ROW = 44, GAP = 8
 
@@ -21,6 +21,8 @@ function river(f: number[], total: number, cy: number) {
 }
 
 export function Funnel({ replay, t }: { replay: Replay; t: number }) {
+  const FUNNEL_STAGES = packOf(replay).stages
+  const dating = packOf(replay).id === 'dating'
   const step = W / (FUNNEL_STAGES.length - 1)
   const total = useMemo(
     () => Math.max(1, ...PLANS.map(k => funnelAt(replay.people[k], replay.meta.days)[0])), [replay])
@@ -36,7 +38,7 @@ export function Funnel({ replay, t }: { replay: Replay; t: number }) {
       {PLANS.map((plan, row) => {
         const people = replay.people[plan]
         return (
-          <path key={plan} d={river(funnelAt(people, t), total, TOP + row * (ROW + GAP) + ROW / 2)}
+          <path key={plan} d={river(funnelAt(people, t, dating), total, TOP + row * (ROW + GAP) + ROW / 2)}
             className={plan === 'a' ? 'fill-plan-a' : 'fill-plan-b'} fillOpacity={plan === 'b' ? 0.9 : 0.75} />
         )
       })}

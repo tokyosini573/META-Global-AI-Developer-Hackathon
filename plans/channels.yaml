@@ -1,0 +1,18 @@
+# What a dollar buys in each way of meeting an app (engine/world/channels.py), US market.
+# Each value is a benchmark with its source (plans/benchmarks_research.md has the full table),
+# or a PRIOR where no public number exists.
+
+feed:            # online feed ads: TikTok, Instagram, Facebook, YouTube, display banners
+  cpm_usd: 8           # kept from the Kindred plan; 2025 medians are $13 (TikTok) and $14 (Meta), influee.co 2025
+  ctr: 0.012           # 0.84% (TikTok conversion ads, dataslayer.ai 2025) to 1.71% (Facebook traffic, WordStream 2025)
+search:          # search and app store ads: Google search, Apple Ads
+  cpt_usd: 1.91        # US Apple Ads median cost per tap, all categories (AppTweak, 2025)
+  monthly_searches: 30000    # PRIOR: 10k-100k US searches a month for a category term; no public number
+event:           # offline promotion: campus ambassadors, event booths, flyers handed out
+  usd_per_contact: 4   # kept from the Kindred plan; PRIOR $0.6-2.5 per booth conversation ($15-25/hr staff, 10-25 talks/hr)
+outdoor:         # outdoor and mass media: subway and bus ads, billboards, banners, TV
+  cpm_usd: 6           # NYC subway car cards $4-9, station domination $6-16 (AdQuick, 2025-26)
+  response: 0.0005     # PRIOR 0.02%-0.2% of impressions lead to a store visit; no public per-exposure rate
+referral:        # friend referrals: existing users paid to invite friends
+  usd_per_install: 20  # PRIOR: $5-20 per side, double-sided rewards (Lyft $10-50 rider credit, ridester.com)
+  invites_per_user_day: 0.01   # PRIOR: 5-20% of users refer; about one invite a user every three months

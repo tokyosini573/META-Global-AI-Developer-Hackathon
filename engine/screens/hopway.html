@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- Screens of the fictional demo ride-hailing app (Hopway) that simulated people look at.
+     Captured at 390×844 by engine/world/screens.py and shown to the models.
+     ?s=ad | store | ride | drive  (&match=0|1&near=none|few|many for ride and drive)
+     Depicted app screens, so the design type-size rules do not apply. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 390px; height: 844px; background: #0A0B0D; color: #E8EAED; font-family: Geist, system-ui, sans-serif; overflow: hidden; position: relative; }
+  .status { height: 48px; padding: 16px 24px 0; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; color: #fff; position: relative; z-index: 2; }
+  .map { position: absolute; inset: 0; background: #14171B; background-image: linear-gradient(#1D2126 1px, transparent 1px), linear-gradient(90deg, #1D2126 1px, transparent 1px); background-size: 44px 44px; }
+  .road { position: absolute; background: #23272E; }
+  .me { position: absolute; left: 187px; top: 360px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 6px rgba(255,255,255,.15); }
+  .car { position: absolute; width: 14px; height: 22px; border-radius: 4px; background: #9AA1AB; }
+  .top { position: relative; z-index: 2; padding: 8px 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-size: 22px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+  .chip { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #1A1D22; color: #B8BCC4; }
+  .sheet { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 20px 32px; background: #121418; border-top: 1px solid #23262D; border-radius: 20px 20px 0 0; z-index: 2; }
+  .sheet .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .sheet .big { font-size: 26px; font-weight: 600; color: #fff; }
+  .sheet .t { font-size: 15px; color: #fff; font-weight: 500; }
+  .sheet .s { font-size: 13px; color: #6B7280; margin-top: 6px; }
+  .cta { margin-top: 16px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 17px; font-weight: 600; background: #E8EAED; color: #0A0B0D; }
+  /* ad */
+  .ad { position: absolute; inset: 0; background: linear-gradient(180deg, #1E2231 0%, #0A0B0D 70%); }
+  .ad h1 { position: absolute; left: 24px; right: 72px; top: 230px; font-size: 50px; line-height: 1.02; letter-spacing: -.03em; color: #fff; font-weight: 600; }
+  .ad .sub { position: absolute; left: 24px; right: 72px; top: 352px; font-size: 18px; color: #B8BCC4; }
+  .ad .meta { position: absolute; left: 16px; right: 80px; bottom: 116px; font-size: 15px; color: #fff; }
+  .ad .meta span { color: #B8BCC4; font-size: 13px; }
+  .ad .install { position: absolute; left: 16px; right: 16px; bottom: 48px; height: 48px; border-radius: 8px; background: #fff; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+  /* store */
+  .store { padding: 8px 20px 0; }
+  .store .row { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
+  .store .icon { width: 96px; height: 96px; border-radius: 22px; background: linear-gradient(160deg, #3A3F52, #1A1D22); display: grid; place-items: center; font-size: 44px; font-weight: 600; color: #fff; }
+  .store .name { font-size: 22px; font-weight: 600; color: #fff; }
+  .store .tag { font-size: 14px; color: #B8BCC4; margin-top: 2px; }
+  .store .get { margin-top: 10px; width: 84px; height: 32px; border-radius: 16px; background: #E8EAED; color: #0A0B0D; display: grid; place-items: center; font-weight: 600; font-size: 15px; }
+  .store .facts { display: flex; justify-content: space-between; margin-top: 20px; padding: 12px 0; border-top: 1px solid #23262D; border-bottom: 1px solid #23262D; font-size: 12px; color: #6B7280; text-align: center; }
+  .store .facts b { display: block; font-size: 16px; color: #E8EAED; font-weight: 600; }
+  .store .shots { display: flex; gap: 10px; margin-top: 18px; }
+  .store .shot { flex: 1; height: 300px; border-radius: 14px; background: #1A1D22; padding: 14px; font-size: 17px; font-weight: 600; color: #fff; line-height: 1.15; }
+  .store .desc { margin-top: 16px; font-size: 14px; color: #B8BCC4; line-height: 1.4; }
+</style>
+</head>
+<body>
+<script>
+const q = new URLSearchParams(location.search)
+const s = q.get('s') || 'ride'
+const done = q.get('match') === '1'
+const near = q.get('near') || 'none'
+const eta = { none: 18, few: 9, many: 3 }[near]
+const requests = { none: 0, few: 3, many: 14 }[near]
+const cars = { none: [[40, 120]], few: [[120, 250], [280, 470], [60, 520]], many: [[150, 300], [230, 410], [110, 420], [260, 290], [170, 470], [90, 330], [300, 380]] }[near]
+const status = `<div class="status"><span>9:41</span><span>●●●● 5G ▮</span></div>`
+const map = `<div class="map"><div class="road" style="left:0;right:0;top:300px;height:18px"></div><div class="road" style="top:0;bottom:0;left:120px;width:18px"></div><div class="road" style="top:0;bottom:0;left:270px;width:14px"></div><div class="me"></div>${cars.map(([x, y]) => `<div class="car" style="left:${x}px;top:${y}px"></div>`).join('')}</div>`
+const screens = {
+  ad: `<div class="ad">${status}
+    <h1>Rides in<br>minutes.</h1>
+    <div class="sub">Fair prices. Drivers keep more of every fare.</div>
+    <div class="meta"><b>Hopway</b> · Sponsored<br><span>Ride or drive. Now in your city.</span></div>
+    <div class="install">Install</div></div>`,
+  store: `${status}<div class="store">
+    <div class="row"><div class="icon">H</div><div><div class="name">Hopway</div><div class="tag">Rides around town, or drive and earn</div><div class="get">Get</div></div></div>
+    <div class="facts"><div><b>4.4</b>★★★★★</div><div><b>17+</b>Age</div><div><b>#47</b>Travel</div><div><b>Free</b>To join</div></div>
+    <div class="shots"><div class="shot">Request a ride in two taps.</div><div class="shot">Drive when you want. Keep 80%.</div></div>
+    <div class="desc">Hopway connects riders with drivers nearby. Riders pay about $14 a ride in town. Drivers keep 80% of each fare and choose their own hours.</div></div>`,
+  // A rider opens the app: the wait shown depends on how many drivers are online nearby
+  ride: `${map}${status}<div class="top"><span class="brand">Hopway</span><span class="chip">${done ? '1 ride' : 'No rides yet'}</span></div>
+    <div class="sheet"><div class="row"><span class="big">${eta} min away</span><span class="t">$14</span></div>
+      <div class="s">${eta > 15 ? 'Few drivers are online near you right now.' : 'Nearest car, estimated pickup time.'}</div>
+      <div class="cta">Request ride</div></div>`,
+  // A driver opens the driver screen: how many requests came in nearby depends on the market
+  drive: `${map}${status}<div class="top"><span class="brand">Hopway Driver</span><span class="chip">${done ? '1 ride given' : 'No rides given yet'}</span></div>
+    <div class="sheet"><div class="row"><span class="big">${requests} requests</span><span class="t">last hour</span></div>
+      <div class="s">${requests ? 'Ride requests within 3 miles of you. You keep 80% of each fare.' : 'No ride requests near you in the last hour.'}</div>
+      <div class="cta">Go online</div></div>`,
+}
+document.body.innerHTML = screens[s]
+</script>
+</body>
+</html>
