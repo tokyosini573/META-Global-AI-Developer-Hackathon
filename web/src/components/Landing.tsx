@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import type { Replay } from '../replay'
-import { PlanMap } from './PlanMap'
+import { MiniAds, MiniReport, ReportPreview } from './report/Preview'
 
 // The front page: what Rehearsal is, how to use it, what you get, why trust it and which models it
 // runs on, then a choice at the bottom between a precomputed example and the admin's live run.
 // Every other view (replay, drawer, input, backtest) is the 1920×1080 stage behind a URL parameter.
 
-const LOOP_SECONDS = 14 // the hero map plays 90 days in this long, then holds the last day
-const HOLD_SECONDS = 3
+// The example the report preview and the "What you get" pictures are drawn from (web/public/replays)
+const PREVIEW_REPLAY = 'fixture_v2'
 
 const MARKETS = [
   { replay: 'engine', market: 'Dating', app: 'Kindred', ad: '/screens/ad.png', a: 'Nationwide ads, paywall from day 1',
@@ -22,22 +22,24 @@ const MARKETS = [
 ]
 
 const STEPS = [
-  { title: 'Show what people will see', text: "Your app's ad, its store page and the screen each side uses. Then two ways to launch it: where, which ads, what price.", model: 'You' },
-  { title: 'Simulated people decide', text: 'Muse Wonder designs the people in the market. Each one looks at your real screens and decides, day by day, whether to install, use, pay or leave.', model: 'Muse Wonder · Muse Glimmer · Muse Spark' },
-  { title: 'See who wins, and ask why', text: 'Both plans run 30 times over 90 days. Click anyone on the map and ask them, by voice or text, why they did what they did.', model: 'Muse Spark · Muse Voice Transcribe' },
+  { title: 'Describe your app and what to test', text: 'A short brief: what the app does and who it is for, its screens (ads, store page, sign-up, the main screen, the paywall), how people sign up and pay, up to three ads, and the competition. Then two experiments, each with only what it changes.', model: 'You' },
+  { title: 'Simulated people decide', text: 'Muse Wonder designs 6 to 10 kinds of people for the market, and each person gets their own age, job, town and mood. At every step, from the ad to the paywall, Muse decides for each kind and situation whether people go on or leave, and why.', model: 'Muse Wonder · Muse Spark · Muse Glimmer' },
+  { title: 'See where people left, and ask why', text: 'Both experiments run 30 times over 90 days. See which one wins, where people left at each step in their own words, which ad each kind of person answered, and ask anyone, by voice or text.', model: 'Muse Wonder · Muse Spark · Muse Voice Transcribe' },
 ]
 
 const DOLPHIN = '/landing/dolphin/'
 
-const GETS = [
-  { img: '/landing/verdict.png', title: 'A verdict with a reason', text: 'Which plan wins, in how many of 30 runs, and why, in one plain sentence.' },
-  { img: '/landing/person.png', title: 'Every person, on the map', text: 'Each dot is a simulated person. Open one to see the ad they saw, what they did each day, and ask them.' },
-  { img: '/landing/live.png', title: 'Your own app, live', text: 'Upload your own screens, choose the channels and budgets, and rehearse your own launch in a few minutes.' },
+type Get = { title: string; text: string; img?: string; draw?: 'report' | 'ads' }
+const GETS: Get[] = [
+  { img: '/landing/verdict.png', title: 'Which experiment wins', text: 'One plain sentence on who won and why, both experiments on the map, and the funnel from the ad to paying.' },
+  { draw: 'report', title: 'Where people left, and why', text: 'For each step, how many people left and the reasons they gave, grouped by Muse Wonder and counted by the engine.' },
+  { draw: 'ads', title: 'Which ad worked on whom', text: 'Up to three ads against each kind of person: who saw which ad, and how many of them installed.' },
+  { img: '/landing/person.png', title: 'Any one person', text: 'Open anyone on the map: the ad they saw, how they signed up, what they did each day, why they stopped, and ask them.' },
 ]
 
 const MODELS = [
-  { name: 'Muse Wonder', role: 'Reads your screens and plans, designs the kinds of people in the market, and writes why the winner won.' },
-  { name: 'Muse Spark', role: 'Looks at each screen as a person would and decides what they do. Answers your questions live, in character.' },
+  { name: 'Muse Wonder', role: 'Designs the kinds of people in the market from your brief, groups the reasons people gave into a few themes, and writes why the winner won.' },
+  { name: 'Muse Spark', role: 'Looks at each screen as each kind of person would and decides what they do: install, sign up, stay, pay or leave, and why. Answers your questions live, in character.' },
   { name: 'Muse Glimmer', role: 'A 30B model distilled from Spark, with open weights. Decides for each of 2,928 people in the dating example.',
     link: { href: 'https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1', text: 'Weights on Hugging Face' } },
   { name: 'Muse Voice Transcribe', role: 'Turns the question you speak to a simulated person into text.' },
@@ -59,46 +61,10 @@ function Section({ id, band, title, lead, children }: {
   )
 }
 
-// Both plans of the dating example, playing on a loop
-function HeroMaps() {
+function usePreview() {
   const [replay, setReplay] = useState<Replay | null>(null)
-  const [t, setT] = useState(0)
-  useEffect(() => { fetch('/replays/engine.json').then(r => r.json()).then(setReplay) }, [])
-  useEffect(() => {
-    if (!replay) return
-    const days = replay.meta.days, start = performance.now()
-    let raf = 0
-    const tick = (now: number) => {
-      const s = ((now - start) / 1000) % (LOOP_SECONDS + HOLD_SECONDS)
-      setT(Math.min(days, (s / LOOP_SECONDS) * days))
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [replay])
-  if (!replay) return <div className="aspect-[2/1] rounded-card bg-surface" />
-  const days = replay.meta.days
-  return (
-    <div>
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <span className="label">Dating example · same $40,000 budget</span>
-        <span className="label text-strong">{t >= days ? 'Plan B wins' : `Day ${Math.floor(t)} of ${days}`}</span>
-      </div>
-      <div className="mt-6 grid gap-8 md:grid-cols-2">
-        {(['a', 'b'] as const).map(k => (
-          <div key={k}>
-            <div className={`text-body font-medium ${k === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>
-              Plan {k.toUpperCase()} · {k === 'a' ? 'Nationwide ads' : 'City by city'}
-            </div>
-            <div className="mt-2"><PlanMap replay={replay} plan={k} t={t} width={520} /></div>
-          </div>
-        ))}
-      </div>
-      <p className="mt-4 text-body text-dim">
-        Each dot stands for 60 simulated people. A line is a match. Plan A&apos;s users are spread too thin to meet anyone.
-      </p>
-    </div>
-  )
+  useEffect(() => { fetch(`/replays/${PREVIEW_REPLAY}.json`).then(r => r.json()).then(setReplay) }, [])
+  return replay
 }
 
 // A phone showing one of the demo app's real screens
@@ -187,6 +153,7 @@ function Start() {
 }
 
 export function Landing() {
+  const preview = usePreview()
   return (
     <div className="min-h-full bg-bg text-text">
       <nav className={`${wrap} flex items-center justify-between py-6`}>
@@ -226,7 +193,7 @@ export function Landing() {
             <img src={`${DOLPHIN}smile.webp`} alt="" className="absolute bottom-3 left-1/2 h-[190px] -translate-x-1/2" />
           </div>
         </div>
-        <div className="mt-16"><HeroMaps /></div>
+        <div className="mt-16">{preview ? <ReportPreview replay={preview} /> : <div className="h-[640px] rounded-card bg-surface" />}</div>
       </header>
 
       <section className="bg-surface py-24">
@@ -274,10 +241,14 @@ export function Landing() {
       </section>
 
       <Section band title="What you get">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {GETS.map(g => (
             <div key={g.title} className="overflow-hidden rounded-card border border-line bg-white">
-              <img src={g.img} alt="" className="aspect-video w-full border-b border-line object-cover object-left-top" />
+              {g.img
+                ? <img src={g.img} alt="" className="aspect-video w-full border-b border-line object-cover object-left-top" />
+                : <div className="aspect-video w-full border-b border-line">
+                    {preview && (g.draw === 'report' ? <MiniReport replay={preview} /> : <MiniAds replay={preview} />)}
+                  </div>}
               <div className="p-8">
                 <h3 className="text-lead font-semibold text-strong">{g.title}</h3>
                 <p className="mt-3 text-body text-dim">{g.text}</p>
