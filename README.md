@@ -42,11 +42,9 @@ meet.
 ## How it works
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#EEF4FF', 'primaryBorderColor': '#1B5BF5', 'primaryTextColor': '#0B1A2C', 'lineColor': '#1B5BF5'}}}%%
 flowchart LR
-    A["<b>1. You describe the app</b><br/>screens, price, up to 3 ads,<br/>and two experiments, A and B"]
-    B["<b>2. Simulated people decide</b><br/>Muse Wonder designs the market's people.<br/>At every step, each kind of person<br/>decides to go on or leave, and says why"]
-    C["<b>3. You see the result</b><br/>who wins, where people left and why,<br/>which ad worked on whom,<br/>and you can ask anyone a question"]
-    A --> B --> C
+    A["<b>1 · Describe</b><br/>your app, its ads<br/>and two experiments"] --> B["<b>2 · Simulate</b><br/>thousands of people<br/>decide and say why"] --> C["<b>3 · Read</b><br/>who wins, where<br/>people left, and why"]
 ```
 
 1. **Describe your app and what to test.** A short brief: what the app does and who it's for, its
@@ -67,6 +65,7 @@ flowchart LR
 <br>
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#EEF4FF', 'primaryBorderColor': '#1B5BF5', 'primaryTextColor': '#0B1A2C', 'lineColor': '#5B6B7A'}}}%%
 flowchart LR
     s1[Saw an ad] --> s2[Installed] --> s3[Signed up] --> s4["First match<br/>(sale, ride)"] --> s5[Still using<br/>on day 90] --> s6[Paid]
     s1 -.->|"Too few swipes, costs too much"| x1((left))
