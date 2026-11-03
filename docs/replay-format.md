@@ -126,7 +126,12 @@ ads, the per-step report and the ads table; the v2 fields are listed in "Version
       "signed_up": 3.5,                // day they finished sign-up, or null (quit at sign-up: quit = installed)
       "story": {
         // ...v1 fields; the diary now also has the sign-up step and, when they stop, why:
-        "quit_reason": "He never wrote back, and nobody else is close."   // or null
+        "quit_reason": "He never wrote back, and nobody else is close.",  // or null
+        "stop": { "to": "first", "words": "Nearest person is 41 miles away." }
+          // the first funnel step this person never reached, and the words of the decision that stopped
+          // them there (null when they gave none); absent when they reached every step. engine/world/report.py
+          // groups these per step: saw→installed = the install answer, installed→signed_up = the sign-up
+          // answer, signed_up→first / first→active = why they quit, active→paid = the last paywall answer
       } }]
   }
 }

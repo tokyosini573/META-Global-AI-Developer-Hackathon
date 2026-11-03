@@ -32,6 +32,7 @@ export type Story = {
   last: string | null         // the last paywall they saw
   diary: [number, string, string | null][] // [day shown, what happened, their own words]
   quit_reason?: string | null // v2: why they stopped, in their own words
+  stop?: { to: FunnelKey; words: string | null } // v2: the first step they never reached, and why
 }
 
 // v2: one step of the funnel, one ad, one kind of person, one row of the report

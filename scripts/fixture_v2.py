@@ -79,6 +79,11 @@ def main():
                 p["story"]["diary"].insert(1, [int(p["installed"]) + 1, "Left at sign-up.", REASONS["signed_up"][0][1]])
             if p["quit"] is not None and p["signed_up"] is not None:
                 p["story"]["quit_reason"] = r.choice(REASONS["active"])[1]
+        keys = [k for k, _ in FUNNEL]
+        for p in people:
+            missed = next((b for b in keys if not reached_step(p, b)), None)
+            if missed and missed != "saw":
+                p["story"]["stop"] = {"to": missed, "words": r.choice(REASONS[missed])[1]}
         report = []
         for (a, _), (b, _) in zip(FUNNEL, FUNNEL[1:]):
             gone = [p["id"] for p in people if reached_step(p, a) and not reached_step(p, b)]
