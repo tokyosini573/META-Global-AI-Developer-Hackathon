@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { packOf, type Pack, type PlanKey, type Person, type Replay } from '../replay'
+import { packOf, screenSrc, type Pack, type PlanKey, type Person, type Replay } from '../replay'
 import { record, type Recording } from '../voice'
 import { STILL } from './Stage'
 
@@ -7,6 +7,7 @@ const day = (d: number) => Math.floor(d) + 1 // day 0.4 of the run is "Day 1" on
 
 function outcome(p: Person, days: number, pack: Pack) {
   if (p.installed === null) return `Did not install the app on day ${day(p.reached!)}.`
+  if (p.signed_up === null) return `Installed the app on day ${day(p.installed)} and left at sign-up.`
   const since = (pack.since ?? 'Paying since day {day}.').replace('{day}', String(day(p.paid ?? 0)))
   if (p.paid !== null && p.quit !== null && pack.id !== 'dating') return `${since} Deleted the app on day ${day(p.quit)}.`
   if (p.paid !== null) return since
@@ -20,15 +21,26 @@ function Phone({ label, screen }: { label: string; screen: string }) {
     <div>
       <div className="label mb-2">{label}</div>
       <div className="h-[240px] overflow-hidden rounded-card border border-line bg-bg">
-        <img src={screen.startsWith('/') ? screen : `/screens/${screen}.png`} alt="" className="size-full object-cover"
+        <img src={screenSrc(screen)} alt="" className="size-full object-cover"
           style={{ objectPosition: /_m[01]_/.test(screen) ? 'center bottom' : 'center 40%' }} />
       </div>
     </div>
   )
 }
 
+// The diary with the person's reason for stopping (v2 story.quit_reason) on the day they stopped,
+// when that day's line has no words of its own; otherwise as a line of its own
+function diaryOf(p: Person): [number, string, string | null][] {
+  const s = p.story!, why = s.quit_reason
+  if (!why || p.quit === null || s.diary.some(e => e[2] === why)) return s.diary
+  const i = s.diary.findLastIndex(e => e[0] === day(p.quit!) && !e[2])
+  if (i >= 0) return s.diary.map((e, j) => (j === i ? [e[0], e[1], why] : e))
+  return [...s.diary, [day(p.quit), 'Stopped using the app.', why]]
+}
+
 function suggestion(p: Person, pack: Pack) {
   if (p.installed === null) return "Why didn't you install it?"
+  if (p.signed_up === null) return 'Why did you stop at sign-up?'
   if (p.paid !== null && p.quit !== null && pack.id !== 'dating') return pack.ask.quit
   if (p.paid !== null) return pack.ask.converted
   if (p.quit !== null) return pack.ask.quit
@@ -133,6 +145,9 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
   const s = p.story
   const pack = packOf(replay)
   const she = pack.id !== 'dating' ? 'they' : s?.sex === 'w' ? 'she' : 'he'
+  // v2: the ad they saw (meta.ads) and the kind of person they are (meta.kinds)
+  const ads = replay.meta.ads ?? [], n = ads.findIndex(a => a.id === p.ad_id)
+  const kind = replay.meta.kinds?.find(k => k.id === p.kind)
   const left = pack.id !== 'dating' ? pack.last_screen.replace('{they}', she)
     : p.paid !== null ? `Where ${she} paid` : p.quit !== null ? `Where ${she} left` : `Last paywall ${she} saw`
   return (
@@ -143,17 +158,19 @@ export function Drawer({ replay, replayName, plan, person: p, onClose }: {
         <button onClick={onClose} aria-label="Close" className="absolute top-10 right-10 cursor-pointer">
           <svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 2 L14 14 M14 2 L2 14" stroke="currentColor" strokeWidth="1.5" className="text-dim" /></svg>
         </button>
-        <div className={`label ${plan === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>{replay.plans[plan].name} · Person {p.id}</div>
+        <div className={`label ${plan === 'a' ? 'text-plan-a' : 'text-plan-b'}`}>{replay.plans[plan].name} · {kind?.name ?? `Person ${p.id}`}</div>
         <h2 className="mt-6 text-number font-medium text-strong">{p.name}, {p.age}</h2>
         <p className="mt-4 text-body text-dim">{p.place}. {outcome(p, replay.meta.days, pack)}</p>
         {s && (
           <>
             <div className="mt-12 grid grid-cols-2 gap-6">
-              <Phone label={`The ${/(^|_|\/)ad$/.test(s.ad) ? 'ad' : 'page'} ${she} saw`} screen={s.ad} />
+              {n >= 0
+                ? <Phone label={`Ad ${n + 1} ${she} saw · ${ads[n].angle}`} screen={ads[n].screen} />
+                : <Phone label={`The ${/(^|_|\/)ad$/.test(s.ad) ? 'ad' : 'page'} ${she} saw`} screen={s.ad} />}
               {s.last && <Phone label={left} screen={s.last} />}
             </div>
             <div className="mt-12 grid grid-cols-[72px_1fr] gap-y-4">
-              {s.diary.map(([d, what, words], i) => (
+              {diaryOf(p).map(([d, what, words], i) => (
                 <div key={i} className="contents">
                   <span className="label pt-1">Day {d}</span>
                   <span className="text-body">

@@ -105,54 +105,56 @@ export function stateAt(p: Person, t: number): State {
   return 'using'
 }
 
-// Starts at "Installed": only ~9% of people reached by an ad install, so a "Reached"
-// stage would squeeze everything after it into a hairline. Dating ends at paying; the other
-// markets end at people who traded and are still there.
-export function funnelAt(people: Person[], t: number, dating = true): number[] {
-  const f = [0, 0, 0, 0]
-  for (const p of people) {
-    if (!by(p.installed, t)) continue
-    f[0]++
-    if (by(p.matched, t)) f[1]++
-    if (!by(p.quit, t)) f[2]++
-    if (dating ? by(p.paid, t) : by(p.matched, t) && !by(p.quit, t)) f[3]++
-  }
-  return f
-}
-
-function quitWeekOneShare(people: Person[], t: number): number | null {
-  let installed = 0, quit = 0
-  for (const p of people) {
-    if (!by(p.installed, t)) continue
-    installed++
-    if (by(p.quit, t) && p.quit! - p.installed! <= 7) quit++
-  }
-  return installed ? quit / installed : null
-}
-
-const pct = (b: number, a: number) => {
-  const v = Math.round((b / a - 1) * 100)
-  return `${v >= 0 ? '+' : '−'}${Math.abs(v)}%`
-}
-
-const pts = (b: number, a: number) => {
-  const v = Math.round((b - a) * 100)
-  return `${v >= 0 ? '+' : '−'}${Math.abs(v)} pts`
-}
-
-// The three on-screen numbers: the winner against the other plan. '—' when they can't be computed.
-export function metricsAt(r: Replay, t: number) {
-  const d = swipe(r), [goal, success, quit] = packOf(r).numbers
-  const w = r.verdict.winner, l: PlanKey = w === 'a' ? 'b' : 'a'
-  const fa = funnelAt(r.people[l], t, d), fb = funnelAt(r.people[w], t, d)
-  const qa = quitWeekOneShare(r.people[l], t), qb = quitWeekOneShare(r.people[w], t)
-  // dating counts paying users; the other markets count completed sales or rides
-  const done = (k: PlanKey) => d ? funnelAt(r.people[k], t, d)[3] : r.matches[k].filter(m => m[2] <= t).length
-  const ga = done(l), gb = done(w)
+// v2: the funnel steps, in order. v1 files have no meta.funnel: their steps come from the pack,
+// without sign-up (v1 people have no sign-up day).
+export function funnelOf(r: Replay): { key: FunnelKey; label: string }[] {
+  if (r.meta.funnel) return r.meta.funnel
+  const pack = packOf(r)
   return [
-    { label: goal, value: ga ? pct(gb, ga) : gb ? `only ${w.toUpperCase()}` : '—' },
-    // Percentage points of installers, so it still reads when Plan A has no match at all
-    { label: success, value: fa[0] && fb[0] ? pts(fb[1] / fb[0], fa[1] / fa[0]) : '—' },
-    { label: quit, value: qa && qb !== null ? pct(qb, qa) : '—' },
+    { key: 'saw', label: 'Saw an ad' }, { key: 'installed', label: 'Installed' },
+    { key: 'first', label: pack.stages[1] }, { key: 'active', label: `Using on day ${r.meta.days}` },
+    ...(pack.id === 'dating' ? [{ key: 'paid' as const, label: 'Paid' }] : []),
   ]
 }
+
+// Whether a person counts toward a step at day t (docs/replay-format.md "Version 2")
+export function atStep(p: Person, key: FunnelKey, t: number): boolean {
+  switch (key) {
+    case 'saw': return by(p.reached, t)
+    case 'installed': return by(p.installed, t)
+    case 'signed_up': return by(p.signed_up ?? null, t)
+    case 'first': return by(p.matched, t)
+    case 'active': return by(p.signed_up === undefined ? p.installed : p.signed_up, t) && !by(p.quit, t)
+    case 'paid': return by(p.paid, t)
+  }
+}
+
+export const countAt = (people: Person[], key: FunnelKey, t: number) =>
+  people.reduce((n, p) => n + (atStep(p, key, t) ? 1 : 0), 0)
+
+// The three numbers on the main screen: the winner's count at day t and the other plan's.
+// Dating counts payers; the other markets count completed sales or rides (matches by day t).
+export function numbersAt(r: Replay, t: number) {
+  const steps = funnelOf(r), label = (k: FunnelKey) => steps.find(s => s.key === k)?.label ?? k
+  const goal = swipe(r)
+    ? { label: label('paid'), of: (k: PlanKey) => countAt(r.people[k], 'paid', t) }
+    : { label: packOf(r).numbers[0], of: (k: PlanKey) => r.matches[k].filter(m => m[2] <= t).length }
+  const w = r.verdict.winner, l: PlanKey = w === 'a' ? 'b' : 'a'
+  return [goal, ...(['first', 'active'] as const).map(k => ({ label: label(k), of: (p: PlanKey) => countAt(r.people[p], k, t) }))]
+    .map(n => ({ label: n.label, value: n.of(w), other: n.of(l), otherPlan: l }))
+}
+
+// v2: the words under a step's count in the report ("864 did not install")
+export function leftWords(to: FunnelKey, label: string): string {
+  if (to === 'installed') return 'did not install'
+  if (to === 'signed_up') return 'left at sign-up'
+  if (to === 'active') return 'quit'
+  if (to === 'paid') return 'did not pay'
+  return `never ${label.charAt(0).toLowerCase()}${label.slice(1)}`
+}
+
+// P7: the line next to every number. v1 files have none, so they get the same words.
+export const noteOf = (r: Replay) => r.meta.note ?? 'Simulated, calibrated to public benchmarks. Not observed.'
+
+// A screen name as an image address: web/public/screens/<name>.png, or a live run's path
+export const screenSrc = (s: string) => (s.startsWith('/') ? s : `/screens/${s}.png`)
