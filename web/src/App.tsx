@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { AdminInput } from './components/AdminInput'
+import { Ads } from './components/Ads'
 import { Backtest } from './components/Backtest'
 import { Drawer } from './components/Drawer'
 import { Funnel } from './components/Funnel'
-import { Input } from './components/Input'
 import { PlanMap } from './components/PlanMap'
+import { Report } from './components/Report'
 import { Stage, STILL } from './components/Stage'
 import { Timeline } from './components/Timeline'
 import { metricsAt, packOf, PLANS, type PlanKey, type Replay } from './replay'
@@ -52,16 +52,15 @@ export default function App() {
     return m ? { plan: m[1] as PlanKey, id: Number(m[2]) } : null
   })
   const close = useCallback(() => setPicked(null), [])
-  // ?new opens "Try it yourself": the input screen, filled with the example
-  const [input, setInput] = useState(new URLSearchParams(location.search).has('new'))
-  // ?backtest opens the backtest screen
+  // ?backtest opens the backtest screen; ?report and ?ads open the v2 report screens
   const [backtest, setBacktest] = useState(new URLSearchParams(location.search).has('backtest'))
-
-  // ?new&admin opens the admin's live run instead (components/AdminInput.tsx)
-  const [admin, setAdmin] = useState(input && new URLSearchParams(location.search).has('admin'))
+  const [view, setView] = useState<'replay' | 'report' | 'ads'>(() => {
+    const q = new URLSearchParams(location.search)
+    return q.has('report') ? 'report' : q.has('ads') ? 'ads' : 'replay'
+  })
 
   // ?replay=reloop plays another market's example; ?replay=live_<id> an admin's live run
-  const [name, setName] = useState(new URLSearchParams(location.search).get('replay') ?? 'engine')
+  const [name] = useState(new URLSearchParams(location.search).get('replay') ?? 'engine')
   useEffect(() => {
     const live = name.match(/^live_([a-z0-9]{12})$/)
     let key = ''
@@ -69,14 +68,6 @@ export default function App() {
     fetch(live ? `/api/live/${live[1]}/replay` : `/replays/${encodeURIComponent(name)}.json`,
       { headers: live ? { 'X-Admin-Key': key } : {} }).then(r => r.json()).then(setReplay)
   }, [name])
-  const switchTo = (next: string) => {
-    if (next === name) return
-    const q = new URLSearchParams(location.search)
-    if (next === 'engine') q.delete('replay')
-    else q.set('replay', next)
-    history.replaceState(null, '', `${location.pathname}?${q}`.replace(/\?$/, ''))
-    setName(next)
-  }
 
   useEffect(() => {
     if (!replay || !playing) return
@@ -109,36 +100,8 @@ export default function App() {
     )
   }
 
-  const home = () => {
-    const q = new URLSearchParams(location.search)
-    for (const k of ['new', 'admin', 'step']) q.delete(k)
-    history.replaceState(null, '', `${location.pathname}?${q}`.replace(/\?$/, ''))
-  }
-
-  if (admin) {
-    return (
-      <Stage>
-        <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
-          style={{ background: 'radial-gradient(closest-side, rgb(27 91 245 / .07), rgb(27 91 245 / 0))' }} />
-        <AdminInput onReplay={(rep, id) => {
-          setAdmin(false); setInput(false); setReplay(rep); setName(`live_${id}`)
-          history.replaceState(null, '', `${location.pathname}?replay=live_${id}`)
-          setT(0); setPlaying(true)
-        }} />
-      </Stage>
-    )
-  }
-
-  if (input) {
-    return (
-      <Stage>
-        <div className="pointer-events-none absolute -right-[200px] -bottom-[300px] h-[900px] w-[1200px]"
-          style={{ background: 'radial-gradient(closest-side, rgb(27 91 245 / .07), rgb(27 91 245 / 0))' }} />
-        <Input replay={replay} name={name} onSwitch={switchTo}
-          onDone={() => { home(); setInput(false); setT(0); setPlaying(true) }} />
-      </Stage>
-    )
-  }
+  if (view === 'report') return <Stage><Report replay={replay} onBack={() => setView('replay')} /></Stage>
+  if (view === 'ads') return <Stage><Ads replay={replay} onBack={() => setView('replay')} /></Stage>
 
   const toggle = () => {
     if (!playing && done) setT(0)
@@ -159,7 +122,7 @@ export default function App() {
           <button onClick={() => { setPlaying(false); setPicked(null); setBacktest(true) }}
             className="label cursor-pointer text-strong">Backtest</button>
           {' · '}
-          <button onClick={() => { setPlaying(false); setPicked(null); setInput(true) }}
+          <button onClick={() => { location.href = `/?new&replay=${encodeURIComponent(name)}` }}
             className="label cursor-pointer text-strong">Try it yourself</button>
         </span>
       </header>

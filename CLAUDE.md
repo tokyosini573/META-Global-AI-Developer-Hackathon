@@ -4,6 +4,16 @@ Launch world model for the Meta Global AI Developer Hackathon (Indie track, due 
 It rehearses two launch plans (A vs B) for one app in a simulated US market over 90 days and says which wins and why.
 Planning docs live one folder up (`../00_대회정보.md` … `../06_영상스토리보드.md`); approved mockups live in `../시안/`.
 
+## v2 redesign (2026-11-03, in progress)
+
+The binding scope is `../10_재설계문서_1103.md` (Korean, local): full funnel (saw an ad → installed →
+signed up → first core action → still using → paid) with each person's own reasons per step, app info
+separated from the experiment setup (A/B), up to three ads compared per kind of person. Build nothing it
+lists under "빼기" (X1–X9). Shared interfaces: `docs/brief-format.md` (input), `docs/replay-format.md`
+"Version 2" (output), `web/src/brief.ts`, `web/src/replay.ts`, `web/public/replays/fixture_v2.json`
+(placeholder v2 replay from `scripts/fixture_v2.py`). Approved screen mockup:
+`../시안/02_재설계_미리보기.html`. Change an interface only through the orchestrator session.
+
 ## Hard constraints
 
 - Build only these screens: the front page, then on the stage the main screen, one-person drawer, input screen, backtest screen (the 3-minute video, `../06_영상스토리보드.md`) and the admin's live-run form (`?new&admin`). Scope since 2026-11-03: two-sided apps in three market packs (dating, resale, rides), channels grouped by how people meet the app, and admin-only live runs from uploaded screens (they cost money); the public site plays precomputed replays. Nothing else (no settings, login, run list, stats tables).

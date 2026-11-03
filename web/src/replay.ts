@@ -1,5 +1,7 @@
 // Replay format and derived numbers. The format is defined in docs/replay-format.md.
 
+import type { Brief } from './brief'
+
 export type PlanKey = 'a' | 'b'
 export const PLANS: PlanKey[] = ['a', 'b']
 
@@ -16,6 +18,10 @@ export type Person = {
   quit: number | null
   paid: number | null
   story?: Story
+  // v2 (docs/replay-format.md "Version 2")
+  kind?: string               // id in meta.kinds
+  ad_id?: string | null       // the ad they saw, or null
+  signed_up?: number | null   // day they finished sign-up
 }
 
 // What the one-person drawer shows (written by engine/world/output.py)
@@ -25,20 +31,40 @@ export type Story = {
   ad: string                  // screen they saw when reached (web/public/screens/<name>.png)
   last: string | null         // the last paywall they saw
   diary: [number, string, string | null][] // [day shown, what happened, their own words]
+  quit_reason?: string | null // v2: why they stopped, in their own words
 }
 
+// v2: one step of the funnel, one ad, one kind of person, one row of the report
+export type FunnelKey = 'saw' | 'installed' | 'signed_up' | 'first' | 'active' | 'paid'
+export type Ad = { id: string; angle: string; line: string; screen: string }
+export type Kind = { id: string; name: string; share: number; side?: string }
+export type Theme = { name: string; count: number; quote: string; ids: number[] }
+export type ReportStep = { from: FunnelKey; to: FunnelKey; left: number; themes: Theme[] }
+
 export type Replay = {
-  version: 1
+  version: 1 | 2
   meta: {
     app: string; market: string; days: number; budget_usd: number; placeholder: boolean
     people_types?: string[] // the kinds of people Muse Wonder designed for this market
     runs?: number           // Monte Carlo runs behind the verdict
     pack?: Pack             // the market's own words (engine/packs); dating when absent
     live?: boolean          // an admin's live run from uploaded screens (engine/live.py)
+    // v2
+    brief?: Brief           // the brief this run used (docs/brief-format.md)
+    note?: string           // "Simulated, calibrated to public benchmarks. Not observed."
+    agents?: number         // simulated people reached in each experiment
+    funnel?: { key: FunnelKey; label: string }[]
+    ads?: Ad[]
+    kinds?: Kind[]
   }
   plans: Record<PlanKey, {
     name: string; summary: string; events: { day: number; label: string }[]
     card?: { title: string; where: string; ads: string; price: string } // the plan in plain words (input screen)
+    // v2
+    changes?: string                                  // what this experiment changes
+    range?: Partial<Record<FunnelKey, [number, number]>> // 10th-90th percentile across runs
+    report?: ReportStep[]                             // where people left and why
+    ads?: { line: string; cells: Record<string, Record<string, [number, number]>> } // kind -> ad -> [saw, installed]
   }>
   verdict: { winner: PlanKey; headline: string; reason: string }
   people: Record<PlanKey, Person[]>

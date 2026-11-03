@@ -3,10 +3,13 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { Landing } from './components/Landing'
+import { Setup } from './components/Setup'
 
-// The bare address opens the front page; any parameter (?replay, ?new, ?backtest, ?day, ...) opens the stage
+// The bare address opens the front page; ?new opens the Setup page (a scrolling page like the front
+// page); any other parameter (?replay, ?report, ?ads, ?backtest, ?day, ...) opens the stage
+const q = new URLSearchParams(location.search)
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {location.search ? <App /> : <Landing />}
+    {q.has('new') ? <Setup /> : location.search ? <App /> : <Landing />}
   </StrictMode>,
 )

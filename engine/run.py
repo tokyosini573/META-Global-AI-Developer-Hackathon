@@ -23,7 +23,7 @@ from engine.world.output import replay, write_sqlite
 from engine.world.sim import Simulation, measures, totals
 from engine.world.spark import SparkProvider
 from engine import packs
-from engine.world import wonder
+from engine.world import report, wonder
 
 ROOT = Path(__file__).resolve().parent.parent
 CALIBRATION_SEEDS = tuple(range(1000, 1006))
@@ -113,6 +113,7 @@ def rehearse(cfg, cache, n_runs=30, use_wonder=True, log=print):
         v["reason"] = f"{wonder_reason(cfg, runs, rep)} {cfg['plans'][w]['name']} won {wins} of {len(runs)} runs."
         rep["verdict"] = v
     rep["meta"]["runs"] = n_runs
+    report.build(rep, cfg, use_wonder=use_wonder, log=log)   # v2: plans[k].report, plans[k].ads.line
     summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs,
                "cache": {"calls": cache.calls, "hits": cache.hits}, "provider": cache.provider.name}
     return rep, summary, first

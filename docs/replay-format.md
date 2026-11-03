@@ -1,7 +1,9 @@
-# Replay format (v1)
+# Replay format (v2)
 
 One JSON file = one finished rehearsal of two plans. The engine writes it; the site only reads it.
 Everything on the main screen is computed from this file at a given day `t` (a float, 0–`meta.days`).
+Version 2 (2026-11-03 redesign) adds the full funnel (sign-up and quitting with reasons), up to three
+ads, the per-step report and the ads table; the v2 fields are listed in "Version 2" below the v1 shape.
 
 ```jsonc
 {
@@ -70,6 +72,75 @@ Everything on the main screen is computed from this file at a given day `t` (a f
   }
 }
 ```
+
+## Version 2
+
+```jsonc
+{
+  "version": 2,
+  "meta": {
+    // ...every v1 field, plus:
+    "brief": { },                // the brief this run used (docs/brief-format.md); image names resolved
+                                 // like story.ad (web/public/screens/<name>.png or /api/live/... paths)
+    "note": "Simulated, calibrated to public benchmarks. Not observed.",
+    "agents": 10000,             // simulated people reached in each experiment (brief.setup.people)
+    "funnel": [                  // the pack's steps, in order; the web counts each one from people at day t
+      { "key": "saw", "label": "Saw an ad" },          // reached
+      { "key": "installed", "label": "Installed" },
+      { "key": "signed_up", "label": "Signed up" },
+      { "key": "first", "label": "Got a match" },      // matched (resale: "Sold or bought", rides: "Took or gave a ride")
+      { "key": "active", "label": "Using on day 90" }, // signed up and not quit at t
+      { "key": "paid", "label": "Paid" }               // dating only; transaction packs have 5 steps
+    ],
+    "ads": [                     // brief.ads with their screens
+      { "id": "ad_1", "angle": "feature", "line": "...", "screen": "ad" }
+    ],
+    "kinds": [                   // Muse Wonder's kinds of people (people_types stays for older code)
+      { "id": "weekend_declutterer", "name": "Weekend declutterer", "share": 0.15, "side": "seller" }
+    ]
+  },
+  "plans": {
+    "a": {
+      // ...every v1 field, plus:
+      "changes": "Nothing: the shared campaign",      // what this experiment changes (brief.setup.experiments)
+      "range": { "paid": [31, 47] },                  // optional: 10th-90th percentile across runs, same scale
+                                                      // as the counts in this file, for each funnel key
+      "report": [                                     // where people left and why (engine/world/report.py)
+        { "from": "saw", "to": "installed", "left": 8970,   // reached `from` by the end, never `to`
+          "themes": [                                  // up to 3, biggest first; Muse Wonder names them and
+            { "name": "Not sure the people are real",  // sorts each reason into one, the engine counts
+              "count": 2780, "quote": "Sounds nice but I need proof they're real first.",
+              "ids": [12, 87] } ] }                    // the people in this theme (this file's ids)
+      ],
+      "ads": {                                         // which kinds of people answered which ad
+        "line": "The trust ad won over the people who distrust dating apps.",  // one line, Muse Wonder
+        "cells": { "<kind id>": { "ad_1": [410, 16], "ad_2": [398, 28] } }    // [saw it, installed]
+      }
+    }
+  },
+  "people": {
+    "a": [{
+      // ...every v1 field, plus:
+      "kind": "weekend_declutterer",   // id in meta.kinds
+      "ad_id": "ad_2",                 // the ad they saw, or null (reached by a friend, search, ...)
+      "signed_up": 3.5,                // day they finished sign-up, or null (quit at sign-up: quit = installed)
+      "story": {
+        // ...v1 fields; the diary now also has the sign-up step and, when they stop, why:
+        "quit_reason": "He never wrote back, and nobody else is close."   // or null
+      } }]
+  }
+}
+```
+
+A person counts toward a step at day `t` when: `saw` reached ≤ t · `installed` installed ≤ t ·
+`signed_up` signed_up ≤ t · `first` matched ≤ t · `active` signed_up ≤ t and not quit by t ·
+`paid` paid ≤ t. Report counts (`left`, theme `count`) are people in this file, so they add up with the
+funnel at the last day. When a person quits is still set by the calibrated retention curve (or a
+"delete" decision); `quit_reason` is that person's own words for it.
+
+`web/public/replays/fixture_v2.json` is a placeholder v2 file made from `engine.json` by
+`scripts/fixture_v2.py` (every v2 number in it is made up) so the screens can be built before the
+engine writes v2.
 
 ## State of a person at day `t`
 
