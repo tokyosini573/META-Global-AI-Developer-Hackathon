@@ -26,6 +26,7 @@ from . import wonder
 ROOT = Path(__file__).resolve().parent.parent.parent
 MAX_THEMES = 3
 MAX_SENTENCES = 300          # distinct reasons sent to Wonder per step, most common first
+SHORT_LIST = 60              # the second try when Wonder cannot answer for the long list
 MAX_NAME = 48                # characters in a theme name
 
 
@@ -71,10 +72,16 @@ def build(rep, cfg, use_wonder=True, log=print):
         sentences = [w for w, _ in counts.most_common(MAX_SENTENCES)]
         groups = None
         if use_wonder and sentences:
-            try:
-                groups = _wonder_themes(cfg, rep, labels[frm], labels[to], to, sentences, counts, cache)
-            except (SystemExit, Exception) as e:     # Wonder down, or an answer that does not fit
-                log(f"report: Wonder themes for {to} refused ({str(e)[:120]}); grouping identical sentences")
+            for few in (sentences, sentences[:SHORT_LIST]):     # a shorter list when the long one fails
+                try:
+                    groups = _wonder_themes(cfg, rep, labels[frm], labels[to], to, few, counts, cache)
+                    break
+                except (SystemExit, Exception) as e:     # Wonder down, or an answer that does not fit
+                    log(f"report: Wonder themes for {to} with {len(few)} reasons refused ({str(e)[:120]})")
+                if len(sentences) <= SHORT_LIST:
+                    break
+            if groups is None:
+                log(f"report: grouping identical sentences for {to}")
         if groups is None:
             groups = [(s, {s}) for s in sentences[:MAX_THEMES]]
         for k in rep["plans"]:
@@ -189,8 +196,9 @@ def _wonder_lines(cfg, rep, tables, kinds, ads, cache):
             + f"\n\nWho saw which ad and how many of them installed, per kind of person and plan:\n"
             f"{json.dumps(table, indent=1)}\n\nFor each plan (a = {rep['plans']['a']['name']}, b = "
             f"{rep['plans']['b']['name']}), write the one line a founder reads under this table: which ad worked "
-            "with which kind of people, in plain words, one sentence under 20 words. Use no numbers. Say only what "
-            "the table supports; if the ads did about the same, say so.")
+            "with which kind of people, in plain words: the single clearest difference, one short sentence under 12 "
+            "words (for example 'The trust ad won over the people who distrust dating apps.'). Use no numbers. Say "
+            "only what the table supports; if the ads did about the same, say so.")
     return cache.ask(text, LINE_SCHEMA, "ads_line", _lines_from)
 
 
@@ -198,7 +206,7 @@ def _lines_from(out):
     lines = {}
     for k in ("a", "b"):
         line = " ".join(str(out[k]).split())
-        if not line or len(line) > 160 or any(c.isdigit() for c in line):
+        if not line or len(line) > 90 or any(c.isdigit() for c in line):
             raise ValueError(f"ads line {line!r}")
         lines[k] = line
     return lines

@@ -25,9 +25,12 @@ def cache_of(cfg):
 
 @pytest.mark.parametrize("name", MARKETS.values())
 def test_pack_table_covers_every_decision(name):
-    """The committed kinds-of-people table answers every key, so the example runs never call the API."""
-    p = typed.TypedProvider(cfg_of(name), *typed.paths(cfg_of(name)))
-    missing = [k for k in p.keys() if typed._key_str(k) not in p.entries]
+    """The committed kinds-of-people table answers every key of the example with its brief, and with the
+    same question, so the example runs never call the API."""
+    from engine.run import load_plan
+    cfg = load_plan(ROOT / "plans" / f"{name}.yaml")
+    p = typed.TypedProvider(cfg, *typed.paths(cfg))
+    missing = [k for k in p.keys() if not p._fresh(k)]
     assert not missing
     for e in p.entries.values():
         assert sum(e["probs"].values()) == pytest.approx(1)

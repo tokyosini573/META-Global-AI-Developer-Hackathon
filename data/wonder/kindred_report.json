@@ -1,0 +1,182 @@
+{
+ "78cca014feaba787": {
+  "themes": [
+   {
+    "name": "Too few free swipes",
+    "reasons": [
+     "r1",
+     "r3",
+     "r6"
+    ]
+   },
+   {
+    "name": "Not worth sharing so much",
+    "reasons": [
+     "r0",
+     "r5",
+     "r7"
+    ]
+   },
+   {
+    "name": "Don't want to share personal details",
+    "reasons": [
+     "r2",
+     "r4"
+    ]
+   }
+  ]
+ },
+ "69dd78ba80bffa07": {
+  "themes": [
+   {
+    "name": "Not enough free swipes",
+    "reasons": [
+     "r0",
+     "r4",
+     "r7",
+     "r9",
+     "r10",
+     "r12",
+     "r13"
+    ]
+   },
+   {
+    "name": "Weekly price too high",
+    "reasons": [
+     "r2",
+     "r5",
+     "r14",
+     "r15",
+     "r16"
+    ]
+   },
+   {
+    "name": "Not sure people are real",
+    "reasons": [
+     "r3",
+     "r8",
+     "r11"
+    ]
+   }
+  ]
+ },
+ "0132bd9dc0f6d017": {
+  "themes": [
+   {
+    "name": "Already have a match waiting",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r7",
+     "r8",
+     "r10",
+     "r12"
+    ]
+   },
+   {
+    "name": "Price is too high",
+    "reasons": [
+     "r4",
+     "r5",
+     "r6",
+     "r9",
+     "r13",
+     "r14",
+     "r15",
+     "r16",
+     "r17"
+    ]
+   },
+   {
+    "name": "Not sure people are real",
+    "reasons": [
+     "r11"
+    ]
+   }
+  ]
+ },
+ "a4af86a9899e163d": {
+  "a": "Price worked with curious, busy people; trust with busy, hopeful, careful people; feature with casual people; elsewhere ads tied.",
+  "b": "Price worked with curious, busy people; trust with busy, hopeful, careful people; feature with casual people; elsewhere ads tied."
+ },
+ "945b036f0153cf8b": {
+  "themes": [
+   {
+    "name": "People shown too far away",
+    "reasons": [
+     "r0",
+     "r2",
+     "r3",
+     "r5",
+     "r6",
+     "r7",
+     "r11",
+     "r12",
+     "r19",
+     "r20",
+     "r21",
+     "r22",
+     "r23",
+     "r25",
+     "r32",
+     "r34",
+     "r36",
+     "r39",
+     "r40",
+     "r41",
+     "r42",
+     "r45",
+     "r46",
+     "r47",
+     "r48",
+     "r49",
+     "r50",
+     "r51",
+     "r52",
+     "r54",
+     "r57",
+     "r58",
+     "r59"
+    ]
+   },
+   {
+    "name": "Paying before getting a match",
+    "reasons": [
+     "r1",
+     "r4",
+     "r8",
+     "r9",
+     "r10",
+     "r13",
+     "r14",
+     "r15",
+     "r16",
+     "r17",
+     "r18",
+     "r24",
+     "r26",
+     "r27",
+     "r28",
+     "r29",
+     "r30",
+     "r31",
+     "r33",
+     "r35",
+     "r37",
+     "r38",
+     "r43",
+     "r44",
+     "r53",
+     "r55",
+     "r56"
+    ]
+   }
+  ]
+ },
+ "2da4de422065a66b": {
+  "a": "The price ad won over busy and picky people.",
+  "b": "The price ad won over busy and picky people."
+ }
+}

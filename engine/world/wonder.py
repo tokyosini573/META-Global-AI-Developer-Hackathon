@@ -82,7 +82,9 @@ def ask(messages, schema=None, name=None):
     usage = data.get("usage", {})
     cost = (usage.get("prompt_tokens", 0) * PRICE[0] + usage.get("completion_tokens", 0) * PRICE[1]) / 1e6
     print(f"Wonder: {sec:.0f}s, ${cost:.3f}")
-    text = data["choices"][0]["message"]["content"]
+    text = data["choices"][0]["message"].get("content")
+    if not text or "{" not in text:     # e.g. the answer was cut off by a long reasoning; the caller may ask again
+        raise ValueError(f"Wonder gave no answer (finish: {data['choices'][0].get('finish_reason')})")
     return json.loads(text[text.index("{"):text.rindex("}") + 1])
 
 

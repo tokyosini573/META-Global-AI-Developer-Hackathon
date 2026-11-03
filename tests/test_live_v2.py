@@ -15,7 +15,7 @@ from engine import interview, live, packs, serve
 from engine.world import report, screens
 
 ROOT = Path(__file__).resolve().parent.parent
-FIXTURE = ROOT / "web" / "public" / "replays" / "fixture_v2.json"
+FIXTURE = ROOT / "tests" / "data" / "replay_v2_fixture.json"
 PNG = b"\x89PNG\r\n\x1a\n" + b"\0" * 32
 
 
@@ -359,9 +359,10 @@ def test_report_refuses_wonder_output_with_numbers(tmp_path, monkeypatch):
 
 
 def test_report_leaves_a_v1_replay_alone():
-    rep = json.loads((ROOT / "web" / "public" / "replays" / "engine.json").read_text())
+    rep = json.loads((ROOT / "web" / "public" / "replays" / "demo.json").read_text())   # the v1 placeholder
+    assert rep["version"] == 1
     before = copy.deepcopy(rep)
-    report.build(rep, {"app": "Kindred"})
+    report.build(rep, {"app": "Kindred"}, use_wonder=False)
     assert rep == before
 
 

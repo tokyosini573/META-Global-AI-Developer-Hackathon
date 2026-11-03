@@ -37,6 +37,7 @@ def site():
     from fastapi import FastAPI, Request
     from fastapi.concurrency import run_in_threadpool
     from fastapi.responses import JSONResponse
+    from fastapi.middleware.gzip import GZipMiddleware
     from fastapi.staticfiles import StaticFiles
 
     from fastapi.responses import Response
@@ -48,6 +49,7 @@ def site():
     os.environ.setdefault("MODEL_API_KEY", env["MODEL_API_KEY"])     # for Wonder and Spark inside a live run
     limits = Limits()
     web = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+    web.add_middleware(GZipMiddleware, minimum_size=1024)   # replays of 10,000 people are 8-16 MB of JSON
 
     @web.api_route("/api/live{rest:path}", methods=["GET", "POST"])
     async def live(rest: str, request: Request):

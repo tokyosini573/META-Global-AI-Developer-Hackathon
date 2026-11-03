@@ -138,6 +138,11 @@ def rehearse(cfg, cache, n_runs=30, use_wonder=True, log=print):
         cells.append({k: ad_cells(r, days, kinds, packs.experiment_ads(cfg.get("brief"), k)) for k, r in res.items()})
         first = first or res
     v = verdict(cfg, runs)
+    # The replay shows the first run the winner won, so its numbers never contradict the verdict.
+    goal, w = pack["goal_key"], v["winner"]
+    shown = next((i for i, r in enumerate(runs) if r[w][goal] > r["b" if w == "a" else "a"][goal]), 0)
+    if shown:
+        first = {k: Simulation(cfg, k, cache, shifts, shown, days).run() for k in cfg["plans"]}
     rep = replay(cfg, first, v, cache.provider, funnels, cells)
     if use_wonder:
         w = v["winner"]
@@ -147,7 +152,7 @@ def rehearse(cfg, cache, n_runs=30, use_wonder=True, log=print):
         rep["verdict"] = v
     rep["meta"]["runs"] = n_runs
     report.build(rep, cfg, use_wonder=use_wonder, log=log)   # v2: plans[k].report, plans[k].ads.line
-    summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs, "funnels": funnels,
+    summary = {"verdict": v, "shifts": shifts, "calibration_seen": seen, "runs": runs, "funnels": funnels, "shown": shown,
                "cache": {"calls": cache.calls, "hits": cache.hits}, "provider": cache.provider.name}
     return rep, summary, first
 
@@ -156,7 +161,7 @@ def provider_for(cfg, name="glimmer"):
     """Who answers the decisions of a demo plan file."""
     from engine.world import typed
     if packs.of(cfg)["id"] != "dating":       # Glimmer's pool is the dating demo's; other markets use kinds of people
-        return typed.TypedProvider(cfg, *typed.paths(cfg))
+        return _fresh_only(typed.TypedProvider(cfg, *typed.paths(cfg)))
     if name == "stub":
         return StubProvider()
     if name == "spark":
@@ -165,7 +170,19 @@ def provider_for(cfg, name="glimmer"):
         return SparkProvider()
     # Glimmer answers what it was trained on; Spark per Wonder kind answers the v2 questions
     others = typed.TypedProvider(cfg, wonder.PEOPLE, typed.paths(cfg)[1]) if cfg.get("brief") else None
+    if others:
+        from engine.world.glimmer import trained_on
+        _fresh_only(others, [k for k in others.keys() if not trained_on(k[0], k[3])])
     return GlimmerProvider(others=others)
+
+
+def _fresh_only(p, keys=None):
+    """Refuse a table whose answers were asked with other words than today's questions."""
+    stale = [k for k in (keys if keys is not None else p.keys()) if not p._fresh(k)]
+    if stale:
+        raise SystemExit(f"{len(stale)} decisions in {p.path.name} were asked with other words (e.g. {stale[0]}); "
+                         f"run `python -m engine.world.typed <plan file>` first")
+    return p
 
 
 def main():

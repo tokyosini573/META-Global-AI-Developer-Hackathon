@@ -99,7 +99,7 @@ def test_people_add_up_with_the_funnel(run):
              "signed_up": sum(by(p["signed_up"]) for p in ppl), "first": sum(by(p["matched"]) for p in ppl),
              "active": sum(by(p["signed_up"]) and not by(p["quit"]) for p in ppl),
              "paid": sum(by(p["paid"]) for p in ppl)}
-        want = summary["funnels"][0][k]
+        want = summary["funnels"][summary["shown"]][k]     # the run the replay shows
         assert {key: n[key] for key in want} == want
         steps = list(want.values())
         assert steps[:4] == sorted(steps[:4], reverse=True) and n["active"] <= n["signed_up"]

@@ -7,18 +7,18 @@ import { MiniAds, MiniReport, ReportPreview } from './report/Preview'
 // Every other view (replay, drawer, input, backtest) is the 1920×1080 stage behind a URL parameter.
 
 // The example the report preview and the "What you get" pictures are drawn from (web/public/replays)
-const PREVIEW_REPLAY = 'fixture_v2'
+const PREVIEW_REPLAY = 'engine'
 
 const MARKETS = [
   { replay: 'engine', market: 'Dating', app: 'Kindred', ad: '/screens/ad.png', a: 'Nationwide ads, paywall from day 1',
     b: 'Austin, then Denver and Nashville, free for 30 days', result: 'Plan B wins 25 of 30 runs',
-    detail: '450 paying users against 240' },
+    detail: '303 paying users against 228 (median)' },
   { replay: 'reloop', market: 'Resale', app: 'Reloop', ad: '/screens/reloop_ad.png', a: 'Nationwide feed ads, everyone at once',
     b: 'Seattle, then Portland, sellers first', result: 'Plan B wins 30 of 30 runs',
-    detail: '540 completed sales against 0' },
+    detail: '1,837 completed sales against 0 (median)' },
   { replay: 'hopway', market: 'Rides', app: 'Hopway', ad: '/screens/hopway_ad.png', a: 'Three cities at once, riders and drivers together',
-    b: 'Austin, then Denver, drivers first', result: 'Plan A wins 27 of 30 runs',
-    detail: '1,485 completed rides against 780' },
+    b: 'Austin, then Denver, drivers first', result: 'Plan B wins 22 of 30 runs',
+    detail: '387 completed rides against 321 (median)' },
 ]
 
 const STEPS = [
@@ -40,7 +40,7 @@ const GETS: Get[] = [
 const MODELS = [
   { name: 'Muse Wonder', role: 'Designs the kinds of people in the market from your brief, groups the reasons people gave into a few themes, and writes why the winner won.' },
   { name: 'Muse Spark', role: 'Looks at each screen as each kind of person would and decides what they do: install, sign up, stay, pay or leave, and why. Answers your questions live, in character.' },
-  { name: 'Muse Glimmer', role: 'A 30B model distilled from Spark, with open weights. Decides for each of 2,928 people in the dating example.',
+  { name: 'Muse Glimmer', role: 'A 30B model distilled from Spark, with open weights. Decides for every person in the dating example, drawn from a pool of 2,928.',
     link: { href: 'https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1', text: 'Weights on Hugging Face' } },
   { name: 'Muse Voice Transcribe', role: 'Turns the question you speak to a simulated person into text.' },
 ]
@@ -177,9 +177,9 @@ export function Landing() {
             <div className="label text-blue-600">Launch rehearsal for two-sided apps</div>
             <h1 className="mt-4 text-title font-semibold text-strong md:text-headline">Rehearse your launch.</h1>
             <p className="mt-6 max-w-[680px] text-lead text-dim">
-              Before you spend the budget, thousands of simulated Americans try your app. Give Rehearsal two launch
-              plans: it plays both for 90 days, tells you which one wins and why, and lets you ask anyone what they
-              thought.
+              Before you spend the budget, thousands of simulated Americans see your ad, sign up, use your app, pay
+              or leave, and each one tells you why. Run two experiments for 90 days: see which one wins, where people
+              left, which ad worked on whom, and ask anyone what they thought.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#start" className="rounded-card bg-blue-600 px-8 py-5 text-body font-medium text-white">Start a rehearsal</a>

@@ -143,9 +143,8 @@ A person counts toward a step at day `t` when: `saw` reached ≤ t · `installed
 funnel at the last day. When a person quits is still set by the calibrated retention curve (or a
 "delete" decision); `quit_reason` is that person's own words for it.
 
-`web/public/replays/fixture_v2.json` is a placeholder v2 file made from `engine.json` by
-`scripts/fixture_v2.py` (every v2 number in it is made up) so the screens can be built before the
-engine writes v2.
+`tests/data/replay_v2_fixture.json` is a placeholder v2 file
+with made-up numbers, used by the report tests.
 
 ## State of a person at day `t`
 

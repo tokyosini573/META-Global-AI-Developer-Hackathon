@@ -1,0 +1,619 @@
+{
+ "d094639d31ef2b0f": {
+  "themes": [
+   {
+    "name": "Riders don't trust cars nearby",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r7",
+     "r9",
+     "r10",
+     "r11",
+     "r16",
+     "r22",
+     "r24",
+     "r29",
+     "r30",
+     "r32",
+     "r33",
+     "r34",
+     "r35"
+    ]
+   },
+   {
+    "name": "Drivers fear waiting unpaid",
+    "reasons": [
+     "r12",
+     "r13",
+     "r14",
+     "r15",
+     "r17",
+     "r18",
+     "r19",
+     "r20",
+     "r21",
+     "r23",
+     "r25",
+     "r26",
+     "r27",
+     "r28",
+     "r31",
+     "r36",
+     "r37",
+     "r38",
+     "r39"
+    ]
+   },
+   {
+    "name": "No actual fare shown",
+    "reasons": [
+     "r6",
+     "r8"
+    ]
+   }
+  ]
+ },
+ "b0ed1b155316f49b": {
+  "themes": [
+   {
+    "name": "Too much work before clear benefit",
+    "reasons": [
+     "r1",
+     "r2",
+     "r5"
+    ]
+   },
+   {
+    "name": "Do not trust Hopway yet",
+    "reasons": [
+     "r0",
+     "r3",
+     "r6"
+    ]
+   },
+   {
+    "name": "Worried about rides and pay",
+    "reasons": [
+     "r4",
+     "r7"
+    ]
+   }
+  ]
+ },
+ "b9824da8e6f0ffda": {
+  "themes": [
+   {
+    "name": "Riders wait too long",
+    "reasons": [
+     "r0",
+     "r1",
+     "r3",
+     "r6",
+     "r7",
+     "r11",
+     "r13",
+     "r16",
+     "r21"
+    ]
+   },
+   {
+    "name": "Drivers get too few requests",
+    "reasons": [
+     "r2",
+     "r4",
+     "r5",
+     "r8",
+     "r9",
+     "r10",
+     "r12",
+     "r14",
+     "r15",
+     "r17",
+     "r18",
+     "r19",
+     "r20"
+    ]
+   }
+  ]
+ },
+ "31dee2a03cefec34": {
+  "themes": [
+   {
+    "name": "Cars take too long to arrive",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r4",
+     "r6",
+     "r9",
+     "r15"
+    ]
+   },
+   {
+    "name": "Drivers get too few rides",
+    "reasons": [
+     "r3",
+     "r5",
+     "r7",
+     "r8",
+     "r10",
+     "r11",
+     "r12",
+     "r13",
+     "r14",
+     "r16"
+    ]
+   },
+   {
+    "name": "Driving does not pay enough",
+    "reasons": [
+     "r17",
+     "r18",
+     "r19"
+    ]
+   }
+  ]
+ },
+ "03497ddadf7c4549": {
+  "a": "Feature ad won with part-time and young flexible drivers, price ad with price-sensitive riders; others showed little difference.",
+  "b": "Price ad won with price-sensitive riders; other riders saw ads perform alike; drivers are absent."
+ },
+ "ff89a98529d3a2be": {
+  "themes": [
+   {
+    "name": "Riders don't trust it yet",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r6",
+     "r8",
+     "r9",
+     "r11",
+     "r17",
+     "r23",
+     "r26",
+     "r28",
+     "r30",
+     "r32",
+     "r33",
+     "r34",
+     "r35"
+    ]
+   },
+   {
+    "name": "Drivers not sure they'll earn",
+    "reasons": [
+     "r13",
+     "r14",
+     "r15",
+     "r16",
+     "r18",
+     "r19",
+     "r20",
+     "r22",
+     "r24",
+     "r25",
+     "r27",
+     "r29",
+     "r31",
+     "r37",
+     "r38",
+     "r39"
+    ]
+   },
+   {
+    "name": "Missing price pay and safety details",
+    "reasons": [
+     "r7",
+     "r10",
+     "r12",
+     "r21",
+     "r36"
+    ]
+   }
+  ]
+ },
+ "4b47515e8290825c": {
+  "themes": [
+   {
+    "name": "Too much hassle to sign up",
+    "reasons": [
+     "r1",
+     "r2",
+     "r5"
+    ]
+   },
+   {
+    "name": "Don't trust a new app",
+    "reasons": [
+     "r0",
+     "r3",
+     "r6"
+    ]
+   },
+   {
+    "name": "Not sure driving will pay",
+    "reasons": [
+     "r4",
+     "r7"
+    ]
+   }
+  ]
+ },
+ "d939b42ba6715f20": {
+  "themes": [
+   {
+    "name": "Long wait for a ride",
+    "reasons": [
+     "r0",
+     "r1",
+     "r3",
+     "r6",
+     "r7",
+     "r12",
+     "r13",
+     "r15",
+     "r18"
+    ]
+   },
+   {
+    "name": "Drivers get no rides",
+    "reasons": [
+     "r2",
+     "r4",
+     "r5",
+     "r8",
+     "r9",
+     "r10",
+     "r11",
+     "r16",
+     "r17"
+    ]
+   },
+   {
+    "name": "Drivers get too few rides",
+    "reasons": [
+     "r14",
+     "r19",
+     "r20"
+    ]
+   }
+  ]
+ },
+ "2cfcc629a1f3cecb": {
+  "themes": [
+   {
+    "name": "Don't trust a new app",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r8",
+     "r9",
+     "r10",
+     "r17",
+     "r22",
+     "r28",
+     "r33",
+     "r34"
+    ]
+   },
+   {
+    "name": "Worried no one is around",
+    "reasons": [
+     "r4",
+     "r5",
+     "r11",
+     "r13",
+     "r14",
+     "r18",
+     "r19",
+     "r20",
+     "r23",
+     "r24",
+     "r25",
+     "r26",
+     "r27",
+     "r29",
+     "r30",
+     "r31",
+     "r32",
+     "r35",
+     "r36",
+     "r38",
+     "r39"
+    ]
+   },
+   {
+    "name": "Price pay and safety unclear",
+    "reasons": [
+     "r6",
+     "r7",
+     "r12",
+     "r15",
+     "r16",
+     "r21",
+     "r37"
+    ]
+   }
+  ]
+ },
+ "5b137cd07a2ca987": {
+  "themes": [
+   {
+    "name": "Too much hassle signing up",
+    "reasons": [
+     "r1",
+     "r3",
+     "r5"
+    ]
+   },
+   {
+    "name": "Don't trust a new app",
+    "reasons": [
+     "r0",
+     "r2",
+     "r6"
+    ]
+   },
+   {
+    "name": "Worried about rides and pay",
+    "reasons": [
+     "r4",
+     "r7"
+    ]
+   }
+  ]
+ },
+ "2aae133dc3f1d09a": {
+  "themes": [
+   {
+    "name": "Waiting too long for a ride",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r6",
+     "r7",
+     "r9",
+     "r13",
+     "r19"
+    ]
+   },
+   {
+    "name": "Drivers get too few rides",
+    "reasons": [
+     "r3",
+     "r4",
+     "r5",
+     "r8",
+     "r10",
+     "r11",
+     "r12",
+     "r14",
+     "r15",
+     "r16",
+     "r17",
+     "r18",
+     "r20",
+     "r21"
+    ]
+   }
+  ]
+ },
+ "7bf571e4f8598493": {
+  "themes": [
+   {
+    "name": "Cars take too long to arrive",
+    "reasons": [
+     "r0",
+     "r2",
+     "r4",
+     "r5",
+     "r6",
+     "r7",
+     "r9"
+    ]
+   },
+   {
+    "name": "Drivers get too few rides",
+    "reasons": [
+     "r1",
+     "r3",
+     "r8",
+     "r10",
+     "r11",
+     "r12",
+     "r13",
+     "r14",
+     "r15",
+     "r16",
+     "r17",
+     "r18",
+     "r19",
+     "r20",
+     "r21"
+    ]
+   }
+  ]
+ },
+ "910aed84c24f1a4d": {
+  "themes": [
+   {
+    "name": "Not sure a car will come",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r8",
+     "r9",
+     "r10",
+     "r11",
+     "r16",
+     "r27",
+     "r28",
+     "r29",
+     "r30",
+     "r32",
+     "r33",
+     "r34",
+     "r35"
+    ]
+   },
+   {
+    "name": "Missing money and safety details",
+    "reasons": [
+     "r6",
+     "r7",
+     "r12",
+     "r15",
+     "r17",
+     "r21",
+     "r39"
+    ]
+   },
+   {
+    "name": "Worried about waiting with no riders",
+    "reasons": [
+     "r13",
+     "r14",
+     "r18",
+     "r19",
+     "r20",
+     "r22",
+     "r23",
+     "r24",
+     "r25",
+     "r26",
+     "r31",
+     "r36",
+     "r37",
+     "r38"
+    ]
+   }
+  ]
+ },
+ "42acf3885414fe0e": {
+  "themes": [
+   {
+    "name": "Too much hassle to join",
+    "reasons": [
+     "r1",
+     "r4",
+     "r5"
+    ]
+   },
+   {
+    "name": "Do not trust it yet",
+    "reasons": [
+     "r0",
+     "r2",
+     "r6"
+    ]
+   },
+   {
+    "name": "Not sure driving is worth it",
+    "reasons": [
+     "r3",
+     "r7"
+    ]
+   }
+  ]
+ },
+ "937e321599407b09": {
+  "themes": [
+   {
+    "name": "Riders wait too long",
+    "reasons": [
+     "r0",
+     "r1",
+     "r3",
+     "r6",
+     "r7",
+     "r9",
+     "r11",
+     "r15",
+     "r19"
+    ]
+   },
+   {
+    "name": "Drivers get too few requests",
+    "reasons": [
+     "r2",
+     "r4",
+     "r5",
+     "r8",
+     "r10",
+     "r12",
+     "r13",
+     "r14",
+     "r16",
+     "r17",
+     "r18",
+     "r20",
+     "r21"
+    ]
+   }
+  ]
+ },
+ "04546b0480f312ec": {
+  "themes": [
+   {
+    "name": "Waiting too long for cars",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r9",
+     "r11",
+     "r17",
+     "r21"
+    ]
+   },
+   {
+    "name": "Too few rides for drivers",
+    "reasons": [
+     "r4",
+     "r5",
+     "r6",
+     "r7",
+     "r8",
+     "r10",
+     "r13",
+     "r15",
+     "r16",
+     "r20",
+     "r22"
+    ]
+   },
+   {
+    "name": "Ride pay is too low",
+    "reasons": [
+     "r12",
+     "r14",
+     "r18",
+     "r19"
+    ]
+   }
+  ]
+ },
+ "c4d4f0344396c8ce": {
+  "a": "The price ad won over price-conscious riders.",
+  "b": "The price ad won over price-conscious riders."
+ }
+}

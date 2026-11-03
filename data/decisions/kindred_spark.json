@@ -93,6 +93,110 @@
     "Swipe less. Meet more. dating app ad"
    ]
   },
+  "[\"install\", \"busy_and_picky\", \"outdoor\", \"ad_2\"]": {
+   "q": "4e637c897de6",
+   "probs": {
+    "install": 0.8333333333333334,
+    "scroll_past": 0.16666666666666666
+   },
+   "by_choice": [
+    {
+     "install": "Five good close matches beats endless scrolling after shifts.",
+     "scroll_past": "Don't need another dead app wasting my time."
+    },
+    {
+     "install": "Five close matches is all I have time for anyway.",
+     "scroll_past": "I'm too exhausted after shifts for another app."
+    },
+    {
+     "install": "Five good matches a day fits my crazy nurse schedule.",
+     "scroll_past": "Too tired for another app that goes nowhere."
+    }
+   ],
+   "noticed": [
+    "5 swipes a day on us.",
+    "5 swipes a day for free",
+    "5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"busy_and_picky\", \"outdoor\", \"ad_3\"]": {
+   "q": "c3c3b1f88556",
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "by_choice": [
+    {
+     "install": "I'm a nurse with no time for fakes far away.",
+     "scroll_past": "I'm tired and don't need another dead app."
+    },
+    {
+     "install": "Finally, no hour-long drives after a 12-hour shift.",
+     "scroll_past": "Another sponsored dating app that'll be dead anyway."
+    },
+    {
+     "install": "I don't have time for fakes or hour-long drives.",
+     "scroll_past": "Another dating app might just waste my rare days off."
+    }
+   ],
+   "noticed": [
+    "Nearby first \u2014 people close enough to meet",
+    "Nearby first - people close enough to meet",
+    "Nearby first people close enough to meet"
+   ]
+  },
+  "[\"install\", \"busy_and_picky\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "004437c2a530",
+   "probs": {
+    "install": 0.8233333333333334,
+    "scroll_past": 0.17666666666666667
+   },
+   "by_choice": [
+    {
+     "install": "Five good local matches beats endless scrolling after shifts.",
+     "scroll_past": "Too tired for another dating app tonight."
+    },
+    {
+     "install": "I'm exhausted and five local matches beats endless scrolling after shifts.",
+     "scroll_past": "I'm half asleep and don't want another app tonight."
+    },
+    {
+     "install": "I don't have time to swipe forever, five a day is perfect.",
+     "scroll_past": "I'm half asleep and don't trust new dating apps."
+    }
+   ],
+   "noticed": [
+    "5 swipes a day on us, free to start",
+    "5 swipes a day on us.",
+    "5 swipes a day for free"
+   ]
+  },
+  "[\"install\", \"busy_and_picky\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "1e24b2be2b99",
+   "probs": {
+    "install": 0.7833333333333333,
+    "scroll_past": 0.21666666666666667
+   },
+   "by_choice": [
+    {
+     "install": "I have no time to scroll forever for far matches.",
+     "scroll_past": "I'm exhausted and don't trust late-night app ads."
+    },
+    {
+     "install": "I have no time to waste on faraway fakes.",
+     "scroll_past": "I'm too tired for another app tonight."
+    },
+    {
+     "install": "Close matches only would actually fit my crazy schedule.",
+     "scroll_past": "Too tired on shift to try another app tonight."
+    }
+   ],
+   "noticed": [
+    "Nearby first \u2014 people close enough to meet",
+    "Nearby first - people close enough to meet",
+    "Nearby first people close enough to meet"
+   ]
+  },
   "[\"install\", \"busy_professional\", \"ambassador\", \"-\"]": {
    "probs": {
     "install": 0.5066666666666666,
@@ -183,6 +287,214 @@
     "The 'Swipe less. Meet more' promise to save time"
    ]
   },
+  "[\"install\", \"careful_about_trust\", \"outdoor\", \"ad_2\"]": {
+   "q": "52df00608e2d",
+   "probs": {
+    "install": 0.3,
+    "scroll_past": 0.7
+   },
+   "by_choice": [
+    {
+     "install": "It's free so I can check if people are real first.",
+     "scroll_past": "No reviews or proof these profiles aren't fake."
+    },
+    {
+     "install": "It's free so I can check if profiles look real.",
+     "scroll_past": "No reviews or proof anyone here is real."
+    },
+    {
+     "install": "It's free to start so I lose nothing checking.",
+     "scroll_past": "Five a day is slow with no proof they're real."
+    }
+   ],
+   "noticed": [
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"careful_about_trust\", \"outdoor\", \"ad_3\"]": {
+   "q": "53244f09c698",
+   "probs": {
+    "install": 0.7166666666666667,
+    "scroll_past": 0.2833333333333333
+   },
+   "by_choice": [
+    {
+     "install": "Finally someone checking selfies, I'm tired of fakes.",
+     "scroll_past": "Still sounds too good, need reviews first."
+    },
+    {
+     "install": "I need proof they're real before I waste time.",
+     "scroll_past": "Sounds good but I still want reviews first."
+    },
+    {
+     "install": "Finally no catfish, everyone proves they're real first.",
+     "scroll_past": "Still just an ad, I need real reviews first."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified. selfie check on every profile",
+    "Real people. Verified. with a selfie check",
+    "Every profile passes a selfie check before anyone can swipe"
+   ]
+  },
+  "[\"install\", \"careful_about_trust\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "18975682722d",
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "by_choice": [
+    {
+     "install": "I'd try since it's free and close-by feels safer.",
+     "scroll_past": "I don't trust new apps without reviews proving they're real."
+    },
+    {
+     "install": "It's free so I could check for fakes first.",
+     "scroll_past": "Five swipes is nothing and I don't trust it yet."
+    },
+    {
+     "install": "It's free so I could peek without paying.",
+     "scroll_past": "Sounds fake until I see reviews it's legit."
+    }
+   ],
+   "noticed": [
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"careful_about_trust\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "42d9ee15df1e",
+   "probs": {
+    "install": 0.44999999999999996,
+    "scroll_past": 0.55
+   },
+   "by_choice": [
+    {
+     "install": "Selfie check would stop the fake profiles I hate.",
+     "scroll_past": "Unknown app, I need reviews before I trust it."
+    },
+    {
+     "install": "I\u2019m sick of fakes so selfie verification actually sounds worth trying.",
+     "scroll_past": "It\u2019s just an ad, I want real reviews first."
+    },
+    {
+     "install": "I'm tired of fakes, so selfie verification really tempts me.",
+     "scroll_past": "Sponsored TikTok ad at night, I want reviews first."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified.",
+    "Real people. Verified. with selfie check",
+    "The big 'Real people. Verified.' selfie check promise"
+   ]
+  },
+  "[\"install\", \"casual_and_bored\", \"outdoor\", \"ad_2\"]": {
+   "q": "2431e5edd716",
+   "probs": {
+    "install": 0.1,
+    "scroll_past": 0.9
+   },
+   "by_choice": [
+    {
+     "install": "It's free to start so why not look.",
+     "scroll_past": "Five swipes won't kill time when I'm bored."
+    },
+    {
+     "install": "Free to try so might see who's nearby.",
+     "scroll_past": "Five swipes is nothing when I'm just bored."
+    },
+    {
+     "install": "Might be free and nearby hookups sound easy.",
+     "scroll_past": "Five swipes is nothing when I'm just bored."
+    }
+   ],
+   "noticed": [
+    "Only 5 free swipes a day",
+    "5 swipes a day on us.",
+    "5 swipes a day limit"
+   ]
+  },
+  "[\"install\", \"casual_and_bored\", \"outdoor\", \"ad_3\"]": {
+   "q": "eb49de84c7de",
+   "probs": {
+    "install": 0.18333333333333335,
+    "scroll_past": 0.8166666666666667
+   },
+   "by_choice": [
+    {
+     "install": "If they're actually nearby, could link quick.",
+     "scroll_past": "Sounds serious and fewer profiles is boring."
+    },
+    {
+     "install": "Meeting close by this week sounds convenient for hookups.",
+     "scroll_past": "Sounds serious and small, I just swipe when bored."
+    },
+    {
+     "install": "I'm bored at the desk and nearby sounds easy.",
+     "scroll_past": "I just kill time swiping, don't need serious."
+    }
+   ],
+   "noticed": [
+    "Nearby first people close enough to meet",
+    "Real people. Verified.",
+    "Real people. Verified. sounds way too serious"
+   ]
+  },
+  "[\"install\", \"casual_and_bored\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "b4d87f434411",
+   "probs": {
+    "install": 0.07,
+    "scroll_past": 0.93
+   },
+   "by_choice": [
+    {
+     "install": "It's free to start, so could be funny.",
+     "scroll_past": "Five swipes a day is useless when I'm bored."
+    },
+    {
+     "install": "It's free so might as well peek real quick.",
+     "scroll_past": "Five swipes won't kill time at work at all."
+    },
+    {
+     "install": "It's free so I might peek for a sec.",
+     "scroll_past": "Five swipes is useless when I'm just bored scrolling."
+    }
+   ],
+   "noticed": [
+    "5 swipes a day limit",
+    "5 swipes a day on us",
+    "The big '5 swipes a day' limit"
+   ]
+  },
+  "[\"install\", \"casual_and_bored\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "01a0b4af74da",
+   "probs": {
+    "install": 0.11,
+    "scroll_past": 0.89
+   },
+   "by_choice": [
+    {
+     "install": "If they're actually nearby I could meet someone tonight.",
+     "scroll_past": "I'm not downloading a whole new app from TikTok."
+    },
+    {
+     "install": "Verified sounds nice, less catfish crap to sift through.",
+     "scroll_past": "I just swipe when I'm bored, not meeting this week."
+    },
+    {
+     "install": "If they're close I might actually link tonight.",
+     "scroll_past": "Looks like effort and I'm just killing time."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified.",
+    "Real people. Verified.",
+    "Real people. Verified."
+   ]
+  },
   "[\"install\", \"casual_browser\", \"ambassador\", \"-\"]": {
    "probs": {
     "install": 0.15,
@@ -271,6 +583,214 @@
     "Swipe less. Meet more.",
     "Swipe less. Meet more.",
     "Real people who are actually nearby."
+   ]
+  },
+  "[\"install\", \"curious_first_timer\", \"outdoor\", \"ad_2\"]": {
+   "q": "e26339d97c4b",
+   "probs": {
+    "install": 0.85,
+    "scroll_past": 0.15
+   },
+   "by_choice": [
+    {
+     "install": "It's free so I can finally try this without paying.",
+     "scroll_past": "I'm worried five a day won't be enough to meet anyone."
+    },
+    {
+     "install": "It's free to try so why not?",
+     "scroll_past": "Five swipes seems kinda low, might get bored."
+    },
+    {
+     "install": "I wanna try dating apps but free first to learn.",
+     "scroll_past": "Five swipes a day feels too slow to meet anyone."
+    }
+   ],
+   "noticed": [
+    "Free to start with 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"curious_first_timer\", \"outdoor\", \"ad_3\"]": {
+   "q": "4bc3af39da71",
+   "probs": {
+    "install": 0.7733333333333333,
+    "scroll_past": 0.22666666666666666
+   },
+   "by_choice": [
+    {
+     "install": "Seems safer and actually close by, I wanna try it",
+     "scroll_past": "What if it's not free or no one is on it"
+    },
+    {
+     "install": "Sounds safe and nearby, I wanna see who's actually around.",
+     "scroll_past": "Worried it's not really free once I tap install."
+    },
+    {
+     "install": "Finally a dating app that doesn't feel sketchy or fake.",
+     "scroll_past": "Not sure if it's free or just another paywall."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified. in big white letters",
+    "The big 'Real people. Verified.' promise",
+    "Real people. Verified."
+   ]
+  },
+  "[\"install\", \"curious_first_timer\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "f068717ba833",
+   "probs": {
+    "install": 0.8,
+    "scroll_past": 0.2
+   },
+   "by_choice": [
+    {
+     "install": "It's free so I can finally try dating apps",
+     "scroll_past": "I'm half asleep just scrolling TikTok tonight"
+    },
+    {
+     "install": "It's free to start so I can just try it",
+     "scroll_past": "I'm half asleep and don't want another app tonight"
+    },
+    {
+     "install": "It's free and I've never tried dating apps.",
+     "scroll_past": "Five swipes a day feels way too slow."
+    }
+   ],
+   "noticed": [
+    "The huge 'Free to start. 5 swipes a day' text",
+    "Free to start. 5 swipes a day on us.",
+    "Free to start with 5 swipes a day"
+   ]
+  },
+  "[\"install\", \"curious_first_timer\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "7535b8502631",
+   "probs": {
+    "install": 0.66,
+    "scroll_past": 0.33999999999999997
+   },
+   "by_choice": [
+    {
+     "install": "Sounds safer and I'm curious since I've never tried this.",
+     "scroll_past": "I'm just scrolling TikTok, not trying to download stuff."
+    },
+    {
+     "install": "Never tried dating apps, verified locals sound exciting and safe.",
+     "scroll_past": "I'm just scrolling TikTok, don't want another random download tonight."
+    },
+    {
+     "install": "Never done dating apps, verified feels less sketchy to try.",
+     "scroll_past": "Scrolling TikTok late, don't feel like installing right now."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified.",
+    "Real people. Verified. with the selfie check",
+    "Real people. Verified."
+   ]
+  },
+  "[\"install\", \"hopeful_but_short_on_cash\", \"outdoor\", \"ad_2\"]": {
+   "q": "c1d934192f7d",
+   "probs": {
+    "install": 0.7166666666666667,
+    "scroll_past": 0.2833333333333333
+   },
+   "by_choice": [
+    {
+     "install": "It's free to try and I wanna meet someone close.",
+     "scroll_past": "Five swipes a day feels too slow to meet anyone."
+    },
+    {
+     "install": "Free to try and actually close enough to meet.",
+     "scroll_past": "Five swipes a day won't get me a date fast."
+    },
+    {
+     "install": "It's free and shows people I can actually meet.",
+     "scroll_past": "Five swipes a day feels way too slow."
+    }
+   ],
+   "noticed": [
+    "Free to start with 5 swipes a day on us",
+    "Free to start. 5 swipes a day on us.",
+    "Free to start with 5 swipes a day"
+   ]
+  },
+  "[\"install\", \"hopeful_but_short_on_cash\", \"outdoor\", \"ad_3\"]": {
+   "q": "b1c6efd9c55f",
+   "probs": {
+    "install": 0.6833333333333333,
+    "scroll_past": 0.31666666666666665
+   },
+   "by_choice": [
+    {
+     "install": "I want someone nearby I can actually meet this week.",
+     "scroll_past": "Worried it'll charge me weekly once I install."
+    },
+    {
+     "install": "I'm tired of far matches, I want meet now.",
+     "scroll_past": "Sounds good but I can't pay weekly."
+    },
+    {
+     "install": "I'm tired of far profiles, I want someone nearby now.",
+     "scroll_past": "Sponsored dating apps always end up charging me weekly."
+    }
+   ],
+   "noticed": [
+    "Nearby first \u2014 people close enough to meet",
+    "Nearby first \u2014 people close enough to meet",
+    "Nearby first - people close enough to meet"
+   ]
+  },
+  "[\"install\", \"hopeful_but_short_on_cash\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "c7ff217841ea",
+   "probs": {
+    "install": 0.55,
+    "scroll_past": 0.44999999999999996
+   },
+   "by_choice": [
+    {
+     "install": "It's free and I want to meet someone nearby fast.",
+     "scroll_past": "Five swipes is nothing and they'll charge me later."
+    },
+    {
+     "install": "It's free so I could try meeting someone nearby.",
+     "scroll_past": "Five swipes is nothing, I'll probably have to pay."
+    },
+    {
+     "install": "It's free and I wanna meet someone nearby ASAP.",
+     "scroll_past": "Five swipes is nothing, I'll get bored waiting."
+    }
+   ],
+   "noticed": [
+    "Free to start. 5 swipes a day on us.",
+    "It's free to start but only 5 swipes a day",
+    "Free to start with 5 swipes a day"
+   ]
+  },
+  "[\"install\", \"hopeful_but_short_on_cash\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "30ffe81251e2",
+   "probs": {
+    "install": 0.74,
+    "scroll_past": 0.26
+   },
+   "by_choice": [
+    {
+     "install": "Tired of fakes far away, want someone nearby now.",
+     "scroll_past": "Worried it's weekly pay and I can't afford that."
+    },
+    {
+     "install": "I want someone nearby who's actually real.",
+     "scroll_past": "Probably costs weekly and I'm broke."
+    },
+    {
+     "install": "I'm sick of matches an hour away.",
+     "scroll_past": "New apps always want money eventually."
+    }
+   ],
+   "noticed": [
+    "Nearby first - people close enough to meet",
+    "Nearby first people close enough to meet",
+    "Nearby first people close enough to meet"
    ]
   },
   "[\"install\", \"new_in_town\", \"ambassador\", \"-\"]": {
@@ -453,6 +973,110 @@
     "Swipe less. Meet more."
    ]
   },
+  "[\"install\", \"serious_seeker\", \"outdoor\", \"ad_2\"]": {
+   "q": "58e524e7576c",
+   "probs": {
+    "install": 0.7166666666666667,
+    "scroll_past": 0.2833333333333333
+   },
+   "by_choice": [
+    {
+     "install": "I'm sick of far-away flakes and want someone close.",
+     "scroll_past": "Five a day isn't enough and I'll just quit anyway."
+    },
+    {
+     "install": "It's free and close matches are exactly what I want.",
+     "scroll_past": "Five swipes a day feels too slow to find someone."
+    },
+    {
+     "install": "Close people I can actually meet sounds worth trying free.",
+     "scroll_past": "Five swipes a day feels too slow to find anyone."
+    }
+   ],
+   "noticed": [
+    "Five free swipes a day with no endless scrolling",
+    "Free to start with 5 swipes a day on us",
+    "Free to start. 5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"serious_seeker\", \"outdoor\", \"ad_3\"]": {
+   "q": "f2f36ff4f3a8",
+   "probs": {
+    "install": 0.7933333333333333,
+    "scroll_past": 0.20666666666666667
+   },
+   "by_choice": [
+    {
+     "install": "I want real locals I could actually meet this week.",
+     "scroll_past": "I've been burned by new apps with nobody on them."
+    },
+    {
+     "install": "I'm sick of fakes and guys an hour away.",
+     "scroll_past": "New apps never have anyone near me."
+    },
+    {
+     "install": "I'm tired of fakes and guys an hour away.",
+     "scroll_past": "Might be new and empty near me."
+    }
+   ],
+   "noticed": [
+    "Nearby first, people close enough to meet",
+    "Real people. Verified.",
+    "Real people. Verified."
+   ]
+  },
+  "[\"install\", \"serious_seeker\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "8551eb09303e",
+   "probs": {
+    "install": 0.65,
+    "scroll_past": 0.35
+   },
+   "by_choice": [
+    {
+     "install": "I want someone close and real, and it's free.",
+     "scroll_past": "Five swipes daily sounds way too slow for me."
+    },
+    {
+     "install": "I'm tired of endless scrolling and free feels safe.",
+     "scroll_past": "Five swipes a day feels too slow to bother."
+    },
+    {
+     "install": "I want close real matches, not endless far scroll.",
+     "scroll_past": "Five swipes a day sounds too slow for me."
+    }
+   ],
+   "noticed": [
+    "Free to start. 5 swipes a day on us.",
+    "Free to start with 5 swipes a day",
+    "Dating, minus the endless scrolling. Free to try."
+   ]
+  },
+  "[\"install\", \"serious_seeker\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "4be60baa8d1f",
+   "probs": {
+    "install": 0.6333333333333333,
+    "scroll_past": 0.36666666666666664
+   },
+   "by_choice": [
+    {
+     "install": "I'm tired of fakes who live an hour away.",
+     "scroll_past": "It's late, I'm just scrolling TikTok anyway."
+    },
+    {
+     "install": "I just want someone real and nearby.",
+     "scroll_past": "I don't need another app wasting my time."
+    },
+    {
+     "install": "I'm sick of driving an hour for someone fake.",
+     "scroll_past": "Late-night TikTok ads never turn out good."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified. with selfie check",
+    "Real people. Verified. with selfie check",
+    "Nearby first \u2014 people close enough to meet"
+   ]
+  },
   "[\"install\", \"student\", \"ambassador\", \"-\"]": {
    "probs": {
     "install": 0.09333333333333334,
@@ -541,6 +1165,214 @@
     "The 'Free to try' part",
     "That it says 'Free to try' not actually free",
     "The 'Free to try' line"
+   ]
+  },
+  "[\"install\", \"tired_of_swiping\", \"outdoor\", \"ad_2\"]": {
+   "q": "8612af67b515",
+   "probs": {
+    "install": 0.4,
+    "scroll_past": 0.6
+   },
+   "by_choice": [
+    {
+     "install": "It's free to start so why not try?",
+     "scroll_past": "Heard 'closer matches' before, never true."
+    },
+    {
+     "install": "Tired of hour-away matches, close ones sound better.",
+     "scroll_past": "Five swipes is nothing, they'll just charge me later."
+    },
+    {
+     "install": "Free to try, and I'm sick of driving an hour.",
+     "scroll_past": "Five swipes is nothing, probably paywall like the others."
+    }
+   ],
+   "noticed": [
+    "Free to start, 5 swipes a day on us.",
+    "Free to start but only 5 swipes a day",
+    "Free to start, but only 5 swipes a day"
+   ]
+  },
+  "[\"install\", \"tired_of_swiping\", \"outdoor\", \"ad_3\"]": {
+   "q": "44f912e9dade",
+   "probs": {
+    "install": 0.29,
+    "scroll_past": 0.71
+   },
+   "by_choice": [
+    {
+     "install": "Finally maybe matches who actually live near me.",
+     "scroll_past": "Heard verified before, still got fakes and fees."
+    },
+    {
+     "install": "I'm tired of bots and driving an hour for nothing.",
+     "scroll_past": "Sounds like every app that ended up pay-to-talk."
+    },
+    {
+     "install": "Tired of fakes an hour away, close sounds better.",
+     "scroll_past": "Every app promises real, then wants my money."
+    }
+   ],
+   "noticed": [
+    "Nearby first - people close enough to meet",
+    "Real people. Verified.",
+    "Nearby first people close enough to meet"
+   ]
+  },
+  "[\"install\", \"tired_of_swiping\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "abc8a79ff170",
+   "probs": {
+    "install": 0.18333333333333335,
+    "scroll_past": 0.8166666666666667
+   },
+   "by_choice": [
+    {
+     "install": "I'm sick of far matches, free close ones could work.",
+     "scroll_past": "Five swipes is a tease to make me pay again."
+    },
+    {
+     "install": "It's free so why not, far matches suck.",
+     "scroll_past": "Only five swipes sounds useless like the others."
+    },
+    {
+     "install": "Free to try, so why not see if locals are real.",
+     "scroll_past": "Five swipes is a tease and I've paid before."
+    }
+   ],
+   "noticed": [
+    "Free to start but only 5 swipes a day",
+    "Free to start. 5 swipes a day on us.",
+    "5 swipes a day on us"
+   ]
+  },
+  "[\"install\", \"tired_of_swiping\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "59463e892659",
+   "probs": {
+    "install": 0.16666666666666666,
+    "scroll_past": 0.8333333333333334
+   },
+   "by_choice": [
+    {
+     "install": "Might actually meet someone nearby for once.",
+     "scroll_past": "Heard verified before, still got fakes and paywalls."
+    },
+    {
+     "install": "Sick of fakes and far matches, maybe this is different.",
+     "scroll_past": "Sounds like every other app promise, probably paywalled anyway."
+    },
+    {
+     "install": "Sick of fakes, nearby sounds actually worth one try.",
+     "scroll_past": "Every app promises real, then hits you with paywall."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified. in big white letters",
+    "The big 'Real people. Verified.' headline",
+    "Real people. Verified."
+   ]
+  },
+  "[\"install\", \"trying_again\", \"outdoor\", \"ad_2\"]": {
+   "q": "c2ae03de5b8d",
+   "probs": {
+    "install": 0.7766666666666667,
+    "scroll_past": 0.22333333333333333
+   },
+   "by_choice": [
+    {
+     "install": "I'm hopeful again and free to try feels safe.",
+     "scroll_past": "Five a day sounds frustratingly slow to start over."
+    },
+    {
+     "install": "I'm ready for something different and less exhausting.",
+     "scroll_past": "Five swipes feels way too slow for me."
+    },
+    {
+     "install": "I'm hopeful and meeting nearby this week sounds different.",
+     "scroll_past": "Five swipes a day feels too slow for me."
+    }
+   ],
+   "noticed": [
+    "Free to start. 5 swipes a day on us.",
+    "Free to start. 5 swipes a day on us.",
+    "Big Free text promising 5 swipes a day on us."
+   ]
+  },
+  "[\"install\", \"trying_again\", \"outdoor\", \"ad_3\"]": {
+   "q": "a4db36487c46",
+   "probs": {
+    "install": 0.75,
+    "scroll_past": 0.25
+   },
+   "by_choice": [
+    {
+     "install": "Fresh start with real, nearby people sounds exactly right.",
+     "scroll_past": "I don't want another app draining my energy."
+    },
+    {
+     "install": "I'm tired of fakes and want something real this time.",
+     "scroll_past": "Another new app might just be empty near me."
+    },
+    {
+     "install": "Finally maybe real people nearby, not endless fake swipes.",
+     "scroll_past": "New apps die fast, don't want to waste energy."
+    }
+   ],
+   "noticed": [
+    "The big 'Real people. Verified.' promise",
+    "Real people. Verified.",
+    "Real people. Verified."
+   ]
+  },
+  "[\"install\", \"trying_again\", \"tiktok_ad\", \"ad_2\"]": {
+   "q": "393a0fd79ad5",
+   "probs": {
+    "install": 0.7233333333333333,
+    "scroll_past": 0.27666666666666667
+   },
+   "by_choice": [
+    {
+     "install": "I'm tired of endless swiping and want something closer and real.",
+     "scroll_past": "Five swipes a day feels too slow when I'm finally ready."
+    },
+    {
+     "install": "It's free to try and I'm hopeful this one's actually different.",
+     "scroll_past": "Five swipes a day sounds way too slow and limiting."
+    },
+    {
+     "install": "I'm ready again and free to try sounds perfect.",
+     "scroll_past": "I'm tired and five swipes sounds kind of low."
+    }
+   ],
+   "noticed": [
+    "Free to start with 5 swipes a day",
+    "Free to start. 5 swipes a day on us.",
+    "The big Free headline with 5 swipes a day"
+   ]
+  },
+  "[\"install\", \"trying_again\", \"tiktok_ad\", \"ad_3\"]": {
+   "q": "51aa9b7b07d2",
+   "probs": {
+    "install": 0.66,
+    "scroll_past": 0.33999999999999997
+   },
+   "by_choice": [
+    {
+     "install": "I'm ready again and want real people, not fakes.",
+     "scroll_past": "I'm just scrolling TikTok, not looking to commit tonight."
+    },
+    {
+     "install": "I'm ready to try again and I'm sick of fake profiles.",
+     "scroll_past": "Just another ad, I'll believe it when I see proof."
+    },
+    {
+     "install": "I'm tired of fakes and long-distance matches going nowhere.",
+     "scroll_past": "I'm too tired tonight for another app signup."
+    }
+   ],
+   "noticed": [
+    "Real people. Verified.",
+    "Real people. Verified.",
+    "Real people. Verified. with a selfie check"
    ]
   },
   "[\"paywall\", \"app_skeptic\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
@@ -4213,6 +5045,1798 @@
     "My match is waiting for a reply",
     "41 miles away for the nearest person",
     "41 miles away"
+   ]
+  },
+  "[\"sign_up\", \"busy_and_picky\", \"signup\", \"-\"]": {
+   "q": "c1ad9dd4de4b",
+   "probs": {
+    "finish": 0.8666666666666667,
+    "delete_app": 0.13333333333333333
+   },
+   "by_choice": [
+    {
+     "delete_app": "I don't want to hand over location and photos yet.",
+     "finish": "Quick signup and few matches fits my crazy schedule."
+    },
+    {
+     "delete_app": "I hate giving apps my location and photos.",
+     "finish": "Five swipes a day sounds perfect for my schedule."
+    },
+    {
+     "delete_app": "I hate giving new apps my location and photos.",
+     "finish": "Quick signup with Apple fits between my shifts."
+    }
+   ],
+   "noticed": [
+    "Takes about a minute. Then we show you people nearby.",
+    "It only takes about a minute",
+    "It only takes about a minute to see people nearby"
+   ]
+  },
+  "[\"sign_up\", \"careful_about_trust\", \"signup\", \"-\"]": {
+   "q": "502425ffabdf",
+   "probs": {
+    "finish": 0.5933333333333334,
+    "delete_app": 0.4066666666666667
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five swipes a day isn't worth all that access.",
+     "finish": "Selfie check might mean fewer fakes to worry about."
+    },
+    {
+     "delete_app": "Five swipes a day is useless, why bother?",
+     "finish": "Selfie check sounds like real people, I'll try."
+    },
+    {
+     "delete_app": "Too many permissions before I even see anyone real.",
+     "finish": "I like the selfie check, I need proof they're real."
+    }
+   ],
+   "noticed": [
+    "It wants photos for a selfie check",
+    "That selfie check line - finally some proof people are real.",
+    "It says photos for a selfie check to prove people are real"
+   ]
+  },
+  "[\"sign_up\", \"casual_and_bored\", \"signup\", \"-\"]": {
+   "q": "00f9c06a6253",
+   "probs": {
+    "finish": 0.11666666666666667,
+    "delete_app": 0.8833333333333333
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five swipes a day isn't worth making a whole profile.",
+     "finish": "I'm bored enough to give it a minute."
+    },
+    {
+     "delete_app": "Five swipes is nothing, not worth giving all that.",
+     "finish": "Might as well peek if it's quick to sign up."
+    },
+    {
+     "delete_app": "Five free swipes a day is pointless for bored scrolling.",
+     "finish": "Apple signup looks fast, might as well peek."
+    }
+   ],
+   "noticed": [
+    "It wants my location, photos and a selfie check next",
+    "It wants my location, photos, and notifications next",
+    "It wants my location, photos, and notifications right away"
+   ]
+  },
+  "[\"sign_up\", \"curious_first_timer\", \"signup\", \"-\"]": {
+   "q": "49fa68d9421e",
+   "probs": {
+    "finish": 0.8333333333333334,
+    "delete_app": 0.16666666666666666
+   },
+   "by_choice": [
+    {
+     "delete_app": "Don't really wanna share my location and pics.",
+     "finish": "Wanna just see who's around, sounds quick."
+    },
+    {
+     "delete_app": "Asking for location and photos feels creepy already.",
+     "finish": "I want to quickly see who's nearby for free."
+    },
+    {
+     "delete_app": "Location and photos access feels like too much upfront",
+     "finish": "I'm excited to try this and Apple sign-in is easy"
+    }
+   ],
+   "noticed": [
+    "It says it takes about a minute then shows people nearby.",
+    "It takes about a minute then shows people nearby.",
+    "Continue with Apple button looks super quick"
+   ]
+  },
+  "[\"sign_up\", \"hopeful_but_short_on_cash\", \"signup\", \"-\"]": {
+   "q": "c0eb9b709965",
+   "probs": {
+    "finish": 0.25,
+    "delete_app": 0.75
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five swipes is nothing, not paying weekly on my pay.",
+     "finish": "I really wanna meet someone, a minute is quick to try."
+    },
+    {
+     "delete_app": "Five swipes a day is way too slow for me.",
+     "finish": "It's free to try and only takes a minute."
+    },
+    {
+     "delete_app": "Five swipes a day won't get me meeting anyone fast.",
+     "finish": "Apple sign-in is quick so I might as well peek."
+    }
+   ],
+   "noticed": [
+    "It says it takes a minute then shows people nearby",
+    "It says it'll show me people nearby after a minute",
+    "It says it takes about a minute then shows people nearby."
+   ]
+  },
+  "[\"sign_up\", \"serious_seeker\", \"signup\", \"-\"]": {
+   "q": "3fe2d9c147b7",
+   "probs": {
+    "finish": 0.4166666666666667,
+    "delete_app": 0.5833333333333334
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five free swipes isn't worth all my location and photos.",
+     "finish": "Nearby people and selfie check sound real, worth a minute."
+    },
+    {
+     "delete_app": "Five free swipes a day sounds pointless honestly.",
+     "finish": "Quick to try and nearby real people is what I want."
+    },
+    {
+     "delete_app": "Five free swipes a day isn't worth sharing all that.",
+     "finish": "I still want to check who's actually nearby first."
+    }
+   ],
+   "noticed": [
+    "Then we show you people nearby.",
+    "It says one minute then shows people nearby.",
+    "It says I'll see people nearby after making a profile"
+   ]
+  },
+  "[\"sign_up\", \"tired_of_swiping\", \"signup\", \"-\"]": {
+   "q": "3d346bc47ab3",
+   "probs": {
+    "finish": 0.11666666666666667,
+    "delete_app": 0.8833333333333333
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five swipes is nothing, just another cash grab.",
+     "finish": "Might as well try, setup only takes a minute."
+    },
+    {
+     "delete_app": "Five free swipes means they'll force me to pay.",
+     "finish": "Making a profile only takes a minute anyway."
+    },
+    {
+     "delete_app": "Five swipes free means paywall, been burned before.",
+     "finish": "Apple signup is quick, maybe just peek."
+    }
+   ],
+   "noticed": [
+    "Only 5 free swipes a day",
+    "It wants my location, photos, and notifications up front",
+    "It wants location, photos, and notifications before I see anyone."
+   ]
+  },
+  "[\"sign_up\", \"trying_again\", \"signup\", \"-\"]": {
+   "q": "08417b56c49a",
+   "probs": {
+    "finish": 0.65,
+    "delete_app": 0.35
+   },
+   "by_choice": [
+    {
+     "delete_app": "Five swipes is nothing, why even bother starting?",
+     "finish": "New app, new luck \u2014 a minute feels worth it."
+    },
+    {
+     "delete_app": "Five swipes a day is pointless unless I pay.",
+     "finish": "I'm hopeful a fresh app might actually work."
+    },
+    {
+     "delete_app": "Five swipes a day is useless and asking for too much.",
+     "finish": "I'm ready to meet someone and this looks quick and easy."
+    }
+   ],
+   "noticed": [
+    "It says takes about a minute then shows people nearby",
+    "It says it takes about a minute then shows people nearby.",
+    "It promises it takes about a minute then shows people nearby."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "195ab5bb3c7f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm too busy for zero matches nine miles away.",
+    "I'm not paying ten bucks a week to swipe on blank silhouettes.",
+    "Why would I pay for unlimited swipes when I want a few good ones?"
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "b83d17520b24",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "No matches in two weeks and you want $10 a week?",
+    "I used up my five swipes every day for nothing.",
+    "I'm not paying ten bucks a week for zero matches."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "c0614aff4f21",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I gave it a month of my rare free time and got zero matches.",
+    "Why pay ten bucks a week when I got zero matches in a month?",
+    "I'm not paying $9.99 a week for zero matches."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "cbaf1ce19331",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I don't have time for endless swiping, I wanted a few good matches.",
+    "I don't have time for endless nearby swiping, I just want good matches.",
+    "I'm not paying $10 a week before I've even got one match."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "801eb3332a64",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches.",
+    "I'm not paying ten bucks a week with zero matches.",
+    "I'm too busy to pay weekly for zero matches."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "80ec1ba42d8e",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm too busy to pay ten bucks a week for zero matches.",
+    "I don't have time for unlimited swiping, I wanted just a few good ones.",
+    "I'm not paying $9.99 a week for zero matches."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "ea45fd567515",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Work's crazy and everyone shown is 40 miles away.",
+    "As a nurse I don't have time to drive 41 miles.",
+    "Closest person is 41 miles away, I don't have time for that."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "4e60134b7d24",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 to swipe people 41 miles away.",
+    "I'm not driving 41 miles when I barely have free time.",
+    "I'm too busy for zero matches 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "f722d5437dfb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I don't have time to drive 41 miles, let alone pay for it.",
+    "I'm not driving 41 miles when I've got zero matches.",
+    "I'm too busy for zero matches and guys 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "9e5b2523290b",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day is fine, but I'm not paying ten bucks a week.",
+    "I'm not replying to a gray silhouette when I'm this busy.",
+    "Work got crazy and I just never got around to replying."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "a4c443e8ce08",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Work's been crazy, I never had time to reply.",
+    "I can't tell anything from blank profiles on my short breaks.",
+    "Work got busy and I never got around to replying to my match."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "0430e19c8004",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I got slammed on shifts and never got around to replying.",
+    "I just got too busy with work to keep replying.",
+    "Work's been insane and I never got around to replying."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "ec602759db41",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm too busy on shifts to keep up with a match waiting on replies.",
+    "My match is waiting but you're pushing me to pay and swipe.",
+    "I got one match but work got crazy and I never replied."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "8c1a73c9db4c",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I got my one match and I'm not paying ten bucks to keep swiping.",
+    "I just wanted a few good people a day, not endless swiping.",
+    "I got busy with shifts and never got around to replying."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "5f26597af9b3",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ten bucks a week for unlimited swipes just isn't worth my time.",
+    "My shifts are crazy, I haven't even replied to my match.",
+    "Work got busy and I never got around to replying."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "1da902bc4926",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Everyone's 40 miles away and I don't have time for that.",
+    "I'm a nurse, I'm not driving 41 miles for a maybe.",
+    "Closest person is 41 miles away, I don't have time for that."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "0eb77d442997",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm a nurse, I can't drive 41 miles for a date.",
+    "Everyone's 40-plus miles away and I don't have time for that.",
+    "I'm a nurse, I'm not driving 41 miles after a shift."
+   ]
+  },
+  "[\"why_quit\", \"busy_and_picky\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "ecaec8581bcb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I don't have time to drive 40 miles after a shift.",
+    "Nearest guy is 41 miles away, ain't driving that after a shift.",
+    "Closest guy is 41 miles away, I ain't driving that."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "af368c8e14de",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "I'm not paying $9.99 a week with zero matches so far.",
+    "I'm not paying $9.99 a week with zero matches and no proof."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "aee747a1f845",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying when profiles have no photos and zero matches.",
+    "I'm not paying $9.99 with zero matches and no proof you're real.",
+    "I'm not paying $9.99 a week when I haven't even matched once."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "845dc3aca1a1",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks with zero matches and no proof anyone's real.",
+    "I'm not paying ten bucks a week with still zero matches.",
+    "No proof anyone's real and I'm not paying ten bucks to find out."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "e3e7bd52cc72",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $10 a week for blank profiles with zero matches.",
+    "I'm not paying $9.99 a week with zero matches yet.",
+    "I'm not paying $9.99 with zero matches and no proof they're real."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "9dd4255c0ac2",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks when profiles don't even have photos.",
+    "I'm not paying ten bucks with zero matches and no real photos.",
+    "I'm not paying $9.99 a week with zero matches to show it's real."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "19ad0e9ae722",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week when I still have zero matches.",
+    "I'm not paying till I can actually see these people are real.",
+    "Why pay $9.99 for faceless profiles when I got zero matches?"
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "e0d49327ef15",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches forty miles away.",
+    "I'm not paying $9.99 with zero matches and no proof anyone's even real.",
+    "I'm not paying ten bucks when I've got zero matches 41 miles out."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "49d4b79d4c24",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Why pay ten bucks a week for profiles with no photos forty miles away?",
+    "Why pay $10 a week when I haven't matched anyone real yet?",
+    "I'm not paying ten bucks to swipe blank profiles forty miles away."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "f6239fcef363",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten dollars for faceless profiles forty miles away.",
+    "Zero matches, everyone's miles away and blank, I'm not paying for that.",
+    "I'm not paying $9.99 a week for zero matches 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "8cf4f45aa4af",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week for five swipes.",
+    "I'm not paying $9.99 a week when I can't even tell if he's real.",
+    "I'm not paying $9.99 when all I see is a gray silhouette."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "81ed0c25e57a",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks when I can't tell if anyone's even real.",
+    "I'm not paying ten bucks a week for people I can't verify.",
+    "I'm not paying ten bucks till I know my match is real."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "c80b41aab630",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I won't pay $9.99 a week without proof these people are real.",
+    "Why would I pay when I can't even see if they're real?",
+    "I'm not paying $9.99 till I know they're actually real."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "8aeead75af7e",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten dollars just to find out if my match is real.",
+    "I'm not paying $9.99 with no real photos to prove anyone's real.",
+    "I'm not paying $9.99 a week when I don't know who's real yet."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "6a1177905c34",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Why would I pay when I can't even see if they're real?",
+    "I'm not paying $9.99 a week without proof these people are real.",
+    "I'm not paying $9.99 a week with no proof anyone's real."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "a3b34c15c414",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying till I know these profiles are actually real.",
+    "Why pay ten dollars with no proof Jordan's even real?",
+    "I'm not paying $9.99 a week when I can't even see faces."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "26f843bab089",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying till I know these people are actually real.",
+    "I'm not paying ten bucks a week for someone 41 miles away.",
+    "Nearest match is 41 miles away with no photo, no way I'm paying."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "168cd20fc9d7",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $10 a week when everyone's 40 miles away.",
+    "I'm not paying ten bucks a week for someone 41 miles away.",
+    "I'm not paying ten bucks a week for someone 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"careful_about_trust\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "fc9a8cbdc1c9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks for people 40 miles away.",
+    "Why pay $10 a week when nearest guy is 41 miles away?",
+    "I'm not paying ten dollars to talk to someone 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "56c3cfe2a2b9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Got zero matches and hit a paywall after like five swipes.",
+    "I'm not paying ten bucks a week for like five swipes.",
+    "Only five swipes then ten bucks with zero matches is a joke."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "db3bcd9d3e88",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks for five swipes and zero matches.",
+    "I'm not paying ten bucks a week for zero matches.",
+    "I ran out of swipes with zero matches and I'm not paying for that."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "944978d4b37a",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches.",
+    "Ran out of free swipes in seconds and I'm definitely not paying $10.",
+    "I'm not paying ten bucks a week for five boring swipes and zero matches."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "1e7c84bf34aa",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Used up my 5 free swipes and I'm not paying $10 a week lol",
+    "Hit the paywall after five swipes and still had zero matches.",
+    "I hit the 5 swipe limit and I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "0f6abebc8e92",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week for zero matches.",
+    "I'm not paying ten bucks a week to swipe on blanks with no face.",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "5834a2f1bfab",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit my five swipes with zero matches and they want ten bucks?",
+    "I'm not paying ten bucks a week with zero matches.",
+    "Got zero matches and I'm not paying ten bucks just to swipe."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "6f4ea2eb8d37",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 to match with nobody 40 miles away.",
+    "I'm not paying ten bucks to swipe people 40 miles away.",
+    "I'm not paying ten bucks to swipe on people 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "40d67f74fdb2",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Everyone's like 40 miles away and I'm not paying ten bucks to swipe.",
+    "Everyone's 41 miles away with zero matches, I'm not paying for that.",
+    "Everyone was mad far and they wanted money before I even matched."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "70fadc342bdd",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Only five free swipes for people 40 miles away, I'm not paying.",
+    "I'm not paying ten bucks for five swipes on people 40 miles away.",
+    "Everyone's 40 miles away, I get five swipes, and I'm not paying for that."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "45ce916aad85",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Hit my five free swipes and I'm not paying ten bucks for more.",
+    "Burned my 5 free swipes and I'm not paying ten bucks a week.",
+    "Ran out of free swipes in like a minute and I'm not paying."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "50320bde4a5f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ran out of free swipes and I'm not paying ten bucks a week.",
+    "I hit the 5 swipe limit and I'm not paying ten bucks for more.",
+    "Used up my five free swipes and I'm not paying ten bucks weekly."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "2ea82c00d7de",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day is wack, I'm not paying ten bucks a week.",
+    "I used my five swipes in a minute and I'm not paying for more.",
+    "Got bored after like five swipes and I'm not paying to keep swiping."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "972f9368ca40",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week just to keep swiping.",
+    "I used my 5 free swipes and I'm not paying $10 a week.",
+    "I ran out of free swipes and wasn't gonna pay."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "157e73a8c953",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ran out of free swipes and I'm not paying for that.",
+    "Used up my 5 free swipes and I'm not paying for that.",
+    "Hit my 5 free swipes and I'm not paying $10 a week."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "22847c8cad7a",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ran out of free swipes and I'm not paying ten bucks.",
+    "Hit the five swipe limit and no way I'm paying ten bucks weekly.",
+    "I hit the free swipe limit and I'm not paying $10 a week."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "aaa3d8e3e768",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for people 40 miles away.",
+    "Not paying ten bucks a week for people 40 miles away.",
+    "Ran out of free swipes and everyone's like 40 miles away anyway."
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "6fba28e08cab",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "everyone's so far away it's not even worth opening",
+    "Everyone's like 40 miles away and they want $10 to swipe, nah.",
+    "only get like five swipes then they want $10 a week nah"
+   ]
+  },
+  "[\"why_quit\", \"casual_and_bored\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "337001212b32",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Bro I'm not paying $10 a week for someone 41 miles away.",
+    "I'm not paying ten bucks a week for people 40 miles away.",
+    "Everyone on here is like 40 miles away, I'm good."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "6c8e4e6253d1",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches lol",
+    "I hit my free swipes, got no matches, and I'm not paying ten bucks.",
+    "I used my five swipes and I'm not paying $10 a week."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "5c725d88f4f9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week when I got zero matches.",
+    "I hit my free swipe limit with zero matches and I'm not paying.",
+    "I'm not paying ten bucks a week when I haven't even matched once."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "0e97a2d5b9c0",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ran out of free swipes with zero matches, no way I'm paying weekly.",
+    "I hit the five-swipe limit with zero matches and no way I'm paying.",
+    "I'm not paying ten bucks a week for zero matches."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "f27152d8cef0",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit the swipe limit with zero matches and I'm not paying.",
+    "Used my free swipes, got no matches, not paying ten bucks weekly.",
+    "I burned my five free swipes, got zero matches, so why would I pay?"
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "dedf328e3763",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches.",
+    "I burned my five free swipes with zero matches, I'm not paying for that.",
+    "I ran out of free swipes with zero matches, I'm not paying for that."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "3b548ae2bf31",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit my five free swipes with zero matches and I'm not paying.",
+    "I ran out of free swipes with zero matches and I'm not paying.",
+    "Why would I pay $9.99 a week with zero matches?"
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "ce64daf0123f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I ran out of free swipes and everyone was like 40 miles away.",
+    "I got zero matches, everyone's far, and then it asked me to pay.",
+    "I'm not paying ten bucks a week for people 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "2511569cec10",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Why pay ten bucks a week for zero matches forty miles away?",
+    "I'm not paying ten bucks just to swipe five more far-away people.",
+    "Like why pay $10 a week when closest guy is 41 miles away?"
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "132063c97419",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks for zero matches forty miles away",
+    "I'm not paying ten bucks a week for guys 40 miles away.",
+    "Why would I pay $10 a week for people 40 miles away?"
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "a7f53bca734f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "My match was waiting but I ran out of swipes and I'm not paying.",
+    "I ran out of free swipes right away and I'm not paying for this.",
+    "I'm not paying ten bucks a week just to keep swiping"
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "689e3bb744e5",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I ran out of free swipes so fast and I'm not paying for that.",
+    "I blew through five swipes in seconds and I'm not paying.",
+    "I used up my 5 free swipes and I'm not paying $10 a week."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "ff97d7f284fb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five free swipes is lame, I'm not paying ten bucks a week.",
+    "I ran out of free swipes and I'm not paying ten bucks a week.",
+    "I used my five free swipes and I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "7035065d3dbc",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I used my five free swipes and can't afford that weekly thing.",
+    "Hit my 5 free swipes and I'm not paying $10 a week lol",
+    "Hit my five free swipes and I'm way too broke for that weekly price."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "d1f74b67518e",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit my free swipe limit and I'm not paying $9.99 a week.",
+    "It cut me off after five swipes and asked for ten bucks.",
+    "I used up my 5 free swipes and I'm not paying $9.99 a week."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "05a8d41699da",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I used up my free swipes and I'm not paying ten bucks a week.",
+    "I hit my free swipe limit and I'm not paying ten bucks a week.",
+    "I hit my free swipe limit and can't afford ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "12e1902c588e",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I ran out of free swipes and I'm not paying ten bucks a week.",
+    "Five swipes a day is lame and I'm not paying $10 a week.",
+    "I hit the swipe limit in seconds and everyone's 40 miles away anyway."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "0981ba7bf2d6",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for someone 40 miles away.",
+    "I'm not paying $10 a week for people 40 miles away lol",
+    "I'm not paying ten bucks a week just to keep swiping."
+   ]
+  },
+  "[\"why_quit\", \"curious_first_timer\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "ccca0386e48a",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "There's no one close and I'm not paying ten bucks to swipe more.",
+    "I'm not paying ten bucks a week for people forty miles away.",
+    "I'm not paying $10 a week for guys 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "a9888cc9cf0f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches to show.",
+    "Five swipes got me zero matches and now they want ten bucks a week.",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "e5c55e93dcfe",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week when I haven't matched with anyone yet.",
+    "I got zero matches and I'm not paying ten bucks a week for that.",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "bd8cc23a0b96",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches.",
+    "Nine bucks a week for five swipes and no matches is insane.",
+    "Five swipes a day for zero matches? I'm not paying for that."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "a20144be2583",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches.",
+    "Ran out of free swipes with no matches, no way I'm paying weekly.",
+    "Five swipes a day for nothing? I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "cf2c72428e38",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches.",
+    "I used my 5 free swipes and I'm not paying ten bucks weekly.",
+    "I'm not paying $9.99 a week with zero matches yet."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "1098587e10db",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches.",
+    "I'm not paying ten bucks a week with zero matches to show.",
+    "I'm not paying ten bucks a week with zero matches to show for it."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "bb9d2cd1ad7b",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for people 40 miles away.",
+    "I'm not paying $9.99 a week to swipe on people 41 miles away.",
+    "I'm not paying ten bucks a week for people 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "349534dfb7ea",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for guys 40 miles away.",
+    "I'm not paying ten bucks a week for someone 41 miles away.",
+    "I'm not paying ten bucks a week with zero matches forty miles away."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "adb843699734",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Zero matches, everyone's 41 miles away, and you want ten bucks a week.",
+    "I'm not paying $9.99 a week for zero matches 41 miles away.",
+    "I'm not paying ten bucks a week for zero matches forty miles away."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "390e474b7c12",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week just to swipe more.",
+    "I ran out of swipes and $9.99 a week is too much for me.",
+    "I'm not paying $10 a week just to swipe."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "6458773bd542",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day is wack, and I ain't paying $10 a week.",
+    "Five swipes a day is useless and I'm not paying ten bucks weekly.",
+    "Ran out of free swipes and I'm not paying $9.99 a week."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "33673e5ffd5f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I used up my 5 free swipes and I'm not paying $10 a week.",
+    "I'm not paying ten bucks a week for this.",
+    "Five free swipes is nothing and $9.99 a week is too much."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "9371c980a910",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit my 5 free swipes and I'm not paying $9.99 a week.",
+    "I used up my 5 swipes and I'm not paying $10 every week.",
+    "Hit my 5 free swipes and I'm not paying $9.99 a week."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "de72031f90eb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week just to keep swiping.",
+    "I'm not paying ten bucks a week just to keep swiping.",
+    "I ran out of free swipes and I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "dfb3cbd6a7ee",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Ran out of free swipes and $9.99 a week is way too much.",
+    "I burned my 5 free swipes and $9.99 a week is too much.",
+    "I hit the five-swipe limit and I'm not paying ten bucks weekly."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "a7bf9f470dd5",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week to talk to someone 40 miles away.",
+    "I'm not paying ten bucks a week to meet someone 41 miles away.",
+    "I'm not paying $10 a week to talk to someone 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "1621b3e693c2",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week for someone 41 miles away.",
+    "I'm not paying $10 a week for someone 41 miles away.",
+    "I'm not paying ten bucks a week to drive 41 miles."
+   ]
+  },
+  "[\"why_quit\", \"hopeful_but_short_on_cash\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "7b99bb1035a8",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I ain't driving 40 miles for a match, that weekly price is too much.",
+    "The closest person is 41 miles away, that's just too far for me.",
+    "I'm not paying ten bucks a week for someone 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "202b8327e2cc",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "I'm not paying ten bucks a week to look at gray boxes.",
+    "I'm not paying ten bucks a week to look at gray blobs."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "861aa64bd2f4",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches.",
+    "I got zero matches and I'm not paying ten bucks a week for that.",
+    "I'm not paying ten bucks a week when I haven't matched anyone."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "48ff2d5bc5ee",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I got zero matches and they want ten bucks a week for five swipes.",
+    "I'm not paying weekly to swipe on blank profiles with no matches.",
+    "I'm not paying ten bucks a week with zero matches to show for it."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "5a17621ab214",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 for zero matches on blank profiles.",
+    "I'm not paying ten bucks a week for blank profiles and no matches.",
+    "Why pay $9.99 a week when I haven't matched once?"
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "df5890c96259",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week for blank profiles and zero matches.",
+    "I'm not paying ten bucks for gray blobs with no photos.",
+    "Why would I pay when it's just blank profiles and zero matches?"
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "2f7b7482d2b6",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying after a month of blank profiles and zero matches.",
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "I'm not paying ten bucks a week with zero matches after a month."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "55dde3e6a8ef",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying weekly for zero matches 41 miles away.",
+    "Everyone's 40+ miles away with no picture, why would I pay?",
+    "Why pay ten bucks a week when the closest guy's 41 miles away?"
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "c15b205a99ba",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Two weeks with zero matches and everyone an hour away, what's the point?",
+    "I got no matches, everyone's 40 miles away, and they want ten bucks.",
+    "I\u2019m not paying ten bucks to swipe on blank profiles 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "ff8be035b5f0",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day for people 40 miles away isn't worth it.",
+    "Zero matches, everyone's 40 miles away, and they want ten bucks a week.",
+    "I'm not paying ten bucks a week for zero matches forty miles away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "b94e009c6d02",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five swipes a day.",
+    "Five swipes a day is a joke, and I'm not paying ten bucks weekly.",
+    "Nobody has a real photo so it feels fake."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "462005f02ab0",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week to see blank profiles.",
+    "Five free swipes is nothing and I'm not paying ten bucks for blank profiles.",
+    "Five free swipes is nothing and I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "0e02bf379b6c",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five swipes.",
+    "Five swipes a day made it pointless to keep checking.",
+    "I'm not paying ten bucks a week for blank profiles nine miles away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "2fd0f8778b9b",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five free swipes is a joke and I'm not paying ten bucks a week",
+    "I'm not paying ten bucks a week for blank profiles with no faces.",
+    "Five swipes a day is a joke, I'm not paying ten dollars a week."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "3a81e4ea0b10",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I matched but the profiles are all blank, it feels fake.",
+    "It's all blank gray profiles, doesn't feel real at all.",
+    "Five free swipes is a joke, and I'm not paying ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "7fbdf3b96dd2",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five swipes.",
+    "Five swipes a day then ten bucks a week is ridiculous.",
+    "I'm not paying ten bucks a week for five swipes."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "40406a440642",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Nearest match is 41 miles away, that's just too far.",
+    "I'm not paying ten bucks to talk to someone an hour away.",
+    "I'm not paying ten bucks a week for guys an hour away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "b2ba786f21ca",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Closest match is 41 miles away, that's not dating distance.",
+    "I'm not paying ten bucks to talk to guys 40 miles away.",
+    "I'm not paying ten bucks a week to talk to guys 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"serious_seeker\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "eea132823d73",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for 40 miles away.",
+    "I'm not paying ten bucks a week to talk to someone 41 miles away.",
+    "Everyone's 40-plus miles away, I wanted someone close."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "9f8ad974b9d9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I got zero matches and then it asked for ten bucks a week.",
+    "I'm not paying ten bucks a week for zero matches.",
+    "Five free swipes then $10 a week with zero matches? I'm out."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "b598046de4eb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five blind swipes and zero matches.",
+    "Two weeks, zero matches, and now they want ten bucks a week?",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "538ffca7b4af",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day for zero matches isn't worth ten bucks a week.",
+    "Zero matches after a month and they want ten bucks a week.",
+    "Five free swipes, zero matches, and now you want ten dollars?"
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "2787c8c1bc4b",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I hit the 5-swipe limit with no matches and I'm not paying $9.99.",
+    "I'm not paying ten bucks with only five swipes and zero matches.",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "39c11bc1ed50",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches.",
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "No way I'm paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "94c9fc6305a9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches and five swipes.",
+    "I'm not paying ten bucks a week for zero matches.",
+    "I'm not paying $9.99 a week with zero matches to show for it."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "d4604e13aab9",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Zero matches, 41 miles away, and now you want money?",
+    "I'm not paying ten bucks to swipe on people 40 miles away.",
+    "I'm not paying ten bucks with zero matches 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "16c8bbad9633",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $10 a week for zero matches 40 miles away.",
+    "I'm not paying ten bucks a week with zero matches 40 miles away.",
+    "I'm not paying ten bucks a week for zero matches 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "2ffd3cb10deb",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week with zero matches 41 miles away.",
+    "Zero matches, closest is 41 miles away, and they want ten bucks.",
+    "I'm not paying ten bucks a week for zero matches forty miles away."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "b56a122c55aa",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five free swipes is nothing and I'm not paying ten bucks a week.",
+    "I'm not paying ten bucks a week for five daily swipes.",
+    "I'm not paying ten bucks a week for five swipes a day."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "fdb67e68732d",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week after just five swipes.",
+    "Five swipes a day then ten dollars a week, yeah right.",
+    "I'm not paying ten bucks a week for five measly swipes a day."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "fd54b92bd871",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five swipes a day.",
+    "I'm not paying ten bucks a week for five swipes.",
+    "I'm not paying ten bucks a week for five swipes a day."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "acc5393c4bb6",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I even got a match but I'm not paying ten bucks weekly.",
+    "I'm not paying ten bucks a week for five swipes a day.",
+    "I'm not paying ten bucks a week just to keep swiping."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "72ed04ff70e5",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying again for only five free swipes a day.",
+    "I'm not paying ten bucks a week after only five free swipes.",
+    "I burn through five swipes in seconds then they ask for ten bucks."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "cd0dff1df97c",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week just to keep swiping.",
+    "I burned my free swipes and I'm not paying again for a dead chat.",
+    "Sorry, I'm not paying ten bucks a week for five swipes."
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "fd0078426cb8",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week to talk to someone 40 miles away.",
+    "I'm not paying $10 a week for matches 40 miles away.",
+    "Why pay ten dollars a week to talk to people 40 miles away?"
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "b6b26e47bebf",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week to talk to someone 41 miles away.",
+    "I'm not paying ten bucks a week for someone 41 miles away.",
+    "Why would I pay $10 a week for someone 41 miles away?"
+   ]
+  },
+  "[\"why_quit\", \"tired_of_swiping\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "31fc037bc951",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not driving 40 miles for someone I haven't even met.",
+    "I'm not paying $10 a week for people 40 miles away.",
+    "Closest person is 41 miles away, that's just too far."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"few\", \"w1\"]]": {
+   "q": "1b1af3141552",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes is a joke, I'm not paying ten bucks a week.",
+    "Five swipes, zero matches, and they already want ten bucks a week.",
+    "I'm not paying ten bucks a week with zero matches."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"few\", \"w2-4\"]]": {
+   "q": "5f710b69722f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Two weeks, zero matches, and now they want ten bucks a week?",
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "Five free swipes, zero matches, and then they want ten bucks a week."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"few\", \"w5+\"]]": {
+   "q": "24a08e69aebd",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "I'm not paying $9.99 a week with zero matches to show for it.",
+    "Five swipes a day with zero matches wasn't worth paying for."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"many\", \"w1\"]]": {
+   "q": "2e8ff0f27ca1",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week when I haven't matched once.",
+    "Three days, zero matches, and now they want my money?",
+    "I'm not paying $10 a week after five swipes and zero matches."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"many\", \"w2-4\"]]": {
+   "q": "cb382fb75942",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I came in hopeful, but zero matches and a paywall killed it.",
+    "I'm not paying ten bucks a week with zero matches to show for it.",
+    "I'm not paying $9.99 a week when I haven't even got one match yet."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"many\", \"w5+\"]]": {
+   "q": "924018c55914",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $10 a week when I haven't even matched once.",
+    "Zero matches, five swipes, and blank faces \u2014 why would I pay?",
+    "I waited a month for zero matches and I'm not paying ten bucks weekly."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"none\", \"w1\"]]": {
+   "q": "389848249d35",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Closest match is 41 miles away and I have to pay to keep swiping.",
+    "I'm not paying $9.99/week for 5 swipes on people 41 miles away.",
+    "I was hopeful but everyone's far and I'm not paying for five swipes."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"none\", \"w2-4\"]]": {
+   "q": "8d26acd57acf",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $10 a week when I have zero matches 40 miles away.",
+    "Zero matches, everyone 40 miles away, and now you want money?",
+    "I'm not paying ten bucks a week for zero nearby matches."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"no\", \"none\", \"w5+\"]]": {
+   "q": "8329d291a98a",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for zero matches forty miles away.",
+    "Nobody's ever nearby and I'm not paying for five swipes.",
+    "I'm not paying ten bucks a week to swipe on someone 41 miles away."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"few\", \"w1\"]]": {
+   "q": "0d67c765c2ad",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five free swipes then ten bucks a week? No thanks.",
+    "I burned through my five swipes and wasn't paying ten dollars to keep looking.",
+    "Five free swipes then ten bucks a week is ridiculous."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"few\", \"w2-4\"]]": {
+   "q": "291a85244715",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five swipes a day then ten bucks a week? Yeah I'm out.",
+    "I burned through my five free swipes and wasn't paying ten dollars weekly.",
+    "I'm not paying ten bucks a week to look at blank profiles."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"few\", \"w5+\"]]": {
+   "q": "76e78230be39",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "Five free swipes is nothing and I'm not paying ten dollars weekly.",
+    "I hit the five-swipe wall and I'm not paying ten bucks a week.",
+    "I was actually hopeful, but I'm not paying ten bucks for five swipes."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"many\", \"w1\"]]": {
+   "q": "f34fd25a68ef",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I got one match and then it wanted ten bucks to keep swiping.",
+    "My match is just a gray blank so I lost interest.",
+    "Hit the five-swipe limit and I'm not paying ten dollars a week."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"many\", \"w2-4\"]]": {
+   "q": "2625647df4bd",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for five extra swipes.",
+    "I burned my five free swipes and I'm not paying ten bucks a week.",
+    "Five swipes a day runs out fast and I'm not paying ten bucks."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"many\", \"w5+\"]]": {
+   "q": "20d687d37566",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying $9.99 a week after five measly swipes.",
+    "I'm not paying ten bucks a week for five swipes a day.",
+    "I matched but I'm not paying ten bucks a week for more swipes."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"none\", \"w1\"]]": {
+   "q": "20d008ed6d56",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I was hopeful but everyone was just too far away.",
+    "I got one match 40 miles away then it asked for $10 a week.",
+    "I'm not paying $10 a week to meet someone 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"none\", \"w2-4\"]]": {
+   "q": "0f28ac619a3f",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "My nearest match was 41 miles away, so I gave up.",
+    "Why would I pay when the closest guy is 41 miles away?",
+    "I'm not paying ten bucks a week to talk to someone 40 miles away."
+   ]
+  },
+  "[\"why_quit\", \"trying_again\", \"paywall\", [\"yes\", \"none\", \"w5+\"]]": {
+   "q": "3b2b8796b579",
+   "probs": {
+    "quit": 1.0
+   },
+   "reasons": [
+    "I'm not paying ten bucks a week for someone 40 miles away.",
+    "I'm not paying $10 a week for people 40 miles away.",
+    "I'm not paying ten bucks a week for someone 40 miles away."
    ]
   }
  }

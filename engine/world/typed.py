@@ -230,7 +230,10 @@ class TypedProvider:
         image = screens.gate_screen(gate, bucket, self.pack)
         if kind == "why_quit":
             return persona, image, why_quit_question(app, self.brief), ("quit",), "reason"
-        return persona, image, gate_question(g["question"], self.brief, price), g["options"], "v1"
+        # the side that offers (sellers, drivers) does not pay, so the money words are only for the side that asks
+        pays = self.pack["mechanics"] != "transaction" or self.pack["gates"].get(self.pack.get("demand")) == gate
+        question = gate_question(g["question"], self.brief, price) if pays else g["question"]
+        return persona, image, question, g["options"], "v1"
 
     def _q(self, key):
         persona, image, question, *_ = self._prompt(key)

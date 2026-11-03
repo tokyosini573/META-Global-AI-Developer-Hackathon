@@ -35,6 +35,7 @@ export type Brief = {
     free?: string; paid?: string
   }
   ads: BriefAd[]
+  images?: Record<string, string> // in a replay's meta.brief: image name -> the screen it used
   competition?: { now: string; switch: string }
   retention?: { back: string; leave: string }
   extra?: {

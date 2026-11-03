@@ -25,7 +25,9 @@ const LOOKS: Record<string, RegExp> = {
 function exampleImages(r: Replay, b: Brief) {
   const screens = packOf(r).screens ?? ['ad', 'store', 'paywall_m0_none']
   const out: Record<string, string> = {}
+  for (const [slot, s] of Object.entries(b.images ?? {})) out[slot] = src(s)   // v2 replays name them
   for (const slot of imageSlots(b.category, 0)) {
+    if (out[slot]) continue
     const s = screens.find(x => base(x) === slot || base(x).endsWith(`_${slot}`)) ?? screens.find(x => LOOKS[slot]?.test(base(x)))
     if (s) out[slot] = src(s)
   }

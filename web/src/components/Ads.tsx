@@ -24,7 +24,8 @@ export function Ads({ replay }: { replay: Replay }) {
   return (
     <>
       <section className="absolute top-28 right-16 left-16 flex items-start justify-between gap-16">
-        <h1 className="max-w-[1300px] text-headline font-semibold text-strong">{data?.line ?? 'Which people answered which ad?'}</h1>
+        <h1 className={`max-w-[1300px] font-semibold text-strong ${(data?.line ?? '').length > 60 ? 'text-title' : 'text-headline'}`}>
+          {data?.line ?? 'Which people answered which ad?'}</h1>
         <div className="flex-none"><Tabs replay={replay} plan={plan} onPlan={setPlan} /></div>
       </section>
 

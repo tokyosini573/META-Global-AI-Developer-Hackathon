@@ -1,0 +1,309 @@
+{
+ "fce4cd09d349b9e9": {
+  "themes": [
+   {
+    "name": "Too busy for another app",
+    "reasons": [
+     "r1",
+     "r5",
+     "r8",
+     "r13",
+     "r14",
+     "r15",
+     "r18",
+     "r19",
+     "r23",
+     "r24",
+     "r31",
+     "r49",
+     "r53"
+    ]
+   },
+   {
+    "name": "Not sure strangers can be trusted",
+    "reasons": [
+     "r2",
+     "r3",
+     "r4",
+     "r7",
+     "r11",
+     "r25",
+     "r28",
+     "r29",
+     "r30",
+     "r33",
+     "r35",
+     "r46",
+     "r47"
+    ]
+   },
+   {
+    "name": "Extra fee ruins the savings",
+    "reasons": [
+     "r0",
+     "r6",
+     "r16",
+     "r21",
+     "r32",
+     "r34",
+     "r37",
+     "r38",
+     "r42",
+     "r43",
+     "r44",
+     "r45",
+     "r48",
+     "r52"
+    ]
+   }
+  ]
+ },
+ "fdd239fbed677b62": {
+  "themes": [
+   {
+    "name": "Too much asked up front",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r6",
+     "r7",
+     "r8",
+     "r9"
+    ]
+   }
+  ]
+ },
+ "cf7919a59d2acbfc": {
+  "themes": [
+   {
+    "name": "Selling takes too much time",
+    "reasons": [
+     "r5",
+     "r7",
+     "r9",
+     "r10",
+     "r12",
+     "r13",
+     "r16"
+    ]
+   },
+   {
+    "name": "Fee is not worth it",
+    "reasons": [
+     "r3",
+     "r4",
+     "r8"
+    ]
+   },
+   {
+    "name": "Too few nearby buyers",
+    "reasons": [
+     "r2",
+     "r6",
+     "r11",
+     "r15"
+    ]
+   }
+  ]
+ },
+ "5ee7cde6db50140c": {
+  "themes": [
+   {
+    "name": "Too much access too soon",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r6",
+     "r7",
+     "r8",
+     "r9"
+    ]
+   }
+  ]
+ },
+ "341889912b0f9cfc": {
+  "themes": [
+   {
+    "name": "Not enough people or things nearby",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r7",
+     "r8",
+     "r9",
+     "r11",
+     "r12",
+     "r16",
+     "r17",
+     "r19",
+     "r20",
+     "r23",
+     "r24",
+     "r27",
+     "r28",
+     "r31",
+     "r32",
+     "r33",
+     "r39",
+     "r40",
+     "r41",
+     "r47",
+     "r48",
+     "r49",
+     "r50",
+     "r51",
+     "r52",
+     "r53",
+     "r59"
+    ]
+   },
+   {
+    "name": "Too long to buy or sell",
+    "reasons": [
+     "r6",
+     "r10",
+     "r13",
+     "r21",
+     "r22",
+     "r26",
+     "r34",
+     "r35",
+     "r36",
+     "r37",
+     "r38",
+     "r46",
+     "r56",
+     "r57"
+    ]
+   },
+   {
+    "name": "Extra fee not worth it",
+    "reasons": [
+     "r14",
+     "r15",
+     "r29",
+     "r30",
+     "r42",
+     "r43",
+     "r44",
+     "r45",
+     "r54",
+     "r55",
+     "r58"
+    ]
+   }
+  ]
+ },
+ "0afda867b7e8c36e": {
+  "a": "The price ad appealed to sellers far more than buyers.",
+  "b": "The price ad appealed to sellers far more than buyers."
+ },
+ "902b7f1209c4431d": {
+  "themes": [
+   {
+    "name": "Do not trust it yet",
+    "reasons": [
+     "r2",
+     "r3",
+     "r4",
+     "r8",
+     "r9",
+     "r10",
+     "r12",
+     "r13",
+     "r18",
+     "r23",
+     "r25",
+     "r26",
+     "r27",
+     "r28",
+     "r29",
+     "r30",
+     "r31",
+     "r35",
+     "r36",
+     "r37",
+     "r38",
+     "r42",
+     "r45",
+     "r47",
+     "r49",
+     "r52"
+    ]
+   },
+   {
+    "name": "No time or need now",
+    "reasons": [
+     "r1",
+     "r5",
+     "r7",
+     "r11",
+     "r14",
+     "r16",
+     "r17",
+     "r19",
+     "r21",
+     "r22",
+     "r24",
+     "r32",
+     "r48",
+     "r53"
+    ]
+   },
+   {
+    "name": "Extra fee spoils the deal",
+    "reasons": [
+     "r0",
+     "r6",
+     "r15",
+     "r20",
+     "r33",
+     "r34",
+     "r39",
+     "r40",
+     "r41",
+     "r43",
+     "r44",
+     "r46",
+     "r50",
+     "r51"
+    ]
+   }
+  ]
+ },
+ "8f4072fe8656da80": {
+  "themes": [
+   {
+    "name": "Too much asked for too soon",
+    "reasons": [
+     "r0",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "r5",
+     "r6",
+     "r7",
+     "r8",
+     "r9"
+    ]
+   }
+  ]
+ },
+ "631a0e6f2f04d2a3": {
+  "a": "The price ad flopped with buyers, not sellers.",
+  "b": "The price ad flopped with buyers, not sellers."
+ }
+}

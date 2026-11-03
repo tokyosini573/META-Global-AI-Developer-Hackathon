@@ -146,6 +146,7 @@ def brief_images(pack, brief):
     pre = pack.get("screen_prefix", "")
     out = {"store": pre + "store", "signup": packs.signup_screen(pack)}
     if pack["mechanics"] == "swipe":
+        out["main"] = pre + "main"                # the swiping screen (engine/screens/kindred.html)
         out["paywall"] = screens.gate_screen("paywall", ("no", "none", "w1"), pack)
     else:
         for side, gate in pack["gates"].items():

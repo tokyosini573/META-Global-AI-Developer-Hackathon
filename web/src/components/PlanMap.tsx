@@ -6,10 +6,12 @@ import { halftone, MAP_H, MAP_W, project } from '../usMap'
 // Days a dot takes to fade in (about 0.3 s when 90 days = 30 s)
 const FADE_DAYS = 0.9
 const fade = (since: number | null, t: number) => (since === null ? 1 : Math.min(1, Math.max(0, (t - since) / FADE_DAYS)))
-const CELL = 4.5 // px: one person per cell, so a crowded city reads as a patch instead of one blob
+// px: one person per cell, so a crowded city reads as a patch instead of one blob. Ten thousand people
+// at 4.5 px would cover half the country, so big replays get smaller cells and dots.
+const cellFor = (n: number) => (n > 4000 ? 2.6 : 4.5)
 
 // Move each dot to the nearest free cell, earliest arrivals first, so area grows with headcount.
-function settle(points: [number, number][], order: number[]): [number, number][] {
+function settle(points: [number, number][], order: number[], CELL: number): [number, number][] {
   const taken = new Set<string>()
   const out: [number, number][] = points.map(p => [...p] as [number, number])
   for (const i of order) {
@@ -47,7 +49,7 @@ export function PlanMap({ replay, plan, t, selected, onPick, width = MAP_W }: {
   const people = replay.people[plan]
   const xy = useMemo(() => {
     const order = people.map((_, i) => i).sort((i, j) => (people[i].reached ?? 1e9) - (people[j].reached ?? 1e9))
-    return settle(people.map(p => project(p.lon, p.lat)), order)
+    return settle(people.map(p => project(p.lon, p.lat)), order, cellFor(people.length))
   }, [people])
   const index = useMemo(() => new Map(people.map((p, i) => [p.id, i])), [people])
 
@@ -95,9 +97,10 @@ export function PlanMap({ replay, plan, t, selected, onPick, width = MAP_W }: {
       ctx.arc(x, y, r, 0, Math.PI * 2)
       ctx.fill()
     }
-    for (const i of layers.idle) dot(i, 1.8, color.dim, 0.7)
-    for (const i of layers.quit) dot(i, 2, tint, 0.25)
-    for (const i of layers.using) dot(i, 2.2, tint, 0.85)
+    const k = cellFor(people.length) / 4.5
+    for (const i of layers.idle) dot(i, 1.8 * k, color.dim, 0.7)
+    for (const i of layers.quit) dot(i, 2 * k, tint, 0.25)
+    for (const i of layers.using) dot(i, 2.2 * k, tint, 0.85)
     for (const i of layers.paying) {
       dot(i, 3.6, tint, 1)
       const [x, y] = xy[i]
