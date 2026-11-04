@@ -1,63 +1,62 @@
-<div align="center">
-
-<img src="web/public/landing/dolphin/smile.webp" alt="" width="96">
+<img src="web/public/landing/dolphin/smile.webp" alt="" width="72">
 
 # Rehearsal
 
-**Rehearse your app's launch before you spend the budget.**
+### Rehearse your app's launch before you spend the budget.
 
-Thousands of simulated Americans see your ad, install, sign up, use your app, pay or leave over
-90 days, and each one tells you why.
+**[Open the live demo →](https://tokyosini573--rehearsal.modal.run)** · Built solo for the Meta Global AI Developer Hackathon with
+**Muse Wonder, Muse Spark, Muse Glimmer and Muse Voice Transcribe**
 
-**[Open the live demo →](https://tokyosini573--rehearsal.modal.run)**
+![Rehearsal playing two launch plans for a dating app over 90 days: Plan A nationwide, Plan B in three cities. Plan B wins.](docs/images/replay.gif)
 
-Built solo for the Meta Global AI Developer Hackathon (Indie track)<br>
-with **Muse Wonder · Muse Spark · Muse Glimmer · Muse Voice Transcribe**
+## The problem: you only launch once
 
-</div>
+A new app spends its launch budget first and learns whether the plan worked months later.
+For apps that need two kinds of people near each other (daters, buyers and sellers, riders and
+drivers) it is worse: the app is empty until both sides meet, so **where and how you launch decides
+whether it lives**.
 
-<br>
+| Same app, same $40,000 | Plan A | Plan B |
+|---|---|---|
+| **Reloop**, a resale app | Nationwide ads, everyone at once: **0 sales** | Seattle then Portland, sellers first: **1,837 sales** |
+| **Kindred**, a dating app | Nationwide ads, paywall on day one: **6 matches** | City by city, 30 days free: **166 matches** |
 
-![The Rehearsal front page: "Rehearse your launch." above an example funnel from 6,116 people who saw an ad down to 51 who paid](docs/images/front-page.png)
+<sub>Rehearsal's own examples (Reloop: median of 30 runs; Kindred: the replay on the site). Simulated, calibrated to public benchmarks, not observed.</sub>
 
-## In one sentence
+Get it wrong and you lose the budget, the months, and your first impression in the market. And
+nothing tells you beforehand: a real test costs the launch itself, and surveys miss the map,
+because people can like an app and still leave when nobody is nearby.
 
-**Rehearsal is a dress rehearsal for an app launch.** A theater runs the whole show once in front
-of a test audience before opening night. Rehearsal does the same for a launch: you describe your
-app and two ways to launch it, a simulated market lives through 90 days of each, and you see which
-one works, where people dropped off, and why, in their own words.
+## What Rehearsal does
 
-## Why it matters
-
-Some apps only work when two kinds of people are near each other: a dating app needs people to
-date nearby, a resale app needs buyers near sellers, a ride app needs drivers near riders.
-Until both sides are there, the app is empty, and how you launch decides whether they ever
-meet.
-
-- **You launch only once.** The same budget can bring twice the users or almost none,
-  depending on where and how you spend it.
-- **Testing for real is slow.** Trying a plan in the real market takes months and the whole budget.
-- **Surveys miss the map.** People can say they like an app and still leave when nobody is nearby.
-
-## How it works
+**It runs your launch in a simulated US market first.** Describe your app and two launch plans.
+Thousands of simulated Americans live through 90 days of each: they see your ad, install, sign up,
+use the app, pay or leave, and **each one says why, in their own words**. You see which plan wins,
+where people left, which ad worked on whom, and you can ask any one person why.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#EEF4FF', 'primaryBorderColor': '#1B5BF5', 'primaryTextColor': '#0B1A2C', 'lineColor': '#1B5BF5'}}}%%
 flowchart LR
-    A["<b>1 · Describe</b><br/>your app, its ads<br/>and two experiments"] --> B["<b>2 · Simulate</b><br/>thousands of people<br/>decide and say why"] --> C["<b>3 · Read</b><br/>who wins, where<br/>people left, and why"]
+    A["<b>1 · Describe</b><br/>your app, its ads<br/>and two plans"] --> B["<b>2 · Simulate</b><br/>thousands of people<br/>decide and say why"] --> C["<b>3 · Read</b><br/>who wins, where<br/>people left, and why"]
 ```
 
-1. **Describe your app and what to test.** A short brief: what the app does and who it's for, its
-   screens (store page, sign-up, the main screen, the paywall), how it makes money, up to three
-   ads, and two experiments. Each experiment lists only what it changes: where you launch, which
-   channels, the price, a free trial.
-2. **Simulated people decide.** Muse Wonder looks at your screens and designs 6 to 10 kinds of
-   people for the market. Each person gets their own age, job, town and mood. At every step they
-   decide on the real screen image, and Muse Spark (or Glimmer, distilled from it) gives
-   the decision and the reason. A world engine moves them day by day, calibrated to public
-   industry benchmarks.
-3. **See where people left, and ask why.** Both experiments run 30 times. You get the verdict,
-   the funnel, the reasons, the ads comparison, and every single person's story.
+- **Muse Wonder** looks at your screens and designs the market's kinds of people: age, job, town, mood.
+- **Muse Spark** decides for each of them at every step, looking at your real screens, and says why.
+  **Muse Glimmer**, an open-weight model distilled from Spark, does it for every single person in the dating example.
+- **A world engine** moves them day by day on a US map, calibrated to public industry benchmarks.
+  Each plan runs 30 times.
+
+## Why you can trust it
+
+- **It was tested on real launches before it saw the answers.** The rules were frozen and the
+  predictions committed to git before the real outcomes were added; the commit order is the
+  evidence. On 5 real launches it had never seen, it called **16 of 20 turning points**, against 11
+  for a model that always says "it grows".
+- **No number comes from a language model.** The models decide and explain; the engine counts.
+- **Every reason has a person behind it.** Open any dot on the map and read that person's whole
+  story.
+- **The limits are written down.** It is a simulation, US only, for two-sided apps. See
+  [Honest limits](#honest-limits).
 
 <details>
 <summary><b>The full funnel each person goes through</b></summary>
@@ -73,7 +72,7 @@ flowchart LR
 ```
 
 At every arrow, the people who stop say why in one sentence. Muse Wonder groups the sentences
-into themes; the engine counts the people, so no number on screen comes from a language model.
+into themes; the engine counts the people.
 
 </details>
 
@@ -100,8 +99,8 @@ location and photos."*
 
 ![Ads screen: three ads (feature, price, trust) against eight kinds of people, showing the share of each who installed](docs/images/ads.png)
 
-Up to three ads, compared across every kind of person. Here the price ad worked best on curious
-first-timers and busy people, and the trust ad on people who are hopeful but short on cash.
+Up to three ads, compared across every kind of person. In the Kindred example the price ad worked
+best on curious and busy people, the trust ad on careful ones, and the feature ad on casual ones.
 
 ### 4. Any one person, and ask them
 
@@ -126,7 +125,7 @@ text, and Muse Spark answers as that person, using only their own record from th
 
 ### And the input: the Setup page
 
-![Setup page: app profile, target audience and product experience sections, filled in for the Kindred example](docs/images/setup.png)
+![Setup page: "Let's rehearse your app." with the app profile filled in for the Kindred example](docs/images/setup.png)
 
 Seven short sections about the app (profile, audience, product, money, ads, competition,
 retention) and an eighth for the two experiments. Most inputs are choices or numbers. The public
