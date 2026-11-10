@@ -4,10 +4,11 @@ import { finalBrief, requestBody } from './request'
 
 // The admin's live run: POST /api/live with the brief and its images, then follow the run until its
 // replay is ready (engine/live.py). Each run costs money, so the server asks for the admin key; it stays
-// in this browser only.
+// in this browser only. A visitor without the key gets the contact address instead.
 
 const KEY = 'rehearsal-admin-key'
 const POLL_MS = 2000
+const CONTACT = 'tokyosini573@gmail.com'
 
 type Status = { state: 'running' | 'done' | 'error'; step: number; steps: string[]; done: number; total: number; error: string | null }
 
@@ -24,6 +25,7 @@ export function LiveRun({ brief, files, check }: {
   const [key, setKey] = useState(() => { try { return localStorage.getItem(KEY) ?? '' } catch { return '' } })
   const [status, setStatus] = useState<Status | null>(null)
   const [error, setError] = useState('')
+  const [asking, setAsking] = useState(false)
   const timer = useRef(0)
   useEffect(() => { try { localStorage.setItem(KEY, key) } catch { /* private window */ } }, [key])
   useEffect(() => () => clearTimeout(timer.current), [])
@@ -32,8 +34,8 @@ export function LiveRun({ brief, files, check }: {
 
   const run = async () => {
     setError('')
+    if (!key.trim()) return setAsking(true)
     if (!check()) return
-    if (!key.trim()) return setError('Type the admin key first.')
     const b = finalBrief(brief)
     if (import.meta.env.DEV) {
       console.debug('POST /api/live brief', b)
@@ -43,6 +45,7 @@ export function LiveRun({ brief, files, check }: {
     try {
       const r = await fetch('/api/live', { method: 'POST', headers: headers(), body: requestBody(b, files) })
       const j = await r.json().catch(() => ({}))
+      if (r.status === 401 || r.status === 403) { setStatus(null); return setAsking(true) }
       if (!r.ok || !j.id) { setStatus(null); return setError(plain(r.status, j.error)) }
       poll(j.id)
     } catch {
@@ -73,6 +76,7 @@ export function LiveRun({ brief, files, check }: {
         and costs money, so it needs the admin key.
         {error && <span className="mt-2 block text-body font-medium text-strong">{error}</span>}
       </p>
+      {asking && <Contact onClose={() => setAsking(false)} />}
       <div className="flex flex-none flex-wrap items-center gap-3">
         <input type="password" value={key} onChange={e => setKey(e.target.value)} placeholder="Admin key" autoComplete="off"
           aria-label="Admin key"
@@ -82,6 +86,43 @@ export function LiveRun({ brief, files, check }: {
         </button>
       </div>
     </div>
+  )
+}
+
+// Shown instead of a run when there is no admin key: live runs are open on request.
+function Contact({ onClose }: { onClose: () => void }) {
+  const ref = useRef<HTMLDialogElement>(null)
+  const [copied, setCopied] = useState(false)
+  useEffect(() => { ref.current?.showModal() }, [])
+  const copy = () => navigator.clipboard.writeText(CONTACT).then(() => setCopied(true), () => {
+    const sel = window.getSelection(), node = ref.current?.querySelector('[data-address]')
+    if (sel && node) { sel.selectAllChildren(node) }
+  })
+  return (
+    <dialog ref={ref} onClose={onClose} onClick={e => { if (e.target === ref.current) ref.current.close() }}
+      aria-labelledby="contact-title"
+      className="m-auto w-[min(560px,calc(100%-32px))] rounded-card border border-line bg-bg p-0 text-text backdrop:bg-blue-900/50">
+      <div className="p-8 md:p-12">
+        <div className="label text-blue-600">Live run</div>
+        <h2 id="contact-title" className="mt-3 text-lead font-semibold text-strong">Want to rehearse your own app?</h2>
+        <p className="mt-4 text-body text-dim">
+          Every live run calls Muse Wonder and Muse Spark and costs money, so live runs are open on request.
+          Email me and tell me a little about your app.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <span data-address className="select-all rounded-card bg-surface px-4 py-3 text-body font-medium text-strong">{CONTACT}</span>
+          <button onClick={copy} className="cursor-pointer rounded-card border border-line px-5 py-3 text-body text-strong hover:bg-blue-50">
+            {copied ? 'Copied' : 'Copy address'}
+          </button>
+        </div>
+        <div className="mt-8 flex justify-end">
+          <button onClick={() => ref.current?.close()} autoFocus
+            className="cursor-pointer rounded-card bg-blue-600 px-8 py-4 text-body font-medium text-white hover:bg-blue-900">
+            Close
+          </button>
+        </div>
+      </div>
+    </dialog>
   )
 }
 

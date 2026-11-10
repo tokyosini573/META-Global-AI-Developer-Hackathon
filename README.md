@@ -7,6 +7,12 @@
 **[Open the live demo →](https://tokyosini573--rehearsal.modal.run)** · Built solo for the Meta Global AI Developer Hackathon with
 **Muse Wonder, Muse Spark, Muse Glimmer and Muse Voice Transcribe**
 
+| | |
+|---|---|
+| **Live demo** | [tokyosini573--rehearsal.modal.run](https://tokyosini573--rehearsal.modal.run): three worked examples. The site starts when you arrive, so the first load can take a few seconds. |
+| **Handbook** | [A plain-words guide](docs/handbook.md) to what it does and how, with diagrams · [한국어](docs/handbook.ko.md) |
+| **Fine-tuned model** | [Rehearsal-Glimmer-30B-r1](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1) on Hugging Face: Muse Glimmer 30B taught to decide like Muse Spark (Apache 2.0) |
+
 ![Rehearsal playing two launch plans for a dating app over 90 days: Plan A nationwide, Plan B in three cities. Plan B wins.](docs/images/replay.gif)
 
 ## The problem: you only launch once
@@ -129,8 +135,8 @@ text, and Muse Spark answers as that person, using only their own record from th
 
 Seven short sections about the app (profile, audience, product, money, ads, competition,
 retention) and an eighth for the two experiments. Most inputs are choices or numbers. The public
-site shows each example read-only; the live run with your own screens is for the admin, because
-every run calls the models and costs money.
+site shows each example read-only. A live run with your own screens calls the models and costs money,
+so it is open on request: the run button shows how to reach me.
 
 ## Three markets, three answers
 
@@ -185,6 +191,19 @@ Every number on screen is a simulation, calibrated to public benchmarks; none is
 - **US and two-sided only.** The map, ad costs and backtest rules are for two-sided apps in the US.
 
 The full list is in [`docs/method.md`](docs/method.md#limits).
+
+## What I built
+
+- **A world engine** in Python that moves thousands of simulated people over a US map day by day,
+  with three market packs and five kinds of ad channels, each cost tied to a cited benchmark.
+- **A fine-tuned open-weight model.** I downloaded Muse Glimmer 30B, built 4,000 training examples
+  from Muse Spark's answers, trained a QLoRA adapter on one Modal H100 in 56 minutes, and published
+  the result on [Hugging Face](https://huggingface.co/Yesini/Rehearsal-Glimmer-30B-r1). It matches
+  Spark's top choice 85% of the time at about 300 times the speed. It learned one fictional dating
+  app, so its value is the method: take an open model and tune it for one narrow job.
+- **A backtest with evidence of order:** rules, cases, predictions and answers committed in that order.
+- **A deployed site:** React on the front, one FastAPI container on Modal that starts on demand,
+  no database, every example precomputed so visiting costs nothing.
 
 ## Under the hood
 
