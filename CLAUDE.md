@@ -16,13 +16,13 @@ no user-entered CPI/CPM/CTR, no expected-retention input, no third experiment. I
 
 ## Hard constraints
 
-- Build only these screens: the front page, the Setup page (`?new`, read-only example or the admin's live run with `?new&admin`), then on the stage the main screen, the report (`?report`), the ads table (`?ads`), the one-person drawer and the backtest (the 3-minute video, `../06_영상스토리보드.md`). Scope since 2026-11-03: two-sided apps in three market packs (dating, resale, rides), channels grouped by how people meet the app, and admin-only live runs from uploaded screens (they cost money); the public site plays precomputed replays. Nothing else (no settings, login, run list, stats tables).
+- Build only these screens: the front page, the Setup page (`?new`, read-only example or the admin's live run with `?new&admin`), then on the stage the main screen, the report (`?report`), the ads table (`?ads`), the one-person drawer and the backtest (the 3-minute video, `../06_영상스토리보드.md`). Scope since 2026-11-03: two-sided apps in three market packs (dating, resale, rides), channels grouped by how people meet the app, and admin-only live runs from uploaded screens (they cost money); the public site plays precomputed replays. Since 2026-11-10 the site scales to zero, and the run button shows a contact address to anyone without the admin key. Nothing else (no settings, login, run list, stats tables).
 - Never use code, data or design from any existing company's product. The demo apps (Kindred, Reloop, Hopway) are new and must not resemble existing apps.
 - Only fictional data goes to the Spark contributor model (Meta may train on it). Uploaded screens and visitor questions go to Spark standard.
 - After any engine change, `python -m engine.run` must reproduce the committed `web/public/replays/engine.json` exactly (the Wonder verdict and report caches hit only on identical facts).
 - MiroFish (AGPL-3.0) is design inspiration only. Never copy its code.
 - Every dataset and asset must have a license that allows this use.
-- Everything in this repo is English: screen copy, code comments, docs, commit messages, PR titles/bodies/comments and the README (global competition). Only the planning docs one folder up are Korean.
+- Everything in this repo is English: screen copy, code comments, docs, commit messages, PR titles/bodies/comments and the README (global competition). The one exception is `docs/handbook.ko.md`, the Korean twin of `docs/handbook.md` (keep the two in step). The planning docs one folder up are Korean.
 
 ## Design rules (light theme since 2026-11-03; `../05_디자인원칙.md` has the Korean version)
 

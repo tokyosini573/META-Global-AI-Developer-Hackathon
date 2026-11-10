@@ -6,8 +6,10 @@
 The Meta API key comes from the Modal secret `rehearsal-meta` (META_API_KEY), which the owner creates
 once with `modal secret create`; it is never in the repo or the image. The same secret may hold
 ADMIN_KEY, which turns on live rehearsal runs for the admin (engine/live.py: the brief and screens the
-Setup page posts to /api/live). One container serves everyone, so the per-visitor and daily caps in
-serve.py and live.py hold for the whole site, and a live run's files stay in its /tmp/live folder.
+Setup page posts to /api/live). At most one container serves everyone, so the per-visitor and daily caps
+in serve.py and live.py hold for the whole site, and a live run's files stay in its /tmp/live folder.
+The container starts when a visitor arrives and stops after a few idle minutes, so an unvisited site
+costs nothing; the caps and any unfinished live run reset when it stops.
 """
 
 import os
@@ -30,7 +32,7 @@ image = (
 
 
 @app.function(image=image, secrets=[modal.Secret.from_name("rehearsal-meta")],
-              min_containers=1, max_containers=1, timeout=120)
+              min_containers=0, max_containers=1, scaledown_window=300, timeout=120)
 @modal.concurrent(max_inputs=32)
 @modal.asgi_app(label="rehearsal")
 def site():
